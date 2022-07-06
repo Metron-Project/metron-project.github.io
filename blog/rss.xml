@@ -14,7 +14,8 @@
             <guid>welcome</guid>
             <pubDate>Wed, 06 Jul 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[Welcome to the Metron Project! We'll be using this site to add some documentation and information about new project initiatives here.]]></description>
-            <content:encoded><![CDATA[<p>Welcome to the Metron Project! We'll be using this site to add some documentation and information about new project initiatives here.</p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>Welcome to the Metron Project! We'll be using this site to add some documentation and information about new project initiatives here.
+If you have any questions, don't hesitate to contact us on <a href="https://matrix.to/#/#metrondb:matrix.org" target="_blank" rel="noopener noreferrer">Matrix</a>.</p>]]></content:encoded>
             <category>metron</category>
             <category>comic</category>
         </item>
