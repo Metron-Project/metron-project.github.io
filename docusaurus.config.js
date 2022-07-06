@@ -29,6 +29,21 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        // options here
+        name: 'metroninfo', // used by CLI, must be path safe
+        sourceBaseUrl: 'https://raw.githubusercontent.com/Metron-Project/metroninfo/master/', // the base url for the markdown (gets prepended to all of the documents when fetching)
+        outDir: 'docs/metroninfo/_remote', // the base directory to output to.
+        documents: ['drafts/v1.0/MetronInfo.xsd',], // the file names to download
+        noRuntimeDownloads: true,
+        performCleanup: false,
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -36,13 +51,13 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: ({locale, docPath}) => {
+          editUrl: ({ locale, docPath }) => {
             return `https://github.com/metron-project/metron-project.github.io/edit/main/docs/${docPath}`;
           },
         },
         blog: {
           showReadingTime: true,
-          editUrl: ({locale, blogPath}) => {
+          editUrl: ({ locale, blogPath }) => {
             return `https://github.com/metron-project/metron-project.github.io/edit/main/blog/${blogPath}`;
           },
         },
@@ -69,7 +84,7 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/Metron-Project',
             label: 'GitHub',
