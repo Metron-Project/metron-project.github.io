@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>The Metron Project Blog</title>
+        <link>https://metron-project.github.io/blog</link>
+        <description>The Metron Project Blog</description>
+        <lastBuildDate>Wed, 06 Jul 2022 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Welcome]]></title>
+            <link>https://metron-project.github.io/blog/welcome</link>
+            <guid>welcome</guid>
+            <pubDate>Wed, 06 Jul 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Welcome to the Metron Project! We'll be using this site to add some documentation and information about new project initiatives here.]]></description>
+            <content:encoded><![CDATA[<p>Welcome to the Metron Project! We'll be using this site to add some documentation and information about new project initiatives here.</p>]]></content:encoded>
+            <category>metron</category>
+            <category>comic</category>
+        </item>
+    </channel>
+</rss>
