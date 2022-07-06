@@ -3,8 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  # repository_dispatch:
-  #   types: [metroninfo-push]
+  repository_dispatch:
+    types: [metroninfo-push]
 
 jobs:
   deploy:
