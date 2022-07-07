@@ -1,7 +1,8 @@
 ---
-sidebar_position: 2
-title: Mokkari
+sidebar_position: 30
+label: Mokkari
 ---
+# Mokkari
 
 ## What is it?
 

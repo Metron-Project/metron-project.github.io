@@ -1,7 +1,8 @@
 ---
-sidebar_position: 2
-title: Esak
+sidebar_position: 40
+label: Esak
 ---
+# Esak
 
 ## What is it?
 
