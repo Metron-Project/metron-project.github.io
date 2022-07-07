@@ -4,19 +4,19 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
+    title: "Python API wrappers for Comic API's",
+    description: (
+      <>
+        Python API wrappers for <b>Comic Vine</b>, <b>Marvel</b>, and <b>Metron</b>.
+      </>
+    ),
+  },
+  {
     title: 'MetronInfo Metadata',
     description: (
       <>
         A new comic schema for digital comic books that fixes some of the 
         deficiencies that exist with the <code>ComicInfo.xml</code> schema.
-      </>
-    ),
-  },
-  {
-    title: "Python API wrappers for Comic API's",
-    description: (
-      <>
-        Python API wrappers for <b>Comic Vine</b>, <b>Marvel</b>, and <b>Metron</b>.
       </>
     ),
   },
