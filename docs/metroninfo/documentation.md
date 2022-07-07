@@ -198,9 +198,13 @@ An optional boolean element to signify if the book is color or black and white.
 The age rating for the book which is usually determined by the book publisher.
 
 Currently, there is no governing body to determine the age rating choices so each publisher has created their own.
-So, for simplicity's sake the following values are currently specified in the schema:
+So, for simplicity's sake we've settled on the following values (with ages given as a guideline):
 
-- TODO: Add value list here.
+- **Unknown**
+- **Everyone** - Appropriate for readers of all ages.
+- **Teen** - Appropriate for readers age 12 and older.
+- **Teen Plus** - Appropriate for readers age 15 and older. 
+- **Mature** - Appropriate for readers age 17 and older.
 
 ### URL
 
