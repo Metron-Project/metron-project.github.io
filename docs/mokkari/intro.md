@@ -13,10 +13,6 @@ Mokkari is a python wrapper for the Metron Comic Book Database API.
 pip3 install --user mokkari
 ```
 
-## Documentation
-
-Can be found at [ReadTheDocs](https://mokkari.readthedocs.io/en/latest/).
-
 ## Example Usage
 
 ```
@@ -40,6 +36,10 @@ asm_68 = m.issue(31660)
 # Print the issue Description
 print(asm_68.desc)
 ```
+
+## Documentation
+
+Can be found at [ReadTheDocs](https://mokkari.readthedocs.io/en/latest/).
 
 ## Code
 
