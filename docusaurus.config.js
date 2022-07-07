@@ -51,15 +51,15 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: ({ locale, docPath }) => {
-            return `https://github.com/metron-project/metron-project.github.io/edit/main/docs/${docPath}`;
-          },
+          // editUrl: ({ locale, docPath }) => {
+          //   return `https://github.com/metron-project/metron-project.github.io/edit/main/docs/${docPath}`;
+          // },
         },
         blog: {
           showReadingTime: true,
-          editUrl: ({ locale, blogPath }) => {
-            return `https://github.com/metron-project/metron-project.github.io/edit/main/blog/${blogPath}`;
-          },
+          // editUrl: ({ locale, blogPath }) => {
+          //   return `https://github.com/metron-project/metron-project.github.io/edit/main/blog/${blogPath}`;
+          // },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
