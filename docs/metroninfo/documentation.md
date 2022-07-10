@@ -27,11 +27,13 @@ Contains information about the series the book is part of. It has the following 
 - #### Name
 
     The name of the series.
+    
+    The `Name` element can also have an `id` attribute that can be used to add the identification number from the source of information
 
 - #### SortName
 
     The name of the series that should be used for sorting purposes. Normally this is the same as the `Name` element, but
-    without any leading articles like `the`.
+    without any leading articles like ***the***.
 
 - #### Type
 
@@ -115,11 +117,15 @@ It has `Genre` children elements that can only contain the following values:
 - War
 - Western
 
+The `Genre` element can also have an `id` attribute that can be used to add the identification number from the source of information
+
 ### Tags
 
 Any tags asscociated with the book.
 
 It has `Tag` children elements for the individual tag values. For example, _ninja_ or _school life_.
+
+The `Tag` element can also have an `id` attribute that can be used to add the identification number from the source of information
 
 ### Arcs
 
@@ -131,6 +137,8 @@ It has `Arc` children elements that contain the following elements:
 
     The name of the story arc.
 
+    The `Name` element can also have an `id` attribute that can be used to add the identification number from the source of information
+
 - `Number`
 
     An optional story arc number for the book.
@@ -141,11 +149,15 @@ Any characters in the book.
 
 It has `Character` children elements for the individual character names.
 
+The `Character` element can also have an `id` attribute that can be used to add the identification number from the source of information
+
 ### Teams
 
 Any teams in the book.
 
 It has `Team` children elements for the individual team names.
+
+The `Team` element can also have an `id` attribute that can be used to add the identification number from the source of information
 
 ### Locations
 
@@ -153,26 +165,19 @@ Any locations in the book.
 
 It has `Location` children element for the individual location names.
 
+The `Location` element can also have an `id` attribute that can be used to add the identification number from the source of information
+
 ### Reprints
 
 Any books that are reprint in the book.
 
-It has `Reprint` children elements that contain the following elements:
-
-- `ID`
-
-    The identification number from the source of information.
-
-    The `source` attribute is required and has to be one of the following:
-
-    - Comic Vine
-    - Grand Comics Database
-    - Metron
-    - League of Comic Geeks
+It has `Reprint` children elements that contain the following element:
 
 - `Name`
 
     The name of the book reprinted, for example `Strange Academy (2020) #1`
+
+    The `Name` element can also have an `id` attribute that can be used to add the identification number from the source of information
 
 ### GTIN
 
@@ -265,3 +270,5 @@ It has `Credit` children elements that contains the following elements:
     - Chief Creative Officer
     - Executive Producer
     - Other
+
+    The `Role` element can also have an `id` attribute that can be used to add the identification number from the source of information
