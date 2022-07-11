@@ -35,6 +35,12 @@ Contains information about the series the book is part of. It has the following 
     The name of the series that should be used for sorting purposes. Normally this is the same as the `Name` element, but
     without any leading articles like ***the***.
 
+- #### Volume
+
+    Volume containing the book. Volume is a notion that is specific to US Comics, where the same series can have multiple volumes.
+
+    Volumes can be referenced by number (1, 2, 3…) or by year (2018, 2020…).
+
 - #### Type
 
     The type of series. If must be one of the following values:
@@ -45,12 +51,6 @@ Contains information about the series the book is part of. It has the following 
     - One-Shot
     - Series (which covers ongoing/cancelled series)
     - Trade Paperback
-
-### Volume
-
-Volume containing the book. Volume is a notion that is specific to US Comics, where the same series can have multiple volumes.
-
-Volumes can be referenced by numer (1, 2, 3…) or by year (2018, 2020…).
 
 ### CollectionTitle
 
