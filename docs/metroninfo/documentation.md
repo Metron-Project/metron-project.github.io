@@ -41,7 +41,7 @@ Contains information about the series the book is part of. It has the following 
 
     Volumes can be referenced by number (1, 2, 3…) or by year (2018, 2020…).
 
-- #### Type
+- #### Format
 
     The type of series. If must be one of the following values:
 
