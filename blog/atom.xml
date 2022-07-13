@@ -2,11 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2022-07-06T00:00:00.000Z</updated>
+    <updated>2022-07-13T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[MetronInfo.xml]]></title>
+        <id>welcome-metroninfo</id>
+        <link href="https://metron-project.github.io/blog/welcome-metroninfo"/>
+        <updated>2022-07-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[So, one of the new projects I've been working on in my spare time is a new comic book xml schema called MetronInfo.]]></summary>
+        <content type="html"><![CDATA[<p>So, one of the new projects I've been working on in my spare time is a new comic book xml schema called <a href="https://github.com/Metron-Project/metroninfo" target="_blank" rel="noopener noreferrer">MetronInfo</a>.</p><p>Currently, most applications use <a href="https://github.com/anansi-project/comicinfo" target="_blank" rel="noopener noreferrer">ComicInfo</a> which originated from the <a href="https://comicrack.en.softonic.com/" target="_blank" rel="noopener noreferrer">ComicRack</a> application, but due to it's history this format has some limitations like:</p><ul><li><strong>Poor handling of data.</strong> For example, cover date information that is split into separate integer types, instead of just using a date type.</li><li><strong>Limited types metadata stored.</strong> For example, when tagging a comic book archive with an application like <a href="https://github.com/comictagger/comictagger" target="_blank" rel="noopener noreferrer">ComicTagger</a> it would be useful to know where the metadata information was retrieved from (i.e. Comic Vine, GCD, Metron, etc.) and the resources identification number.</li><li><strong>Lack of documentation.</strong> The <a href="https://anansi-project.github.io/" target="_blank" rel="noopener noreferrer">Anansi Project</a> <strong><em>is</em></strong> working on improving this, tho.</li></ul><p>For now, the Anansi Project is working on documenting and extending (non-breaking changes) the ComicInfo schema, but in my opinion that time spent would be better spent on creating a new format not tied to a dead application. Due to the fairly unstructured nature of comic book archives it's trivial to tag one with the existing ComicInfo format <strong>and</strong> also a new format. That way users who use applications that only support ComicInfo.xml can still use them, but also gives them the option to use applications that could support the MetronInfo format.</p><p>My goals for MetronInfo.xml are:</p><ul><li>Fix some of the deficiencies of the ComicInfo format.</li><li>Add information to make it easier for Plex-like application to identify data (series, character, etc/) when importing comics into their application.</li><li>Document the elements clearly so their use is not ambiguous.</li></ul><p>Currently I'm working right now on finalizing the new format, and would appreciate any help or feedback from the comic book community in this. Feel free to leave suggestions either at the <a href="https://github.com/Metron-Project/metroninfo/discussions" target="_blank" rel="noopener noreferrer">Discussions Page</a> or contact use over on <a href="https://matrix.to/#/#metrondb:matrix.org" target="_blank" rel="noopener noreferrer">Matrix</a>.</p><p>Once the new format is finalized I plan on writing a tool that will create a MetronInfo.xml file for any existing comic book archive that was tagged with ComicTagger or <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a>, and also retrieve any missing data from the source of information (Metron or Comic Vine).</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="metron" term="metron"/>
+        <category label="comic" term="comic"/>
+        <category label="metadata" term="metadata"/>
+        <category label="tagging" term="tagging"/>
+        <category label="comicvine" term="comicvine"/>
+        <category label="comic-tagger" term="comic-tagger"/>
+        <category label="anansi-project" term="anansi-project"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>welcome</id>

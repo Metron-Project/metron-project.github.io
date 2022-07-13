@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmetron_project_github_io=self.webpackChunkmetron_project_github_io||[]).push([[5675],{5736:e=>{e.exports=JSON.parse('{"label":"anansi-project","permalink":"/blog/tags/anansi-project","allTagsPath":"/blog/tags","count":1}')}}]);

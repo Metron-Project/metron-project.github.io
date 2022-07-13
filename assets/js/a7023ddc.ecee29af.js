@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmetron_project_github_io=self.webpackChunkmetron_project_github_io||[]).push([[713],{3457:e=>{e.exports=JSON.parse('[{"label":"metron","permalink":"/blog/tags/metron","count":1},{"label":"comic","permalink":"/blog/tags/comic","count":1}]')}}]);
