@@ -95,6 +95,10 @@ Contains the release date of the book.
 
 The number of pages in the book.
 
+### Notes
+
+A free text field for additional information.
+
 ### Genres
 
 The genres of the book.
