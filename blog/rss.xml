@@ -4,10 +4,22 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Wed, 13 Jul 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 17 Jul 2022 11:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[50,000 issues indexed]]></title>
+            <link>https://metron-project.github.io/blog/50000-issues</link>
+            <guid>50000-issues</guid>
+            <pubDate>Sun, 17 Jul 2022 11:00:00 GMT</pubDate>
+            <description><![CDATA[The Metron Project reached a milestone today by having 50,000 issues added to its database. I wish to give big thanks to everyone who has helped with the project. Thanks!]]></description>
+            <content:encoded><![CDATA[<p>The Metron Project reached a milestone today by having 50,000 issues added to its database. I wish to give big thanks to everyone who has helped with the project. Thanks!</p>]]></content:encoded>
+            <category>metron</category>
+            <category>comic</category>
+            <category>database</category>
+            <category>api</category>
+        </item>
         <item>
             <title><![CDATA[MetronInfo.xml]]></title>
             <link>https://metron-project.github.io/blog/welcome-metroninfo</link>
