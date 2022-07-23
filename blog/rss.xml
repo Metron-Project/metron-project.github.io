@@ -4,10 +4,25 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Sun, 17 Jul 2022 11:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 23 Jul 2022 15:35:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Trade Paperback / Collections Support]]></title>
+            <link>https://metron-project.github.io/blog/trade-paperback-collections-support</link>
+            <guid>trade-paperback-collections-support</guid>
+            <pubDate>Sat, 23 Jul 2022 15:35:00 GMT</pubDate>
+            <description><![CDATA[Marvel Masterworks Cover]]></description>
+            <content:encoded><![CDATA[<p><img loading="lazy" alt="Marvel Masterworks Cover" src="/assets/images/marvel-masterworks-uncanny-xmen-1-114c858d5bb91b1f14ce68106e84c30a.jpg" width="450" height="150" class="img_ev3q"></p><p>A user contacted me about adding <a href="https://metron.cloud/series/marvel-masterworks-the-uncanny-x-men-2003/" target="_blank" rel="noopener noreferrer">Marvel Masterworks: The Uncanny X-Men</a> series to <a href="https://metron.cloud" target="_blank" rel="noopener noreferrer">Metron</a> since we have recently added support for trade paperbacks/collected editions. I figured this would be useful exercise since it would show me what parts of the process could be improved to make it easier.</p><p>Currently, the process requires the editor to add <strong><em>all</em></strong> creators, characters, teams, etc. manually for the reprinted issues associate with the collection, much like a regular issue. One obvious way to simplify this is to automatically <strong><em>add</em></strong> any characters, team, story titles, etc. for the issues being reprinted. Currently, I've written an <a href="https://github.com/bpepple/metron/blob/0d6268f92709ef886e49ffe2a134a0b6af3672f7/comicsdb/admin/issue.py#L145" target="_blank" rel="noopener noreferrer">admin action</a> to do this, but sometime in the future I need to expose this functionality so that <strong><em>anyone</em></strong> adding a Trade Paperback/Collection can save some time.</p><p>When I was creating Metron one of the choices I made was to add creators at an issue-level, and not at a story-level, since I wanted the process for adding an issue to be fairly simple. The downside to this approach is that adding information to a collection from an issue with multiple stories isn't really possible.😢</p>]]></content:encoded>
+            <category>metron</category>
+            <category>comic</category>
+            <category>marvel</category>
+            <category>masterworks</category>
+            <category>x-men</category>
+            <category>tpb</category>
+            <category>collections</category>
+        </item>
         <item>
             <title><![CDATA[50,000 issues indexed]]></title>
             <link>https://metron-project.github.io/blog/50000-issues</link>

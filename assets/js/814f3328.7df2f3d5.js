@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmetron_project_github_io=self.webpackChunkmetron_project_github_io||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"50,000 issues indexed","permalink":"/blog/50000-issues"},{"title":"MetronInfo.xml","permalink":"/blog/welcome-metroninfo"},{"title":"Welcome","permalink":"/blog/welcome"}]}')}}]);
