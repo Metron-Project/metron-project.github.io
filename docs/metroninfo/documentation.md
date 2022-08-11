@@ -3,7 +3,7 @@ sidebar_position: 10
 title: Schema documentation
 ---
 
-This page aims at clarifying the various elements of the schema, as well as their intended use and observed ussage.
+This page aims at clarifying the various elements of the schema, as well as their intended use and observed usage.
 
 ### ID
 
@@ -125,7 +125,7 @@ The `Genre` element can also have an `id` attribute that can be used to add the 
 
 ### Tags
 
-Any tags asscociated with the book.
+Any tags associated with the book.
 
 It has `Tag` children elements for the individual tag values. For example, _ninja_ or _school life_.
 
