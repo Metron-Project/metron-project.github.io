@@ -22,7 +22,9 @@ A person or organization responsible for publishing, releasing, or issuing a boo
 
 ### Series
 
-Contains information about the series the book is part of. It has the following children elements:
+Contains information about the series the book is part of. It can have a `lang` attribute which is defined as a 2-letter language code (ISO 639-3).
+
+It also has the following children elements:
 
 - #### Name
 
@@ -74,11 +76,7 @@ A description or summary of the book.
 
 The cost of the book when published.
 
-The `currency` attribute has to be one of the following:
-
-- pounds
-- euros
-- dollars
+The `country` attribute is a required 2-letter country code defined in ISO 3166.
 
 ### CoverDate
 
