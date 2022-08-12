@@ -18,7 +18,7 @@ The `source` attribute is required and has to be one of the following:
 
 ### Publisher
 
-A person or organization responsible for publishing, releasing, or issuing a book.
+A person or organization responsible for publishing, releasing, or issuing a book. It can also have an `id` attribute that can be used to add the identification number from the source of information.
 
 ### Series
 
@@ -30,7 +30,7 @@ It also has the following children elements:
 
     The name of the series.
     
-    The `Name` element can also have an `id` attribute that can be used to add the identification number from the source of information
+    The `Name` element can also have an `id` attribute that can be used to add the identification number from the source of information.
 
 - #### SortName
 
@@ -66,7 +66,7 @@ Number of the book in the series which can accept alphanumeric values like `1MU`
 
 Contains information about the stories contained within an issues.
 
-It has `Story` children elements for the individual story names.
+It has `Story` children elements for the individual story names. It can also have an `id` attribute that can be used to add the identification number from the source of information.
 
 ### Summary
 
@@ -226,7 +226,7 @@ It has `Credit` children elements that contains the following elements:
 
 - `Creator`
 
-    The name of the creator.
+    The name of the creator. It can also have an `id` attribute that can be used to add the identification number from the source of information.
 
 - `Roles` which has `Role` children elements that can have the following values:
 
@@ -273,4 +273,4 @@ It has `Credit` children elements that contains the following elements:
     - Executive Producer
     - Other
 
-    The `Role` element can also have an `id` attribute that can be used to add the identification number from the source of information
+    The `Role` element can also have an `id` attribute that can be used to add the identification number from the source of information.
