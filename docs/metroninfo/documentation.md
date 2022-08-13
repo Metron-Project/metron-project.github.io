@@ -72,11 +72,11 @@ It has `Story` children elements for the individual story names. It can also hav
 
 A description or summary of the book.
 
-### Price
+### Prices
 
 The cost of the book when published.
 
-The `country` attribute is a required 2-letter country code defined in ISO 3166.
+It has `Price` children elements which **must** have an `country` attribute (2-letter country code defined in ISO 3166).
 
 ### CoverDate
 
