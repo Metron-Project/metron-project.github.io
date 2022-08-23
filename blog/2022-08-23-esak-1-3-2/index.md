@@ -8,5 +8,5 @@ tags: [comic, marvel, api, python]
 Did a quick release this morning of the python wrapper for the Marvel API, [Esak](https://github.com/Metron-Project/esak), which adds an option to have the cache results expire after a user-defined number of days. To update to the latest version just run the following command:
 
 ```
-pip3 install -U --user darkseid
+pip3 install -U --user esak
 ```
