@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmetron_project_github_io=self.webpackChunkmetron_project_github_io||[]).push([[1702],{7229:t=>{t.exports=JSON.parse('{"label":"ubuntu","permalink":"/blog/tags/ubuntu","allTagsPath":"/blog/tags","count":1}')}}]);
