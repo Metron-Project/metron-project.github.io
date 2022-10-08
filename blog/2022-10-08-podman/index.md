@@ -5,7 +5,7 @@ date: 2022-10-08T11:35
 authors: [bpepple]
 tags: [comic, database, podman, mysql, gcd, grandcomicdatabase]
 ---
-I've had a few users ask me how to run the [Grand Comics Database's](https://www.comics.org/) database locally, so I figured I'd do a short write-up on how I do it.
+I've had a few users ask me how to run a local copy of the [Grand Comics Database](https://www.comics.org/), so I figured I'd do a short write-up on how I do it.
 
 I use [Podman](https://podman.io/) for containers instead of [Docker](https://www.docker.com/), but the differences between them is fairly minimal and this should give you a good idea of how to do it. Anyway, let's get started!
 
@@ -124,14 +124,16 @@ Which should produce output similar to this:
 40 rows in set (0.00 sec)
 
 ```
-Great! We've got the database up and running, to logout from the container just type:
+Great, we've got the database up and running! To logout from the container just type:
+
 ```
 \q
 ```
+
 To stop the container, you would just use the following:
 
 ```
 podman stop mysql
 ```
 
-And that's it! Podman has tons of niceties (like auto-updating images, using [systemd](https://systemd.io/) for container start-ups, etc.) and I'd encourage you to read up on using some its many features. If it get some free time, I'll do a following up article about using [Python](https://www.python.org/) to query the database and using that data for things like writing metadata to comic archives.
+And that's it! Podman has tons of niceties (like auto-updating images, using [systemd](https://systemd.io/) for container start-ups, etc.) and I'd encourage you to read up on using some its many features. If it get some free time, I'll do a follow-up article about using [Python](https://www.python.org/) to query the database and using that data for things like writing metadata to comic archives.
