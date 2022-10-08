@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmetron_project_github_io=self.webpackChunkmetron_project_github_io||[]).push([[8029],{9363:a=>{a.exports=JSON.parse('{"label":"grandcomicdatabase","permalink":"/blog/tags/grandcomicdatabase","allTagsPath":"/blog/tags","count":1}')}}]);
