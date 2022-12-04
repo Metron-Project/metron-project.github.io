@@ -4,10 +4,21 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Sat, 08 Oct 2022 11:35:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 04 Dec 2022 16:51:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Limited Series Type]]></title>
+            <link>https://metron-project.github.io/blog/series-type-change</link>
+            <guid>series-type-change</guid>
+            <pubDate>Sun, 04 Dec 2022 16:51:00 GMT</pubDate>
+            <description><![CDATA[Made a minor change to the series types available by consolidating mini & maxi-series to the new Limited Series type. There isn't a real definite value for mini and maxi series, and really it makes more sense to not bother differentiating them. So, I've gone ahead and migrated the existing data for this change, and users should see this change. If you have any questions or thoughts, don't hesitate to contact me.]]></description>
+            <content:encoded><![CDATA[<p>Made a minor change to the <strong><em>series types</em></strong> available by consolidating <strong><em>mini &amp; maxi-series</em></strong> to the new <strong><em>Limited Series</em></strong> type. There isn't a real definite value for mini and maxi series, and really it makes more sense to not bother differentiating them. So, I've gone ahead and migrated the existing data for this change, and users should see this change. If you have any questions or thoughts, don't hesitate to contact <a href="mailto:bpepple@metron.cloud" target="_blank" rel="noopener noreferrer">me</a>.</p>]]></content:encoded>
+            <category>comic</category>
+            <category>database</category>
+            <category>series</category>
+        </item>
         <item>
             <title><![CDATA[Using Podman to Run GCD Database Locally]]></title>
             <link>https://metron-project.github.io/blog/podman-gcd</link>

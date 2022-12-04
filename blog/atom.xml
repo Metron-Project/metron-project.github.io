@@ -2,11 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2022-10-08T11:35:00.000Z</updated>
+    <updated>2022-12-04T16:51:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Limited Series Type]]></title>
+        <id>series-type-change</id>
+        <link href="https://metron-project.github.io/blog/series-type-change"/>
+        <updated>2022-12-04T16:51:00.000Z</updated>
+        <summary type="html"><![CDATA[Made a minor change to the series types available by consolidating mini & maxi-series to the new Limited Series type. There isn't a real definite value for mini and maxi series, and really it makes more sense to not bother differentiating them. So, I've gone ahead and migrated the existing data for this change, and users should see this change. If you have any questions or thoughts, don't hesitate to contact me.]]></summary>
+        <content type="html"><![CDATA[<p>Made a minor change to the <strong><em>series types</em></strong> available by consolidating <strong><em>mini &amp; maxi-series</em></strong> to the new <strong><em>Limited Series</em></strong> type. There isn't a real definite value for mini and maxi series, and really it makes more sense to not bother differentiating them. So, I've gone ahead and migrated the existing data for this change, and users should see this change. If you have any questions or thoughts, don't hesitate to contact <a href="mailto:bpepple@metron.cloud" target="_blank" rel="noopener noreferrer">me</a>.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="database" term="database"/>
+        <category label="series" term="series"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Using Podman to Run GCD Database Locally]]></title>
         <id>podman-gcd</id>
