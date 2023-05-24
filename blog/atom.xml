@@ -2,11 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2022-12-04T16:51:00.000Z</updated>
+    <updated>2023-05-24T10:35:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Latest Happenings]]></title>
+        <id>latest-happenings</id>
+        <link href="https://metron-project.github.io/blog/latest-happenings"/>
+        <updated>2023-05-24T10:35:00.000Z</updated>
+        <summary type="html"><![CDATA[The Metron Project reached a milestone today by having 65,000 issues added to its database. I wish to give big thanks to everyone who has helped with the project. Thanks!]]></summary>
+        <content type="html"><![CDATA[<p>The <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> reached a milestone today by having 65,000 issues added to its database. I wish to give big thanks to everyone who has helped with the project. Thanks!</p><h1>POST API</h1><p>Been spending the last few months working on a POST API to make it easier to add/update information on Metron. Currently it's only available to users with Adminstrators permissions, but later this year I'll look at the feasability of making it more readily available.</p><h1>Comic Vine ID's</h1><p>Another project I've been working on is adding <a href="https://comicvine.gamespot.com/" target="_blank" rel="noopener noreferrer">Comic Vine</a> identification numbers to the various resource items. This should help users match items between the two data sources. Currently, about 40% of the issues have been updated with this information and with any luck the majority of issues will be finished by the end of the month.</p><h1>ComicTagger</h1><p>One of the developers of <a href="https://github.com/comictagger/comictagger" target="_blank" rel="noopener noreferrer">Comic Tagger</a> has been working on adding support for tagging digital comics with data from Metron, and hopefully in the next couple of months that merged.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="database" term="database"/>
+        <category label="series" term="series"/>
+        <category label="api" term="api"/>
+        <category label="comicvine" term="comicvine"/>
+        <category label="comictagger" term="comictagger"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Limited Series Type]]></title>
         <id>series-type-change</id>

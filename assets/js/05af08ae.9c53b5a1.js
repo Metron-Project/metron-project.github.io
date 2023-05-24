@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmetron_project_github_io=self.webpackChunkmetron_project_github_io||[]).push([[4772],{7360:e=>{e.exports=JSON.parse('{"label":"comictagger","permalink":"/blog/tags/comictagger","allTagsPath":"/blog/tags","count":1}')}}]);
