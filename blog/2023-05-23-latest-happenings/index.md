@@ -5,8 +5,7 @@ date: 2023-05-24T10:35
 authors: [bpepple]
 tags: [comic, database, series, api, comicvine, comictagger]
 ---
-
-# 65,000 Issues Indexed
+# New Indexed Issues Milestone
 
 The [Metron Project](https://metron.cloud/) reached a milestone today by having 65,000 issues added to its database. I wish to give big thanks to everyone who has helped with the project. Thanks!
 
