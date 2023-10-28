@@ -16,8 +16,8 @@
     "remote-clear": "docusaurus clear-remote-metroninfo"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.2.0",
-    "@docusaurus/preset-classic": "^2.2.0",
+    "@docusaurus/core": "^2.4.3",
+    "@docusaurus/preset-classic": "^2.4.3",
     "@mdx-js/react": "^1.6.22",
     "clsx": "^1.1.1",
     "docusaurus-plugin-remote-content": "^3.1.0",
@@ -27,7 +27,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.2.0"
+    "@docusaurus/module-type-aliases": "^2.4.3"
   },
   "browserslist": {
     "production": [
