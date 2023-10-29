@@ -2,27 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2023-10-29T13:24:00.000Z</updated>
+    <updated>2023-10-29T10:04:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
-    <entry>
-        <title type="html"><![CDATA[Metron-Tagger v1.6.4]]></title>
-        <id>https://metron-project.github.io/blog/metron-tagger-1-6-4</id>
-        <link href="https://metron-project.github.io/blog/metron-tagger-1-6-4"/>
-        <updated>2023-10-29T13:24:00.000Z</updated>
-        <summary type="html"><![CDATA[Metron-Tagger v1.6.4]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metron-tagger-v164">Metron-Tagger v1.6.4<a href="#metron-tagger-v164" class="hash-link" aria-label="Direct link to Metron-Tagger v1.6.4" title="Direct link to Metron-Tagger v1.6.4">​</a></h2><p>Just released a new version of</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="database" term="database"/>
-        <category label="metron" term="metron"/>
-        <category label="metrontagger" term="metrontagger"/>
-    </entry>
     <entry>
         <title type="html"><![CDATA[October 2023 Update]]></title>
         <id>https://metron-project.github.io/blog/october-2023-update</id>

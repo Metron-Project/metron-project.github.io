@@ -4,22 +4,10 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Sun, 29 Oct 2023 13:24:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 29 Oct 2023 10:04:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
-        <item>
-            <title><![CDATA[Metron-Tagger v1.6.4]]></title>
-            <link>https://metron-project.github.io/blog/metron-tagger-1-6-4</link>
-            <guid>https://metron-project.github.io/blog/metron-tagger-1-6-4</guid>
-            <pubDate>Sun, 29 Oct 2023 13:24:00 GMT</pubDate>
-            <description><![CDATA[Metron-Tagger v1.6.4]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metron-tagger-v164">Metron-Tagger v1.6.4<a href="#metron-tagger-v164" class="hash-link" aria-label="Direct link to Metron-Tagger v1.6.4" title="Direct link to Metron-Tagger v1.6.4">​</a></h2><p>Just released a new version of</p>]]></content:encoded>
-            <category>comic</category>
-            <category>database</category>
-            <category>metron</category>
-            <category>metrontagger</category>
-        </item>
         <item>
             <title><![CDATA[October 2023 Update]]></title>
             <link>https://metron-project.github.io/blog/october-2023-update</link>
