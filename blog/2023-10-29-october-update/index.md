@@ -10,8 +10,8 @@ tags: [ comic, database, metron, metrontagger, comictagger ]
 
 ## New Indexed Issues Milestone
 
-The [Metron Project](https://metron.cloud/) reached a milestone this by having more than 77,000 issues added to its
-database. I wish to give big thanks to everyone who has helped with the project. Thanks!
+The [Metron Project](https://metron.cloud/) reached a milestone this month by having more than 77,000 issues added to
+its database. I wish to give big thanks to everyone who has helped with the project. Thanks!
 
 ## Metron-Tagger v1.6.4
 
