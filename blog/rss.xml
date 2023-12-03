@@ -4,10 +4,37 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Sun, 29 Oct 2023 10:04:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 03 Dec 2023 13:29:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[November 2023 Update]]></title>
+            <link>https://metron-project.github.io/blog/november-2023-update</link>
+            <guid>https://metron-project.github.io/blog/november-2023-update</guid>
+            <pubDate>Sun, 03 Dec 2023 13:29:00 GMT</pubDate>
+            <description><![CDATA[Issues Indexed]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="issues-indexed">Issues Indexed<a href="#issues-indexed" class="hash-link" aria-label="Direct link to Issues Indexed" title="Direct link to Issues Indexed">​</a></h2><p>Not much user-facing development was done in November, but 10,612 issues were added to the database bringing the total
+number of issues to <strong>88,244</strong>. I wish to give big thanks to everyone who has helped with the project. Thanks!</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="2024-tasks">2024 Tasks<a href="#2024-tasks" class="hash-link" aria-label="Direct link to 2024 Tasks" title="Direct link to 2024 Tasks">​</a></h2><p>I've started working on a list of items that I'm planning to work on in 2024. Here's a partial list:</p><ul><li><p>Upgrade Server</p><p>Currently, the server is fairly underpowered (1 GiB Memory, 1 CPU, 25 GiB SSD, 1,000 GiB Transfer) but is able to
+handle the current load without any particular issues. Based on the current user growth rate, I'm guessing I'll
+finally need to upgrade sometime in 2024, I'm thinking a fairly minor bump should be sufficient (2 GiB Memory,
+1CPU, 50 GiB SSD, 2,000 GiB Transfer)</p></li><li><p>Container Deployment</p><p>Before upgrading the server it makes sense to <em>finally</em> set up the project to use containers (preferably
+<a href="https://podman.io/" target="_blank" rel="noopener noreferrer">Podman</a>) when deploying the website. If anyone wants to help
+with <a href="https://github.com/bpepple/metron/issues/69" target="_blank" rel="noopener noreferrer">this</a>, that would be awesome.</p></li><li><p>Look into Open Collective for Future Funding</p><p>Eventually it will make sense to look at setting up something like
+<a href="https://opencollective.com/opensource" target="_blank" rel="noopener noreferrer">Open Collective</a> to help with future server costs. Right now the server costs
+around $14 a month (not including annual domain name &amp; email hosting costs) so it's not really an issue, but down the
+road I probably won't want to cover all the costs of the project myself.</p><p>Glancing at the criteria needed for acceptance to the Open Source Collective, it looks like Metron meets most of them,
+except having <em>100 stars</em> on <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a>. <strong><em>So, if you'd like to help the project, one easy
+way would be to star the <a href="https://github.com/bpepple/metron" target="_blank" rel="noopener noreferrer">repository</a>.</em></strong></p></li><li><p>Manga / International Support</p><p>It would be nice to make a final decision on whether to support Manga and Non-U.S. issues, right now I'm inclined not
+to but <em>if</em> we do add support it will necessitate some changes to the database for things like currencies, languages,
+and such.</p></li></ul><p>I'm sure there will be other smaller items (like tweaking the site's css and such), but these are most items I'll be
+looking at in 2024. 🎉</p>]]></content:encoded>
+            <category>comic</category>
+            <category>database</category>
+            <category>metron</category>
+            <category>metrontagger</category>
+            <category>comictagger</category>
+        </item>
         <item>
             <title><![CDATA[October 2023 Update]]></title>
             <link>https://metron-project.github.io/blog/october-2023-update</link>
