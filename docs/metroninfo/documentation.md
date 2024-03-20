@@ -45,14 +45,15 @@ It also has the following children elements:
 
 - #### Format
 
-    The type of series. If must be one of the following values:
+    The type of series. It must be one of the following values:
 
     - Annual
     - Graphic Novel
-    - Limited (which covers mini/maxi series)
+    - Limited Series (which covers mini/maxi series)
     - One-Shot
     - Series (which covers ongoing/cancelled series)
     - Trade Paperback
+    - Hardcover
 
 ### CollectionTitle
 
