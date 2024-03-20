@@ -161,6 +161,14 @@ It has `Team` children elements for the individual team names.
 
 The `Team` element can also have an `id` attribute that can be used to add the identification number from the source of information
 
+### Universes
+
+Any universes in the book.
+
+It has `Universe` children elements for the individual universe names.
+
+The `Universe` element can also have an `id` attribute that can be used to add the identification number from the source of information
+
 ### Locations
 
 Any locations in the book.
