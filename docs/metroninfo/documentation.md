@@ -134,7 +134,9 @@ The `Tag` element can also have an `id` attribute that can be used to add the id
 
 Any story arcs the book is a part of.
 
-It has `Arc` children elements that contain the following elements:
+It has a `Arc` element that can also have an `id` attribute that can be used to add the identification number from the source of information.
+
+The `Arc` element has children elements that contain the following elements:
 
 - `Name`
 
@@ -166,9 +168,17 @@ The `Team` element can also have an `id` attribute that can be used to add the i
 
 Any universes in the book.
 
-It has `Universe` children elements for the individual universe names.
+It has a `Universe` element that can also have an `id` attribute that can be used to add the identification number from the source of information.
 
-The `Universe` element can also have an `id` attribute that can be used to add the identification number from the source of information
+The `Universe` element has children elements that contain the following elements:
+
+- `Name`
+
+  The name of the universe.
+
+- `Designation`
+
+  An optional designation for the universe.
 
 ### Locations
 
