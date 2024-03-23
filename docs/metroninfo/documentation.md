@@ -215,10 +215,6 @@ ten or thirteen digits.
 
 The Uniform Product Code which is usually twelve digits.
 
-### BlackAndWhite
-
-An optional boolean element to signify if the book is color or black and white.
-
 ### AgeRating
 
 The age rating for the book which is usually determined by the book publisher.
