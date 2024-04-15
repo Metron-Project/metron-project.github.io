@@ -265,7 +265,17 @@ So, for simplicity's sake we've settled on the following values (with ages given
 
 ### URL
 
-A URL pointing to a reference website for the book.
+URLs pointing to reference websites for the book.
+
+It has the following children elements:
+
+- #### Primary
+
+  The source of information used for the metadata. The can only be **one** element of this type.
+
+- #### Alternative
+
+  Alternative URL's for this book. There can be multiple numbers of this sub-element.
 
 ### Credits
 
