@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.1.1">
 <title data-rh="true">Schema documentation | The Metron Project</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://metron-project.github.io/docs/metroninfo/documentation"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Schema documentation | The Metron Project"><meta data-rh="true" name="description" content="This page aims at clarifying the various elements of the schema, as well as their intended use and observed usage."><meta data-rh="true" property="og:description" content="This page aims at clarifying the various elements of the schema, as well as their intended use and observed usage."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://metron-project.github.io/docs/metroninfo/documentation"><link data-rh="true" rel="alternate" href="https://metron-project.github.io/docs/metroninfo/documentation" hreflang="en"><link data-rh="true" rel="alternate" href="https://metron-project.github.io/docs/metroninfo/documentation" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="The Metron Project RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="The Metron Project Atom Feed"><link rel="stylesheet" href="/assets/css/styles.fa232415.css">
-<script src="/assets/js/runtime~main.fcd11a28.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.11eeea92.js" defer="defer"></script>
 <script src="/assets/js/main.be5c65d4.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -212,7 +212,18 @@ So, for simplicity&#x27;s sake we&#x27;ve settled on the following values (with 
 <li><strong>Mature</strong> - Appropriate for readers age 17 and older.</li>
 </ul>
 <h3 id="url">URL</h3>
-<p>A URL pointing to a reference website for the book.</p>
+<p>URLs pointing to reference websites for the book.</p>
+<p>It has the following children elements:</p>
+<ul>
+<li>
+<h4 id="primary-1">Primary</h4>
+<p>The source of information used for the metadata. The can only be <strong>one</strong> element of this type.</p>
+</li>
+<li>
+<h4 id="alternative-1">Alternative</h4>
+<p>Alternative URL&#x27;s for this book. There can be multiple numbers of this sub-element.</p>
+</li>
+</ul>
 <h3 id="credits">Credits</h3>
 <p>The schema specifies each creator element can only be present once.</p>
 <p>It has <code>Credit</code> children elements that contains the following elements:</p>
