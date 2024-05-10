@@ -4,10 +4,38 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Wed, 06 Mar 2024 10:22:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 11 May 2024 04:22:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[April 2024 Update]]></title>
+            <link>https://metron-project.github.io/blog/april-2024-update</link>
+            <guid>https://metron-project.github.io/blog/april-2024-update</guid>
+            <pubDate>Sat, 11 May 2024 04:22:00 GMT</pubDate>
+            <description><![CDATA[Monthly Statistics]]></description>
+            <content:encoded><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
+<p>During March and April the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>75</strong></li>
+<li>Issues: <strong>4,495</strong></li>
+<li>Creators: <strong>255</strong></li>
+<li>Characters: <strong>1,632</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 id="digital-chapters">Digital Chapters</h2>
+<p>Recently a new series type, <em>Digital Chapters</em>, was added to Metron. This was to facilitate adding digital comics, like
+<strong><a href="https://metron.cloud/series/dc-comics-bombshells-2015/">DC Comics Bombshells</a></strong>. This series type appends the
+word <code>Digital</code> to the series display name and adds <code>Chapter</code> to
+the <a href="https://metron.cloud/issue/batman-beyond-2012-1/">issue display name</a>. When adding <em>Digital Chapters</em> series, the
+print version should <em><strong>not</strong></em> be added as an associated seres, but added as reprints to the appropriate issues. For an
+example of this, please refer to this <a href="https://metron.cloud/issue/batman-the-adventures-continue-2020-1-1/">issue</a>.</p>
+<p>Anyway, that's all I've got for this month. Take Care!</p>]]></content:encoded>
+            <category>comic</category>
+            <category>database</category>
+            <category>metron</category>
+            <category>metrontagger</category>
+        </item>
         <item>
             <title><![CDATA[February 2024 Update]]></title>
             <link>https://metron-project.github.io/blog/february-2024-update</link>
@@ -75,7 +103,6 @@ initial universes, but I'm sure there is still a lot to be added.</p>
 a <a href="https://docs.djangoproject.com/en/5.0/howto/custom-management-commands/">Django Management Command</a> to update a
 series' issues. To make a request to update a series with Universe information, please provide the necessary
 information in this <a href="https://github.com/bpepple/metron/discussions/208">discussion page</a>.</p>
-<!-- -->
 <!-- -->
 <img src="https://metron-project.github.io/assets/images/universe-detail-295b7086e552fd032c7429018e669594.png" alt="Universe Detail" style="width:800px">
 <h2 id="software-updates">Software Updates</h2>
