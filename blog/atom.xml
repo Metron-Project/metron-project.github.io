@@ -2,11 +2,58 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2024-05-11T04:22:00.000Z</updated>
+    <updated>2024-06-01T10:09:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[May 2024 Update]]></title>
+        <id>https://metron-project.github.io/blog/may-2024-update</id>
+        <link href="https://metron-project.github.io/blog/may-2024-update"/>
+        <updated>2024-06-01T10:09:00.000Z</updated>
+        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
+        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
+<p>During May the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>39</strong></li>
+<li>Issues: <strong>3,140</strong></li>
+<li>Creators: <strong>230</strong></li>
+<li>Characters: <strong>852</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 id="api-change">API Change</h2>
+<p>A new parameter, <code>rating</code>, was <a href="https://github.com/bpepple/metron/pull/248">added</a> to the <em><strong>issue</strong></em> endpoint and
+accepts the follow case-insensitive values:</p>
+<ul>
+<li>Unknown</li>
+<li>Everyone</li>
+<li>Teen</li>
+<li>Mature</li>
+<li>Teen Plus</li>
+<li>CCA</li>
+</ul>
+<p>An example of its usage would be: <code>https://metron.cloud/api/issue/?publisher_name=dynamite&amp;rating=teen</code></p>
+<h2 id="metron-tagger">Metron-Tagger</h2>
+<p>Released a new version of <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v2.3.0">Metron-Tagger</a>, which
+contains a couple of new features/changes:</p>
+<ul>
+<li><strong>Digital Comics Renaming</strong>: When renaming a digital-only comic, <code>Digital Chapter</code> will be appended to the filename.</li>
+<li><strong>Remove Non-Valid Metadata Option</strong>: Using the <code>--remove-non-valid</code> option with the <code>--validate</code> option will remove
+any <code>comicinfo.xml</code> that is not valid.</li>
+<li><strong>Removed Oddball Rename Tokens</strong>: Removed the <em>genre</em>, <em>story titles</em>, <em>language</em>, <em>critical rating</em>, and <em>story arc</em>
+tokens from the renaming templates since they are not commonly used.</li>
+</ul>
+<p>Well, that's all I got for this month. Take care!</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="database" term="database"/>
+        <category label="metron" term="metron"/>
+        <category label="metrontagger" term="metrontagger"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[April 2024 Update]]></title>
         <id>https://metron-project.github.io/blog/april-2024-update</id>
