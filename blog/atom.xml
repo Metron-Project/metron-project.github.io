@@ -2,11 +2,70 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2024-06-01T10:09:00.000Z</updated>
+    <updated>2024-07-19T10:09:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Database Series Type Changes]]></title>
+        <id>https://metron-project.github.io/blog/june-2024-update</id>
+        <link href="https://metron-project.github.io/blog/june-2024-update"/>
+        <updated>2024-07-19T10:09:00.000Z</updated>
+        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
+        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
+<p>During June the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>26</strong></li>
+<li>Issues: <strong>3,025</strong></li>
+<li>Creators: <strong>189</strong></li>
+<li>Characters: <strong>822</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 id="database-series-type-changes">Database Series Type Changes</h2>
+<p>Was discussing changes to the <a href="https://github.com/Metron-Project/metroninfo">MetronInfo</a> schema with the developer of
+<a href="https://github.com/Kareadita/Kavita">Kavita</a>, and it got me thinking about the Series Types that Metron uses.</p>
+<p>Based on that discussion, we've consolidated <code>Cancelled</code> and <code>Ongoing</code> types to <code>Single Issue</code>, changed <code>Annual Series</code> to <code>Annual</code>, and also add <code>Omnibus</code> which would give us the following values:</p>
+<ul>
+<li><strong>Annual</strong>: An over-sized special of a comic book that is released in addition to the regular comics in that series.</li>
+<li><strong>Digital Chapters</strong>: This is where a comic is released in a digital format, but can sometimes be released in print later.</li>
+<li><strong>Graphic Novel</strong>: This is a comic book that comes out in the trade paperback/hardcover format without being in the serial single issue format beforehand.</li>
+<li><strong>Hardcover</strong>: Similar to a Trade Paperback but the cover has a very thick stock just like a hardcover novel.</li>
+<li><strong>Limited Series</strong>: This is a comic series that has a set number of issues.</li>
+<li><strong>Omnibus</strong>: These are very large number of single issues collected in one edition.</li>
+<li><strong>One-Shot</strong>: A story that is contained to a single issue.</li>
+<li><strong>Single Issue</strong>: This is the serial magazine-style format of a comic. For example, <code>Action Comics v1 #2</code>.</li>
+<li><strong>Trade Paperback</strong>: This is the most common kind of collected edition where it is usually collecting 6-12 single issues.</li>
+</ul>
+<p><strong>Note</strong>: Series Types descriptions are from this excellent article at <a href="https://www.howtolovecomics.com/comic-book-glossary-of-terms/">How to Love Comics</a></p>
+<p>In addition to those changes, we've added a new database field <code>status</code> to the <code>Series</code> model to track a series' status. The values for this field are as follows:</p>
+<ul>
+<li><strong>Cancelled</strong>: Used when a <em>Single Issue</em> or <em>Annual</em> series is ended. Sometimes can be used when a <em>Limited</em> series is abandoned before completing its story.</li>
+<li><strong>Complete</strong>: Commonly used when a <em>Limited</em>, <em>One-Shot</em>, <em>Graphic Novel</em>, <em>Hardcover</em>, <em>Omnibus</em>, or <em>Digital Chapters</em> series is ended.</li>
+<li><strong>Hiatus</strong>: When a series stops publishing before ending with the expectation that it will be finished at a later date.</li>
+<li><strong>Ongoing</strong>: Used with the <em>Single Issue</em> or <em>Annual</em> series while it is still being published.</li>
+</ul>
+<p>To help users update their existing comics with the new values without having to use Metron's API to re-tag their comics, I've written <a href="https://github.com/bpepple/karkas">Karkas</a> which will change the <em>Format</em> element of a comics <code>ComicInfo.xml</code> to <strong>Single Issue</strong> if they are currently <strong>Cancelled</strong> or <strong>Ongoing</strong>, and <strong>Annual</strong> if the value is <strong>Annual Series</strong>. Since this is a program that most likely will only be used once I've decided to not publish it to <a href="https://pypi.org/">PyPi</a>, but you can grab the wheel from <a href="https://static.metron.cloud/misc/karkas-1.0.0-py3-none-any.whl">here</a>.</p>
+<p>To install it you just need to run:</p>
+<pre><code class="language-bash">wget https://static.metron.cloud/misc/karkas-1.0.0-py3-none-any.whl
+pipx install karkas-1.0.0-py3-none-any.whl
+</code></pre>
+<p>Then just run:</p>
+<pre><code class="language-bash">karkas /path/to/comics
+</code></pre>
+<p>In the next day or so, I'll be releasing a new version of Mokkari that will include the new <strong>Series Status</strong> field.</p>
+<p>If you run into any problems, please open a bug report with the appropriate project, i.e. Metron, Karkas, Mokkari, etc.</p>
+<p>Anyway, that's all I've got for this month. Take care!</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="database" term="database"/>
+        <category label="metron" term="metron"/>
+        <category label="series" term="series"/>
+        <category label="format" term="format"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[May 2024 Update]]></title>
         <id>https://metron-project.github.io/blog/may-2024-update</id>
