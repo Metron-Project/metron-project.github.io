@@ -1,7 +1,7 @@
 ---
 slug: june-2024-update
 title: Database Series Type Changes
-date: 2024-07-1901T10:09
+date: 2024-07-19T10:09
 authors: [ bpepple ]
 tags: [ comic, database, metron, series, format ]
 ---
