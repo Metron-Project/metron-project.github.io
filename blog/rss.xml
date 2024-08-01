@@ -4,10 +4,45 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Fri, 19 Jul 2024 10:09:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 01 Aug 2024 11:20:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[July 2024 Update]]></title>
+            <link>https://metron-project.github.io/blog/july-2024-update</link>
+            <guid>https://metron-project.github.io/blog/july-2024-update</guid>
+            <pubDate>Thu, 01 Aug 2024 11:20:00 GMT</pubDate>
+            <description><![CDATA[Monthly Statistics]]></description>
+            <content:encoded><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
+<p>During July the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>47</strong></li>
+<li>Issues: <strong>1,940</strong></li>
+<li>Creators: <strong>71</strong></li>
+<li>Characters: <strong>329</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 id="more-database-series-type-changes">More Database Series Type Changes</h2>
+<p>Made a couple of changes to some Series Type names on <a href="https://metron.cloud/">Metron</a> based on some suggestions from <a href="https://github.com/Buried-In-Code">Buried-In-Code</a> over on <a href="https://matrix.to/#/%23metron-devel:matrix.org">Matrix</a>. They include:</p>
+<ul>
+<li>Change <em><strong>Digital Chapters</strong></em> to <em><strong>Digital Chapter</strong></em></li>
+<li>Change <em><strong>Hard Cover</strong></em> to <em><strong>Hardcover</strong></em></li>
+</ul>
+<p>If you wish to update your existing <code>ComicInfo.xml</code> metadata, I've released a new version of <a href="https://github.com/bpepple/karkas">Karkas</a> that addresses these changes. You can download this version from <a href="https://github.com/bpepple/karkas/releases/download/v1.2.0/karkas-1.2.0-py3-none-any.whl">this link</a>, and just install it by running:</p>
+<pre><code class="language-bash">pipx install /path/to/karkas-1.2.0-py3-none-any.whl
+</code></pre>
+<p>Then just run:</p>
+<pre><code class="language-bash">karkas /path/to/comics
+</code></pre>
+<h2 id="server-os-upgrade">Server OS Upgrade</h2>
+<p>I'm tentatively planning to upgrade Metron's operating system later this month, so there might be some downtime (most likely a few hours) when I do that. Once I have a better idea what changes this version has (PostgreSQL-16.2, Python-3.12, etc.) I'll have a better idea the work involved. Regardless, I'll post a notification on the site for the week leading to the upgrade, which most likely will occur on a Saturday.</p>
+<p>Anyway, that's all I've got for this month. Take care!</p>]]></content:encoded>
+            <category>comic</category>
+            <category>database</category>
+            <category>server</category>
+            <category>metadata</category>
+        </item>
         <item>
             <title><![CDATA[Database Series Type Changes]]></title>
             <link>https://metron-project.github.io/blog/june-2024-update</link>
