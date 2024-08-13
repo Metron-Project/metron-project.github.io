@@ -12,7 +12,7 @@ Spent the weekend working on *finally* adding support for Publisher's imprints. 
 
 New views, filters, and API endpoints have been added for this feature, so if you see anything missing or behaving not as expected, please open a [bug report](https://github.com/bpepple/metron/issues).
 
-![Detail information for the series Afterlife with Archie (2013).](series-detail.png "Series Detail View")
+<img alt="Detail information for the series Afterlife with Archie (2013)." height="346" src="series-detail.png" title="Series Detail View" width="683"/>
 
 In addition, I've released new version of [Darkseid](https://github.com/Metron-Project/darkseid/releases/tag/v4.1.2), [Mokarri](https://github.com/Metron-Project/mokkari/releases/tag/v3.3.0), and [Metron-Tagger](https://github.com/Metron-Project/metron-tagger/releases/tag/v2.5.0) that add support for imprints. And as always, if you discover any bugs, it would be appreciated if you opened a report in the appropriate git repository.
 
