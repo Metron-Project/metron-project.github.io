@@ -4,10 +4,27 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Thu, 01 Aug 2024 11:20:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 13 Aug 2024 14:02:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Publisher Imprint Support]]></title>
+            <link>https://metron-project.github.io/blog/imprint-support</link>
+            <guid>https://metron-project.github.io/blog/imprint-support</guid>
+            <pubDate>Tue, 13 Aug 2024 14:02:00 GMT</pubDate>
+            <description><![CDATA[Spent the weekend working on finally adding support for Publisher's imprints. Before this, Metron simply lumped Publishers and Imprint together under the Publisher views which was not ideal, but this change will allow them to be separated.]]></description>
+            <content:encoded><![CDATA[<p>Spent the weekend working on <em>finally</em> adding support for Publisher's imprints. Before this, <a href="https://metron.cloud/">Metron</a> simply lumped <em>Publishers</em> and <em>Imprint</em> together under the <strong>Publisher</strong> views which was not ideal, but this change will allow them to be separated.</p>
+<p>New views, filters, and API endpoints have been added for this feature, so if you see anything missing or behaving not as expected, please open a <a href="https://github.com/bpepple/metron/issues">bug report</a>.</p>
+<p><img alt="Detail information for the series Afterlife with Archie (2013)." src="https://metron-project.github.io/assets/images/series-detail-8786d5c334d444befb9eac13a780131f.png" title="Series Detail View" width="1365" height="691"></p>
+<p>In addition, I've released new version of <a href="https://github.com/Metron-Project/darkseid/releases/tag/v4.1.2">Darkseid</a>, <a href="https://github.com/Metron-Project/mokkari/releases/tag/v3.3.0">Mokarri</a>, and <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v2.5.0">Metron-Tagger</a> that add support for imprints. And as always, if you discover any bugs, it would be appreciated if you opened a report in the appropriate git repository.</p>
+<p>Anyway, that's all I got for now. Take care!</p>]]></content:encoded>
+            <category>comic</category>
+            <category>database</category>
+            <category>publisher</category>
+            <category>imprint</category>
+            <category>metadata</category>
+        </item>
         <item>
             <title><![CDATA[July 2024 Update]]></title>
             <link>https://metron-project.github.io/blog/july-2024-update</link>
