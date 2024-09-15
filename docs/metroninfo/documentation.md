@@ -277,6 +277,10 @@ It has the following children elements:
 
   Alternative URL's for this book. There can be multiple numbers of this sub-element.
 
+### LastModified
+
+A datetime value that is when the metadata was last written to. This most likely will be used with tagging software which will help determine if the information source (Comic Vine, Metron, etc.) is more recent than information contained in the XML file.
+
 ### Credits
 
 The schema specifies each creator element can only be present once.
