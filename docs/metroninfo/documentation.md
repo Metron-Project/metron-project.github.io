@@ -39,6 +39,18 @@ It has the following children elements:
 A person or organization responsible for publishing, releasing, or issuing a book. It can also have an `id` attribute
 that can be used to add the identification number from the source of information.
 
+It also has the following children elements:
+
+- #### Name
+
+  The name of the Publisher.
+
+- #### Imprint
+
+  Optional. The brand name used to publish a series. For example, **Vertigo** is an imprint of **DC Comics**.
+
+  It can also have an `id` attribute.
+
 ### Series
 
 Contains information about the series the book is part of. It can have a `lang` attribute which is defined as a 2-letter
