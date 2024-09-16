@@ -63,8 +63,7 @@ It also has the following children elements:
 
 - #### SortName
 
-  The name of the series that should be used for sorting purposes. Normally this is the same as the `Name` element, but
-  without any leading articles like ***the***.
+  The name of the series that should be used for sorting purposes. Normally this is the same as the `Name` element, but without any leading articles like ***the***.
 
 - #### Volume
 
