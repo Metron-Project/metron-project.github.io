@@ -85,6 +85,14 @@ It also has the following children elements:
     - Trade Paperback
     - Hardcover
 
+- #### AlternativeNames
+
+  Any other names the series is named as. It has the following children element:
+
+  - ##### Name
+
+    The alternative name of the series. It can have an `id` and `lang` (defined as a 2-letter language code (ISO 639-3)) attribute.
+
 ### CollectionTitle
 
 Trade Paperback and other collections can sometimes have a name for individual Trade Paperback in a series.
