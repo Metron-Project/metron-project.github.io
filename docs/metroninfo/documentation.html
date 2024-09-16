@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.3.2">
 <title data-rh="true">Schema documentation | The Metron Project</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://metron-project.github.io/docs/metroninfo/documentation"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Schema documentation | The Metron Project"><meta data-rh="true" name="description" content="This page aims at clarifying the various elements of the schema, as well as their intended use and observed usage."><meta data-rh="true" property="og:description" content="This page aims at clarifying the various elements of the schema, as well as their intended use and observed usage."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://metron-project.github.io/docs/metroninfo/documentation"><link data-rh="true" rel="alternate" href="https://metron-project.github.io/docs/metroninfo/documentation" hreflang="en"><link data-rh="true" rel="alternate" href="https://metron-project.github.io/docs/metroninfo/documentation" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="The Metron Project RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="The Metron Project Atom Feed"><link rel="stylesheet" href="/assets/css/styles.e7894270.css">
-<script src="/assets/js/runtime~main.634439ab.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.bfde63ee.js" defer="defer"></script>
 <script src="/assets/js/main.26c75ef5.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -41,16 +41,25 @@ this sub-element.</p>
 <h3 id="publisher">Publisher</h3>
 <p>A person or organization responsible for publishing, releasing, or issuing a book. It can also have an <code>id</code> attribute
 that can be used to add the identification number from the source of information.</p>
-<h3 id="series">Series</h3>
-<p>Contains information about the series the book is part of. It can have a <code>lang</code> attribute which is defined as a 2-letter
-language code (ISO 639-3).</p>
 <p>It also has the following children elements:</p>
 <ul>
 <li>
 <h4 id="name">Name</h4>
+<p>The name of the Publisher.</p>
+</li>
+<li>
+<h4 id="imprint">Imprint</h4>
+<p>Optional. The brand name used to publish a series. For example, <strong>Vertigo</strong> is an imprint of <strong>DC Comics</strong>.</p>
+<p>It can also have an <code>id</code> attribute.</p>
+</li>
+</ul>
+<h3 id="series">Series</h3>
+<p>Contains information about the series the book is part of. It can have a <code>lang</code> attribute, which is defined as a 2-letter language code (ISO 639-3), and an <code>id</code> attribute that can be used to add the identification number from the source of information.</p>
+<p>It also has the following children elements:</p>
+<ul>
+<li>
+<h4 id="name-1">Name</h4>
 <p>The name of the series.</p>
-<p>The <code>Name</code> element can also have an <code>id</code> attribute that can be used to add the identification number from the source
-of information.</p>
 </li>
 <li>
 <h4 id="sortname">SortName</h4>
