@@ -53,17 +53,13 @@ It also has the following children elements:
 
 ### Series
 
-Contains information about the series the book is part of. It can have a `lang` attribute which is defined as a 2-letter
-language code (ISO 639-3).
+Contains information about the series the book is part of. It can have a `lang` attribute, which is defined as a 2-letter language code (ISO 639-3), and an `id` attribute that can be used to add the identification number from the source of information.
 
 It also has the following children elements:
 
 - #### Name
 
   The name of the series.
-
-  The `Name` element can also have an `id` attribute that can be used to add the identification number from the source
-  of information.
 
 - #### SortName
 
