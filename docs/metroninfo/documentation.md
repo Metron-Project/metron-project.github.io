@@ -63,8 +63,7 @@ It also has the following children elements:
 
 - #### SortName
 
-  The name of the series that should be used for sorting purposes. Normally this is the same as the `Name` element, but
-  without any leading articles like ***the***.
+  The name of the series that should be used for sorting purposes. Normally this is the same as the `Name` element, but without any leading articles like ***the***.
 
 - #### Volume
 
@@ -84,6 +83,14 @@ It also has the following children elements:
     - Series (which covers ongoing/cancelled series)
     - Trade Paperback
     - Hardcover
+
+- #### AlternativeNames
+
+  Any other names the series is named as. It has the following children element:
+
+  - ##### Name
+
+    The alternative name of the series. It can have an `id` and `lang` (defined as a 2-letter language code (ISO 639-3)) attribute.
 
 ### CollectionTitle
 
