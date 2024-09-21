@@ -84,6 +84,10 @@ It also has the following children elements:
     - Trade Paperback
     - Hardcover
 
+- #### StartYear
+
+  The year that the series started in. This must be a 4 digit value.
+
 - #### AlternativeNames
 
   Any other names the series is named as. It has the following children element:
