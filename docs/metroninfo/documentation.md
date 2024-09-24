@@ -22,12 +22,13 @@ It has the following children elements:
     - Metron
     - League of Comic Geeks
 
-- #### Alternative
+- #### Alternatives
 
-  The id for the issue from another source of information that can be used for linking. There can be multiple numbers of
-  this sub-element.
+  Contains alternative identification numbers that can be used for linking.
+  
+  It has `Alternative` children elements for different identification numbers.
 
-  The `source` attribute is required and has to be one of the following:
+  They have a `source` attribute that is required and has to be one of the following:
 
     - Comic Vine
     - Grand Comics Database
@@ -90,7 +91,9 @@ It also has the following children elements:
 
 - #### AlternativeNames
 
-  Any other names the series is named as. It has the following children element:
+  Any other names the series is named as. It has `AlternativeName` children name for the individual alternative series name.
+
+  They have the following children element:
 
   - ##### Name
 
@@ -282,7 +285,7 @@ So, for simplicity's sake we've settled on the following values (with ages given
 - **Teen Plus** - Appropriate for readers age 15 and older.
 - **Mature** - Appropriate for readers age 17 and older.
 
-### URL
+### URLs
 
 URLs pointing to reference websites for the book.
 
@@ -292,9 +295,9 @@ It has the following children elements:
 
   The source of information used for the metadata. The can only be **one** element of this type.
 
-- #### Alternative
+- #### Alternatives
 
-  Alternative URL's for this book. There can be multiple numbers of this sub-element.
+  Alternative URL's for this book. It has `Alternative` children elements.
 
 ### LastModified
 
