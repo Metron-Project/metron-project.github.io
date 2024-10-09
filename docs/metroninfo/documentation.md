@@ -17,10 +17,12 @@ It has the following children elements:
 
   The `source` attribute is required and has to be one of the following:
 
-    - Comic Vine
-    - Grand Comics Database
-    - Metron
-    - League of Comic Geeks
+  - AniList
+  - Comic Vine
+  - Grand Comics Database
+  - Metron
+  - MyAnimeList
+  - League of Comic Geeks
 
 - #### Alternatives
 
@@ -30,10 +32,12 @@ It has the following children elements:
 
   They have a `source` attribute that is required and has to be one of the following:
 
-    - Comic Vine
-    - Grand Comics Database
-    - Metron
-    - League of Comic Geeks
+  - AniList
+  - Comic Vine
+  - Grand Comics Database
+  - Metron
+  - MyAnimeList
+  - League of Comic Geeks
 
 ### Publisher
 
