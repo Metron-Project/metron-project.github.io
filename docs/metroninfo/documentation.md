@@ -150,26 +150,9 @@ A free text field for additional information.
 
 The genres of the book.
 
-It has `Genre` children elements that can only contain the following values:
+It has `Genre` children elements for the individual genres. For example, _Horror_ or _Fantasy_.
 
-- Adult
-- Crime
-- Espionage
-- Fantasy
-- Historical
-- Horror
-- Humor
-- Manga
-- Parody
-- Romance
-- Science Fiction
-- Sport
-- Super-Hero
-- War
-- Western
-
-The `Genre` element can also have an `id` attribute that can be used to add the identification number from the source of
-information
+The `Genre` element can also have an `id` attribute that can be used to add the identification number from the source of information.
 
 ### Tags
 
