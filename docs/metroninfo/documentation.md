@@ -17,10 +17,12 @@ It has the following children elements:
 
   The `source` attribute is required and has to be one of the following:
 
-    - Comic Vine
-    - Grand Comics Database
-    - Metron
-    - League of Comic Geeks
+  - AniList
+  - Comic Vine
+  - Grand Comics Database
+  - Metron
+  - MyAnimeList
+  - League of Comic Geeks
 
 - #### Alternatives
 
@@ -30,10 +32,12 @@ It has the following children elements:
 
   They have a `source` attribute that is required and has to be one of the following:
 
-    - Comic Vine
-    - Grand Comics Database
-    - Metron
-    - League of Comic Geeks
+  - AniList
+  - Comic Vine
+  - Grand Comics Database
+  - Metron
+  - MyAnimeList
+  - League of Comic Geeks
 
 ### Publisher
 
@@ -99,6 +103,10 @@ It also has the following children elements:
 
     The alternative name of the series. It can have an `id` and `lang` (defined as a 2-letter language code (ISO 639-3)) attribute.
 
+### Volume
+
+  Used to store the `Volume` for **Manga**. This is a string element.
+
 ### CollectionTitle
 
 Trade Paperback and other collections can sometimes have a name for individual Trade Paperback in a series.
@@ -150,26 +158,9 @@ A free text field for additional information.
 
 The genres of the book.
 
-It has `Genre` children elements that can only contain the following values:
+It has `Genre` children elements for the individual genres. For example, _Horror_ or _Fantasy_.
 
-- Adult
-- Crime
-- Espionage
-- Fantasy
-- Historical
-- Horror
-- Humor
-- Manga
-- Parody
-- Romance
-- Science Fiction
-- Sport
-- Super-Hero
-- War
-- Western
-
-The `Genre` element can also have an `id` attribute that can be used to add the identification number from the source of
-information
+The `Genre` element can also have an `id` attribute that can be used to add the identification number from the source of information.
 
 ### Tags
 
