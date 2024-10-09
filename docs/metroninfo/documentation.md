@@ -99,6 +99,10 @@ It also has the following children elements:
 
     The alternative name of the series. It can have an `id` and `lang` (defined as a 2-letter language code (ISO 639-3)) attribute.
 
+### Volume
+
+  Used to store the `Volume` for **Manga**. This is a string element.
+
 ### CollectionTitle
 
 Trade Paperback and other collections can sometimes have a name for individual Trade Paperback in a series.
