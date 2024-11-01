@@ -5,39 +5,27 @@ title: Schema documentation
 
 This page aims at clarifying the various elements of the schema, as well as their intended use and observed usage.
 
-### ID
+### IDS
 
 The identification numbers from sources of information.
 
-It has the following children elements:
+It has the following child element:
 
-- #### Primary
+- #### ID
 
-  The source of information used for the metadata. The can only be **one** element of this type.
+  The sources of information used for the metadata.
+
+  The `primary` attribute is used to identify the primary source of information used in the xml document. Only one
+  element can have this attribute be `true`.
 
   The `source` attribute is required and has to be one of the following:
 
-  - AniList
-  - Comic Vine
-  - Grand Comics Database
-  - Metron
-  - MyAnimeList
-  - League of Comic Geeks
-
-- #### Alternatives
-
-  Contains alternative identification numbers that can be used for linking.
-  
-  It has `Alternative` children elements for different identification numbers.
-
-  They have a `source` attribute that is required and has to be one of the following:
-
-  - AniList
-  - Comic Vine
-  - Grand Comics Database
-  - Metron
-  - MyAnimeList
-  - League of Comic Geeks
+    - AniList
+    - Comic Vine
+    - Grand Comics Database
+    - Metron
+    - MyAnimeList
+    - League of Comic Geeks
 
 ### Publisher
 
@@ -58,7 +46,9 @@ It also has the following children elements:
 
 ### Series
 
-Contains information about the series the book is part of. It can have a `lang` attribute, which is defined as a 2-letter language code (ISO 639-3), and an `id` attribute that can be used to add the identification number from the source of information.
+Contains information about the series the book is part of. It can have a `lang` attribute, which is defined as a
+2-letter language code (ISO 639-3), and an `id` attribute that can be used to add the identification number from the
+source of information.
 
 It also has the following children elements:
 
@@ -68,7 +58,8 @@ It also has the following children elements:
 
 - #### SortName
 
-  The name of the series that should be used for sorting purposes. Normally this is the same as the `Name` element, but without any leading articles like ***the***.
+  The name of the series that should be used for sorting purposes. Normally this is the same as the `Name` element, but
+  without any leading articles like ***the***.
 
 - #### Volume
 
@@ -95,17 +86,19 @@ It also has the following children elements:
 
 - #### AlternativeNames
 
-  Any other names the series is named as. It has `AlternativeName` children name for the individual alternative series name.
+  Any other names the series is named as. It has `AlternativeName` children name for the individual alternative series
+  name.
 
   They have the following children element:
 
-  - ##### Name
+    - ##### Name
 
-    The alternative name of the series. It can have an `id` and `lang` (defined as a 2-letter language code (ISO 639-3)) attribute.
+      The alternative name of the series. It can have an `id` and `lang` (defined as a 2-letter language code (ISO
+      639-3)) attribute.
 
 ### Volume
 
-  Used to store the `Volume` for **Manga**. This is a string element.
+Used to store the `Volume` for **Manga**. This is a string element.
 
 ### CollectionTitle
 
@@ -160,7 +153,8 @@ The genres of the book.
 
 It has `Genre` children elements for the individual genres. For example, _Horror_ or _Fantasy_.
 
-The `Genre` element can also have an `id` attribute that can be used to add the identification number from the source of information.
+The `Genre` element can also have an `id` attribute that can be used to add the identification number from the source of
+information.
 
 ### Tags
 
@@ -282,19 +276,18 @@ So, for simplicity's sake we've settled on the following values (with ages given
 
 URLs pointing to reference websites for the book.
 
-It has the following children elements:
+It has the following child element:
 
-- #### Primary
+- #### URL
 
-  The source of information used for the metadata. The can only be **one** element of this type.
-
-- #### Alternatives
-
-  Alternative URL's for this book. It has `Alternative` children elements.
+  The `primary` attribute is used to identify the primary source of information used in the xml document. There can only
+  be one element that can have this attribute be `true`.
 
 ### LastModified
 
-A datetime value that is when the metadata was last written to. This most likely will be used with tagging software which will help determine if the information source (Comic Vine, Metron, etc.) is more recent than information contained in the XML file.
+A datetime value that is when the metadata was last written to. This most likely will be used with tagging software
+which will help determine if the information source (Comic Vine, Metron, etc.) is more recent than information contained
+in the XML file.
 
 ### Credits
 
