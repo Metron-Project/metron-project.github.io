@@ -275,6 +275,8 @@ So, for simplicity's sake we've settled on the following values (with ages given
 - **Teen** - Appropriate for readers age 12 and older.
 - **Teen Plus** - Appropriate for readers age 15 and older.
 - **Mature** - Appropriate for readers age 17 and older.
+- **Explicit** - Contains material that is more extreme than material found in R rating movies.
+- **Adult** - Likely pornographic in nature
 
 ### URLs
 
