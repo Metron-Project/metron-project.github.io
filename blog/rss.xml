@@ -4,10 +4,66 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Tue, 13 Aug 2024 14:02:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 02 Nov 2024 15:52:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[October 2024 Update]]></title>
+            <link>https://metron-project.github.io/blog/october-2024-update</link>
+            <guid>https://metron-project.github.io/blog/october-2024-update</guid>
+            <pubDate>Sat, 02 Nov 2024 15:52:00 GMT</pubDate>
+            <description><![CDATA[Ok, been fairly busy the last couple of months so naturally blogging has taken a back-burner. So, here's a summary of]]></description>
+            <content:encoded><![CDATA[<p>Ok, been fairly busy the last couple of months so naturally blogging has taken a back-burner. So, here's a summary of
+what's been going on the last few months.</p>
+<h2 id="monthly-statistics">Monthly Statistics</h2>
+<p>During August the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>41</strong></li>
+<li>Issues: <strong>1,377</strong></li>
+<li>Creators: <strong>147</strong></li>
+<li>Characters: <strong>346</strong></li>
+</ul>
+<p>During September the following was added:</p>
+<ul>
+<li>Users: <strong>100</strong></li>
+<li>Issues: <strong>1,330</strong></li>
+<li>Creators: <strong>124</strong></li>
+<li>Characters: <strong>379</strong></li>
+</ul>
+<p>During October the following was added:</p>
+<ul>
+<li>Users: <strong>51</strong></li>
+<li>Issues: <strong>1,996</strong></li>
+<li>Creators: <strong>122</strong></li>
+<li>Characters: <strong>740</strong></li>
+</ul>
+<h2 id="comic-vine-outage">Comic Vine Outage</h2>
+<p><a href="https://comicvine.gamespot.com/">Comic Vine</a> went down at the end of September for about 6 days, so we saw an influx of
+new users which necessitated in increasing our server's capacity. One thing this episode brought to light out was the
+need for the project to accept donations for future infrastructure costs (since I'm currently covering the server
+costs).</p>
+<p>To help us set this up it would be greatly appreciated if you could star
+the <a href="https://github.com/Metron-Project/metron">repository</a> since one of the requirements to set up an account
+on <a href="https://opencollective.com/">Open Collective</a> is to have 100 stars.</p>
+<h2 id="server-os-upgrade">Server OS Upgrade</h2>
+<p>I had planned to upgrade the server in August, but y'know... life. Anyway, I'm tentatively planning to upgrade Metron's
+operating system on November 16th, so there might be some downtime (most likely a few hours) when I do that. I'll post a
+notification on the site for the week leading to the upgrade.</p>
+<h2 id="metroninfoxml">MetronInfo.xml</h2>
+<p>The last couple of months there has been a bunch of work done on finalizing
+the <a href="https://github.com/Metron-Project/metroninfo">MetronInfo.xsd</a>
+by <a href="https://github.com/majora2007">Joe</a>, <a href="https://github.com/ajslater">AJ</a>, <a href="https://github.com/Buried-In-Code">Buried-In-Code</a>
+and myself, and I believe there are just a couple of
+outstanding <a href="https://github.com/Metron-Project/metroninfo/issues/38">items</a> that need a resolution. Once that is done,
+I'll write up a announcement blog post.</p>
+<p>Anyway, that's all I've got for this month. Take care!</p>]]></content:encoded>
+            <category>comic</category>
+            <category>database</category>
+            <category>server</category>
+            <category>metadata</category>
+            <category>comicvine</category>
+        </item>
         <item>
             <title><![CDATA[Publisher Imprint Support]]></title>
             <link>https://metron-project.github.io/blog/imprint-support</link>
@@ -629,17 +685,6 @@ CONTAINER ID  IMAGE                       COMMAND CREATED       STATUS          
             <category>comicvine</category>
             <category>comic-tagger</category>
             <category>anansi-project</category>
-        </item>
-        <item>
-            <title><![CDATA[Welcome]]></title>
-            <link>https://metron-project.github.io/blog/welcome</link>
-            <guid>https://metron-project.github.io/blog/welcome</guid>
-            <pubDate>Wed, 06 Jul 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[Welcome to the Metron Project! We'll be using this site to add some documentation and information about new project initiatives here.]]></description>
-            <content:encoded><![CDATA[<p>Welcome to the Metron Project! We'll be using this site to add some documentation and information about new project initiatives here.
-If you have any questions, don't hesitate to contact us on <a href="https://matrix.to/#/#metrondb:matrix.org">Matrix</a>.</p>]]></content:encoded>
-            <category>metron</category>
-            <category>comic</category>
         </item>
     </channel>
 </rss>

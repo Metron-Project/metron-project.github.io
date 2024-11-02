@@ -2,11 +2,71 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2024-08-13T14:02:00.000Z</updated>
+    <updated>2024-11-02T15:52:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[October 2024 Update]]></title>
+        <id>https://metron-project.github.io/blog/october-2024-update</id>
+        <link href="https://metron-project.github.io/blog/october-2024-update"/>
+        <updated>2024-11-02T15:52:00.000Z</updated>
+        <summary type="html"><![CDATA[Ok, been fairly busy the last couple of months so naturally blogging has taken a back-burner. So, here's a summary of]]></summary>
+        <content type="html"><![CDATA[<p>Ok, been fairly busy the last couple of months so naturally blogging has taken a back-burner. So, here's a summary of
+what's been going on the last few months.</p>
+<h2 id="monthly-statistics">Monthly Statistics</h2>
+<p>During August the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>41</strong></li>
+<li>Issues: <strong>1,377</strong></li>
+<li>Creators: <strong>147</strong></li>
+<li>Characters: <strong>346</strong></li>
+</ul>
+<p>During September the following was added:</p>
+<ul>
+<li>Users: <strong>100</strong></li>
+<li>Issues: <strong>1,330</strong></li>
+<li>Creators: <strong>124</strong></li>
+<li>Characters: <strong>379</strong></li>
+</ul>
+<p>During October the following was added:</p>
+<ul>
+<li>Users: <strong>51</strong></li>
+<li>Issues: <strong>1,996</strong></li>
+<li>Creators: <strong>122</strong></li>
+<li>Characters: <strong>740</strong></li>
+</ul>
+<h2 id="comic-vine-outage">Comic Vine Outage</h2>
+<p><a href="https://comicvine.gamespot.com/">Comic Vine</a> went down at the end of September for about 6 days, so we saw an influx of
+new users which necessitated in increasing our server's capacity. One thing this episode brought to light out was the
+need for the project to accept donations for future infrastructure costs (since I'm currently covering the server
+costs).</p>
+<p>To help us set this up it would be greatly appreciated if you could star
+the <a href="https://github.com/Metron-Project/metron">repository</a> since one of the requirements to set up an account
+on <a href="https://opencollective.com/">Open Collective</a> is to have 100 stars.</p>
+<h2 id="server-os-upgrade">Server OS Upgrade</h2>
+<p>I had planned to upgrade the server in August, but y'know... life. Anyway, I'm tentatively planning to upgrade Metron's
+operating system on November 16th, so there might be some downtime (most likely a few hours) when I do that. I'll post a
+notification on the site for the week leading to the upgrade.</p>
+<h2 id="metroninfoxml">MetronInfo.xml</h2>
+<p>The last couple of months there has been a bunch of work done on finalizing
+the <a href="https://github.com/Metron-Project/metroninfo">MetronInfo.xsd</a>
+by <a href="https://github.com/majora2007">Joe</a>, <a href="https://github.com/ajslater">AJ</a>, <a href="https://github.com/Buried-In-Code">Buried-In-Code</a>
+and myself, and I believe there are just a couple of
+outstanding <a href="https://github.com/Metron-Project/metroninfo/issues/38">items</a> that need a resolution. Once that is done,
+I'll write up a announcement blog post.</p>
+<p>Anyway, that's all I've got for this month. Take care!</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="database" term="database"/>
+        <category label="server" term="server"/>
+        <category label="metadata" term="metadata"/>
+        <category label="comicvine" term="comicvine"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Publisher Imprint Support]]></title>
         <id>https://metron-project.github.io/blog/imprint-support</id>
@@ -704,20 +764,5 @@ CONTAINER ID  IMAGE                       COMMAND CREATED       STATUS          
         <category label="comicvine" term="comicvine"/>
         <category label="comic-tagger" term="comic-tagger"/>
         <category label="anansi-project" term="anansi-project"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Welcome]]></title>
-        <id>https://metron-project.github.io/blog/welcome</id>
-        <link href="https://metron-project.github.io/blog/welcome"/>
-        <updated>2022-07-06T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Welcome to the Metron Project! We'll be using this site to add some documentation and information about new project initiatives here.]]></summary>
-        <content type="html"><![CDATA[<p>Welcome to the Metron Project! We'll be using this site to add some documentation and information about new project initiatives here.
-If you have any questions, don't hesitate to contact us on <a href="https://matrix.to/#/#metrondb:matrix.org">Matrix</a>.</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="metron" term="metron"/>
-        <category label="comic" term="comic"/>
     </entry>
 </feed>
