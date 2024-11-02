@@ -1,4 +1,11 @@
-# Age Rating Matrix 
+---
+sidebar_position: 30
+title: Age Rating Matrix
+---
+
+## Age Rating Matrix
+
+This page aims to clarify who the ratings compare.
 
 | MetronInfo | DC 2011 [1]  | DC 2022 | Marvel Current    | Marvel 2001       | Marvel 2003       | Marvel 2005           |
 |:-----------|:-------------|:--------|:------------------|:------------------|:------------------|:----------------------|
@@ -10,3 +17,5 @@
 | Adult      | N/A          | N/A     | N/A               | N/A               | N/A               | N/A                   |
 
 [1] About as close to an industry standard as there is. It's used by Dynamite, Image, Archie Comics, and Mad Cave. This is also the rating system that the Metron DB uses.
+
+*Note*: This information was produced from the work done by the website [How to Love Comics](https://www.howtolovecomics.com/2020/02/10/comic-book-age-ratings/).
