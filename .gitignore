@@ -22,3 +22,6 @@ yarn-error.log*
 
 # Github
 .devcontainer/
+
+# Webstorm
+Project_Default.xml
