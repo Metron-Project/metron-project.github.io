@@ -7,7 +7,7 @@ label: Metron
 
 ## What is it?
 
-The code that runs the [Metron DB](https://metron.cloud/) website.
+The codebase that runs the [Metron DB](https://metron.cloud/) website, which is a community created comic-book database.
 
 ## Code
 
