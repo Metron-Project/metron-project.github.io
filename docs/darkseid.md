@@ -12,11 +12,12 @@ Darkseid is a python library to interact with comic archives.
 ## Installation
 
 ```
-$ pip3 install --user darkseid
+$ pip3 install darkseid
 ```
 ## Documentation
 
-Coming Soon!
+
+Can be found at [ReadTheDocs](https://darkseid.readthedocs.io/en/stable/).
 
 ## Code
 

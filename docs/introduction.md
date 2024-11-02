@@ -5,12 +5,13 @@ label: Introduction
 
 # What is the Metron Project?
 
-A collection of inititives and tools related to Comic Book management.
+A collection of initiatives and tools related to Comic Book management.
 
 ## Projects
 
 Currently, the Metron Project contains the following projects:
 
+- Metron: The code for the [Metron DB](https://metron.cloud/) website.
 - Darkseid: A Python library to work with comic book archives.
 - Mokkari: A Python wrapper for the Metron Comic Book Database's API.
 - Esak: A Python wrapper for Marvel's API.
