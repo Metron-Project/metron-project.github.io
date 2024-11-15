@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.3.2">
 <title data-rh="true">Schema documentation | The Metron Project</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://metron-project.github.io/docs/metroninfo/documentation"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Schema documentation | The Metron Project"><meta data-rh="true" name="description" content="This page aims at clarifying the various elements of the schema, as well as their intended use and observed usage."><meta data-rh="true" property="og:description" content="This page aims at clarifying the various elements of the schema, as well as their intended use and observed usage."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://metron-project.github.io/docs/metroninfo/documentation"><link data-rh="true" rel="alternate" href="https://metron-project.github.io/docs/metroninfo/documentation" hreflang="en"><link data-rh="true" rel="alternate" href="https://metron-project.github.io/docs/metroninfo/documentation" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="The Metron Project RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="The Metron Project Atom Feed"><link rel="stylesheet" href="/assets/css/styles.e7894270.css">
-<script src="/assets/js/runtime~main.8b2f7326.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.6b46988f.js" defer="defer"></script>
 <script src="/assets/js/main.f8fdcbf8.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -65,6 +65,21 @@ without any leading articles like <em><strong>the</strong></em>.</p>
 <p>Volume containing the book. Volume is a notion that is specific to US Comics, where the same series can have multiple
 volumes.</p>
 <p>Volumes can be referenced by number (1, 2, 3…) or by year (2018, 2020…).</p>
+</li>
+<li>
+<h4 id="issuecount">IssueCount</h4>
+<p>The total number of issues for the series. For example, Black Lightning v1 (1997) ran for 11 issues, so the value of
+the <code>IssueCount</code> would be 11. This can change between issues of a series, if it was still being published when the xml
+document was written.</p>
+<p>This element is primarily used by comic server software like Kavita or Codex.</p>
+</li>
+<li>
+<h4 id="volumecount">VolumeCount</h4>
+<p>The total number of volumes for a series. For example, Black Lightning has the following v1 (1977), v2 (1995), and
+v3 (2025), so the value in the <code>VolumeCount</code> sub-element would be 3.</p>
+<p>This can be used to distinguish total volumes published, like <a href="https://anilist.co/manga/30012/BLEACH/">Bleach</a>, which
+has 74 volumes or 706 issues.</p>
+<p>This element is primarily used by comic server software like Kavita or Codex.</p>
 </li>
 <li>
 <h4 id="format">Format</h4>
