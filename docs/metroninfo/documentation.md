@@ -68,6 +68,25 @@ It also has the following children elements:
 
   Volumes can be referenced by number (1, 2, 3…) or by year (2018, 2020…).
 
+- #### IssueCount
+
+  The total number of issues for the series. For example, Black Lightning v1 (1997) ran for 11 issues, so the value of
+  the `IssueCount` would be 11. This can change between issues of a series, if it was still being published when the xml
+  document was written.
+
+  This element is primarily used by comic server software like Kavita or Codex.
+
+- #### VolumeCount
+
+  The total number of volumes for a series. For example, Black Lightning has the following v1 (1977), v2 (1995), and
+  v3 (2025), so the value in the `VolumeCount` sub-element would be 3.
+
+  This can be used to distinguish total volumes published, like [Bleach](https://anilist.co/manga/30012/BLEACH/), which
+  has 74 volumes or 706 issues.
+
+  This element is primarily used by comic server software like Kavita or Codex.
+
+
 - #### Format
 
   The type of series. It must be one of the following values:
