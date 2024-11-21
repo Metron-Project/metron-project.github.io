@@ -23,9 +23,15 @@ It has the following child element:
     - AniList
     - Comic Vine
     - Grand Comics Database
+    - Kitsu
+    - MangaDex
+    - MangaUpdates
     - Metron
     - MyAnimeList
     - League of Comic Geeks
+
+  ***Note***: If you are using information from a source not included in the above `source` attribute, you can add a
+  `URL` element and set the `primary` attribute to `true` to identify where the information was retrieved from.
 
 ### Publisher
 
