@@ -4,10 +4,84 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Sat, 02 Nov 2024 15:52:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 22 Nov 2024 11:45:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[MetronInfo V1.0]]></title>
+            <link>https://metron-project.github.io/blog/metroninfo-v1</link>
+            <guid>https://metron-project.github.io/blog/metroninfo-v1</guid>
+            <pubDate>Fri, 22 Nov 2024 11:45:00 GMT</pubDate>
+            <description><![CDATA[I'm happy to announce the v1.0 of the]]></description>
+            <content:encoded><![CDATA[<p>I'm happy to announce the v1.0 of the
+<a href="https://raw.githubusercontent.com/Metron-Project/metroninfo/refs/heads/master/schema/v1.0/MetronInfo.xsd">MetronInfo schema</a>
+has been finalized and is now ready to be used by developers and consumers. So, I'll start off by answering some
+questions (most of this will be from the projects README).</p>
+<h2 id="what-is-it">What is it?</h2>
+<p>MetronInfo is a <em>new</em> xml document type that fixes some deficiencies that exist in the current de facto xml
+file, <a href="https://github.com/anansi-project/comicinfo">ComicInfo.xml</a>, to store metadata for a comic. Some of our
+improvements include:</p>
+<ul>
+<li>Addition elements to track information that are not included with the current standard.</li>
+<li>Better handling of data types. For instance, instead of using delimited strings we use arrays of elements.</li>
+<li>Elements to track where the data was obtained from.</li>
+<li><code>id</code> attributes for resources (Characters, Creators, etc.), so items with different names can be associated correctly.</li>
+</ul>
+<h2 id="is-the-schema-only-for-the-metron-database">Is the schema only for the Metron Database?</h2>
+<p>No, the schema only has <em>Metron</em> in the name since almost every other format has <em>Comic</em> in the name, and the
+originating author hates naming projects, so he went with the simplest choice. 😄 It was designed to be used for any of
+the comic resources (Comic Vine, AniList, etc.)</p>
+<h2 id="where-can-i-find-the-schemas">Where can I find the schemas?</h2>
+<p>Version 1.0 of the schema is located in <a href="https://github.com/Metron-Project/metroninfo/tree/master/schema">schema</a>
+directory</p>
+<h2 id="is-there-documentation-for-it">Is there documentation for it?</h2>
+<p>Yes, there is <a href="https://metron-project.github.io/docs/category/metroninfo">documentation</a> describing the elements usage
+and also a Matrix to help with age rating mapping.</p>
+<h2 id="how-can-i-validate-my-xml">How can I validate my XML?</h2>
+<p>It's recommended that any software that writes the XML make use of the schema to validate, so consumers of the XML
+document can be sure of its data. The schema use XSD 1.1, so you need to make sure your validation code uses that
+instead of XSD 1.0.</p>
+<p>For example to validate the XML in python:</p>
+<pre><code class="language-python">from pathlib import Path
+from xmlschema import XMLSchema11, XMLSchemaValidationError
+
+xsd = Path("/home/user/MetronInfo.xsd")
+xml = Path("/home/user/MetronInfo.xml")
+
+schema = XMLSchema11(xsd)
+try:
+    schema.validate(xml)
+except XMLSchemaValidationError as e:
+    print(f"Failed to validate XML: {e!r}")
+    exit(1)
+
+# Code to write / read the xml file
+</code></pre>
+<h2 id="what-software-currently-supports-it">What software currently supports it?</h2>
+<p>Currently, the following software does:</p>
+<ul>
+<li><a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a> - Commandline tool to tag comic with metadata (
+MetronInfo or ComicInfo) from Metron Comic Book Database.</li>
+</ul>
+<p>If you are a developer that has added support for MetronInfo.xml to your software, please create a PR to update the
+README
+or <a href="mailto:bpepple@metron.cloud?subject=MetronInfo%20Support&amp;body=Please%20add%20the%20following%20software%20to%the%20README:%20">contact me</a>.</p>
+<h2 id="future">Future</h2>
+<p>One of the goals of the project was to be responsive to the needs of the community, so if you have suggestion for
+improvements to the schema please file a
+<a href="https://github.com/Metron-Project/metroninfo/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=feature_request.md&amp;title=">feature request</a>,
+<a href="https://github.com/Metron-Project/metroninfo/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=bug_report.md&amp;title=">bug report</a>,
+or start a <a href="https://github.com/Metron-Project/metroninfo/discussions">discussion</a>.</p>
+<h2 id="thanks">Thanks</h2>
+<p>I'd like to thank everyone that has contributed to the schema, and in
+particular <a href="https://github.com/ajslater">AJ</a>, <a href="https://github.com/Buried-In-Code">Buried-In-Code</a>,
+and <a href="https://github.com/majora2007">Joe</a> who have helped out a lot in the last few months.</p>]]></content:encoded>
+            <category>metadata</category>
+            <category>comic</category>
+            <category>comicvine</category>
+            <category>metron</category>
+        </item>
         <item>
             <title><![CDATA[October 2024 Update]]></title>
             <link>https://metron-project.github.io/blog/october-2024-update</link>
@@ -655,36 +729,6 @@ CONTAINER ID  IMAGE                       COMMAND CREATED       STATUS          
             <category>comic</category>
             <category>database</category>
             <category>api</category>
-        </item>
-        <item>
-            <title><![CDATA[MetronInfo.xml]]></title>
-            <link>https://metron-project.github.io/blog/welcome-metroninfo</link>
-            <guid>https://metron-project.github.io/blog/welcome-metroninfo</guid>
-            <pubDate>Wed, 13 Jul 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[So, one of the new projects I've been working on in my spare time is a new comic book xml schema called MetronInfo.]]></description>
-            <content:encoded><![CDATA[<p>So, one of the new projects I've been working on in my spare time is a new comic book xml schema called <a href="https://github.com/Metron-Project/metroninfo">MetronInfo</a>.</p>
-<p>Currently, most applications use <a href="https://github.com/anansi-project/comicinfo">ComicInfo</a> which originated from the <a href="https://comicrack.en.softonic.com/">ComicRack</a> application, but due to it's history this format has some limitations like:</p>
-<ul>
-<li><strong>Poor handling of data.</strong> For example, cover date information that is split into separate integer types, instead of just using a date type.</li>
-<li><strong>Limited types metadata stored.</strong> For example, when tagging a comic book archive with an application like <a href="https://github.com/comictagger/comictagger">ComicTagger</a> it would be useful to know where the metadata information was retrieved from (i.e. Comic Vine, GCD, Metron, etc.) and the resources identification number.</li>
-<li><strong>Lack of documentation.</strong> The <a href="https://anansi-project.github.io/">Anansi Project</a> <em><strong>is</strong></em> working on improving this, tho.</li>
-</ul>
-<p>For now, the Anansi Project is working on documenting and extending (non-breaking changes) the ComicInfo schema, but in my opinion that time spent would be better spent on creating a new format not tied to a dead application. Due to the fairly unstructured nature of comic book archives it's trivial to tag one with the existing ComicInfo format <strong>and</strong> also a new format. That way users who use applications that only support ComicInfo.xml can still use them, but also gives them the option to use applications that could support the MetronInfo format.</p>
-<p>My goals for MetronInfo.xml are:</p>
-<ul>
-<li>Fix some of the deficiencies of the ComicInfo format.</li>
-<li>Add information to make it easier for Plex-like application to identify data (series, character, etc/) when importing comics into their application.</li>
-<li>Document the elements clearly so their use is not ambiguous.</li>
-</ul>
-<p>Currently I'm working right now on finalizing the new format, and would appreciate any help or feedback from the comic book community in this. Feel free to leave suggestions either at the <a href="https://github.com/Metron-Project/metroninfo/discussions">Discussions Page</a> or contact use over on <a href="https://matrix.to/#/#metrondb:matrix.org">Matrix</a>.</p>
-<p>Once the new format is finalized I plan on writing a tool that will create a MetronInfo.xml file for any existing comic book archive that was tagged with ComicTagger or <a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a>, and also retrieve any missing data from the source of information (Metron or Comic Vine).</p>]]></content:encoded>
-            <category>metron</category>
-            <category>comic</category>
-            <category>metadata</category>
-            <category>tagging</category>
-            <category>comicvine</category>
-            <category>comic-tagger</category>
-            <category>anansi-project</category>
         </item>
     </channel>
 </rss>
