@@ -101,7 +101,7 @@ It also has the following children elements:
     - Graphic Novel
     - Limited Series (which covers mini/maxi series)
     - One-Shot
-    - Series (which covers ongoing/cancelled series)
+    - Single Issue (which covers ongoing/cancelled series)
     - Trade Paperback
     - Hardcover
 
@@ -121,7 +121,7 @@ It also has the following children elements:
       The alternative name of the series. It can have an `id` and `lang` (defined as a 2-letter language code (ISO
       639-3)) attribute.
 
-### Volume
+### MangaVolume
 
 Used to store the `Volume` for **Manga**. This is a string element.
 
