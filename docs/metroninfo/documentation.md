@@ -98,12 +98,14 @@ It also has the following children elements:
   The type of series. It must be one of the following values:
 
     - Annual
+    - Digital Chapter
     - Graphic Novel
+    - Hardcover
     - Limited Series (which covers mini/maxi series)
+    - Omnibus
     - One-Shot
     - Single Issue (which covers ongoing/cancelled series)
     - Trade Paperback
-    - Hardcover
 
 - #### StartYear
 
