@@ -2,11 +2,79 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2024-11-22T11:45:00.000Z</updated>
+    <updated>2024-12-01T15:52:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Novemer 2024 Update]]></title>
+        <id>https://metron-project.github.io/blog/november-2024-update</id>
+        <link href="https://metron-project.github.io/blog/november-2024-update"/>
+        <updated>2024-12-01T15:52:00.000Z</updated>
+        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
+        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
+<p>During November the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>31</strong></li>
+<li>Issues: <strong>2,210</strong></li>
+<li>Creators: <strong>104</strong></li>
+<li>Characters: <strong>426</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 id="metron-tagger-v310">Metron-Tagger v3.1.0</h2>
+<p>I released a new <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v3.1.0">version</a>
+of <a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a> today that adds the ability to migrate data from a
+comic that contains a <code>ComicInfo.xml</code>.</p>
+<p>The conversion from <code>ComicInfo.xml</code> -&gt; <code>MetronInfo.xml</code> does have some caveats though:</p>
+<ul>
+<li>Elements containing data with a comma in a delimited ComicInfo element. If for example, the <code>Title</code> element contained
+a story call <em>"Babs: True Blue, I Love You"</em> and it was originally written with a tool other than Metron-Tagger it
+will split the story into two element items: <em>Babs: True Blue</em> and <em>I Love You</em> .</li>
+<li>Ratings.
+We <a href="https://github.com/Metron-Project/darkseid/blob/2abac78a972a460482cf48be4580295179f45ffe/darkseid/metroninfo.py#L138">map</a>
+these to the enums used in MetronInfo, but it's not perfect since the ComicInfo documentation isn't terribly clear how
+it defines it values, so if you feel our mapping is incorrect please notify us and explain what it should be. Also,
+I've seen some users use non-valid values which obviously won't work.</li>
+<li>Series Format. We've also done our best
+to <a href="https://github.com/Metron-Project/darkseid/blob/2abac78a972a460482cf48be4580295179f45ffe/darkseid/metroninfo.py#L148">map</a>
+the series format, but this is even <em>less</em> defined the age rating since this is just a text element in the schema, and
+could be anything. We've used
+the <a href="https://github.com/comictagger/comictagger/blob/5df935915140d2dd443efd0ee5a5619726a95e48/comictaggerlib/taggerwindow.py#L1436">values</a>
+in Comic-Tagger to handle the conversion, but this isn't perfect.</li>
+</ul>
+<p>To migrate your <code>ComicInfo.xml</code> to <code>MetronInfo.xml</code> without any online lookup would simply run:</p>
+<pre><code>metron-tagger --migrate /path/to/comics
+</code></pre>
+<p>If you wanted to tag you comics with data from the Metron Comic Book Database, and migrate the data from the existing
+<code>ComicInfo.xml</code> for those comics not on Metron, you would run:</p>
+<pre><code>metron-tagger -om --migrate /path/to/comics
+</code></pre>
+<p>If you run across any bugs or have suggestions for improvements, please file
+a <a href="https://github.com/Metron-Project/metron-tagger/issues/new/choose">Bug Report or Feature Request</a>.</p>
+<h2 id="server-upgrade">Server Upgrade</h2>
+<p>Finally got around to <a href="https://metron-project.github.io/blog/october-2024-update#server-os-upgrade">upgrading</a> the
+server, and it was fairly uneventful. Yay! 🎉</p>
+<h2 id="opencollective">OpenCollective</h2>
+<p>The main repository has finally reached 100 stars, and so most likely in the next week or two, I'll set up a funding
+option at <a href="https://opencollective.com/">Open Collective</a> to help defray the server costs and help with increasing future
+server capacity.</p>
+<h2 id="future">Future</h2>
+<p>Now the bulk of the work is done with getting the <a href="https://github.com/Metron-Project/metroninfo">MetronInfo</a> out the
+door and some initial tooling to generate them, I'm planning to work on some low-hanging bugs with the website over the next month
+or so, before starting any large scale projects.</p>
+<p>Anyway, that's all I've got for this month. Take care!</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="metadata" term="metadata"/>
+        <category label="comicvine" term="comicvine"/>
+        <category label="opencollective" term="opencollective"/>
+        <category label="metron" term="metron"/>
+        <category label="api" term="api"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MetronInfo V1.0]]></title>
         <id>https://metron-project.github.io/blog/metroninfo-v1</id>
@@ -792,21 +860,5 @@ CONTAINER ID  IMAGE                       COMMAND CREATED       STATUS          
         <category label="x-men" term="x-men"/>
         <category label="tpb" term="tpb"/>
         <category label="collections" term="collections"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[50,000 issues indexed]]></title>
-        <id>https://metron-project.github.io/blog/50000-issues</id>
-        <link href="https://metron-project.github.io/blog/50000-issues"/>
-        <updated>2022-07-17T11:00:00.000Z</updated>
-        <summary type="html"><![CDATA[The Metron Project reached a milestone today by having 50,000 issues added to its database. I wish to give big thanks to everyone who has helped with the project. Thanks!]]></summary>
-        <content type="html"><![CDATA[<p>The Metron Project reached a milestone today by having 50,000 issues added to its database. I wish to give big thanks to everyone who has helped with the project. Thanks!</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="metron" term="metron"/>
-        <category label="comic" term="comic"/>
-        <category label="database" term="database"/>
-        <category label="api" term="api"/>
     </entry>
 </feed>
