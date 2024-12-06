@@ -4,12 +4,31 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Sun, 01 Dec 2024 15:52:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 06 Dec 2024 12:52:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[Novemer 2024 Update]]></title>
+            <title><![CDATA[Donating to the Project]]></title>
+            <link>https://metron-project.github.io/blog/added-opencollective</link>
+            <guid>https://metron-project.github.io/blog/added-opencollective</guid>
+            <pubDate>Fri, 06 Dec 2024 12:52:00 GMT</pubDate>
+            <description><![CDATA[One of the items I've been asked about the most for the project, especially when Comic Vine goes down, is how to donate]]></description>
+            <content:encoded><![CDATA[<p>One of the items I've been asked about the most for the project, especially when Comic Vine goes down, is how to donate
+to the project to help the server keep up with the demands from our users. Well, I finally found some time yesterday to
+set up an account with <a href="https://opencollective.com/metron">Open Collective</a>, so the project can now accept donations to
+help cover server and development costs. The page currently doesn't have much beyond some basic financial contributions
+options, but once I read through the documentation a bit more I'll look into filling it out a bit more.</p>
+<p>I've been <a href="https://github.com/Metron-Project/metron/discussions/188">asked</a> about adding a paid tiered for an increase
+in the API rate limit, but at this time I'm not planning on adding that, but who knows maybe sometime in the future if
+there is enough demand (and I have the time to implement it) it might be worthwhile to pursue.</p>
+<p>If you have any questions or suggestions, don't hesitate to <a href="mailto:bpepple@metron.cloud">e-mail me</a> or ping me
+on <a href="https://matrix.to/#/#metron-general:matrix.org">Matrix</a>.</p>]]></content:encoded>
+            <category>opencollective</category>
+            <category>donating</category>
+        </item>
+        <item>
+            <title><![CDATA[November 2024 Update]]></title>
             <link>https://metron-project.github.io/blog/november-2024-update</link>
             <guid>https://metron-project.github.io/blog/november-2024-update</guid>
             <pubDate>Sun, 01 Dec 2024 15:52:00 GMT</pubDate>
@@ -763,24 +782,6 @@ CONTAINER ID  IMAGE                       COMMAND CREATED       STATUS          
             <category>cbr</category>
             <category>comic</category>
             <category>tagging</category>
-        </item>
-        <item>
-            <title><![CDATA[Trade Paperback / Collections Support]]></title>
-            <link>https://metron-project.github.io/blog/trade-paperback-collections-support</link>
-            <guid>https://metron-project.github.io/blog/trade-paperback-collections-support</guid>
-            <pubDate>Sat, 23 Jul 2022 15:35:00 GMT</pubDate>
-            <description><![CDATA[Marvel Masterworks Cover]]></description>
-            <content:encoded><![CDATA[<p><img alt="Marvel Masterworks Cover" src="https://metron-project.github.io/assets/images/marvel-masterworks-uncanny-xmen-1-114c858d5bb91b1f14ce68106e84c30a.jpg" width="450" height="150"></p>
-<p>A user contacted me about adding <a href="https://metron.cloud/series/marvel-masterworks-the-uncanny-x-men-2003/">Marvel Masterworks: The Uncanny X-Men</a> series to <a href="https://metron.cloud/">Metron</a> since we have recently added support for trade paperbacks/collected editions. I figured this would be useful exercise since it would show me what parts of the process could be improved to make it easier.</p>
-<p>Currently, the process requires the editor to add <em><strong>all</strong></em> creators, characters, teams, etc. manually for the reprinted issues associate with the collection, much like a regular issue. One obvious way to simplify this is to automatically <em><strong>add</strong></em> any characters, team, story titles, etc. for the issues being reprinted. Currently, I've written an <a href="https://github.com/bpepple/metron/blob/0d6268f92709ef886e49ffe2a134a0b6af3672f7/comicsdb/admin/issue.py#L145">admin action</a> to do this, but sometime in the future I need to expose this functionality so that <em><strong>anyone</strong></em> adding a Trade Paperback/Collection can save some time.</p>
-<p>When I was creating Metron one of the choices I made was to add creators at an issue-level, and not at a story-level, since I wanted the process for adding an issue to be fairly simple. The downside to this approach is that adding information to a collection from an issue with multiple stories isn't really possible.😢</p>]]></content:encoded>
-            <category>metron</category>
-            <category>comic</category>
-            <category>marvel</category>
-            <category>masterworks</category>
-            <category>x-men</category>
-            <category>tpb</category>
-            <category>collections</category>
         </item>
     </channel>
 </rss>
