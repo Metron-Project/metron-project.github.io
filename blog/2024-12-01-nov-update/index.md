@@ -1,6 +1,6 @@
 ---
 slug: november-2024-update
-title: Novemer 2024 Update
+title: November 2024 Update
 date: 2024-12-01T15:52
 authors: [ bpepple ]
 tags: [ comic, metadata, comicvine, opencollective, metron, api ]
