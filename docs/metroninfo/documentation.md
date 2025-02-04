@@ -142,6 +142,10 @@ Contains information about the stories contained within an issues.
 It has `Story` children elements for the individual story names. It can also have an `id` attribute that can be used to
 add the identification number from the source of information.
 
+**Note**: The `Story` element and it's children elements are analogous to
+the [Title](https://anansi-project.github.io/docs/comicinfo/documentation#title) element in
+the [ComicInfo.xml](https://anansi-project.github.io/docs/comicinfo/documentation) schema.
+
 ### Summary
 
 A description or summary of the book.
