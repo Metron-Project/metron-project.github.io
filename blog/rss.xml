@@ -4,10 +4,103 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Sat, 01 Feb 2025 10:38:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 01 Mar 2025 10:38:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[February 2025 Update]]></title>
+            <link>https://metron-project.github.io/blog/february-2025-update</link>
+            <guid>https://metron-project.github.io/blog/february-2025-update</guid>
+            <pubDate>Sat, 01 Mar 2025 10:38:00 GMT</pubDate>
+            <description><![CDATA[Monthly Statistics]]></description>
+            <content:encoded><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
+<p>During February the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>51</strong></li>
+<li>Issues: <strong>2,674</strong></li>
+<li>Creators: <strong>526</strong></li>
+<li>Characters: <strong>879</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 id="recent-work">Recent Work</h2>
+<p>One of my goals for 2025 was to make the project less dependent on me, and for most of this month I've been working on
+the tooling to allowing some users to use the POST API to add comics to the database. This will allow other folks to
+handle <a href="https://github.com/Metron-Project/metron/discussions/306">requests</a> to add series to Metron. With luck, I should
+finish next month, and I'll start looking at what users to promote.</p>
+<h2 id="comic-book-reading-lists">Comic Book Reading Lists</h2>
+<p>Recently, I've been looking at Comic Book Reading Lists since
+a <a href="https://github.com/Metron-Project/metron/issues/302">bug report</a> was opened to add support for generating them.
+Currently, users use <a href="https://github.com/DieselTech/CBL-ReadingLists">CBL's</a> that are imported into their comic server
+of choice (<a href="https://www.kavitareader.com/">Kavita</a>, <a href="https://github.com/ajslater/codex">Codex</a>, etc.), which seems
+non-optimal primarily since, in essence, it's another database of information. Now, this makes sense, since for a long
+time the only source of usable data via an API was <a href="https://comicvine.gamespot.com/">Comic Vine</a>, which hasn't had a
+developer presence in <em>years</em>, and having a new feature added to their site is <strong>extremely</strong> unlikely.</p>
+<p>I think a better solution would be for the other databases that offer an API (<a href="https://www.comics.org/api/">GCD</a> &amp;
+Metron) to have the option for users to create reading lists (similar to <a href="https://www.themoviedb.org/">MovieDB</a>) and
+have that data available either by generating a file or through an API call. Now, to do this we would need to work with
+the comic server developers to determine exactly what data they would need, though it would probably look similar to
+this:</p>
+<pre><code class="language-shell">{
+  "arc": {
+    "name": "Foo Bar Wars"
+  }
+  "issues": {
+    "issue": {
+      "id": {
+      "cv_id": 9999
+      "metron": 5678
+      "gcd": 9856
+      }
+      "index": 0
+    }
+    "issue": {
+      "id": {
+      "cv_id": 12345
+      "metron": 9999
+      "gcd": 123
+      }
+      "index": 1
+    }
+  }
+}
+</code></pre>
+<p>The current standard (CBL) and the recent <a href="https://github.com/ComicReadingLists/json-cbl-standard">json-cbl-standard</a>
+contains a look of information that I can't see a comic server needing, primarily all the series-level info which the
+comic servers should already have in their databases. Of course, I'd love to hear from any developer in this space to
+verify that.</p>
+<p>Once the basic functionality was added, importing any existing CBL into GCD or Metron should be fairly trivial, since
+Metron links other sites issue id's (GCD would be able to use Metron's API to link since they don't track this
+information).</p>
+<p>Anyway, those are some of my quick thoughts on what the future of Comic Book Reading Lists could look like, and if
+anyone has interest in working on this potential future project, contact me
+on <a href="https://github.com/Metron-Project/metron">GitHub</a>
+or <a href="https://matrix.to/#/#metron-general:matrix.org">Matrix</a>.</p>
+<h2 id="rate-limiting">Rate Limiting</h2>
+<p>One thing I've been debating is whether to modify our Rate Limiting policy. The primary reason for this is there are a
+<em>lot</em> of user that hammer the API for 24+ hours straight for days on end, and I'm contemplating <em>adding</em> a total
+number of API hits per day (maybe something like 10,000) in <em>addition</em> to the 30/hour to ease the server load.</p>
+<p>Now doing this will make it a bit harder implement to write software for the API since the developer will need to track
+the API rate between sessions, but there are libraries
+like <a href="https://pyratelimiter.readthedocs.io/en/latest/">pyrate-limiter</a> which use a SQLite or Redis backend to make
+this easier to implement.</p>
+<p>Anyway, this is something I'm just mulling over and if you want to weigh-in you can
+on <a href="https://matrix.to/#/#metron-general:matrix.org">Matrix</a> or in
+a <a href="https://github.com/Metron-Project/metron/discussions">GitHub Discussion</a>.</p>
+<h2 id="opencollective">OpenCollective</h2>
+<p>We've recently set up an account at <a href="https://opencollective.com/metron">Open Collective</a> if you wish to help defray the
+server costs and help with increasing future server capacity. Any help would be greatly appreciated.</p>
+<p>Anyway, that's all I got for this month. Take care!</p>]]></content:encoded>
+            <category>comic</category>
+            <category>metadata</category>
+            <category>comicvine</category>
+            <category>metron</category>
+            <category>gcd</category>
+            <category>grandcomicsdatabase</category>
+            <category>opencollective</category>
+            <category>readinglist</category>
+            <category>cbl</category>
+        </item>
         <item>
             <title><![CDATA[January 2025 Update]]></title>
             <link>https://metron-project.github.io/blog/january-2025-update</link>
@@ -842,16 +935,6 @@ CONTAINER ID  IMAGE                       COMMAND CREATED       STATUS          
             <category>mysql</category>
             <category>gcd</category>
             <category>grandcomicdatabase</category>
-        </item>
-        <item>
-            <title><![CDATA[OS Upgrade]]></title>
-            <link>https://metron-project.github.io/blog/ubuntu-2204-lts</link>
-            <guid>https://metron-project.github.io/blog/ubuntu-2204-lts</guid>
-            <pubDate>Sat, 27 Aug 2022 14:32:00 GMT</pubDate>
-            <description><![CDATA[Finally got around to upgrading the OS for Metron to Ubuntu 22.04.1 LTS, which overall, was fairly painless. Tests didn't find anything obviously broken, but if you do run across something that is, please open a bug for it. Thx!]]></description>
-            <content:encoded><![CDATA[<p>Finally got around to upgrading the OS for Metron to <a href="https://releases.ubuntu.com/22.04.1/">Ubuntu 22.04.1 LTS</a>, which overall, was fairly painless. Tests didn't find anything obviously broken, but if you do run across something that is, please open a <a href="https://github.com/bpepple/metron/issues/new/choose">bug</a> for it. Thx!</p>]]></content:encoded>
-            <category>server</category>
-            <category>ubuntu</category>
         </item>
     </channel>
 </rss>
