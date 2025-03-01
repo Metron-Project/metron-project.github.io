@@ -12,18 +12,19 @@ tags: [ comic, metadata, comicvine, metron, gcd, grandcomicsdatabase, opencollec
 
 During February the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TODO**
-- Issues: **TODO**
-- Creators: **TODO**
-- Characters: **TODO**
+- Users: **51**
+- Issues: **2,674**
+- Creators: **526**
+- Characters: **879**
 
 Thanks to everyone that contributed!
 
 ## Recent Work
 
 One of my goals for 2025 was to make the project less dependent on me, and for most of this month I've been working on
-the tooling to allowing some users to use the POST API to add comics to the database. With luck, I should finish next
-month, and I'll start looking at what users to promote.
+the tooling to allowing some users to use the POST API to add comics to the database. This will allow other folks to
+handle [requests](https://github.com/Metron-Project/metron/discussions/306) to add series to Metron. With luck, I should
+finish next month, and I'll start looking at what users to promote.
 
 ## Comic Book Reading Lists
 
@@ -81,7 +82,24 @@ anyone has interest in working on this potential future project, contact me
 on [GitHub](https://github.com/Metron-Project/metron)
 or [Matrix](https://matrix.to/#/#metron-general:matrix.org).
 
+## Rate Limiting
+
+One thing I've been debating is whether to modify our Rate Limiting policy. The primary reason for this is there are a
+_lot_ of user that hammer the API for 24+ hours straight for days on end, and I'm contemplating _adding_ a total
+number of API hits per day (maybe something like 10,000) in _addition_ to the 30/hour to ease the server load.
+
+Now doing this will make it a bit harder implement to write software for the API since the developer will need to track
+the API rate between sessions, but there are libraries
+like [pyrate-limiter](https://pyratelimiter.readthedocs.io/en/latest/) which use a SQLite or Redis backend to make
+this easier to implement.
+
+Anyway, this is something I'm just mulling over and if you want to weigh-in you can
+on [Matrix](https://matrix.to/#/#metron-general:matrix.org) or in
+a [GitHub Discussion](https://github.com/Metron-Project/metron/discussions).
+
 ## OpenCollective
 
 We've recently set up an account at [Open Collective](https://opencollective.com/metron) if you wish to help defray the
-server costs and help with increasing future server capacity.
+server costs and help with increasing future server capacity. Any help would be greatly appreciated.
+
+Anyway, that's all I got for this month. Take care!
