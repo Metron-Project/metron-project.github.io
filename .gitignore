@@ -25,3 +25,5 @@ yarn-error.log*
 
 # Webstorm
 Project_Default.xml
+
+.idea/
