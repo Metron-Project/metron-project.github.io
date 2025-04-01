@@ -2,11 +2,51 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2025-03-01T10:38:00.000Z</updated>
+    <updated>2025-04-01T08:38:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[March 2025 Update]]></title>
+        <id>https://metron-project.github.io/blog/march-2025-update</id>
+        <link href="https://metron-project.github.io/blog/march-2025-update"/>
+        <updated>2025-04-01T08:38:00.000Z</updated>
+        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
+        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
+<p>During March the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>55</strong></li>
+<li>Issues: <strong>4,564</strong></li>
+<li>Creators: <strong>1,686</strong></li>
+<li>Characters: <strong>1,470</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 id="rate-limiting">Rate Limiting</h2>
+<p>On March 10th, the <a href="https://en.wikipedia.org/wiki/API">API</a> rate limit for the site was modified by adding another limit
+of 10,000 requests per day to the existing limit of 30 requests per minute. Most users shouldn't see any change, but
+this will allow the site to better manage a sudden influx of new users like what happened when Comic Vine went down last
+fall.</p>
+<h2 id="recent-work">Recent Work</h2>
+<p>Finished working on an <a href="https://codeberg.org/bpepple/barda">internal tool</a> that uses Metron's POST API to add series to
+the database, and have chosen a handful of users to give the appropriate permissions needed to run it. With any luck,
+this should free up some of my time so that I can spend more time working on the site's code.</p>
+<p>One side effect of allowing some users to use the POST API is that I needed to <em>disable</em> the ability to create creators
+from the issue form. This is something I had already been thinking about doing, since it had created a fairly annoying
+amount of extra work on my end to remove the duplicate entries that had been created in error.</p>
+<h2 id="opencollective">OpenCollective</h2>
+<p>We've recently set up an account at <a href="https://opencollective.com/metron">Open Collective</a> if you wish to help defray the
+server costs and help with increasing future server capacity. Any help would be greatly appreciated.</p>
+<p>Anyway, that's all I got for this month. Take care!</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="metadata" term="metadata"/>
+        <category label="metron" term="metron"/>
+        <category label="opencollective" term="opencollective"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[February 2025 Update]]></title>
         <id>https://metron-project.github.io/blog/february-2025-update</id>
@@ -902,117 +942,5 @@ metadata from <a href="https://metron.cloud/">Metron</a>.</p>]]></content>
         <category label="comic" term="comic"/>
         <category label="database" term="database"/>
         <category label="series" term="series"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Using Podman to Run GCD Database Locally]]></title>
-        <id>https://metron-project.github.io/blog/podman-gcd</id>
-        <link href="https://metron-project.github.io/blog/podman-gcd"/>
-        <updated>2022-10-08T11:35:00.000Z</updated>
-        <summary type="html"><![CDATA[I've had a few users ask me how to run a local copy of the Grand Comics Database, so I figured I'd do a short write-up on how I do it.]]></summary>
-        <content type="html"><![CDATA[<p>I've had a few users ask me how to run a local copy of the <a href="https://www.comics.org/">Grand Comics Database</a>, so I figured I'd do a short write-up on how I do it.</p>
-<p>I use <a href="https://podman.io/">Podman</a> for containers instead of <a href="https://www.docker.com/">Docker</a>, but the differences between them is fairly minimal and this should give you a good idea of how to do it. Anyway, let's get started!</p>
-<p>First off, you'll want to download the most recent database dump from GCD which can be found <a href="https://www.comics.org/download/">here</a>. Once it's finished downloading, unzip the file:</p>
-<pre><code>unzip current.zip -d /tmp/
-</code></pre>
-<p>You should see output similar to this:</p>
-<pre><code>Archive:  current.zip
-  inflating: /tmp/2022-10-01.sql   
-</code></pre>
-<p>Ok, now that we've got the data from gcd, let's create a <a href="https://www.mysql.com/">MySQL</a> container. We need to first pull a MySQL image, which can be done by running:</p>
-<pre><code>podman pull docker.io/library/mysql:5.7
-</code></pre>
-<p>After it's done downloading the image, you can confirm:</p>
-<pre><code>podman images
-</code></pre>
-<p>which should return output similar to this:</p>
-<pre><code>bpepple@frodo ~ $ podman images mysql
-REPOSITORY               TAG         IMAGE ID      CREATED       SIZE
-docker.io/library/mysql  5.7         eb175b0743cc  19 hours ago  448 MB
-</code></pre>
-<p>Now we need to create the container. You'll want to replace user and mysql credentials with your own values. The <code>volume</code> flag is where on your filesystem you want to save the database. The <code>Z</code> suffix is used for systems, primarily <a href="https://www.redhat.com/en/topics/linux/what-is-selinux">Red Hat</a>-based, that use <a href="https://www.redhat.com/en/topics/linux/what-is-selinux">SELinux</a>. If you don't use SELinux that can be dropped:</p>
-<pre><code>podman run -d --name mysql -p 3306:3306 -e MYSQL_USER=bpepple -e MYSQL_PASSWORD=123456 -e MYSQL_DATABASE=gcd -e MYSQL_ROOT_PASSWORD=567890 --volume /home/bpepple/Storage/pods/mysql/:/var/lib/mysql:Z mysql:5.7
-</code></pre>
-<p>Now let's verify that the container was created and is running by using the following:</p>
-<pre><code>podman ps
-</code></pre>
-<p>You should see output similar to this:</p>
-<pre><code>bpepple@frodo ~ $ podman ps
-CONTAINER ID  IMAGE                       COMMAND CREATED       STATUS           PORTS                  NAMES
-400c957ae25d  docker.io/library/mysql:5.7 mysqld  7 seconds ago Up 7 seconds ago 0.0.0.0:3306-&gt;3306/tcp mysql
-</code></pre>
-<p>Now we just need to dump the data from GCD into the database. We can do this by running:</p>
-<pre><code>cat /tmp/2022-10-01.sql | podman exec -i mysql /usr/bin/mysql -u root --password=567890 gcd
-</code></pre>
-<p>Depending on the specs of your machine, this might be a good time to grab some coffee, since the SQL dump is <strong>very</strong> large and will take awhile to finish. Once it's done, we can start using the database by attaching to the container:</p>
-<pre><code>podman exec -it mysql mysql -ubpepple -p gcd
-</code></pre>
-<p>This command will prompt you for your password, and then you'll see the MySQL prompt where you can run a simple SQL statement like so:</p>
-<pre><code> DESCRIBE gcd_issue;
-</code></pre>
-<p>Which should produce output similar to this:</p>
-<pre><code>+----------------------------+---------------+------+-----+---------------------+----------------+
-| Field                      | Type          | Null | Key | Default             | Extra          |
-+----------------------------+---------------+------+-----+---------------------+----------------+
-| id                         | int(11)       | NO   | PRI | NULL                | auto_increment |
-| number                     | varchar(50)   | NO   | MUL | NULL                |                |
-| volume                     | varchar(50)   | NO   | MUL |                     |                |
-| no_volume                  | tinyint(1)    | NO   | MUL | 0                   |                |
-| display_volume_with_number | tinyint(1)    | NO   | MUL | 0                   |                |
-| series_id                  | int(11)       | NO   | MUL | NULL                |                |
-| indicia_publisher_id       | int(11)       | YES  | MUL | NULL                |                |
-| indicia_pub_not_printed    | tinyint(1)    | NO   |     | NULL                |                |
-| brand_id                   | int(11)       | YES  | MUL | NULL                |                |
-| no_brand                   | tinyint(1)    | NO   | MUL | NULL                |                |
-| publication_date           | varchar(255)  | NO   |     | NULL                |                |
-| key_date                   | varchar(10)   | NO   | MUL | NULL                |                |
-| sort_code                  | int(11)       | NO   | MUL | NULL                |                |
-| price                      | varchar(255)  | NO   |     | NULL                |                |
-| page_count                 | decimal(10,3) | YES  |     | NULL                |                |
-| page_count_uncertain       | tinyint(1)    | NO   |     | 0                   |                |
-| indicia_frequency          | varchar(255)  | NO   |     |                     |                |
-| no_indicia_frequency       | tinyint(1)    | NO   | MUL | 0                   |                |
-| editing                    | longtext      | NO   |     | NULL                |                |
-| no_editing                 | tinyint(1)    | NO   | MUL | 0                   |                |
-| notes                      | longtext      | NO   |     | NULL                |                |
-| created                    | datetime      | NO   |     | 1901-01-01 00:00:00 |                |
-| modified                   | datetime      | NO   | MUL | 1901-01-01 00:00:00 |                |
-| deleted                    | tinyint(1)    | NO   | MUL | 0                   |                |
-| is_indexed                 | tinyint(1)    | NO   | MUL | 0                   |                |
-| isbn                       | varchar(32)   | NO   | MUL |                     |                |
-| valid_isbn                 | varchar(13)   | NO   | MUL |                     |                |
-| no_isbn                    | tinyint(1)    | NO   | MUL | 0                   |                |
-| variant_of_id              | int(11)       | YES  | MUL | NULL                |                |
-| variant_name               | varchar(255)  | NO   |     |                     |                |
-| barcode                    | varchar(38)   | NO   | MUL |                     |                |
-| no_barcode                 | tinyint(1)    | NO   |     | 0                   |                |
-| title                      | varchar(255)  | NO   | MUL |                     |                |
-| no_title                   | tinyint(1)    | NO   | MUL | 0                   |                |
-| on_sale_date               | varchar(10)   | NO   | MUL | NULL                |                |
-| on_sale_date_uncertain     | tinyint(1)    | NO   |     | 0                   |                |
-| rating                     | varchar(255)  | NO   | MUL | NULL                |                |
-| no_rating                  | tinyint(1)    | NO   | MUL | NULL                |                |
-| volume_not_printed         | tinyint(1)    | NO   |     | NULL                |                |
-| no_indicia_printer         | tinyint(1)    | NO   |     | NULL                |                |
-+----------------------------+---------------+------+-----+---------------------+----------------+
-40 rows in set (0.00 sec)
-
-</code></pre>
-<p>Great, we've got the database up and running! To logout from the container just type:</p>
-<pre><code>\q
-</code></pre>
-<p>To stop the container, you would just use the following:</p>
-<pre><code>podman stop mysql
-</code></pre>
-<p>And that's it! Podman has tons of niceties (like auto-updating images, using <a href="https://systemd.io/">systemd</a> for container start-ups, etc.) and I'd encourage you to read up on using some its many features. If it get some free time, I'll do a follow-up article about using <a href="https://www.python.org/">Python</a> to query the database and using that data for things like writing metadata to comic archives.</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="database" term="database"/>
-        <category label="podman" term="podman"/>
-        <category label="mysql" term="mysql"/>
-        <category label="gcd" term="gcd"/>
-        <category label="grandcomicdatabase" term="grandcomicdatabase"/>
     </entry>
 </feed>
