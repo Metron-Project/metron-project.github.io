@@ -4,10 +4,81 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Tue, 01 Apr 2025 08:38:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 01 Jun 2025 10:52:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[April / May 2025 Update]]></title>
+            <link>https://metron-project.github.io/blog/april-may-2025-update</link>
+            <guid>https://metron-project.github.io/blog/april-may-2025-update</guid>
+            <pubDate>Sun, 01 Jun 2025 10:52:00 GMT</pubDate>
+            <description><![CDATA[Monthly Statistics]]></description>
+            <content:encoded><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
+<p>During April the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>49</strong></li>
+<li>Issues: <strong>3,051</strong></li>
+<li>Creators: <strong>709</strong></li>
+<li>Characters: <strong>1,288</strong></li>
+</ul>
+<p>And during May the following were added:</p>
+<ul>
+<li>Users: <strong>46</strong></li>
+<li>Issues: <strong>3,398</strong></li>
+<li>Creators: <strong>208</strong></li>
+<li>Characters: <strong>1,222</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 id="metron-tagger">Metron-Tagger</h2>
+<p>A couple of <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v3.4.0">new</a>
+<a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v3.5.0">releases</a>
+of <a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a> were made in April. They primarily consisted
+of the following new features from <a href="https://github.com/apetresc">Adrian Petrescu</a>:</p>
+<ul>
+<li>
+<p>If passing more than one comic when using the <code>--id</code> option it is assumed the id number is the Metron Series id. For
+example if you ran the following, it would assume all the issue in that directory where of the same series and improve
+the odds of a match:</p>
+<p><code>metron-tagger -m --id 9513 ~/Comics/DC\ Comics/Metamorpho\ -\ The\ Element\ Man/</code></p>
+</li>
+<li>
+<p>Added a <code>--accept-only</code> option to automatically accept single valid matches, regardless of the
+cover <a href="https://en.wikipedia.org/wiki/Perceptual_hashing">phash</a> <a href="https://en.wikipedia.org/wiki/Hamming_distance">hamming distance</a>.</p>
+</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<p>Currently, the documentation for Metron is
+using <a href="https://www.djangoproject.com/">Django's</a> <a href="https://docs.djangoproject.com/en/5.2/ref/contrib/flatpages/">flatpages</a>,
+which isn't great since it's very bare-bones, and I'd need to muck around with account permissions for regular users
+to edit them.</p>
+<p>So, I'm planning to add <a href="https://github.com/django-wiki/django-wiki">django-wiki</a> to the site to handle the
+documentation, since it fixes the short-comings of using flatpages. Unfortunately, to have it not stick out like a
+sore-thumb compared to the rest of the site, I'll need
+to <a href="https://docs.djangoproject.com/en/5.2/howto/overriding-templates/">override the templates</a> for that app. To make
+matters more difficult, <a href="https://github.com/lemonsaurus/django-simple-bulma">django-simple-bulma</a> still uses v0.9.4
+instead of v1.0.*, so that will need to be updated first (since I don't want to override django-wiki's templates
+twice). I've started working on doing <a href="https://github.com/lemonsaurus/django-simple-bulma/pull/107">that</a>, but since
+upstream's (and mine) free time is fairly limited there isn't an ETA when that will happen. 😥</p>
+<h2 id="trade-paperbacks">Trade Paperbacks</h2>
+<p>Tying into the above topic, one constant source of confusion on the site is the handling of Trade Paperbacks (which
+is mainly due to the industries inconsistent handling of them over the last 30+ years). So, until better
+documentation on their handling is written, adding new TPB series has been temporarily <em>disabled</em>. I don't have
+an ETA when they'll be written (truthfully, I don't have much interest in TPB's), so if you'd like to help out
+writing them, contact me.</p>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<ul>
+<li><code>Translator</code> was added as an option for a creator role.</li>
+</ul>
+<h2 id="opencollective">OpenCollective</h2>
+<p>If you would like to help the project, we have an account at <a href="https://opencollective.com/metron">Open Collective</a> to
+defray the servers costs and help with increasing future server capacity.</p>
+<p>Anyway, that's all I got for this month. Take care!</p>]]></content:encoded>
+            <category>comic</category>
+            <category>metadata</category>
+            <category>metron</category>
+            <category>opencollective</category>
+        </item>
         <item>
             <title><![CDATA[March 2025 Update]]></title>
             <link>https://metron-project.github.io/blog/march-2025-update</link>
@@ -852,17 +923,6 @@ metadata from <a href="https://metron.cloud/">Metron</a>.</p>]]></content:encode
             <category>api</category>
             <category>comicvine</category>
             <category>comictagger</category>
-        </item>
-        <item>
-            <title><![CDATA[Limited Series Type]]></title>
-            <link>https://metron-project.github.io/blog/series-type-change</link>
-            <guid>https://metron-project.github.io/blog/series-type-change</guid>
-            <pubDate>Sun, 04 Dec 2022 16:51:00 GMT</pubDate>
-            <description><![CDATA[Made a minor change to the series types available by consolidating mini & maxi-series to the new Limited Series type. There isn't a real definite value for mini and maxi series, and really it makes more sense to not bother differentiating them. So, I've gone ahead and migrated the existing data for this change, and users should see this change. If you have any questions or thoughts, don't hesitate to contact me.]]></description>
-            <content:encoded><![CDATA[<p>Made a minor change to the <em><strong>series types</strong></em> available by consolidating <em><strong>mini &amp; maxi-series</strong></em> to the new <em><strong>Limited Series</strong></em> type. There isn't a real definite value for mini and maxi series, and really it makes more sense to not bother differentiating them. So, I've gone ahead and migrated the existing data for this change, and users should see this change. If you have any questions or thoughts, don't hesitate to contact <a href="mailto:bpepple@metron.cloud">me</a>.</p>]]></content:encoded>
-            <category>comic</category>
-            <category>database</category>
-            <category>series</category>
         </item>
     </channel>
 </rss>
