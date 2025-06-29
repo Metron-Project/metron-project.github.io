@@ -7,7 +7,7 @@ tags: [ comic, metadata, metron, opencollective ]
 ---
 
 # June 2025 News
-{/* truncate */}
+<!-- truncate -->
 
 ## Monthly Statistics
 
