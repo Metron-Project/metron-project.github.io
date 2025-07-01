@@ -3,12 +3,10 @@ title: June 2025 News
 slug: june-2025-update
 date: 2025-07-01T10:52
 authors: [ bpepple ]
-tags: [ comic, metadata, metron, opencollective ]
+tags: [ comic, metadata, metron, opencollective, darkseid, metrontagger ]
 ---
 
 # June 2025 News
-
-<!-- truncate -->
 
 ## Monthly Statistics
 
