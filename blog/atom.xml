@@ -53,6 +53,8 @@ server capacity.</p>
         <category label="metadata" term="metadata"/>
         <category label="metron" term="metron"/>
         <category label="opencollective" term="opencollective"/>
+        <category label="darkseid" term="darkseid"/>
+        <category label="metrontagger" term="metrontagger"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[April / May 2025 Update]]></title>
