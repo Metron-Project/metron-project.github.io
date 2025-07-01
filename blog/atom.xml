@@ -2,11 +2,58 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2025-06-01T10:52:00.000Z</updated>
+    <updated>2025-07-01T10:52:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[June 2025 News]]></title>
+        <id>https://metron-project.github.io/blog/june-2025-update</id>
+        <link href="https://metron-project.github.io/blog/june-2025-update"/>
+        <updated>2025-07-01T10:52:00.000Z</updated>
+        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
+        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
+<p>During June the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>45</strong></li>
+<li>Issues: <strong>1,786</strong></li>
+<li>Creators: <strong>228</strong></li>
+<li>Characters: <strong>448</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 id="final-order-cutoff-foc-dates">Final Order Cutoff (FOC) Dates</h2>
+<p>With Diamond <a href="https://www.comicsbeat.com/diamond-announces-print-previews-to-end/">announcing</a>
+they will stop printing their Previews, I had some comic industry people contact me about adding
+the Final Order Cutoff (FOC) dates to upcoming issue releases. With that information, users
+could use our API to create their pull lists. This was a fairly simple request, which won't
+affect most users (since my tools that import upcoming releases will handle it) and was
+<a href="https://github.com/Metron-Project/metron/pull/354">added</a> to the site on June 17th.</p>
+<p>One thing I still need to decide on is, whether to add new releases that don't have there final
+cover dressing released (Marvel, in particular, tends to release them <strong>really</strong> late) or not. If
+this was done, I would need to modify my tools to make it easier to update the issue covers with the
+final version when it is released, and most likely clean the sites cover cache more frequently.</p>
+<h2 id="darkseid--metron-tagger-release">Darkseid / Metron-Tagger Release</h2>
+<p>I spent a bit of time this month refactoring <a href="https://github.com/Metron-Project/darkseid">Darkseid</a>
+and <a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a> which should make it easier
+maintain and give a bit of a performance improvements. If you are interested in the changes, they
+are here:
+<a href="https://github.com/Metron-Project/darkseid/releases/tag/v6.0.0">Darkseid Release Notes</a> &amp;
+<a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v4.0.0">Metron-Tagger Release Notes</a></p>
+<h2 id="opencollective">OpenCollective</h2>
+<p>If you would like to help keep the lights on at the project, we have an account at
+<a href="https://opencollective.com/metron">Open Collective</a> to defray the servers costs and help with increasing future
+server capacity.</p>
+<p>Anyway, that's all I got for this month. Take care!</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="metadata" term="metadata"/>
+        <category label="metron" term="metron"/>
+        <category label="opencollective" term="opencollective"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[April / May 2025 Update]]></title>
         <id>https://metron-project.github.io/blog/april-may-2025-update</id>
@@ -976,31 +1023,6 @@ metadata from <a href="https://metron.cloud/">Metron</a>.</p>]]></content>
         <category label="database" term="database"/>
         <category label="metron" term="metron"/>
         <category label="metrontagger" term="metrontagger"/>
-        <category label="comictagger" term="comictagger"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Latest Happenings]]></title>
-        <id>https://metron-project.github.io/blog/latest-happenings</id>
-        <link href="https://metron-project.github.io/blog/latest-happenings"/>
-        <updated>2023-05-24T13:24:00.000Z</updated>
-        <summary type="html"><![CDATA[New Indexed Issues Milestone]]></summary>
-        <content type="html"><![CDATA[<h2 id="new-indexed-issues-milestone">New Indexed Issues Milestone</h2>
-<p>The <a href="https://metron.cloud/">Metron Project</a> reached a milestone today by having 65,000 issues added to its database. I wish to give big thanks to everyone who has helped with the project. Thanks!</p>
-<h2 id="post-api">POST API</h2>
-<p>Been spending the last few months working on a POST API to make it easier to add/update information on Metron. Currently it's only available to users with Adminstrators permissions, but later this year I'll look at the feasability of making it more readily available.</p>
-<h2 id="comic-vine-ids">Comic Vine ID's</h2>
-<p>Another project I've been working on is adding <a href="https://comicvine.gamespot.com/">Comic Vine</a> identification numbers to the various resource items. This should help users match items between the two data sources. Currently, about 40% of the issues have been updated with this information and with any luck the majority of issues will be finished by the end of the month.</p>
-<h2 id="comictagger">ComicTagger</h2>
-<p>One of the developers of <a href="https://github.com/comictagger/comictagger">Comic Tagger</a> has been working on adding support for tagging digital comics with data from Metron, and hopefully in the next couple of months that merged.</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="database" term="database"/>
-        <category label="series" term="series"/>
-        <category label="api" term="api"/>
-        <category label="comicvine" term="comicvine"/>
         <category label="comictagger" term="comictagger"/>
     </entry>
 </feed>
