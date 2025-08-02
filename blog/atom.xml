@@ -13,8 +13,8 @@
         <link href="https://metron-project.github.io/blog/june-2025-update"/>
         <updated>2025-07-01T10:52:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During June the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/june-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During June the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>45</strong></li>
 <li>Issues: <strong>1,786</strong></li>
@@ -22,27 +22,27 @@
 <li>Characters: <strong>448</strong></li>
 </ul>
 <p>Thanks to everyone that contributed!</p>
-<h2 id="final-order-cutoff-foc-dates">Final Order Cutoff (FOC) Dates</h2>
-<p>With Diamond <a href="https://www.comicsbeat.com/diamond-announces-print-previews-to-end/">announcing</a>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="final-order-cutoff-foc-dates">Final Order Cutoff (FOC) Dates<a href="https://metron-project.github.io/blog/june-2025-update#final-order-cutoff-foc-dates" class="hash-link" aria-label="Direct link to Final Order Cutoff (FOC) Dates" title="Direct link to Final Order Cutoff (FOC) Dates">​</a></h2>
+<p>With Diamond <a href="https://www.comicsbeat.com/diamond-announces-print-previews-to-end/" target="_blank" rel="noopener noreferrer">announcing</a>
 they will stop printing their Previews, I had some comic industry people contact me about adding
 the Final Order Cutoff (FOC) dates to upcoming issue releases. With that information, users
 could use our API to create their pull lists. This was a fairly simple request, which won't
 affect most users (since my tools that import upcoming releases will handle it) and was
-<a href="https://github.com/Metron-Project/metron/pull/354">added</a> to the site on June 17th.</p>
+<a href="https://github.com/Metron-Project/metron/pull/354" target="_blank" rel="noopener noreferrer">added</a> to the site on June 17th.</p>
 <p>One thing I still need to decide on is, whether to add new releases that don't have there final
 cover dressing released (Marvel, in particular, tends to release them <strong>really</strong> late) or not. If
 this was done, I would need to modify my tools to make it easier to update the issue covers with the
 final version when it is released, and most likely clean the sites cover cache more frequently.</p>
-<h2 id="darkseid--metron-tagger-release">Darkseid / Metron-Tagger Release</h2>
-<p>I spent a bit of time this month refactoring <a href="https://github.com/Metron-Project/darkseid">Darkseid</a>
-and <a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a> which should make it easier
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="darkseid--metron-tagger-release">Darkseid / Metron-Tagger Release<a href="https://metron-project.github.io/blog/june-2025-update#darkseid--metron-tagger-release" class="hash-link" aria-label="Direct link to Darkseid / Metron-Tagger Release" title="Direct link to Darkseid / Metron-Tagger Release">​</a></h2>
+<p>I spent a bit of time this month refactoring <a href="https://github.com/Metron-Project/darkseid" target="_blank" rel="noopener noreferrer">Darkseid</a>
+and <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a> which should make it easier
 maintain and give a bit of a performance improvements. If you are interested in the changes, they
 are here:
-<a href="https://github.com/Metron-Project/darkseid/releases/tag/v6.0.0">Darkseid Release Notes</a> &amp;
-<a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v4.0.0">Metron-Tagger Release Notes</a></p>
-<h2 id="opencollective">OpenCollective</h2>
+<a href="https://github.com/Metron-Project/darkseid/releases/tag/v6.0.0" target="_blank" rel="noopener noreferrer">Darkseid Release Notes</a> &amp;
+<a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v4.0.0" target="_blank" rel="noopener noreferrer">Metron-Tagger Release Notes</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/june-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective">​</a></h2>
 <p>If you would like to help keep the lights on at the project, we have an account at
-<a href="https://opencollective.com/metron">Open Collective</a> to defray the servers costs and help with increasing future
+<a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">Open Collective</a> to defray the servers costs and help with increasing future
 server capacity.</p>
 <p>Anyway, that's all I got for this month. Take care!</p>]]></content>
         <author>
@@ -62,8 +62,8 @@ server capacity.</p>
         <link href="https://metron-project.github.io/blog/april-may-2025-update"/>
         <updated>2025-06-01T10:52:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During April the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/april-may-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During April the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>49</strong></li>
 <li>Issues: <strong>3,051</strong></li>
@@ -78,11 +78,11 @@ server capacity.</p>
 <li>Characters: <strong>1,222</strong></li>
 </ul>
 <p>Thanks to everyone that contributed!</p>
-<h2 id="metron-tagger">Metron-Tagger</h2>
-<p>A couple of <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v3.4.0">new</a>
-<a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v3.5.0">releases</a>
-of <a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a> were made in April. They primarily consisted
-of the following new features from <a href="https://github.com/apetresc">Adrian Petrescu</a>:</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metron-tagger">Metron-Tagger<a href="https://metron-project.github.io/blog/april-may-2025-update#metron-tagger" class="hash-link" aria-label="Direct link to Metron-Tagger" title="Direct link to Metron-Tagger">​</a></h2>
+<p>A couple of <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v3.4.0" target="_blank" rel="noopener noreferrer">new</a>
+<a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v3.5.0" target="_blank" rel="noopener noreferrer">releases</a>
+of <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a> were made in April. They primarily consisted
+of the following new features from <a href="https://github.com/apetresc" target="_blank" rel="noopener noreferrer">Adrian Petrescu</a>:</p>
 <ul>
 <li>
 <p>If passing more than one comic when using the <code>--id</code> option it is assumed the id number is the Metron Series id. For
@@ -92,34 +92,34 @@ the odds of a match:</p>
 </li>
 <li>
 <p>Added a <code>--accept-only</code> option to automatically accept single valid matches, regardless of the
-cover <a href="https://en.wikipedia.org/wiki/Perceptual_hashing">phash</a> <a href="https://en.wikipedia.org/wiki/Hamming_distance">hamming distance</a>.</p>
+cover <a href="https://en.wikipedia.org/wiki/Perceptual_hashing" target="_blank" rel="noopener noreferrer">phash</a> <a href="https://en.wikipedia.org/wiki/Hamming_distance" target="_blank" rel="noopener noreferrer">hamming distance</a>.</p>
 </li>
 </ul>
-<h2 id="documentation">Documentation</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="documentation">Documentation<a href="https://metron-project.github.io/blog/april-may-2025-update#documentation" class="hash-link" aria-label="Direct link to Documentation" title="Direct link to Documentation">​</a></h2>
 <p>Currently, the documentation for Metron is
-using <a href="https://www.djangoproject.com/">Django's</a> <a href="https://docs.djangoproject.com/en/5.2/ref/contrib/flatpages/">flatpages</a>,
+using <a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">Django's</a> <a href="https://docs.djangoproject.com/en/5.2/ref/contrib/flatpages/" target="_blank" rel="noopener noreferrer">flatpages</a>,
 which isn't great since it's very bare-bones, and I'd need to muck around with account permissions for regular users
 to edit them.</p>
-<p>So, I'm planning to add <a href="https://github.com/django-wiki/django-wiki">django-wiki</a> to the site to handle the
+<p>So, I'm planning to add <a href="https://github.com/django-wiki/django-wiki" target="_blank" rel="noopener noreferrer">django-wiki</a> to the site to handle the
 documentation, since it fixes the short-comings of using flatpages. Unfortunately, to have it not stick out like a
 sore-thumb compared to the rest of the site, I'll need
-to <a href="https://docs.djangoproject.com/en/5.2/howto/overriding-templates/">override the templates</a> for that app. To make
-matters more difficult, <a href="https://github.com/lemonsaurus/django-simple-bulma">django-simple-bulma</a> still uses v0.9.4
+to <a href="https://docs.djangoproject.com/en/5.2/howto/overriding-templates/" target="_blank" rel="noopener noreferrer">override the templates</a> for that app. To make
+matters more difficult, <a href="https://github.com/lemonsaurus/django-simple-bulma" target="_blank" rel="noopener noreferrer">django-simple-bulma</a> still uses v0.9.4
 instead of v1.0.*, so that will need to be updated first (since I don't want to override django-wiki's templates
-twice). I've started working on doing <a href="https://github.com/lemonsaurus/django-simple-bulma/pull/107">that</a>, but since
+twice). I've started working on doing <a href="https://github.com/lemonsaurus/django-simple-bulma/pull/107" target="_blank" rel="noopener noreferrer">that</a>, but since
 upstream's (and mine) free time is fairly limited there isn't an ETA when that will happen. 😥</p>
-<h2 id="trade-paperbacks">Trade Paperbacks</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="trade-paperbacks">Trade Paperbacks<a href="https://metron-project.github.io/blog/april-may-2025-update#trade-paperbacks" class="hash-link" aria-label="Direct link to Trade Paperbacks" title="Direct link to Trade Paperbacks">​</a></h2>
 <p>Tying into the above topic, one constant source of confusion on the site is the handling of Trade Paperbacks (which
 is mainly due to the industries inconsistent handling of them over the last 30+ years). So, until better
 documentation on their handling is written, adding new TPB series has been temporarily <em>disabled</em>. I don't have
 an ETA when they'll be written (truthfully, I don't have much interest in TPB's), so if you'd like to help out
 writing them, contact me.</p>
-<h2 id="miscellaneous">Miscellaneous</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="miscellaneous">Miscellaneous<a href="https://metron-project.github.io/blog/april-may-2025-update#miscellaneous" class="hash-link" aria-label="Direct link to Miscellaneous" title="Direct link to Miscellaneous">​</a></h2>
 <ul>
 <li><code>Translator</code> was added as an option for a creator role.</li>
 </ul>
-<h2 id="opencollective">OpenCollective</h2>
-<p>If you would like to help the project, we have an account at <a href="https://opencollective.com/metron">Open Collective</a> to
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/april-may-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective">​</a></h2>
+<p>If you would like to help the project, we have an account at <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">Open Collective</a> to
 defray the servers costs and help with increasing future server capacity.</p>
 <p>Anyway, that's all I got for this month. Take care!</p>]]></content>
         <author>
@@ -137,8 +137,8 @@ defray the servers costs and help with increasing future server capacity.</p>
         <link href="https://metron-project.github.io/blog/march-2025-update"/>
         <updated>2025-04-01T08:38:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During March the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/march-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During March the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>55</strong></li>
 <li>Issues: <strong>4,564</strong></li>
@@ -146,20 +146,20 @@ defray the servers costs and help with increasing future server capacity.</p>
 <li>Characters: <strong>1,470</strong></li>
 </ul>
 <p>Thanks to everyone that contributed!</p>
-<h2 id="rate-limiting">Rate Limiting</h2>
-<p>On March 10th, the <a href="https://en.wikipedia.org/wiki/API">API</a> rate limit for the site was modified by adding another limit
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="rate-limiting">Rate Limiting<a href="https://metron-project.github.io/blog/march-2025-update#rate-limiting" class="hash-link" aria-label="Direct link to Rate Limiting" title="Direct link to Rate Limiting">​</a></h2>
+<p>On March 10th, the <a href="https://en.wikipedia.org/wiki/API" target="_blank" rel="noopener noreferrer">API</a> rate limit for the site was modified by adding another limit
 of 10,000 requests per day to the existing limit of 30 requests per minute. Most users shouldn't see any change, but
 this will allow the site to better manage a sudden influx of new users like what happened when Comic Vine went down last
 fall.</p>
-<h2 id="recent-work">Recent Work</h2>
-<p>Finished working on an <a href="https://codeberg.org/bpepple/barda">internal tool</a> that uses Metron's POST API to add series to
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="recent-work">Recent Work<a href="https://metron-project.github.io/blog/march-2025-update#recent-work" class="hash-link" aria-label="Direct link to Recent Work" title="Direct link to Recent Work">​</a></h2>
+<p>Finished working on an <a href="https://codeberg.org/bpepple/barda" target="_blank" rel="noopener noreferrer">internal tool</a> that uses Metron's POST API to add series to
 the database, and have chosen a handful of users to give the appropriate permissions needed to run it. With any luck,
 this should free up some of my time so that I can spend more time working on the site's code.</p>
 <p>One side effect of allowing some users to use the POST API is that I needed to <em>disable</em> the ability to create creators
 from the issue form. This is something I had already been thinking about doing, since it had created a fairly annoying
 amount of extra work on my end to remove the duplicate entries that had been created in error.</p>
-<h2 id="opencollective">OpenCollective</h2>
-<p>We've recently set up an account at <a href="https://opencollective.com/metron">Open Collective</a> if you wish to help defray the
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/march-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective">​</a></h2>
+<p>We've recently set up an account at <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">Open Collective</a> if you wish to help defray the
 server costs and help with increasing future server capacity. Any help would be greatly appreciated.</p>
 <p>Anyway, that's all I got for this month. Take care!</p>]]></content>
         <author>
@@ -177,8 +177,8 @@ server costs and help with increasing future server capacity. Any help would be 
         <link href="https://metron-project.github.io/blog/february-2025-update"/>
         <updated>2025-03-01T10:38:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During February the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/february-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During February the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>51</strong></li>
 <li>Issues: <strong>2,674</strong></li>
@@ -186,49 +186,26 @@ server costs and help with increasing future server capacity. Any help would be 
 <li>Characters: <strong>879</strong></li>
 </ul>
 <p>Thanks to everyone that contributed!</p>
-<h2 id="recent-work">Recent Work</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="recent-work">Recent Work<a href="https://metron-project.github.io/blog/february-2025-update#recent-work" class="hash-link" aria-label="Direct link to Recent Work" title="Direct link to Recent Work">​</a></h2>
 <p>One of my goals for 2025 was to make the project less dependent on me, and for most of this month I've been working on
 the tooling to allowing some users to use the POST API to add comics to the database. This will allow other folks to
-handle <a href="https://github.com/Metron-Project/metron/discussions/306">requests</a> to add series to Metron. With luck, I should
+handle <a href="https://github.com/Metron-Project/metron/discussions/306" target="_blank" rel="noopener noreferrer">requests</a> to add series to Metron. With luck, I should
 finish next month, and I'll start looking at what users to promote.</p>
-<h2 id="comic-book-reading-lists">Comic Book Reading Lists</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="comic-book-reading-lists">Comic Book Reading Lists<a href="https://metron-project.github.io/blog/february-2025-update#comic-book-reading-lists" class="hash-link" aria-label="Direct link to Comic Book Reading Lists" title="Direct link to Comic Book Reading Lists">​</a></h2>
 <p>Recently, I've been looking at Comic Book Reading Lists since
-a <a href="https://github.com/Metron-Project/metron/issues/302">bug report</a> was opened to add support for generating them.
-Currently, users use <a href="https://github.com/DieselTech/CBL-ReadingLists">CBL's</a> that are imported into their comic server
-of choice (<a href="https://www.kavitareader.com/">Kavita</a>, <a href="https://github.com/ajslater/codex">Codex</a>, etc.), which seems
+a <a href="https://github.com/Metron-Project/metron/issues/302" target="_blank" rel="noopener noreferrer">bug report</a> was opened to add support for generating them.
+Currently, users use <a href="https://github.com/DieselTech/CBL-ReadingLists" target="_blank" rel="noopener noreferrer">CBL's</a> that are imported into their comic server
+of choice (<a href="https://www.kavitareader.com/" target="_blank" rel="noopener noreferrer">Kavita</a>, <a href="https://github.com/ajslater/codex" target="_blank" rel="noopener noreferrer">Codex</a>, etc.), which seems
 non-optimal primarily since, in essence, it's another database of information. Now, this makes sense, since for a long
-time the only source of usable data via an API was <a href="https://comicvine.gamespot.com/">Comic Vine</a>, which hasn't had a
+time the only source of usable data via an API was <a href="https://comicvine.gamespot.com/" target="_blank" rel="noopener noreferrer">Comic Vine</a>, which hasn't had a
 developer presence in <em>years</em>, and having a new feature added to their site is <strong>extremely</strong> unlikely.</p>
-<p>I think a better solution would be for the other databases that offer an API (<a href="https://www.comics.org/api/">GCD</a> &amp;
-Metron) to have the option for users to create reading lists (similar to <a href="https://www.themoviedb.org/">MovieDB</a>) and
+<p>I think a better solution would be for the other databases that offer an API (<a href="https://www.comics.org/api/" target="_blank" rel="noopener noreferrer">GCD</a> &amp;
+Metron) to have the option for users to create reading lists (similar to <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">MovieDB</a>) and
 have that data available either by generating a file or through an API call. Now, to do this we would need to work with
 the comic server developers to determine exactly what data they would need, though it would probably look similar to
 this:</p>
-<pre><code class="language-shell">{
-  "arc": {
-    "name": "Foo Bar Wars"
-  }
-  "issues": {
-    "issue": {
-      "id": {
-      "cv_id": 9999
-      "metron": 5678
-      "gcd": 9856
-      }
-      "index": 0
-    }
-    "issue": {
-      "id": {
-      "cv_id": 12345
-      "metron": 9999
-      "gcd": 123
-      }
-      "index": 1
-    }
-  }
-}
-</code></pre>
-<p>The current standard (CBL) and the recent <a href="https://github.com/ComicReadingLists/json-cbl-standard">json-cbl-standard</a>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  "arc": {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    "name": "Foo Bar Wars"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  "issues": {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    "issue": {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      "id": {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      "cv_id": 9999</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      "metron": 5678</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      "gcd": 9856</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      "index": 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    "issue": {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      "id": {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      "cv_id": 12345</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      "metron": 9999</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      "gcd": 123</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      "index": 1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre></div></div>
+<p>The current standard (CBL) and the recent <a href="https://github.com/ComicReadingLists/json-cbl-standard" target="_blank" rel="noopener noreferrer">json-cbl-standard</a>
 contains a look of information that I can't see a comic server needing, primarily all the series-level info which the
 comic servers should already have in their databases. Of course, I'd love to hear from any developer in this space to
 verify that.</p>
@@ -237,21 +214,21 @@ Metron links other sites issue id's (GCD would be able to use Metron's API to li
 information).</p>
 <p>Anyway, those are some of my quick thoughts on what the future of Comic Book Reading Lists could look like, and if
 anyone has interest in working on this potential future project, contact me
-on <a href="https://github.com/Metron-Project/metron">GitHub</a>
-or <a href="https://matrix.to/#/#metron-general:matrix.org">Matrix</a>.</p>
-<h2 id="rate-limiting">Rate Limiting</h2>
+on <a href="https://github.com/Metron-Project/metron" target="_blank" rel="noopener noreferrer">GitHub</a>
+or <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer">Matrix</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="rate-limiting">Rate Limiting<a href="https://metron-project.github.io/blog/february-2025-update#rate-limiting" class="hash-link" aria-label="Direct link to Rate Limiting" title="Direct link to Rate Limiting">​</a></h2>
 <p>One thing I've been debating is whether to modify our Rate Limiting policy. The primary reason for this is there are a
 <em>lot</em> of user that hammer the API for 24+ hours straight for days on end, and I'm contemplating <em>adding</em> a total
 number of API hits per day (maybe something like 10,000) in <em>addition</em> to the 30/hour to ease the server load.</p>
 <p>Now doing this will make it a bit harder implement to write software for the API since the developer will need to track
 the API rate between sessions, but there are libraries
-like <a href="https://pyratelimiter.readthedocs.io/en/latest/">pyrate-limiter</a> which use a SQLite or Redis backend to make
+like <a href="https://pyratelimiter.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">pyrate-limiter</a> which use a SQLite or Redis backend to make
 this easier to implement.</p>
 <p>Anyway, this is something I'm just mulling over and if you want to weigh-in you can
-on <a href="https://matrix.to/#/#metron-general:matrix.org">Matrix</a> or in
-a <a href="https://github.com/Metron-Project/metron/discussions">GitHub Discussion</a>.</p>
-<h2 id="opencollective">OpenCollective</h2>
-<p>We've recently set up an account at <a href="https://opencollective.com/metron">Open Collective</a> if you wish to help defray the
+on <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer">Matrix</a> or in
+a <a href="https://github.com/Metron-Project/metron/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussion</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/february-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective">​</a></h2>
+<p>We've recently set up an account at <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">Open Collective</a> if you wish to help defray the
 server costs and help with increasing future server capacity. Any help would be greatly appreciated.</p>
 <p>Anyway, that's all I got for this month. Take care!</p>]]></content>
         <author>
@@ -274,8 +251,8 @@ server costs and help with increasing future server capacity. Any help would be 
         <link href="https://metron-project.github.io/blog/january-2025-update"/>
         <updated>2025-02-01T10:38:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During January the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/january-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During January the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>52</strong></li>
 <li>Issues: <strong>1,038</strong></li>
@@ -283,34 +260,34 @@ server costs and help with increasing future server capacity. Any help would be 
 <li>Characters: <strong>326</strong></li>
 </ul>
 <p>Thanks to everyone that contributed!</p>
-<h2 id="grand-comics-database-gcd-ids">Grand Comics Database (GCD) IDs</h2>
-<p>Recently support for <a href="https://www.comics.org/">GCD</a> ID support was added and currently about 92% of the issues on the
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="grand-comics-database-gcd-ids">Grand Comics Database (GCD) IDs<a href="https://metron-project.github.io/blog/january-2025-update#grand-comics-database-gcd-ids" class="hash-link" aria-label="Direct link to Grand Comics Database (GCD) IDs" title="Direct link to Grand Comics Database (GCD) IDs">​</a></h2>
+<p>Recently support for <a href="https://www.comics.org/" target="_blank" rel="noopener noreferrer">GCD</a> ID support was added and currently about 92% of the issues on the
 site has had them added.</p>
-<h2 id="alternative--legacy-numbering">Alternative / Legacy Numbering</h2>
-<p>Recently, Metron <a href="https://github.com/Metron-Project/metron/pull/330">added</a> a new field to track alternative / legacy
-numbering, which are used primarily with <a href="https://www.dc.com/comics">DC</a> &amp; <a href="https://www.marvel.com/comics">Marvel</a>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="alternative--legacy-numbering">Alternative / Legacy Numbering<a href="https://metron-project.github.io/blog/january-2025-update#alternative--legacy-numbering" class="hash-link" aria-label="Direct link to Alternative / Legacy Numbering" title="Direct link to Alternative / Legacy Numbering">​</a></h2>
+<p>Recently, Metron <a href="https://github.com/Metron-Project/metron/pull/330" target="_blank" rel="noopener noreferrer">added</a> a new field to track alternative / legacy
+numbering, which are used primarily with <a href="https://www.dc.com/comics" target="_blank" rel="noopener noreferrer">DC</a> &amp; <a href="https://www.marvel.com/comics" target="_blank" rel="noopener noreferrer">Marvel</a>
 comics with their long-running characters.</p>
 <p>In addition, I've also made changes to the filter so that issue numbers will be <em>not</em> case-sensitive when searched,
 which will improve matching for issue
-like <a href="https://metron.cloud/issue/the-amazing-spider-man-2022-65deaths/">The Amazing Spider-Man (2022) #65.DEATHS</a>.</p>
+like <a href="https://metron.cloud/issue/the-amazing-spider-man-2022-65deaths/" target="_blank" rel="noopener noreferrer">The Amazing Spider-Man (2022) #65.DEATHS</a>.</p>
 <p>I'm planning to add a new param to the API that will allow you to search the number <em>and</em> alternative number fields at
 the same time, but there isn't an ETA when that will be added.</p>
-<h2 id="url-redirects">URL Redirects</h2>
-<p>Recently, support for <a href="https://github.com/Metron-Project/metron/pull/321">ID URL Redirects</a> was added, so if you know
-the Metron ID number for an issue it will redirect to the correct page. For example, <a href="https://metron.cloud/issue/133777/">https://metron.cloud/issue/133777/</a>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="url-redirects">URL Redirects<a href="https://metron-project.github.io/blog/january-2025-update#url-redirects" class="hash-link" aria-label="Direct link to URL Redirects" title="Direct link to URL Redirects">​</a></h2>
+<p>Recently, support for <a href="https://github.com/Metron-Project/metron/pull/321" target="_blank" rel="noopener noreferrer">ID URL Redirects</a> was added, so if you know
+the Metron ID number for an issue it will redirect to the correct page. For example, <a href="https://metron.cloud/issue/133777/" target="_blank" rel="noopener noreferrer">https://metron.cloud/issue/133777/</a>
 will redirect you to the detail page for <code>The Amazing Spider-Man (2022) #66</code>.</p>
-<h2 id="digital-releases">Digital Releases</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="digital-releases">Digital Releases<a href="https://metron-project.github.io/blog/january-2025-update#digital-releases" class="hash-link" aria-label="Direct link to Digital Releases" title="Direct link to Digital Releases">​</a></h2>
 <p>Recently a decision was made not to include digital releases that are 5 pages or less, like
-the <a href="https://comicvine.gamespot.com/search/?header=1&amp;i=volume&amp;q=legacy%20primer%20page">Marvel Legacy Primer Pages</a>. If
+the <a href="https://comicvine.gamespot.com/search/?header=1&amp;i=volume&amp;q=legacy%20primer%20page" target="_blank" rel="noopener noreferrer">Marvel Legacy Primer Pages</a>. If
 you have questions whether a release should be added or not, you can ask on
-the <a href="https://github.com/Metron-Project/metron/discussions">Discussions Page</a> or
-on <a href="https://matrix.to/#/#metron-general:matrix.org">Matrix</a>.</p>
-<h2 id="international-support">International Support</h2>
+the <a href="https://github.com/Metron-Project/metron/discussions" target="_blank" rel="noopener noreferrer">Discussions Page</a> or
+on <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer">Matrix</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="international-support">International Support<a href="https://metron-project.github.io/blog/january-2025-update#international-support" class="hash-link" aria-label="Direct link to International Support" title="Direct link to International Support">​</a></h2>
 <p>In the effort to add support to the site for Non-US publishers, a <code>country</code> field has been added to the
 Publisher model, though only the United States will be valid. Modifying the <code>price</code> field for an issue to handle
 different currencies still needs to be done, but with some luck I'll find some time to do it this year.</p>
-<h2 id="opencollective">OpenCollective</h2>
-<p>We've recently set up an account at <a href="https://opencollective.com/">Open Collective</a> if you wish to help defray the server
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/january-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective">​</a></h2>
+<p>We've recently set up an account at <a href="https://opencollective.com/" target="_blank" rel="noopener noreferrer">Open Collective</a> if you wish to help defray the server
 costs and help with increasing future server capacity.</p>
 <p>Anyway, I think that covers most of the changes to the site that were made this month. Take care!</p>]]></content>
         <author>
@@ -331,16 +308,16 @@ costs and help with increasing future server capacity.</p>
         <link href="https://metron-project.github.io/blog/december-2024-update"/>
         <updated>2025-01-01T15:52:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During December the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/december-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During December the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>39</strong></li>
 <li>Issues: <strong>823</strong></li>
 <li>Creators: <strong>259</strong></li>
 <li>Characters: <strong>413</strong></li>
 </ul>
-<h2 id="2024-annual-statistics">2024 Annual Statistics</h2>
-<p>During 2024 the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2024-annual-statistics">2024 Annual Statistics<a href="https://metron-project.github.io/blog/december-2024-update#2024-annual-statistics" class="hash-link" aria-label="Direct link to 2024 Annual Statistics" title="Direct link to 2024 Annual Statistics">​</a></h2>
+<p>During 2024 the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>566</strong></li>
 <li>Issues: <strong>33,784</strong></li>
@@ -348,20 +325,20 @@ costs and help with increasing future server capacity.</p>
 <li>Characters: <strong>7,748</strong></li>
 </ul>
 <p>Thanks to everyone that contributed!</p>
-<h2 id="grand-comics-database-gcd-id-support">Grand Comics Database (GCD) ID Support</h2>
-<p>Recently support for <a href="https://www.comics.org/">GCD</a> ID's was added to the site, and we've currently linked about 50% of
-the issues on the <a href="https://metron.cloud/">site</a>, and with luck, should be completed in the next week or so.</p>
-<h2 id="potential-january-projects">Potential January Projects</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="grand-comics-database-gcd-id-support">Grand Comics Database (GCD) ID Support<a href="https://metron-project.github.io/blog/december-2024-update#grand-comics-database-gcd-id-support" class="hash-link" aria-label="Direct link to Grand Comics Database (GCD) ID Support" title="Direct link to Grand Comics Database (GCD) ID Support">​</a></h2>
+<p>Recently support for <a href="https://www.comics.org/" target="_blank" rel="noopener noreferrer">GCD</a> ID's was added to the site, and we've currently linked about 50% of
+the issues on the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">site</a>, and with luck, should be completed in the next week or so.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="potential-january-projects">Potential January Projects<a href="https://metron-project.github.io/blog/december-2024-update#potential-january-projects" class="hash-link" aria-label="Direct link to Potential January Projects" title="Direct link to Potential January Projects">​</a></h2>
 <p>I'm looking at some small projects to work on in January, and some potential ones I'm thinking about are:</p>
 <ul>
 <li>Add Legacy Numbering field</li>
 <li>Alternative Series Name field</li>
 <li>Advanced Resources (Series, Issues, etc) Search</li>
-<li><a href="https://github.com/Metron-Project/metron/issues/180">Resource ID URLS</a></li>
+<li><a href="https://github.com/Metron-Project/metron/issues/180" target="_blank" rel="noopener noreferrer">Resource ID URLS</a></li>
 </ul>
 <p>Not sure which ones (or any) will be implemented, but I'm planning to dig into them a bit more in the next few weeks.</p>
-<h2 id="opencollective">OpenCollective</h2>
-<p>We've recently set up an account at <a href="https://opencollective.com/">Open Collective</a> if you wish to help defray the server
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/december-2024-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective">​</a></h2>
+<p>We've recently set up an account at <a href="https://opencollective.com/" target="_blank" rel="noopener noreferrer">Open Collective</a> if you wish to help defray the server
 costs and help with increasing future server capacity.</p>
 <p>Anyway, that's all I got for now, hope everyone had a great holiday and are enjoying New Years day. Take Care!</p>]]></content>
         <author>
@@ -383,14 +360,14 @@ costs and help with increasing future server capacity.</p>
         <summary type="html"><![CDATA[One of the items I've been asked about the most for the project, especially when Comic Vine goes down, is how to donate]]></summary>
         <content type="html"><![CDATA[<p>One of the items I've been asked about the most for the project, especially when Comic Vine goes down, is how to donate
 to the project to help the server keep up with the demands from our users. Well, I finally found some time yesterday to
-set up an account with <a href="https://opencollective.com/metron">Open Collective</a>, so the project can now accept donations to
+set up an account with <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">Open Collective</a>, so the project can now accept donations to
 help cover server and development costs. The page currently doesn't have much beyond some basic financial contributions
 options, but once I read through the documentation a bit more I'll look into filling it out a bit more.</p>
-<p>I've been <a href="https://github.com/Metron-Project/metron/discussions/188">asked</a> about adding a paid tiered for an increase
+<p>I've been <a href="https://github.com/Metron-Project/metron/discussions/188" target="_blank" rel="noopener noreferrer">asked</a> about adding a paid tiered for an increase
 in the API rate limit, but at this time I'm not planning on adding that, but who knows maybe sometime in the future if
 there is enough demand (and I have the time to implement it) it might be worthwhile to pursue.</p>
-<p>If you have any questions or suggestions, don't hesitate to <a href="mailto:bpepple@metron.cloud">e-mail me</a> or ping me
-on <a href="https://matrix.to/#/#metron-general:matrix.org">Matrix</a>.</p>]]></content>
+<p>If you have any questions or suggestions, don't hesitate to <a href="mailto:bpepple@metron.cloud" target="_blank" rel="noopener noreferrer">e-mail me</a> or ping me
+on <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer">Matrix</a>.</p>]]></content>
         <author>
             <name>Brian Pepple</name>
             <uri>https://github.com/bpepple</uri>
@@ -404,8 +381,8 @@ on <a href="https://matrix.to/#/#metron-general:matrix.org">Matrix</a>.</p>]]></
         <link href="https://metron-project.github.io/blog/november-2024-update"/>
         <updated>2024-12-01T15:52:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During November the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/november-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During November the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>31</strong></li>
 <li>Issues: <strong>2,210</strong></li>
@@ -413,9 +390,9 @@ on <a href="https://matrix.to/#/#metron-general:matrix.org">Matrix</a>.</p>]]></
 <li>Characters: <strong>426</strong></li>
 </ul>
 <p>Thanks to everyone that contributed!</p>
-<h2 id="metron-tagger-v310">Metron-Tagger v3.1.0</h2>
-<p>I released a new <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v3.1.0">version</a>
-of <a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a> today that adds the ability to migrate data from a
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metron-tagger-v310">Metron-Tagger v3.1.0<a href="https://metron-project.github.io/blog/november-2024-update#metron-tagger-v310" class="hash-link" aria-label="Direct link to Metron-Tagger v3.1.0" title="Direct link to Metron-Tagger v3.1.0">​</a></h2>
+<p>I released a new <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v3.1.0" target="_blank" rel="noopener noreferrer">version</a>
+of <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a> today that adds the ability to migrate data from a
 comic that contains a <code>ComicInfo.xml</code>.</p>
 <p>The conversion from <code>ComicInfo.xml</code> -&gt; <code>MetronInfo.xml</code> does have some caveats though:</p>
 <ul>
@@ -423,35 +400,33 @@ comic that contains a <code>ComicInfo.xml</code>.</p>
 a story call <em>"Babs: True Blue, I Love You"</em> and it was originally written with a tool other than Metron-Tagger it
 will split the story into two element items: <em>Babs: True Blue</em> and <em>I Love You</em> .</li>
 <li>Ratings.
-We <a href="https://github.com/Metron-Project/darkseid/blob/2abac78a972a460482cf48be4580295179f45ffe/darkseid/metroninfo.py#L138">map</a>
+We <a href="https://github.com/Metron-Project/darkseid/blob/2abac78a972a460482cf48be4580295179f45ffe/darkseid/metroninfo.py#L138" target="_blank" rel="noopener noreferrer">map</a>
 these to the enums used in MetronInfo, but it's not perfect since the ComicInfo documentation isn't terribly clear how
 it defines it values, so if you feel our mapping is incorrect please notify us and explain what it should be. Also,
 I've seen some users use non-valid values which obviously won't work.</li>
 <li>Series Format. We've also done our best
-to <a href="https://github.com/Metron-Project/darkseid/blob/2abac78a972a460482cf48be4580295179f45ffe/darkseid/metroninfo.py#L148">map</a>
+to <a href="https://github.com/Metron-Project/darkseid/blob/2abac78a972a460482cf48be4580295179f45ffe/darkseid/metroninfo.py#L148" target="_blank" rel="noopener noreferrer">map</a>
 the series format, but this is even <em>less</em> defined the age rating since this is just a text element in the schema, and
 could be anything. We've used
-the <a href="https://github.com/comictagger/comictagger/blob/5df935915140d2dd443efd0ee5a5619726a95e48/comictaggerlib/taggerwindow.py#L1436">values</a>
+the <a href="https://github.com/comictagger/comictagger/blob/5df935915140d2dd443efd0ee5a5619726a95e48/comictaggerlib/taggerwindow.py#L1436" target="_blank" rel="noopener noreferrer">values</a>
 in Comic-Tagger to handle the conversion, but this isn't perfect.</li>
 </ul>
 <p>To migrate your <code>ComicInfo.xml</code> to <code>MetronInfo.xml</code> without any online lookup would simply run:</p>
-<pre><code>metron-tagger --migrate /path/to/comics
-</code></pre>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">metron-tagger --migrate /path/to/comics</span><br></span></code></pre></div></div>
 <p>If you wanted to tag you comics with data from the Metron Comic Book Database, and migrate the data from the existing
 <code>ComicInfo.xml</code> for those comics not on Metron, you would run:</p>
-<pre><code>metron-tagger -om --migrate /path/to/comics
-</code></pre>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">metron-tagger -om --migrate /path/to/comics</span><br></span></code></pre></div></div>
 <p>If you run across any bugs or have suggestions for improvements, please file
-a <a href="https://github.com/Metron-Project/metron-tagger/issues/new/choose">Bug Report or Feature Request</a>.</p>
-<h2 id="server-upgrade">Server Upgrade</h2>
-<p>Finally got around to <a href="https://metron-project.github.io/blog/october-2024-update#server-os-upgrade">upgrading</a> the
+a <a href="https://github.com/Metron-Project/metron-tagger/issues/new/choose" target="_blank" rel="noopener noreferrer">Bug Report or Feature Request</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="server-upgrade">Server Upgrade<a href="https://metron-project.github.io/blog/november-2024-update#server-upgrade" class="hash-link" aria-label="Direct link to Server Upgrade" title="Direct link to Server Upgrade">​</a></h2>
+<p>Finally got around to <a href="https://metron-project.github.io/blog/october-2024-update#server-os-upgrade" target="_blank" rel="noopener noreferrer">upgrading</a> the
 server, and it was fairly uneventful. Yay! 🎉</p>
-<h2 id="opencollective">OpenCollective</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/november-2024-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective">​</a></h2>
 <p>The main repository has finally reached 100 stars, and so most likely in the next week or two, I'll set up a funding
-option at <a href="https://opencollective.com/">Open Collective</a> to help defray the server costs and help with increasing future
+option at <a href="https://opencollective.com/" target="_blank" rel="noopener noreferrer">Open Collective</a> to help defray the server costs and help with increasing future
 server capacity.</p>
-<h2 id="future">Future</h2>
-<p>Now the bulk of the work is done with getting the <a href="https://github.com/Metron-Project/metroninfo">MetronInfo</a> out the
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="future">Future<a href="https://metron-project.github.io/blog/november-2024-update#future" class="hash-link" aria-label="Direct link to Future" title="Direct link to Future">​</a></h2>
+<p>Now the bulk of the work is done with getting the <a href="https://github.com/Metron-Project/metroninfo" target="_blank" rel="noopener noreferrer">MetronInfo</a> out the
 door and some initial tooling to generate them, I'm planning to work on some low-hanging bugs with the website over the next month
 or so, before starting any large scale projects.</p>
 <p>Anyway, that's all I've got for this month. Take care!</p>]]></content>
@@ -473,12 +448,12 @@ or so, before starting any large scale projects.</p>
         <updated>2024-11-22T11:45:00.000Z</updated>
         <summary type="html"><![CDATA[I'm happy to announce the v1.0 of the]]></summary>
         <content type="html"><![CDATA[<p>I'm happy to announce the v1.0 of the
-<a href="https://raw.githubusercontent.com/Metron-Project/metroninfo/refs/heads/master/schema/v1.0/MetronInfo.xsd">MetronInfo schema</a>
+<a href="https://raw.githubusercontent.com/Metron-Project/metroninfo/refs/heads/master/schema/v1.0/MetronInfo.xsd" target="_blank" rel="noopener noreferrer">MetronInfo schema</a>
 has been finalized and is now ready to be used by developers and consumers. So, I'll start off by answering some
 questions (most of this will be from the projects README).</p>
-<h2 id="what-is-it">What is it?</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-it">What is it?<a href="https://metron-project.github.io/blog/metroninfo-v1#what-is-it" class="hash-link" aria-label="Direct link to What is it?" title="Direct link to What is it?">​</a></h2>
 <p>MetronInfo is a <em>new</em> xml document type that fixes some deficiencies that exist in the current de facto xml
-file, <a href="https://github.com/anansi-project/comicinfo">ComicInfo.xml</a>, to store metadata for a comic. Some of our
+file, <a href="https://github.com/anansi-project/comicinfo" target="_blank" rel="noopener noreferrer">ComicInfo.xml</a>, to store metadata for a comic. Some of our
 improvements include:</p>
 <ul>
 <li>Addition elements to track information that are not included with the current standard.</li>
@@ -486,55 +461,41 @@ improvements include:</p>
 <li>Elements to track where the data was obtained from.</li>
 <li><code>id</code> attributes for resources (Characters, Creators, etc.), so items with different names can be associated correctly.</li>
 </ul>
-<h2 id="is-the-schema-only-for-the-metron-database">Is the schema only for the Metron Database?</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="is-the-schema-only-for-the-metron-database">Is the schema only for the Metron Database?<a href="https://metron-project.github.io/blog/metroninfo-v1#is-the-schema-only-for-the-metron-database" class="hash-link" aria-label="Direct link to Is the schema only for the Metron Database?" title="Direct link to Is the schema only for the Metron Database?">​</a></h2>
 <p>No, the schema only has <em>Metron</em> in the name since almost every other format has <em>Comic</em> in the name, and the
 originating author hates naming projects, so he went with the simplest choice. 😄 It was designed to be used for any of
 the comic resources (Comic Vine, AniList, etc.)</p>
-<h2 id="where-can-i-find-the-schemas">Where can I find the schemas?</h2>
-<p>Version 1.0 of the schema is located in <a href="https://github.com/Metron-Project/metroninfo/tree/master/schema">schema</a>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="where-can-i-find-the-schemas">Where can I find the schemas?<a href="https://metron-project.github.io/blog/metroninfo-v1#where-can-i-find-the-schemas" class="hash-link" aria-label="Direct link to Where can I find the schemas?" title="Direct link to Where can I find the schemas?">​</a></h2>
+<p>Version 1.0 of the schema is located in <a href="https://github.com/Metron-Project/metroninfo/tree/master/schema" target="_blank" rel="noopener noreferrer">schema</a>
 directory</p>
-<h2 id="is-there-documentation-for-it">Is there documentation for it?</h2>
-<p>Yes, there is <a href="https://metron-project.github.io/docs/category/metroninfo">documentation</a> describing the elements usage
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="is-there-documentation-for-it">Is there documentation for it?<a href="https://metron-project.github.io/blog/metroninfo-v1#is-there-documentation-for-it" class="hash-link" aria-label="Direct link to Is there documentation for it?" title="Direct link to Is there documentation for it?">​</a></h2>
+<p>Yes, there is <a href="https://metron-project.github.io/docs/category/metroninfo" target="_blank" rel="noopener noreferrer">documentation</a> describing the elements usage
 and also a Matrix to help with age rating mapping.</p>
-<h2 id="how-can-i-validate-my-xml">How can I validate my XML?</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-can-i-validate-my-xml">How can I validate my XML?<a href="https://metron-project.github.io/blog/metroninfo-v1#how-can-i-validate-my-xml" class="hash-link" aria-label="Direct link to How can I validate my XML?" title="Direct link to How can I validate my XML?">​</a></h2>
 <p>It's recommended that any software that writes the XML make use of the schema to validate, so consumers of the XML
 document can be sure of its data. The schema use XSD 1.1, so you need to make sure your validation code uses that
 instead of XSD 1.0.</p>
 <p>For example to validate the XML in python:</p>
-<pre><code class="language-python">from pathlib import Path
-from xmlschema import XMLSchema11, XMLSchemaValidationError
-
-xsd = Path("/home/user/MetronInfo.xsd")
-xml = Path("/home/user/MetronInfo.xml")
-
-schema = XMLSchema11(xsd)
-try:
-    schema.validate(xml)
-except XMLSchemaValidationError as e:
-    print(f"Failed to validate XML: {e!r}")
-    exit(1)
-
-# Code to write / read the xml file
-</code></pre>
-<h2 id="what-software-currently-supports-it">What software currently supports it?</h2>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> pathlib </span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> Path</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> xmlschema </span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> XMLSchema11</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> XMLSchemaValidationError</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">xsd </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Path</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"/home/user/MetronInfo.xsd"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">xml </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Path</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"/home/user/MetronInfo.xml"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">schema </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> XMLSchema11</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">xsd</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">try</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    schema</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">validate</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">xml</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">except</span><span class="token plain"> XMLSchemaValidationError </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> e</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string-interpolation string" style="color:#e3116c">f"Failed to validate XML: </span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">{</span><span class="token string-interpolation interpolation">e</span><span class="token string-interpolation interpolation conversion-option punctuation" style="color:#393A34">!r</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">}</span><span class="token string-interpolation string" style="color:#e3116c">"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    exit</span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Code to write / read the xml file</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-software-currently-supports-it">What software currently supports it?<a href="https://metron-project.github.io/blog/metroninfo-v1#what-software-currently-supports-it" class="hash-link" aria-label="Direct link to What software currently supports it?" title="Direct link to What software currently supports it?">​</a></h2>
 <p>Currently, the following software does:</p>
 <ul>
-<li><a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a> - Commandline tool to tag comic with metadata (
+<li><a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a> - Commandline tool to tag comic with metadata (
 MetronInfo or ComicInfo) from Metron Comic Book Database.</li>
 </ul>
 <p>If you are a developer that has added support for MetronInfo.xml to your software, please create a PR to update the
 README
-or <a href="mailto:bpepple@metron.cloud?subject=MetronInfo%20Support&amp;body=Please%20add%20the%20following%20software%20to%the%20README:%20">contact me</a>.</p>
-<h2 id="future">Future</h2>
+or <a href="mailto:bpepple@metron.cloud?subject=MetronInfo%20Support&amp;body=Please%20add%20the%20following%20software%20to%the%20README:%20" target="_blank" rel="noopener noreferrer">contact me</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="future">Future<a href="https://metron-project.github.io/blog/metroninfo-v1#future" class="hash-link" aria-label="Direct link to Future" title="Direct link to Future">​</a></h2>
 <p>One of the goals of the project was to be responsive to the needs of the community, so if you have suggestion for
 improvements to the schema please file a
-<a href="https://github.com/Metron-Project/metroninfo/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=feature_request.md&amp;title=">feature request</a>,
-<a href="https://github.com/Metron-Project/metroninfo/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=bug_report.md&amp;title=">bug report</a>,
-or start a <a href="https://github.com/Metron-Project/metroninfo/discussions">discussion</a>.</p>
-<h2 id="thanks">Thanks</h2>
+<a href="https://github.com/Metron-Project/metroninfo/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=feature_request.md&amp;title=" target="_blank" rel="noopener noreferrer">feature request</a>,
+<a href="https://github.com/Metron-Project/metroninfo/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=bug_report.md&amp;title=" target="_blank" rel="noopener noreferrer">bug report</a>,
+or start a <a href="https://github.com/Metron-Project/metroninfo/discussions" target="_blank" rel="noopener noreferrer">discussion</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="thanks">Thanks<a href="https://metron-project.github.io/blog/metroninfo-v1#thanks" class="hash-link" aria-label="Direct link to Thanks" title="Direct link to Thanks">​</a></h2>
 <p>I'd like to thank everyone that has contributed to the schema, and in
-particular <a href="https://github.com/ajslater">AJ</a>, <a href="https://github.com/Buried-In-Code">Buried-In-Code</a>,
-and <a href="https://github.com/majora2007">Joe</a> who have helped out a lot in the last few months.</p>]]></content>
+particular <a href="https://github.com/ajslater" target="_blank" rel="noopener noreferrer">AJ</a>, <a href="https://github.com/Buried-In-Code" target="_blank" rel="noopener noreferrer">Buried-In-Code</a>,
+and <a href="https://github.com/majora2007" target="_blank" rel="noopener noreferrer">Joe</a> who have helped out a lot in the last few months.</p>]]></content>
         <author>
             <name>Brian Pepple</name>
             <uri>https://github.com/bpepple</uri>
@@ -552,8 +513,8 @@ and <a href="https://github.com/majora2007">Joe</a> who have helped out a lot in
         <summary type="html"><![CDATA[Ok, been fairly busy the last couple of months so naturally blogging has taken a back-burner. So, here's a summary of]]></summary>
         <content type="html"><![CDATA[<p>Ok, been fairly busy the last couple of months so naturally blogging has taken a back-burner. So, here's a summary of
 what's been going on the last few months.</p>
-<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During August the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/october-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During August the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>41</strong></li>
 <li>Issues: <strong>1,377</strong></li>
@@ -574,24 +535,24 @@ what's been going on the last few months.</p>
 <li>Creators: <strong>122</strong></li>
 <li>Characters: <strong>740</strong></li>
 </ul>
-<h2 id="comic-vine-outage">Comic Vine Outage</h2>
-<p><a href="https://comicvine.gamespot.com/">Comic Vine</a> went down at the end of September for about 6 days, so we saw an influx of
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="comic-vine-outage">Comic Vine Outage<a href="https://metron-project.github.io/blog/october-2024-update#comic-vine-outage" class="hash-link" aria-label="Direct link to Comic Vine Outage" title="Direct link to Comic Vine Outage">​</a></h2>
+<p><a href="https://comicvine.gamespot.com/" target="_blank" rel="noopener noreferrer">Comic Vine</a> went down at the end of September for about 6 days, so we saw an influx of
 new users which necessitated in increasing our server's capacity. One thing this episode brought to light out was the
 need for the project to accept donations for future infrastructure costs (since I'm currently covering the server
 costs).</p>
 <p>To help us set this up it would be greatly appreciated if you could star
-the <a href="https://github.com/Metron-Project/metron">repository</a> since one of the requirements to set up an account
-on <a href="https://opencollective.com/">Open Collective</a> is to have 100 stars.</p>
-<h2 id="server-os-upgrade">Server OS Upgrade</h2>
+the <a href="https://github.com/Metron-Project/metron" target="_blank" rel="noopener noreferrer">repository</a> since one of the requirements to set up an account
+on <a href="https://opencollective.com/" target="_blank" rel="noopener noreferrer">Open Collective</a> is to have 100 stars.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="server-os-upgrade">Server OS Upgrade<a href="https://metron-project.github.io/blog/october-2024-update#server-os-upgrade" class="hash-link" aria-label="Direct link to Server OS Upgrade" title="Direct link to Server OS Upgrade">​</a></h2>
 <p>I had planned to upgrade the server in August, but y'know... life. Anyway, I'm tentatively planning to upgrade Metron's
 operating system on November 16th, so there might be some downtime (most likely a few hours) when I do that. I'll post a
 notification on the site for the week leading to the upgrade.</p>
-<h2 id="metroninfoxml">MetronInfo.xml</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metroninfoxml">MetronInfo.xml<a href="https://metron-project.github.io/blog/october-2024-update#metroninfoxml" class="hash-link" aria-label="Direct link to MetronInfo.xml" title="Direct link to MetronInfo.xml">​</a></h2>
 <p>The last couple of months there has been a bunch of work done on finalizing
-the <a href="https://github.com/Metron-Project/metroninfo">MetronInfo.xsd</a>
-by <a href="https://github.com/majora2007">Joe</a>, <a href="https://github.com/ajslater">AJ</a>, <a href="https://github.com/Buried-In-Code">Buried-In-Code</a>
+the <a href="https://github.com/Metron-Project/metroninfo" target="_blank" rel="noopener noreferrer">MetronInfo.xsd</a>
+by <a href="https://github.com/majora2007" target="_blank" rel="noopener noreferrer">Joe</a>, <a href="https://github.com/ajslater" target="_blank" rel="noopener noreferrer">AJ</a>, <a href="https://github.com/Buried-In-Code" target="_blank" rel="noopener noreferrer">Buried-In-Code</a>
 and myself, and I believe there are just a couple of
-outstanding <a href="https://github.com/Metron-Project/metroninfo/issues/38">items</a> that need a resolution. Once that is done,
+outstanding <a href="https://github.com/Metron-Project/metroninfo/issues/38" target="_blank" rel="noopener noreferrer">items</a> that need a resolution. Once that is done,
 I'll write up a announcement blog post.</p>
 <p>Anyway, that's all I've got for this month. Take care!</p>]]></content>
         <author>
@@ -610,10 +571,10 @@ I'll write up a announcement blog post.</p>
         <link href="https://metron-project.github.io/blog/imprint-support"/>
         <updated>2024-08-13T14:02:00.000Z</updated>
         <summary type="html"><![CDATA[Spent the weekend working on finally adding support for Publisher's imprints. Before this, Metron simply lumped Publishers and Imprint together under the Publisher views which was not ideal, but this change will allow them to be separated.]]></summary>
-        <content type="html"><![CDATA[<p>Spent the weekend working on <em>finally</em> adding support for Publisher's imprints. Before this, <a href="https://metron.cloud/">Metron</a> simply lumped <em>Publishers</em> and <em>Imprint</em> together under the <strong>Publisher</strong> views which was not ideal, but this change will allow them to be separated.</p>
-<p>New views, filters, and API endpoints have been added for this feature, so if you see anything missing or behaving not as expected, please open a <a href="https://github.com/bpepple/metron/issues">bug report</a>.</p>
-<p><img alt="Series detail for Afterlife with Archie. Show new imprint information." src="https://metron-project.github.io/assets/images/afterlife-64ab201204411c13afb27bbd4fc8d6d9.png" title="Series Detail View" width="819" height="415"></p>
-<p>In addition, I've released new version of <a href="https://github.com/Metron-Project/darkseid/releases/tag/v4.1.2">Darkseid</a>, <a href="https://github.com/Metron-Project/mokkari/releases/tag/v3.3.0">Mokarri</a>, and <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v2.5.0">Metron-Tagger</a> that add support for imprints. And as always, if you discover any bugs, it would be appreciated if you opened a report in the appropriate git repository.</p>
+        <content type="html"><![CDATA[<p>Spent the weekend working on <em>finally</em> adding support for Publisher's imprints. Before this, <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron</a> simply lumped <em>Publishers</em> and <em>Imprint</em> together under the <strong>Publisher</strong> views which was not ideal, but this change will allow them to be separated.</p>
+<p>New views, filters, and API endpoints have been added for this feature, so if you see anything missing or behaving not as expected, please open a <a href="https://github.com/bpepple/metron/issues" target="_blank" rel="noopener noreferrer">bug report</a>.</p>
+<p><img decoding="async" loading="lazy" alt="Series detail for Afterlife with Archie. Show new imprint information." src="https://metron-project.github.io/assets/images/afterlife-64ab201204411c13afb27bbd4fc8d6d9.png" title="Series Detail View" width="819" height="415" class="img_ev3q"></p>
+<p>In addition, I've released new version of <a href="https://github.com/Metron-Project/darkseid/releases/tag/v4.1.2" target="_blank" rel="noopener noreferrer">Darkseid</a>, <a href="https://github.com/Metron-Project/mokkari/releases/tag/v3.3.0" target="_blank" rel="noopener noreferrer">Mokarri</a>, and <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v2.5.0" target="_blank" rel="noopener noreferrer">Metron-Tagger</a> that add support for imprints. And as always, if you discover any bugs, it would be appreciated if you opened a report in the appropriate git repository.</p>
 <p>Anyway, that's all I got for now. Take care!</p>]]></content>
         <author>
             <name>Brian Pepple</name>
@@ -631,8 +592,8 @@ I'll write up a announcement blog post.</p>
         <link href="https://metron-project.github.io/blog/july-2024-update"/>
         <updated>2024-08-01T11:20:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During July the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/july-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During July the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>47</strong></li>
 <li>Issues: <strong>1,940</strong></li>
@@ -640,19 +601,17 @@ I'll write up a announcement blog post.</p>
 <li>Characters: <strong>329</strong></li>
 </ul>
 <p>Thanks to everyone that contributed!</p>
-<h2 id="more-database-series-type-changes">More Database Series Type Changes</h2>
-<p>Made a couple of changes to some Series Type names on <a href="https://metron.cloud/">Metron</a> based on some suggestions from <a href="https://github.com/Buried-In-Code">Buried-In-Code</a> over on <a href="https://matrix.to/#/%23metron-devel:matrix.org">Matrix</a>. They include:</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="more-database-series-type-changes">More Database Series Type Changes<a href="https://metron-project.github.io/blog/july-2024-update#more-database-series-type-changes" class="hash-link" aria-label="Direct link to More Database Series Type Changes" title="Direct link to More Database Series Type Changes">​</a></h2>
+<p>Made a couple of changes to some Series Type names on <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron</a> based on some suggestions from <a href="https://github.com/Buried-In-Code" target="_blank" rel="noopener noreferrer">Buried-In-Code</a> over on <a href="https://matrix.to/#/%23metron-devel:matrix.org" target="_blank" rel="noopener noreferrer">Matrix</a>. They include:</p>
 <ul>
 <li>Change <em><strong>Digital Chapters</strong></em> to <em><strong>Digital Chapter</strong></em></li>
 <li>Change <em><strong>Hard Cover</strong></em> to <em><strong>Hardcover</strong></em></li>
 </ul>
-<p>If you wish to update your existing <code>ComicInfo.xml</code> metadata, I've released a new version of <a href="https://github.com/bpepple/karkas">Karkas</a> that addresses these changes. You can download this version from <a href="https://github.com/bpepple/karkas/releases/download/v1.2.0/karkas-1.2.0-py3-none-any.whl">this link</a>, and just install it by running:</p>
-<pre><code class="language-bash">pipx install /path/to/karkas-1.2.0-py3-none-any.whl
-</code></pre>
+<p>If you wish to update your existing <code>ComicInfo.xml</code> metadata, I've released a new version of <a href="https://github.com/bpepple/karkas" target="_blank" rel="noopener noreferrer">Karkas</a> that addresses these changes. You can download this version from <a href="https://github.com/bpepple/karkas/releases/download/v1.2.0/karkas-1.2.0-py3-none-any.whl" target="_blank" rel="noopener noreferrer">this link</a>, and just install it by running:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pipx install /path/to/karkas-1.2.0-py3-none-any.whl</span><br></span></code></pre></div></div>
 <p>Then just run:</p>
-<pre><code class="language-bash">karkas /path/to/comics
-</code></pre>
-<h2 id="server-os-upgrade">Server OS Upgrade</h2>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">karkas /path/to/comics</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="server-os-upgrade">Server OS Upgrade<a href="https://metron-project.github.io/blog/july-2024-update#server-os-upgrade" class="hash-link" aria-label="Direct link to Server OS Upgrade" title="Direct link to Server OS Upgrade">​</a></h2>
 <p>I'm tentatively planning to upgrade Metron's operating system later this month, so there might be some downtime (most likely a few hours) when I do that. Once I have a better idea what changes this version has (PostgreSQL-16.2, Python-3.12, etc.) I'll have a better idea the work involved. Regardless, I'll post a notification on the site for the week leading to the upgrade, which most likely will occur on a Saturday.</p>
 <p>Anyway, that's all I've got for this month. Take care!</p>]]></content>
         <author>
@@ -670,8 +629,8 @@ I'll write up a announcement blog post.</p>
         <link href="https://metron-project.github.io/blog/june-2024-update"/>
         <updated>2024-07-19T10:09:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During June the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/june-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During June the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>26</strong></li>
 <li>Issues: <strong>3,025</strong></li>
@@ -679,9 +638,9 @@ I'll write up a announcement blog post.</p>
 <li>Characters: <strong>822</strong></li>
 </ul>
 <p>Thanks to everyone that contributed!</p>
-<h2 id="database-series-type-changes">Database Series Type Changes</h2>
-<p>Was discussing changes to the <a href="https://github.com/Metron-Project/metroninfo">MetronInfo</a> schema with the developer of
-<a href="https://github.com/Kareadita/Kavita">Kavita</a>, and it got me thinking about the Series Types that Metron uses.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="database-series-type-changes">Database Series Type Changes<a href="https://metron-project.github.io/blog/june-2024-update#database-series-type-changes" class="hash-link" aria-label="Direct link to Database Series Type Changes" title="Direct link to Database Series Type Changes">​</a></h2>
+<p>Was discussing changes to the <a href="https://github.com/Metron-Project/metroninfo" target="_blank" rel="noopener noreferrer">MetronInfo</a> schema with the developer of
+<a href="https://github.com/Kareadita/Kavita" target="_blank" rel="noopener noreferrer">Kavita</a>, and it got me thinking about the Series Types that Metron uses.</p>
 <p>Based on that discussion, we've consolidated <code>Cancelled</code> and <code>Ongoing</code> types to <code>Single Issue</code>, changed <code>Annual Series</code> to <code>Annual</code>, and also add <code>Omnibus</code> which would give us the following values:</p>
 <ul>
 <li><strong>Annual</strong>: An over-sized special of a comic book that is released in addition to the regular comics in that series.</li>
@@ -694,7 +653,7 @@ I'll write up a announcement blog post.</p>
 <li><strong>Single Issue</strong>: This is the serial magazine-style format of a comic. For example, <code>Action Comics v1 #2</code>.</li>
 <li><strong>Trade Paperback</strong>: This is the most common kind of collected edition where it is usually collecting 6-12 single issues.</li>
 </ul>
-<p><strong>Note</strong>: Series Types descriptions are from this excellent article at <a href="https://www.howtolovecomics.com/comic-book-glossary-of-terms/">How to Love Comics</a></p>
+<p><strong>Note</strong>: Series Types descriptions are from this excellent article at <a href="https://www.howtolovecomics.com/comic-book-glossary-of-terms/" target="_blank" rel="noopener noreferrer">How to Love Comics</a></p>
 <p>In addition to those changes, we've added a new database field <code>status</code> to the <code>Series</code> model to track a series' status. The values for this field are as follows:</p>
 <ul>
 <li><strong>Cancelled</strong>: Used when a <em>Single Issue</em> or <em>Annual</em> series is ended. Sometimes can be used when a <em>Limited</em> series is abandoned before completing its story.</li>
@@ -702,14 +661,11 @@ I'll write up a announcement blog post.</p>
 <li><strong>Hiatus</strong>: When a series stops publishing before ending with the expectation that it will be finished at a later date.</li>
 <li><strong>Ongoing</strong>: Used with the <em>Single Issue</em> or <em>Annual</em> series while it is still being published.</li>
 </ul>
-<p>To help users update their existing comics with the new values without having to use Metron's API to re-tag their comics, I've written <a href="https://github.com/bpepple/karkas">Karkas</a> which will change the <em>Format</em> element of a comics <code>ComicInfo.xml</code> to <strong>Single Issue</strong> if they are currently <strong>Cancelled</strong> or <strong>Ongoing</strong>, and <strong>Annual</strong> if the value is <strong>Annual Series</strong>. Since this is a program that most likely will only be used once I've decided to not publish it to <a href="https://pypi.org/">PyPi</a>, but you can grab the wheel from <a href="https://static.metron.cloud/misc/karkas-1.0.0-py3-none-any.whl">here</a>.</p>
+<p>To help users update their existing comics with the new values without having to use Metron's API to re-tag their comics, I've written <a href="https://github.com/bpepple/karkas" target="_blank" rel="noopener noreferrer">Karkas</a> which will change the <em>Format</em> element of a comics <code>ComicInfo.xml</code> to <strong>Single Issue</strong> if they are currently <strong>Cancelled</strong> or <strong>Ongoing</strong>, and <strong>Annual</strong> if the value is <strong>Annual Series</strong>. Since this is a program that most likely will only be used once I've decided to not publish it to <a href="https://pypi.org/" target="_blank" rel="noopener noreferrer">PyPi</a>, but you can grab the wheel from <a href="https://static.metron.cloud/misc/karkas-1.0.0-py3-none-any.whl" target="_blank" rel="noopener noreferrer">here</a>.</p>
 <p>To install it you just need to run:</p>
-<pre><code class="language-bash">wget https://static.metron.cloud/misc/karkas-1.0.0-py3-none-any.whl
-pipx install karkas-1.0.0-py3-none-any.whl
-</code></pre>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">wget https://static.metron.cloud/misc/karkas-1.0.0-py3-none-any.whl</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">pipx install karkas-1.0.0-py3-none-any.whl</span><br></span></code></pre></div></div>
 <p>Then just run:</p>
-<pre><code class="language-bash">karkas /path/to/comics
-</code></pre>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">karkas /path/to/comics</span><br></span></code></pre></div></div>
 <p>In the next day or so, I'll be releasing a new version of Mokkari that will include the new <strong>Series Status</strong> field.</p>
 <p>If you run into any problems, please open a bug report with the appropriate project, i.e. Metron, Karkas, Mokkari, etc.</p>
 <p>Anyway, that's all I've got for this month. Take care!</p>]]></content>
@@ -729,8 +685,8 @@ pipx install karkas-1.0.0-py3-none-any.whl
         <link href="https://metron-project.github.io/blog/may-2024-update"/>
         <updated>2024-06-01T10:09:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During May the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/may-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During May the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>39</strong></li>
 <li>Issues: <strong>3,140</strong></li>
@@ -738,8 +694,8 @@ pipx install karkas-1.0.0-py3-none-any.whl
 <li>Characters: <strong>852</strong></li>
 </ul>
 <p>Thanks to everyone that contributed!</p>
-<h2 id="api-change">API Change</h2>
-<p>A new parameter, <code>rating</code>, was <a href="https://github.com/bpepple/metron/pull/248">added</a> to the <em><strong>issue</strong></em> endpoint and
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="api-change">API Change<a href="https://metron-project.github.io/blog/may-2024-update#api-change" class="hash-link" aria-label="Direct link to API Change" title="Direct link to API Change">​</a></h2>
+<p>A new parameter, <code>rating</code>, was <a href="https://github.com/bpepple/metron/pull/248" target="_blank" rel="noopener noreferrer">added</a> to the <em><strong>issue</strong></em> endpoint and
 accepts the follow case-insensitive values:</p>
 <ul>
 <li>Unknown</li>
@@ -750,8 +706,8 @@ accepts the follow case-insensitive values:</p>
 <li>CCA</li>
 </ul>
 <p>An example of its usage would be: <code>https://metron.cloud/api/issue/?publisher_name=dynamite&amp;rating=teen</code></p>
-<h2 id="metron-tagger">Metron-Tagger</h2>
-<p>Released a new version of <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v2.3.0">Metron-Tagger</a>, which
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metron-tagger">Metron-Tagger<a href="https://metron-project.github.io/blog/may-2024-update#metron-tagger" class="hash-link" aria-label="Direct link to Metron-Tagger" title="Direct link to Metron-Tagger">​</a></h2>
+<p>Released a new version of <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v2.3.0" target="_blank" rel="noopener noreferrer">Metron-Tagger</a>, which
 contains a couple of new features/changes:</p>
 <ul>
 <li><strong>Digital Comics Renaming</strong>: When renaming a digital-only comic, <code>Digital Chapter</code> will be appended to the filename.</li>
@@ -776,8 +732,8 @@ tokens from the renaming templates since they are not commonly used.</li>
         <link href="https://metron-project.github.io/blog/april-2024-update"/>
         <updated>2024-05-11T04:22:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly Statistics</h2>
-<p>During March and April the <a href="https://metron.cloud/">Metron Project</a> added the following to its database:</p>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/april-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During March and April the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
 <ul>
 <li>Users: <strong>75</strong></li>
 <li>Issues: <strong>4,495</strong></li>
@@ -785,13 +741,13 @@ tokens from the renaming templates since they are not commonly used.</li>
 <li>Characters: <strong>1,632</strong></li>
 </ul>
 <p>Thanks to everyone that contributed!</p>
-<h2 id="digital-chapters">Digital Chapters</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="digital-chapters">Digital Chapters<a href="https://metron-project.github.io/blog/april-2024-update#digital-chapters" class="hash-link" aria-label="Direct link to Digital Chapters" title="Direct link to Digital Chapters">​</a></h2>
 <p>Recently a new series type, <em>Digital Chapters</em>, was added to Metron. This was to facilitate adding digital comics, like
-<strong><a href="https://metron.cloud/series/dc-comics-bombshells-2015/">DC Comics Bombshells</a></strong>. This series type appends the
+<strong><a href="https://metron.cloud/series/dc-comics-bombshells-2015/" target="_blank" rel="noopener noreferrer">DC Comics Bombshells</a></strong>. This series type appends the
 word <code>Digital</code> to the series display name and adds <code>Chapter</code> to
-the <a href="https://metron.cloud/issue/batman-beyond-2012-1/">issue display name</a>. When adding <em>Digital Chapters</em> series, the
+the <a href="https://metron.cloud/issue/batman-beyond-2012-1/" target="_blank" rel="noopener noreferrer">issue display name</a>. When adding <em>Digital Chapters</em> series, the
 print version should <em><strong>not</strong></em> be added as an associated seres, but added as reprints to the appropriate issues. For an
-example of this, please refer to this <a href="https://metron.cloud/issue/batman-the-adventures-continue-2020-1-1/">issue</a>.</p>
+example of this, please refer to this <a href="https://metron.cloud/issue/batman-the-adventures-continue-2020-1-1/" target="_blank" rel="noopener noreferrer">issue</a>.</p>
 <p>Anyway, that's all I've got for this month. Take Care!</p>]]></content>
         <author>
             <name>Brian Pepple</name>
@@ -808,22 +764,22 @@ example of this, please refer to this <a href="https://metron.cloud/issue/batman
         <link href="https://metron-project.github.io/blog/february-2024-update"/>
         <updated>2024-03-06T10:22:00.000Z</updated>
         <summary type="html"><![CDATA[Monthly statistics]]></summary>
-        <content type="html"><![CDATA[<h2 id="monthly-statistics">Monthly statistics</h2>
-<p>During February the <a href="https://metron.cloud/">Metron Project</a> had a total of <strong>5,635</strong> issues added to its database during
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly statistics<a href="https://metron-project.github.io/blog/february-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly statistics" title="Direct link to Monthly statistics">​</a></h2>
+<p>During February the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> had a total of <strong>5,635</strong> issues added to its database during
 February bring the total number of issues to <strong>112,135</strong>. We also had <strong>65</strong> new users join.</p>
-<h2 id="comictagger">ComicTagger</h2>
-<p>Recently <a href="https://github.com/comictagger/comictagger">comictagger</a> released the <a href="https://github.com/comictagger/metron_talker">metron_talker</a> plugin, but unfortunately it's got a few design flaws
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="comictagger">ComicTagger<a href="https://metron-project.github.io/blog/february-2024-update#comictagger" class="hash-link" aria-label="Direct link to ComicTagger" title="Direct link to ComicTagger">​</a></h2>
+<p>Recently <a href="https://github.com/comictagger/comictagger" target="_blank" rel="noopener noreferrer">comictagger</a> released the <a href="https://github.com/comictagger/metron_talker" target="_blank" rel="noopener noreferrer">metron_talker</a> plugin, but unfortunately it's got a few design flaws
 that is generating 2-4 times the number of API calls compared to other clients, and it's also downloading the cover for
 each issue, instead of using the issue's <code>cover_hash</code> exposed by the Metron API. The developers are working on
 addressing these issues, but if you are planning to tag a large number of comics we would appreciate it if you waited
 for a new release or use Metron-Tagger in the interim.</p>
-<h2 id="server-news">Server News</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="server-news">Server News<a href="https://metron-project.github.io/blog/february-2024-update#server-news" class="hash-link" aria-label="Direct link to Server News" title="Direct link to Server News">​</a></h2>
 <p>With the server load increase due to the comictagger bug, I've gone ahead and increased the CPU and RAM for the server
 and with any luck users shouldn't see a decrease in server quality of service.</p>
-<h2 id="metron-tagger">Metron-Tagger</h2>
-<p><a href="https://github.com/ajslater">AJ Slater</a> recently released a new library (<a href="https://github.com/ajslater/comicfn2dict">comicfn2dict</a>) for parsing comic filenames, and since the code
-for handling that in <a href="https://github.com/Metron-Project/darkseid">darkseid</a> was fairly old and crusty it seemed like a good time to do a little work on
-<a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a>. Some of the changes are as follows:</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metron-tagger">Metron-Tagger<a href="https://metron-project.github.io/blog/february-2024-update#metron-tagger" class="hash-link" aria-label="Direct link to Metron-Tagger" title="Direct link to Metron-Tagger">​</a></h2>
+<p><a href="https://github.com/ajslater" target="_blank" rel="noopener noreferrer">AJ Slater</a> recently released a new library (<a href="https://github.com/ajslater/comicfn2dict" target="_blank" rel="noopener noreferrer">comicfn2dict</a>) for parsing comic filenames, and since the code
+for handling that in <a href="https://github.com/Metron-Project/darkseid" target="_blank" rel="noopener noreferrer">darkseid</a> was fairly old and crusty it seemed like a good time to do a little work on
+<a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a>. Some of the changes are as follows:</p>
 <ul>
 <li>
 <p>comicfn2dict</p>
@@ -838,12 +794,12 @@ Overall, it's performed as well as the old code and has the added benefit of bei
 Metron. Also, we are striping out any special characters (like <code>,</code>, <code>-</code>, or <code>&amp;</code>) from the series name.</li>
 <li>Use the <code>cover hash</code> from Metron to verify the issue is correct, otherwise we'll ask the user for help.</li>
 <li>Use existing <code>ComicInfo.xml</code> for matching. If a comic has already been tagged by comictagger (or Metron-Tagger)
-and has information to help identify the issue (like the <a href="https://comicvine.gamespot.com/">Comic Vine</a> ID), we'll
+and has information to help identify the issue (like the <a href="https://comicvine.gamespot.com/" target="_blank" rel="noopener noreferrer">Comic Vine</a> ID), we'll
 use that before using the filename.</li>
 </ul>
 </li>
 </ul>
-<h2 id="miscellaneous">Miscellaneous</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="miscellaneous">Miscellaneous<a href="https://metron-project.github.io/blog/february-2024-update#miscellaneous" class="hash-link" aria-label="Direct link to Miscellaneous" title="Direct link to Miscellaneous">​</a></h2>
 <p>Right now, I'm thinking about making some changes to the API (like adding versioning), and if I do I'll ask the
 community for any suggestions of changes they'd like to see.</p>]]></content>
         <author>
@@ -861,29 +817,29 @@ community for any suggestions of changes they'd like to see.</p>]]></content>
         <link href="https://metron-project.github.io/blog/january-2024-update"/>
         <updated>2024-02-01T09:12:00.000Z</updated>
         <summary type="html"><![CDATA[Issues Indexed]]></summary>
-        <content type="html"><![CDATA[<h2 id="issues-indexed">Issues Indexed</h2>
-<p>The <a href="https://metron.cloud/">Metron Project</a> had a total of <strong>7,816</strong> issues added to its database during January bring
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="issues-indexed">Issues Indexed<a href="https://metron-project.github.io/blog/january-2024-update#issues-indexed" class="hash-link" aria-label="Direct link to Issues Indexed" title="Direct link to Issues Indexed">​</a></h2>
+<p>The <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> had a total of <strong>7,816</strong> issues added to its database during January bring
 the total number of issues to <strong>106,500</strong>. I wish to give big thanks to everyone who has helped with the project.
 Thanks!</p>
-<h2 id="universes-support">Universes Support</h2>
-<p><a href="https://github.com/bpepple/metron/issues/173">Universe</a> support has been added to Metron, which will allow users to add
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="universes-support">Universes Support<a href="https://metron-project.github.io/blog/january-2024-update#universes-support" class="hash-link" aria-label="Direct link to Universes Support" title="Direct link to Universes Support">​</a></h2>
+<p><a href="https://github.com/bpepple/metron/issues/173" target="_blank" rel="noopener noreferrer">Universe</a> support has been added to Metron, which will allow users to add
 Publisher's universes to Issues, Characters, and Teams. I've used information from a variety of sources to populate the
 initial universes, but I'm sure there is still a lot to be added.</p>
 <p>To aid updating existing issues faster with this information I've created
-a <a href="https://docs.djangoproject.com/en/5.0/howto/custom-management-commands/">Django Management Command</a> to update a
+a <a href="https://docs.djangoproject.com/en/5.0/howto/custom-management-commands/" target="_blank" rel="noopener noreferrer">Django Management Command</a> to update a
 series' issues. To make a request to update a series with Universe information, please provide the necessary
-information in this <a href="https://github.com/bpepple/metron/discussions/208">discussion page</a>.</p>
+information in this <a href="https://github.com/bpepple/metron/discussions/208" target="_blank" rel="noopener noreferrer">discussion page</a>.</p>
 <!-- -->
 <img src="https://metron-project.github.io/assets/images/universe-detail-295b7086e552fd032c7429018e669594.png" alt="Universe Detail" style="width:800px">
-<h2 id="software-updates">Software Updates</h2>
-<p>New versions of <a href="https://github.com/Metron-Project/mokkari">Mokkari</a>
-and <a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a> have been released, which primarily deal with
-using <a href="https://pydantic.dev/">Pydantic</a> and adding <em>Universe</em> support.</p>
-<h2 id="outstanding-bug-fixed">Outstanding Bug Fixed</h2>
-<p>Fixed an outstanding <a href="https://github.com/bpepple/metron/pull/210">bug</a> where regular users were not able to add a new
-creator when adding a credit record to an Issue. Thanks to <a href="https://github.com/THElegend5">THElegend5</a> for reporting
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="software-updates">Software Updates<a href="https://metron-project.github.io/blog/january-2024-update#software-updates" class="hash-link" aria-label="Direct link to Software Updates" title="Direct link to Software Updates">​</a></h2>
+<p>New versions of <a href="https://github.com/Metron-Project/mokkari" target="_blank" rel="noopener noreferrer">Mokkari</a>
+and <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a> have been released, which primarily deal with
+using <a href="https://pydantic.dev/" target="_blank" rel="noopener noreferrer">Pydantic</a> and adding <em>Universe</em> support.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="outstanding-bug-fixed">Outstanding Bug Fixed<a href="https://metron-project.github.io/blog/january-2024-update#outstanding-bug-fixed" class="hash-link" aria-label="Direct link to Outstanding Bug Fixed" title="Direct link to Outstanding Bug Fixed">​</a></h2>
+<p>Fixed an outstanding <a href="https://github.com/bpepple/metron/pull/210" target="_blank" rel="noopener noreferrer">bug</a> where regular users were not able to add a new
+creator when adding a credit record to an Issue. Thanks to <a href="https://github.com/THElegend5" target="_blank" rel="noopener noreferrer">THElegend5</a> for reporting
 this bug!</p>
-<p><img alt="Creator Widget" src="data:image/png;base64,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CnUM5EZpOFdERMQmhaiIiIhNClERERGbFKIiIiI2KURFRERsUoiKiIjYpBAVERGxSSEqIiJiU0hD9Pnnn2fdunVBb/fNN9/kG9/4RtDbFRERGYmQhujZs2fp6uoKertdXV2cPXs26O2KiIiMRMhC9Gc/+xnvvvsu3/ve90hLS6O2tpbU1FS2bt0aOGbFihU88sgjge1du3YxZ84cAHw+Hy+88AI5OTlkZWXx6quvArB9+3a++93vsnHjRtLS0njjjTdCdQkiIiLXFLR7517uxRdfZP/+/RQWFvLNb34TgJUrV1JRUcHSpUvp6enh0KFDtLW14fV6iY2Npby8nMceewyAl156CY/Hw7Fjx2hra2PhwoXk5+dTVFTEz3/+cyoqKnR/SxERGVU3dWFRaWkpFRUVAFRUVLBs2TIefPBBtmzZAsCWLVsCIfrrX/+ab33rW4SFhZGamkppaSmVlZU3s1wREZFrCllPdDgPPfQQX/nKV2hra2Pz5s088cQTNDc3s3HjRr70pS9RX1/P4sWL8fl8NDc388wzzxAWdqnEtWvX3sxyRURErinkIWpZVuBxREQEDz/8MJWVlezYsYNf/OIXnD9/nhdffJHy8nJKSkpwOBxERESQnJzMa6+9xpIlS67broiIyGgI6XBufHw81dXVQwKvtLSUV155hXnz5hEeHk5cXBwul4uf/OQngaFcgK997Wu88MILtLS0AHDy5El6e3sD7e7fvz+wLSIiMhpCGqLf/va3OXToENnZ2WzatAmAZcuWceDAAVauXBk47oknnqC2tpaSkpLAvh//+McUFRVxzz33MHPmTJ577jlOnjwJ+Ff1zpo1i5ycHH74wx+G8hJERESuKqTDuXfeeScHDhwYsi86Opq+vr4h+55++mmefvrpIfsiIyN5+eWXefnll69oNyoqio0bNwa/YBERkRHQbf9ERERsUoiKiIjYpBAVERGxSSEqIiJik0JURETEJoWoiIiITUH7iItuBi8iIreboITo6tWrg9GMiIjIuKLhXBEREZsUoiIiIjYpREVERGyyNSf6978aCHYdIiJj2qrE0a5AxiL1REVERGxSiIqIiNikEBUREbFJISoiImKTQlRERMQmhaiIiIhNClERERGbFKIiIiI2KURFRERsUoiKiIjYpBAVERGxKWh/lPtyidFQmu8gO9lgSrzB+X5obLXY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" title="Creator Widget" width="465" height="138"></p>]]></content>
+<p><img decoding="async" loading="lazy" alt="Creator Widget" src="data:image/png;base64,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CnUM5EZpOFdERMQmhaiIiIhNClERERGbFKIiIiI2KURFRERsUoiKiIjYpBAVERGxSSEqIiJiU0hD9Pnnn2fdunVBb/fNN9/kG9/4RtDbFRERGYmQhujZs2fp6uoKertdXV2cPXs26O2KiIiMRMhC9Gc/+xnvvvsu3/ve90hLS6O2tpbU1FS2bt0aOGbFihU88sgjge1du3YxZ84cAHw+Hy+88AI5OTlkZWXx6quvArB9+3a++93vsnHjRtLS0njjjTdCdQkiIiLXFLR7517uxRdfZP/+/RQWFvLNb34TgJUrV1JRUcHSpUvp6enh0KFDtLW14fV6iY2Npby8nMceewyAl156CY/Hw7Fjx2hra2PhwoXk5+dTVFTEz3/+cyoqKnR/SxERGVU3dWFRaWkpFRUVAFRUVLBs2TIefPBBtmzZAsCWLVsCIfrrX/+ab33rW4SFhZGamkppaSmVlZU3s1wREZFrCllPdDgPPfQQX/nKV2hra2Pz5s088cQTNDc3s3HjRr70pS9RX1/P4sWL8fl8NDc388wzzxAWdqnEtWvX3sxyRURErinkIWpZVuBxREQEDz/8MJWVlezYsYNf/OIXnD9/nhdffJHy8nJKSkpwOBxERESQnJzMa6+9xpIlS67broiIyGgI6XBufHw81dXVQwKvtLSUV155hXnz5hEeHk5cXBwul4uf/OQngaFcgK997Wu88MILtLS0AHDy5El6e3sD7e7fvz+wLSIiMhpCGqLf/va3OXToENnZ2WzatAmAZcuWceDAAVauXBk47oknnqC2tpaSkpLAvh//+McUFRVxzz33MHPmTJ577jlOnjwJ+Ff1zpo1i5ycHH74wx+G8hJERESuKqTDuXfeeScHDhwYsi86Opq+vr4h+55++mmefvrpIfsiIyN5+eWXefnll69oNyoqio0bNwa/YBERkRHQbf9ERERsUoiKiIjYpBAVERGxSSEqIiJik0JURETEJoWoiIiITUH7iItuBi8iIreboITo6tWrg9GMiIjIuKLhXBEREZsUoiIiIjYpREVERGyyNSf6978aCHYdIiJj2qrE0a5AxiL1REVERGxSiIqIiNikEBUREbFJISoiImKTQlRERMQmhaiIiIhNClERERGbFKIiIiI2KURFRERsUoiKiIjYpBAVERGxKWh/lPtyidFQmu8gO9lgSrzB+X5obLXY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" title="Creator Widget" width="465" height="138" class="img_ev3q"></p>]]></content>
         <author>
             <name>Brian Pepple</name>
             <uri>https://github.com/bpepple</uri>
@@ -901,10 +857,10 @@ this bug!</p>
         <link href="https://metron-project.github.io/blog/december-2023-update"/>
         <updated>2024-01-02T14:53:00.000Z</updated>
         <summary type="html"><![CDATA[Issues Indexed]]></summary>
-        <content type="html"><![CDATA[<h2 id="issues-indexed">Issues Indexed</h2>
-<p>The <a href="https://metron.cloud/">Metron Project</a> had a total of <strong>10,722</strong> issues added to its database during December bring
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="issues-indexed">Issues Indexed<a href="https://metron-project.github.io/blog/december-2023-update#issues-indexed" class="hash-link" aria-label="Direct link to Issues Indexed" title="Direct link to Issues Indexed">​</a></h2>
+<p>The <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> had a total of <strong>10,722</strong> issues added to its database during December bring
 the total number of issues to <strong>98,684</strong>. I wish to give big thanks to everyone who has helped with the project. Thanks!</p>
-<h2 id="2023-database-statistics">2023 Database Statistics</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2023-database-statistics">2023 Database Statistics<a href="https://metron-project.github.io/blog/december-2023-update#2023-database-statistics" class="hash-link" aria-label="Direct link to 2023 Database Statistics" title="Direct link to 2023 Database Statistics">​</a></h2>
 <p>We added the following number of entries during 2023:</p>
 <ul>
 <li>Users: <strong>319</strong></li>
@@ -916,9 +872,9 @@ the total number of issues to <strong>98,684</strong>. I wish to give big thanks
 <li>Teams: <strong>691</strong></li>
 <li>Arcs: <strong>521</strong></li>
 </ul>
-<h2 id="htmx-and-streaming-html">HTMX and Streaming HTML</h2>
-<p>I'm playing around with using <a href="https://htmx.org/">HTMX</a> and <a href="https://www.djangoproject.com/">Django's</a> ability to stream
-<a href="https://en.wikipedia.org/wiki/HTML">HTML</a> to improve the user experience. Basically, we'll load the static parts (like
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="htmx-and-streaming-html">HTMX and Streaming HTML<a href="https://metron-project.github.io/blog/december-2023-update#htmx-and-streaming-html" class="hash-link" aria-label="Direct link to HTMX and Streaming HTML" title="Direct link to HTMX and Streaming HTML">​</a></h2>
+<p>I'm playing around with using <a href="https://htmx.org/" target="_blank" rel="noopener noreferrer">HTMX</a> and <a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">Django's</a> ability to stream
+<a href="https://en.wikipedia.org/wiki/HTML" target="_blank" rel="noopener noreferrer">HTML</a> to improve the user experience. Basically, we'll load the static parts (like
 the footer, navbar, etc.) of the page templates as soon as possible, and then load the data as it becomes available and
 render its fragment of HTML. Not sure if this will be pushed to production or not until I do more testing, but it's
 something worth looking into.</p>]]></content>
@@ -938,10 +894,10 @@ something worth looking into.</p>]]></content>
         <link href="https://metron-project.github.io/blog/november-2023-update"/>
         <updated>2023-12-03T13:29:00.000Z</updated>
         <summary type="html"><![CDATA[Issues Indexed]]></summary>
-        <content type="html"><![CDATA[<h2 id="issues-indexed">Issues Indexed</h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="issues-indexed">Issues Indexed<a href="https://metron-project.github.io/blog/november-2023-update#issues-indexed" class="hash-link" aria-label="Direct link to Issues Indexed" title="Direct link to Issues Indexed">​</a></h2>
 <p>Not much user-facing development was done in November, but 10,612 issues were added to the database bringing the total
 number of issues to <strong>88,244</strong>. I wish to give big thanks to everyone who has helped with the project. Thanks!</p>
-<h2 id="2024-tasks">2024 Tasks</h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2024-tasks">2024 Tasks<a href="https://metron-project.github.io/blog/november-2023-update#2024-tasks" class="hash-link" aria-label="Direct link to 2024 Tasks" title="Direct link to 2024 Tasks">​</a></h2>
 <p>I've started working on a list of items that I'm planning to work on in 2024. Here's a partial list:</p>
 <ul>
 <li>
@@ -954,18 +910,18 @@ finally need to upgrade sometime in 2024, I'm thinking a fairly minor bump shoul
 <li>
 <p>Container Deployment</p>
 <p>Before upgrading the server it makes sense to <em>finally</em> set up the project to use containers (preferably
-<a href="https://podman.io/">Podman</a>) when deploying the website. If anyone wants to help
-with <a href="https://github.com/bpepple/metron/issues/69">this</a>, that would be awesome.</p>
+<a href="https://podman.io/" target="_blank" rel="noopener noreferrer">Podman</a>) when deploying the website. If anyone wants to help
+with <a href="https://github.com/bpepple/metron/issues/69" target="_blank" rel="noopener noreferrer">this</a>, that would be awesome.</p>
 </li>
 <li>
 <p>Look into Open Collective for Future Funding</p>
 <p>Eventually it will make sense to look at setting up something like
-<a href="https://opencollective.com/opensource">Open Collective</a> to help with future server costs. Right now the server costs
+<a href="https://opencollective.com/opensource" target="_blank" rel="noopener noreferrer">Open Collective</a> to help with future server costs. Right now the server costs
 around $14 a month (not including annual domain name &amp; email hosting costs) so it's not really an issue, but down the
 road I probably won't want to cover all the costs of the project myself.</p>
 <p>Glancing at the criteria needed for acceptance to the Open Source Collective, it looks like Metron meets most of them,
-except having <em>100 stars</em> on <a href="https://github.com/">Github</a>. <em><strong>So, if you'd like to help the project, one easy
-way would be to star the <a href="https://github.com/bpepple/metron">repository</a>.</strong></em></p>
+except having <em>100 stars</em> on <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a>. <em><strong>So, if you'd like to help the project, one easy
+way would be to star the <a href="https://github.com/bpepple/metron" target="_blank" rel="noopener noreferrer">repository</a>.</strong></em></p>
 </li>
 <li>
 <p>Manga / International Support</p>
@@ -992,17 +948,17 @@ looking at in 2024. 🎉</p>]]></content>
         <link href="https://metron-project.github.io/blog/october-2023-update"/>
         <updated>2023-10-29T10:04:00.000Z</updated>
         <summary type="html"><![CDATA[New Indexed Issues Milestone]]></summary>
-        <content type="html"><![CDATA[<h2 id="new-indexed-issues-milestone">New Indexed Issues Milestone</h2>
-<p>The <a href="https://metron.cloud/">Metron Project</a> reached a milestone this month by having more than 77,000 issues added to
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-indexed-issues-milestone">New Indexed Issues Milestone<a href="https://metron-project.github.io/blog/october-2023-update#new-indexed-issues-milestone" class="hash-link" aria-label="Direct link to New Indexed Issues Milestone" title="Direct link to New Indexed Issues Milestone">​</a></h2>
+<p>The <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> reached a milestone this month by having more than 77,000 issues added to
 its database. I wish to give big thanks to everyone who has helped with the project. Thanks!</p>
-<h2 id="metron-tagger-v164">Metron-Tagger v1.6.4</h2>
-<h3 id="duplicate-page-removal">Duplicate Page Removal</h3>
-<p>Just released a new version of <a href="https://github.com/Metron-Project/metron-tagger">Metron-Tagger</a>, which adds a new
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metron-tagger-v164">Metron-Tagger v1.6.4<a href="https://metron-project.github.io/blog/october-2023-update#metron-tagger-v164" class="hash-link" aria-label="Direct link to Metron-Tagger v1.6.4" title="Direct link to Metron-Tagger v1.6.4">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="duplicate-page-removal">Duplicate Page Removal<a href="https://metron-project.github.io/blog/october-2023-update#duplicate-page-removal" class="hash-link" aria-label="Direct link to Duplicate Page Removal" title="Direct link to Duplicate Page Removal">​</a></h3>
+<p>Just released a new version of <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a>, which adds a new
 experimental feature of finding / removing duplicate pages in a directory of comics. The feature will get the hashes for
 all the pages of the comics in a directory, and then ask the user if the image should be removed from the comics. This
 is done by using the user's system image viewer to display the duplicate image. Once the user has reviewed all the
 duplicated images it will ask the user whether to write the changes to the comics and then prompt them if they also want
-to update the <a href="https://anansi-project.github.io/docs/comicinfo/intro">ComicInfo.xml</a> (if it exists) for the page
+to update the <a href="https://anansi-project.github.io/docs/comicinfo/intro" target="_blank" rel="noopener noreferrer">ComicInfo.xml</a> (if it exists) for the page
 changes.</p>
 <p>This feature most likely will work best when running on a weekly basis, instead of on a <em><strong>whole</strong></em> comic collection,
 since it's asking the user to review all the duplicate images <em>before</em> writing the changes. I'm planning on reworking
@@ -1011,12 +967,12 @@ someone wants to work on this I'm more than willing to review a Pull Request).</
 <p><strong>Note</strong>: I've been using this for the last month and haven't had any issues, but if you plan on using this I would
 suggest backing up any files when using this initially, and verifying it works correctly for you since once the changes
 are written they can't be undone! 💣</p>
-<h3 id="miscellaneous-maintenance">Miscellaneous Maintenance</h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="miscellaneous-maintenance">Miscellaneous Maintenance<a href="https://metron-project.github.io/blog/october-2023-update#miscellaneous-maintenance" class="hash-link" aria-label="Direct link to Miscellaneous Maintenance" title="Direct link to Miscellaneous Maintenance">​</a></h3>
 <p>The rest of v1.6.4 changes are primarily developer-side changes updating the toolsets for Metron-Tagger.</p>
-<h2 id="comic-tagger">Comic-Tagger</h2>
-<p><a href="https://github.com/comictagger/comictagger">Comic-Tagger</a> recently released
-their <a href="https://github.com/comictagger/metron_talker">Metron-Talker</a> plugin which adds support for tagging any comic with
-metadata from <a href="https://metron.cloud/">Metron</a>.</p>]]></content>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="comic-tagger">Comic-Tagger<a href="https://metron-project.github.io/blog/october-2023-update#comic-tagger" class="hash-link" aria-label="Direct link to Comic-Tagger" title="Direct link to Comic-Tagger">​</a></h2>
+<p><a href="https://github.com/comictagger/comictagger" target="_blank" rel="noopener noreferrer">Comic-Tagger</a> recently released
+their <a href="https://github.com/comictagger/metron_talker" target="_blank" rel="noopener noreferrer">Metron-Talker</a> plugin which adds support for tagging any comic with
+metadata from <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron</a>.</p>]]></content>
         <author>
             <name>Brian Pepple</name>
             <uri>https://github.com/bpepple</uri>
