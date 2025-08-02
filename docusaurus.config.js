@@ -58,6 +58,7 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          onUntruncatedBlogPosts: 'ignore',
           // editUrl: ({ locale, blogPath }) => {
           //   return `https://github.com/metron-project/metron-project.github.io/edit/main/blog/${blogPath}`;
           // },
