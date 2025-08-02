@@ -2,11 +2,70 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2025-07-01T10:52:00.000Z</updated>
+    <updated>2025-08-02T13:52:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[July 2025 News]]></title>
+        <id>https://metron-project.github.io/blog/july-2025-update</id>
+        <link href="https://metron-project.github.io/blog/july-2025-update"/>
+        <updated>2025-08-02T13:52:00.000Z</updated>
+        <summary type="html"><![CDATA[This is a summary of noticeable happenings during July.]]></summary>
+        <content type="html"><![CDATA[<p>This is a summary of noticeable happenings during July.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/july-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During July the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>48</strong></li>
+<li>Issues: <strong>1,102</strong></li>
+<li>Creators: <strong>91</strong></li>
+<li>Characters: <strong>407</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="bulma-css">Bulma CSS<a href="https://metron-project.github.io/blog/july-2025-update#bulma-css" class="hash-link" aria-label="Direct link to Bulma CSS" title="Direct link to Bulma CSS">​</a></h2>
+<p>The site has been updated to the latest version of <a href="https://bulma.io/" target="_blank" rel="noopener noreferrer">Bulma CSS</a>, so it now
+follows you computer's theme (light/dark). There's a few widgets that still need to be fixed to
+work well with the dark theme, primarily the autocomplete fields in some of the forms (Issue,
+Series. etc.), but for the most part users should be able to use either theme without running
+into any issues.</p>
+<p>The upside of being on the most recent version of Bulma is that I can start working on adding a
+better system for <a href="https://metron-project.github.io/blog/april-may-2025-update#documentation">documentation</a> to the
+site, which with any luck I can get to before the end of the year. 🤞</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="darkseid--metron-tagger">Darkseid / Metron-Tagger<a href="https://metron-project.github.io/blog/july-2025-update#darkseid--metron-tagger" class="hash-link" aria-label="Direct link to Darkseid / Metron-Tagger" title="Direct link to Darkseid / Metron-Tagger">​</a></h2>
+<p>Released new versions of <a href="https://github.com/Metron-Project/darkseid" target="_blank" rel="noopener noreferrer">Darkseid</a> and
+<a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a> which added support for .cb7
+and .cbt comics, in addition to some code and documentation improvements.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metroninfoxml">MetronInfo.xml<a href="https://metron-project.github.io/blog/july-2025-update#metroninfoxml" class="hash-link" aria-label="Direct link to MetronInfo.xml" title="Direct link to MetronInfo.xml">​</a></h2>
+<p><a href="https://github.com/ajslater" target="_blank" rel="noopener noreferrer">AJ</a> recently released new versions of
+<a href="https://github.com/ajslater/comicbox" target="_blank" rel="noopener noreferrer">ComicBox</a> and <a href="https://github.com/ajslater/codex" target="_blank" rel="noopener noreferrer">Codex</a>
+that added support for <a href="https://github.com/Metron-Project/metroninfo" target="_blank" rel="noopener noreferrer">MetronInfo XML</a>.</p>
+<p>If you're looking for a list of software that supports this relatively new format you can find a
+list of software
+<a href="https://github.com/Metron-Project/metroninfo?tab=readme-ov-file#what-software-currently-supports-it" target="_blank" rel="noopener noreferrer">here</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="comictagger">ComicTagger<a href="https://metron-project.github.io/blog/july-2025-update#comictagger" class="hash-link" aria-label="Direct link to ComicTagger" title="Direct link to ComicTagger">​</a></h2>
+<p>Just a heads-up for any <a href="https://github.com/comictagger/comictagger" target="_blank" rel="noopener noreferrer">ComicTagger</a> user, if you plan
+on tagging comics with data from Metron for an extended time (3+ hours), you may want to refrain
+from doing so, since they <a href="https://github.com/comictagger/metron_talker/issues/52" target="_blank" rel="noopener noreferrer">currently</a> do not
+take into account the site's daily rate limit of 10,000 API requests. Based on what I've been
+seeing the last few months, it's <strong>extremely</strong> likely your IP address will be banned for 24
+hours or so after you exceed this limit, since you are needlessly just hammering the site.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/july-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective">​</a></h2>
+<p>If you would like to help keep the lights on at the project, we have an account at
+<a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">Open Collective</a> to defray the servers costs and help with increasing future
+server capacity.</p>
+<p>Anyway, that's all I got for this month. Take care!</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="opencollective" term="opencollective"/>
+        <category label="codex" term="codex"/>
+        <category label="comicbox" term="comicbox"/>
+        <category label="documentation" term="documentation"/>
+        <category label="comictagger" term="comictagger"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[June 2025 News]]></title>
         <id>https://metron-project.github.io/blog/june-2025-update</id>
@@ -932,47 +991,6 @@ and such.</p>
 </ul>
 <p>I'm sure there will be other smaller items (like tweaking the site's css and such), but these are most items I'll be
 looking at in 2024. 🎉</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="database" term="database"/>
-        <category label="metron" term="metron"/>
-        <category label="metrontagger" term="metrontagger"/>
-        <category label="comictagger" term="comictagger"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[October 2023 Update]]></title>
-        <id>https://metron-project.github.io/blog/october-2023-update</id>
-        <link href="https://metron-project.github.io/blog/october-2023-update"/>
-        <updated>2023-10-29T10:04:00.000Z</updated>
-        <summary type="html"><![CDATA[New Indexed Issues Milestone]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-indexed-issues-milestone">New Indexed Issues Milestone<a href="https://metron-project.github.io/blog/october-2023-update#new-indexed-issues-milestone" class="hash-link" aria-label="Direct link to New Indexed Issues Milestone" title="Direct link to New Indexed Issues Milestone">​</a></h2>
-<p>The <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> reached a milestone this month by having more than 77,000 issues added to
-its database. I wish to give big thanks to everyone who has helped with the project. Thanks!</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metron-tagger-v164">Metron-Tagger v1.6.4<a href="https://metron-project.github.io/blog/october-2023-update#metron-tagger-v164" class="hash-link" aria-label="Direct link to Metron-Tagger v1.6.4" title="Direct link to Metron-Tagger v1.6.4">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="duplicate-page-removal">Duplicate Page Removal<a href="https://metron-project.github.io/blog/october-2023-update#duplicate-page-removal" class="hash-link" aria-label="Direct link to Duplicate Page Removal" title="Direct link to Duplicate Page Removal">​</a></h3>
-<p>Just released a new version of <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a>, which adds a new
-experimental feature of finding / removing duplicate pages in a directory of comics. The feature will get the hashes for
-all the pages of the comics in a directory, and then ask the user if the image should be removed from the comics. This
-is done by using the user's system image viewer to display the duplicate image. Once the user has reviewed all the
-duplicated images it will ask the user whether to write the changes to the comics and then prompt them if they also want
-to update the <a href="https://anansi-project.github.io/docs/comicinfo/intro" target="_blank" rel="noopener noreferrer">ComicInfo.xml</a> (if it exists) for the page
-changes.</p>
-<p>This feature most likely will work best when running on a weekly basis, instead of on a <em><strong>whole</strong></em> comic collection,
-since it's asking the user to review all the duplicate images <em>before</em> writing the changes. I'm planning on reworking
-this to make it more feasible to use on a large comic collection, but that is pretty far down on my TODO list (but if
-someone wants to work on this I'm more than willing to review a Pull Request).</p>
-<p><strong>Note</strong>: I've been using this for the last month and haven't had any issues, but if you plan on using this I would
-suggest backing up any files when using this initially, and verifying it works correctly for you since once the changes
-are written they can't be undone! 💣</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="miscellaneous-maintenance">Miscellaneous Maintenance<a href="https://metron-project.github.io/blog/october-2023-update#miscellaneous-maintenance" class="hash-link" aria-label="Direct link to Miscellaneous Maintenance" title="Direct link to Miscellaneous Maintenance">​</a></h3>
-<p>The rest of v1.6.4 changes are primarily developer-side changes updating the toolsets for Metron-Tagger.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="comic-tagger">Comic-Tagger<a href="https://metron-project.github.io/blog/october-2023-update#comic-tagger" class="hash-link" aria-label="Direct link to Comic-Tagger" title="Direct link to Comic-Tagger">​</a></h2>
-<p><a href="https://github.com/comictagger/comictagger" target="_blank" rel="noopener noreferrer">Comic-Tagger</a> recently released
-their <a href="https://github.com/comictagger/metron_talker" target="_blank" rel="noopener noreferrer">Metron-Talker</a> plugin which adds support for tagging any comic with
-metadata from <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron</a>.</p>]]></content>
         <author>
             <name>Brian Pepple</name>
             <uri>https://github.com/bpepple</uri>
