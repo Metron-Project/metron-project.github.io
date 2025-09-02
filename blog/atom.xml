@@ -2,11 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2025-08-02T13:52:00.000Z</updated>
+    <updated>2025-09-02T12:51:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[August 2025 News]]></title>
+        <id>https://metron-project.github.io/blog/august-2025-update</id>
+        <link href="https://metron-project.github.io/blog/august-2025-update"/>
+        <updated>2025-09-02T12:51:00.000Z</updated>
+        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/august-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics">​</a></h2>
+<p>During August the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>52</strong></li>
+<li>Issues: <strong>1,822</strong></li>
+<li>Creators: <strong>182</strong></li>
+<li>Characters: <strong>332</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="comictagger">ComicTagger<a href="https://metron-project.github.io/blog/august-2025-update#comictagger" class="hash-link" aria-label="Direct link to ComicTagger" title="Direct link to ComicTagger">​</a></h2>
+<p>Due to some API usage problems support for Metron was removed from <a href="https://github.com/comictagger/comictagger/issues/783" target="_blank" rel="noopener noreferrer">ComicTagger</a>. This was primarily done since ComicTagger was designed with Comic Vine's API in mind and Metron's API differs enough that ComicTagger was using 2-14x the number of API requests compared to other clients for the same data.</p>
+<p>For example, someone tagging their <a href="https://metron.cloud/series/captain-america-1968/" target="_blank" rel="noopener noreferrer">Captain America</a> series would be using around 4,616 API calls with ComicTagger compared to about 355 API calls if they had used <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a>. Due to trying to keep up with this additional load, we've had to upgrade our server specs twice this summer and came to the conclusion this wasn't sustainable in the long term.</p>
+<p>So, after September 12th you will be unable to useComic Tagger to tag your comics,but if you still wish to use Metron for tagging, you can use Metron-Tagger or <a href="https://github.com/Buried-In-Code/Perdoo" target="_blank" rel="noopener noreferrer">Perdoo</a>. If you have any questions or concerns don't hesitate to reach out on <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer">Matrix</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/august-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective">​</a></h2>
+<p>If you would like to help keep the lights on at the project, we have an account at
+<a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">Open Collective</a> to defray the servers costs and help with increasing future
+server capacity.</p>
+<p>Anyway, that's all I got for this month. Take care!</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="metadata" term="metadata"/>
+        <category label="metron" term="metron"/>
+        <category label="opencollective" term="opencollective"/>
+        <category label="comictagger" term="comictagger"/>
+        <category label="metrontagger" term="metrontagger"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[July 2025 News]]></title>
         <id>https://metron-project.github.io/blog/july-2025-update</id>
@@ -937,60 +972,6 @@ the total number of issues to <strong>98,684</strong>. I wish to give big thanks
 the footer, navbar, etc.) of the page templates as soon as possible, and then load the data as it becomes available and
 render its fragment of HTML. Not sure if this will be pushed to production or not until I do more testing, but it's
 something worth looking into.</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="database" term="database"/>
-        <category label="metron" term="metron"/>
-        <category label="metrontagger" term="metrontagger"/>
-        <category label="comictagger" term="comictagger"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[November 2023 Update]]></title>
-        <id>https://metron-project.github.io/blog/november-2023-update</id>
-        <link href="https://metron-project.github.io/blog/november-2023-update"/>
-        <updated>2023-12-03T13:29:00.000Z</updated>
-        <summary type="html"><![CDATA[Issues Indexed]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="issues-indexed">Issues Indexed<a href="https://metron-project.github.io/blog/november-2023-update#issues-indexed" class="hash-link" aria-label="Direct link to Issues Indexed" title="Direct link to Issues Indexed">​</a></h2>
-<p>Not much user-facing development was done in November, but 10,612 issues were added to the database bringing the total
-number of issues to <strong>88,244</strong>. I wish to give big thanks to everyone who has helped with the project. Thanks!</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2024-tasks">2024 Tasks<a href="https://metron-project.github.io/blog/november-2023-update#2024-tasks" class="hash-link" aria-label="Direct link to 2024 Tasks" title="Direct link to 2024 Tasks">​</a></h2>
-<p>I've started working on a list of items that I'm planning to work on in 2024. Here's a partial list:</p>
-<ul>
-<li>
-<p>Upgrade Server</p>
-<p>Currently, the server is fairly underpowered (1 GiB Memory, 1 CPU, 25 GiB SSD, 1,000 GiB Transfer) but is able to
-handle the current load without any particular issues. Based on the current user growth rate, I'm guessing I'll
-finally need to upgrade sometime in 2024, I'm thinking a fairly minor bump should be sufficient (2 GiB Memory,
-1CPU, 50 GiB SSD, 2,000 GiB Transfer)</p>
-</li>
-<li>
-<p>Container Deployment</p>
-<p>Before upgrading the server it makes sense to <em>finally</em> set up the project to use containers (preferably
-<a href="https://podman.io/" target="_blank" rel="noopener noreferrer">Podman</a>) when deploying the website. If anyone wants to help
-with <a href="https://github.com/bpepple/metron/issues/69" target="_blank" rel="noopener noreferrer">this</a>, that would be awesome.</p>
-</li>
-<li>
-<p>Look into Open Collective for Future Funding</p>
-<p>Eventually it will make sense to look at setting up something like
-<a href="https://opencollective.com/opensource" target="_blank" rel="noopener noreferrer">Open Collective</a> to help with future server costs. Right now the server costs
-around $14 a month (not including annual domain name &amp; email hosting costs) so it's not really an issue, but down the
-road I probably won't want to cover all the costs of the project myself.</p>
-<p>Glancing at the criteria needed for acceptance to the Open Source Collective, it looks like Metron meets most of them,
-except having <em>100 stars</em> on <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a>. <em><strong>So, if you'd like to help the project, one easy
-way would be to star the <a href="https://github.com/bpepple/metron" target="_blank" rel="noopener noreferrer">repository</a>.</strong></em></p>
-</li>
-<li>
-<p>Manga / International Support</p>
-<p>It would be nice to make a final decision on whether to support Manga and Non-U.S. issues, right now I'm inclined not
-to but <em>if</em> we do add support it will necessitate some changes to the database for things like currencies, languages,
-and such.</p>
-</li>
-</ul>
-<p>I'm sure there will be other smaller items (like tweaking the site's css and such), but these are most items I'll be
-looking at in 2024. 🎉</p>]]></content>
         <author>
             <name>Brian Pepple</name>
             <uri>https://github.com/bpepple</uri>

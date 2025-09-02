@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmetron_project_github_io=self.webpackChunkmetron_project_github_io||[]).push([[8947],{6600:e=>{e.exports=JSON.parse('{"authors":[{"name":"Brian Pepple","title":"Founder of the Metron Project / Code Monkey","url":"https://github.com/bpepple","imageURL":"https://github.com/bpepple.png","key":"bpepple","page":null,"count":32}]}')}}]);
