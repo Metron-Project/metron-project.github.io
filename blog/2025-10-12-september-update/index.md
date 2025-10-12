@@ -3,7 +3,7 @@ title: September 2025 News
 slug: september-2025-update
 date: 2025-10-12T12:51
 authors: [ bpepple ]
-tags: [ comic, metadata, metron, opencollective, metrontagger, tradepaperback, tpb ]
+tags: [ comic, metron, opencollective, metrontagger, tradepaperback, tpb ]
 ---
 
 # September 2025 News
@@ -34,6 +34,12 @@ So, with that the documentation completed I've enabled support for collected edi
 - Only issues with a single story will be synced, since if there are more we can't differentiate what characters are in which story.
 - Resource will be synced if the collection does not already have any characters or teams associated with it.
 - I may add the reprinted issues story titles to the collection in the future, but need to look into it a bit closer to make sure it doesn't cause more work than it solves.
+
+The `Sync` button, which is only active if it's a valid series type and doesn't contain *any* characters or teams, will be used to run this functionality. After it's ran it will provide notification on what was or wasn't not added to the collection.
+
+![Sync Button Screenshot](sync-button.png)
+
+If you have suggestions on any improvements to the guidelines, don't hesitate to reach out on Matrix.
 
 ## OpenCollective
 
