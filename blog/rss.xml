@@ -4,10 +4,51 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Tue, 02 Sep 2025 12:51:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 12 Oct 2025 12:51:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[September 2025 News]]></title>
+            <link>https://metron-project.github.io/blog/september-2025-update</link>
+            <guid>https://metron-project.github.io/blog/september-2025-update</guid>
+            <pubDate>Sun, 12 Oct 2025 12:51:00 GMT</pubDate>
+            <description><![CDATA[Monthly Statistics]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/september-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
+<p>During September the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>27</strong></li>
+<li>Issues: <strong>3,015</strong></li>
+<li>Creators: <strong>371</strong></li>
+<li>Characters: <strong>1,629</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metron-tagger">Metron-Tagger<a href="https://metron-project.github.io/blog/september-2025-update#metron-tagger" class="hash-link" aria-label="Direct link to Metron-Tagger" title="Direct link to Metron-Tagger" translate="no">​</a></h2>
+<p>A new <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v4.4.0" target="_blank" rel="noopener noreferrer">version</a> of <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a> was released that added the ability to skip issues that have multiple matches (<code>--skip-multiple</code>) but can't be matched based its cover hash.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="collected-editions">Collected Editions<a href="https://metron-project.github.io/blog/september-2025-update#collected-editions" class="hash-link" aria-label="Direct link to Collected Editions" title="Direct link to Collected Editions" translate="no">​</a></h2>
+<p>Back in <a href="https://metron-project.github.io/blog/april-may-2025-update#trade-paperbacks">May</a> the decision was made to temporarily disable new collections (Trade Paperback, Omnibus, and Hard Covers) until better documentation was written since there handling was a source of confusion for users due to our lack of documentation.</p>
+<p>Thankfully, <code>anon_hacker47</code> (from the <a href="https://matrix.to/#/#metrondb:matrix.org" target="_blank" rel="noopener noreferrer">Matrix General Chat Room</a>) spent time writing new <a href="https://metron.cloud/pages/guidelines/editing/" target="_blank" rel="noopener noreferrer">documentation</a> (located at the bottom of the page under the <em>Collected Editions</em> heading), which should help in most cases. Unfortunately, the comic industry isn't known for it's consistency, so there may be cases which the guidelines don't cover and in those cases it's best to ask either in the Matrix chat room or in the <a href="https://github.com/Metron-Project/metron/discussions" target="_blank" rel="noopener noreferrer">Github Discussions</a> before adding a collected edition.</p>
+<p>So, with that the documentation completed I've enabled support for collected editions on the site. In addition, I spent some time implementing a helper function which will add resource data (character &amp; teams) to a collection provided that it has reprints associated with it. There are some caveats, tho:</p>
+<ul>
+<li>Only issues with a single story will be synced, since if there are more we can't differentiate what characters are in which story.</li>
+<li>Resource will be synced if the collection does not already have any characters or teams associated with it.</li>
+<li>I may add the reprinted issues story titles to the collection in the future, but need to look into it a bit closer to make sure it doesn't cause more work than it solves.</li>
+</ul>
+<p>The <code>Sync</code> button, which is only active if it's a valid series type and doesn't contain <em>any</em> characters or teams, will be used to run this functionality. After it's ran it will provide notification on what was or wasn't not added to the collection.</p>
+<p><img decoding="async" loading="lazy" alt="Sync Button Screenshot" src="https://metron-project.github.io/assets/images/sync-button-50a85604d5daf43e23802664d4a09eab.png" width="1358" height="507" class="img_ev3q"></p>
+<p>If you have suggestions on any improvements to the guidelines, don't hesitate to reach out on Matrix.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/september-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
+<p>If you would like to help keep the lights on at the project, we have an account at
+<a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">Open Collective</a> to defray the servers costs and help with increasing future
+server capacity.</p>
+<p>Anyway, that's all I got for this month. Take care!</p>]]></content:encoded>
+            <category>comic</category>
+            <category>metron</category>
+            <category>opencollective</category>
+            <category>metrontagger</category>
+            <category>tradepaperback</category>
+            <category>tpb</category>
+        </item>
         <item>
             <title><![CDATA[August 2025 News]]></title>
             <link>https://metron-project.github.io/blog/august-2025-update</link>
@@ -869,39 +910,6 @@ this bug!</p>
             <category>metrontagger</category>
             <category>multiverses</category>
             <category>universes</category>
-        </item>
-        <item>
-            <title><![CDATA[December 2023 Update]]></title>
-            <link>https://metron-project.github.io/blog/december-2023-update</link>
-            <guid>https://metron-project.github.io/blog/december-2023-update</guid>
-            <pubDate>Tue, 02 Jan 2024 14:53:00 GMT</pubDate>
-            <description><![CDATA[Issues Indexed]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="issues-indexed">Issues Indexed<a href="https://metron-project.github.io/blog/december-2023-update#issues-indexed" class="hash-link" aria-label="Direct link to Issues Indexed" title="Direct link to Issues Indexed" translate="no">​</a></h2>
-<p>The <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> had a total of <strong>10,722</strong> issues added to its database during December bring
-the total number of issues to <strong>98,684</strong>. I wish to give big thanks to everyone who has helped with the project. Thanks!</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2023-database-statistics">2023 Database Statistics<a href="https://metron-project.github.io/blog/december-2023-update#2023-database-statistics" class="hash-link" aria-label="Direct link to 2023 Database Statistics" title="Direct link to 2023 Database Statistics" translate="no">​</a></h2>
-<p>We added the following number of entries during 2023:</p>
-<ul>
-<li>Users: <strong>319</strong></li>
-<li>Publishers: <strong>33</strong></li>
-<li>Series: <strong>2,430</strong></li>
-<li>Comics: <strong>44,914</strong></li>
-<li>Characters: <strong>7,082</strong></li>
-<li>Creators: <strong>3,118</strong></li>
-<li>Teams: <strong>691</strong></li>
-<li>Arcs: <strong>521</strong></li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="htmx-and-streaming-html">HTMX and Streaming HTML<a href="https://metron-project.github.io/blog/december-2023-update#htmx-and-streaming-html" class="hash-link" aria-label="Direct link to HTMX and Streaming HTML" title="Direct link to HTMX and Streaming HTML" translate="no">​</a></h2>
-<p>I'm playing around with using <a href="https://htmx.org/" target="_blank" rel="noopener noreferrer">HTMX</a> and <a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">Django's</a> ability to stream
-<a href="https://en.wikipedia.org/wiki/HTML" target="_blank" rel="noopener noreferrer">HTML</a> to improve the user experience. Basically, we'll load the static parts (like
-the footer, navbar, etc.) of the page templates as soon as possible, and then load the data as it becomes available and
-render its fragment of HTML. Not sure if this will be pushed to production or not until I do more testing, but it's
-something worth looking into.</p>]]></content:encoded>
-            <category>comic</category>
-            <category>database</category>
-            <category>metron</category>
-            <category>metrontagger</category>
-            <category>comictagger</category>
         </item>
     </channel>
 </rss>
