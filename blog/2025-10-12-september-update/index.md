@@ -25,7 +25,7 @@ A new [version](https://github.com/Metron-Project/metron-tagger/releases/tag/v4.
 
 ## Collected Editions
 
-Back in [May](../2025-06-01-april-may-update/index.md#trade-paperbacks) the decision was made to temporarily disable new collections (Trade Paperback, Omnibus, and Hard Covers) until better documentation was written since there handling was a source of confusion for users due to our lack of documentation. 
+Back in [May](../2025-06-01-april-may-update/index.md#trade-paperbacks) the decision was made to temporarily disable new collections (Trade Paperback, Omnibus, and Hard Covers) until better documentation was written since their handling was a source of confusion for users due to our lack of documentation. 
 
 Thankfully, `anon_hacker47` (from the [Matrix General Chat Room](https://matrix.to/#/#metrondb:matrix.org)) spent time writing new [documentation](https://metron.cloud/pages/guidelines/editing/) (located at the bottom of the page under the *Collected Editions* heading), which should help in most cases. Unfortunately, the comic industry isn't known for it's consistency, so there may be cases which the guidelines don't cover and in those cases it's best to ask either in the Matrix chat room or in the [Github Discussions](https://github.com/Metron-Project/metron/discussions) before adding a collected edition.
 
@@ -35,7 +35,7 @@ So, with that the documentation completed I've enabled support for collected edi
 - Resource will be synced if the collection does not already have any characters or teams associated with it.
 - I may add the reprinted issues story titles to the collection in the future, but need to look into it a bit closer to make sure it doesn't cause more work than it solves.
 
-The `Sync` button, which is only active if it's a valid series type and doesn't contain *any* characters or teams, will be used to run this functionality. After it's ran it will provide notification on what was or wasn't not added to the collection.
+The `Sync` button, which is only active if it's a valid series type and doesn't contain *any* characters or teams, will be used to run this functionality. After it's ran, it will provide notification on what was or wasn't not added to the collection.
 
 ![Sync Button Screenshot](sync-button.png)
 
