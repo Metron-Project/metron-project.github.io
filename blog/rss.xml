@@ -4,10 +4,155 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Sun, 12 Oct 2025 12:51:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 09 Nov 2025 15:06:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[October 2025 News]]></title>
+            <link>https://metron-project.github.io/blog/october-2025-update</link>
+            <guid>https://metron-project.github.io/blog/october-2025-update</guid>
+            <pubDate>Sun, 09 Nov 2025 15:06:00 GMT</pubDate>
+            <description><![CDATA[Monthly Statistics]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/october-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
+<p>During October the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>27</strong></li>
+<li>Issues: <strong>940</strong></li>
+<li>Creators: <strong>83</strong></li>
+<li>Characters: <strong>462</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="website-changes">Website Changes<a href="https://metron-project.github.io/blog/october-2025-update#website-changes" class="hash-link" aria-label="Direct link to Website Changes" title="Direct link to Website Changes" translate="no">​</a></h2>
+<p>I spent most of the month working on improvements to the site.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="major-features">Major Features<a href="https://metron-project.github.io/blog/october-2025-update#major-features" class="hash-link" aria-label="Direct link to Major Features" title="Direct link to Major Features" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="wiki-integration">Wiki Integration<a href="https://metron-project.github.io/blog/october-2025-update#wiki-integration" class="hash-link" aria-label="Direct link to Wiki Integration" title="Direct link to Wiki Integration" translate="no">​</a></h4>
+<p>One of the most substantial additions to Metron is the integration of <strong>django-wiki</strong> (<a href="https://github.com/Metron-Project/metron/pull/403" target="_blank" rel="noopener noreferrer">#403</a>), replacing the previous flatpages system. This enhancement includes:</p>
+<ul>
+<li>A wiki with article creation, editing, and history tracking</li>
+<li>Custom Bulma CSS styling for all wiki templates with dark mode support</li>
+<li>Support for attachments and images through wiki plugins</li>
+</ul>
+<p>I've copied over the information from the old flat pages, but work still needs to be done on adding information that is of use to our users.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="performance-optimizations-for-detail-views">Performance Optimizations for Detail Views<a href="https://metron-project.github.io/blog/october-2025-update#performance-optimizations-for-detail-views" class="hash-link" aria-label="Direct link to Performance Optimizations for Detail Views" title="Direct link to Performance Optimizations for Detail Views" translate="no">​</a></h4>
+<p>A fairly comprehensive performance overhaul (<a href="https://github.com/Metron-Project/metron/pull/412" target="_blank" rel="noopener noreferrer">#412</a>) dramatically improved page load times across all detail views:</p>
+<ul>
+<li>Implemented lazy loading for related resources using HTMX</li>
+<li>Added <code>prefetch_related()</code> and <code>select_related()</code> to reduce database queries</li>
+<li>Created reusable <code>LazyLoadMixin</code> to eliminate code duplication</li>
+<li>Added count annotations to replace separate COUNT queries</li>
+<li>Introduced pagination for related items on detail pages</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="edit-history-tracking">Edit History Tracking<a href="https://metron-project.github.io/blog/october-2025-update#edit-history-tracking" class="hash-link" aria-label="Direct link to Edit History Tracking" title="Direct link to Edit History Tracking" translate="no">​</a></h4>
+<p>The project now includes comprehensive edit history tracking using <strong>django-simple-history</strong> (<a href="https://github.com/Metron-Project/metron/pull/392" target="_blank" rel="noopener noreferrer">#392</a>) compared to our fairly hacky prior implementation:</p>
+<ul>
+<li>Historical records for all major models (arcs, characters, creators, issues, publishers, series, teams, universes)</li>
+<li>Dedicated history views showing who edited what and when</li>
+<li>Improved data audit trail</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feature-enhancements">Feature Enhancements<a href="https://metron-project.github.io/blog/october-2025-update#feature-enhancements" class="hash-link" aria-label="Direct link to Feature Enhancements" title="Direct link to Feature Enhancements" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="issue-credit-duplication">Issue Credit Duplication<a href="https://metron-project.github.io/blog/october-2025-update#issue-credit-duplication" class="hash-link" aria-label="Direct link to Issue Credit Duplication" title="Direct link to Issue Credit Duplication" translate="no">​</a></h4>
+<p>Added a convenient feature to duplicate issue credits (<a href="https://github.com/Metron-Project/metron/pull/411" target="_blank" rel="noopener noreferrer">#411</a>), streamlining the workflow when creating issues with similar creative teams.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="variant-price-support">Variant Price Support<a href="https://metron-project.github.io/blog/october-2025-update#variant-price-support" class="hash-link" aria-label="Direct link to Variant Price Support" title="Direct link to Variant Price Support" translate="no">​</a></h4>
+<p>Extended the variant model to support price information (<a href="https://github.com/Metron-Project/metron/pull/391" target="_blank" rel="noopener noreferrer">#391</a>), including price and currency fields.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="money-field-migration">Money Field Migration<a href="https://metron-project.github.io/blog/october-2025-update#money-field-migration" class="hash-link" aria-label="Direct link to Money Field Migration" title="Direct link to Money Field Migration" translate="no">​</a></h4>
+<p>Migrated the Issue price field to use proper MoneyField (<a href="https://github.com/Metron-Project/metron/pull/390" target="_blank" rel="noopener noreferrer">#390</a>) using a multi-step database migrations:</p>
+<ul>
+<li>Currency support with custom widget for price entry</li>
+<li>Safe data migration preserving existing price information</li>
+<li>Enhanced API serialization for price data</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="reprint-story-management">Reprint Story Management<a href="https://metron-project.github.io/blog/october-2025-update#reprint-story-management" class="hash-link" aria-label="Direct link to Reprint Story Management" title="Direct link to Reprint Story Management" translate="no">​</a></h4>
+<p>Added functionality to sync characters, teams, and story titles to collections (<a href="https://github.com/Metron-Project/metron/pull/372" target="_blank" rel="noopener noreferrer">#372</a>, <a href="https://github.com/Metron-Project/metron/pull/373" target="_blank" rel="noopener noreferrer">#373</a>) from the issues being reprinted which should make it a bit easier to add collected editions.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="code-quality-improvements">Code Quality Improvements<a href="https://metron-project.github.io/blog/october-2025-update#code-quality-improvements" class="hash-link" aria-label="Direct link to Code Quality Improvements" title="Direct link to Code Quality Improvements" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="refactoring-efforts">Refactoring Efforts<a href="https://metron-project.github.io/blog/october-2025-update#refactoring-efforts" class="hash-link" aria-label="Direct link to Refactoring Efforts" title="Direct link to Refactoring Efforts" translate="no">​</a></h4>
+<p>A bunch of refactoring was done to improve code maintainability:</p>
+<ul>
+<li><strong>Model refactoring</strong> (<a href="https://github.com/Metron-Project/metron/pull/409" target="_blank" rel="noopener noreferrer">#409</a>): Cleaned up model properties and methods</li>
+<li><strong>View refactoring</strong> (<a href="https://github.com/Metron-Project/metron/pull/407" target="_blank" rel="noopener noreferrer">#407</a>): Introduced constants and mixins for DRY code</li>
+<li><strong>API refactoring</strong> (<a href="https://github.com/Metron-Project/metron/pull/406" target="_blank" rel="noopener noreferrer">#406</a>, <a href="https://github.com/Metron-Project/metron/pull/405" target="_blank" rel="noopener noreferrer">#405</a>): Streamlined serializers across all endpoints</li>
+<li><strong>Template refactoring</strong> (<a href="https://github.com/Metron-Project/metron/pull/374" target="_blank" rel="noopener noreferrer">#374</a>, <a href="https://github.com/Metron-Project/metron/pull/375" target="_blank" rel="noopener noreferrer">#375</a>): Reorganized templates with new partial system and improved Bulma CSS integration</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="query-optimization">Query Optimization<a href="https://metron-project.github.io/blog/october-2025-update#query-optimization" class="hash-link" aria-label="Direct link to Query Optimization" title="Direct link to Query Optimization" translate="no">​</a></h4>
+<p>Optimized database querysets across all major views (<a href="https://github.com/Metron-Project/metron/pull/408" target="_blank" rel="noopener noreferrer">#408</a>) using <code>select_related()</code> and <code>prefetch_related()</code> to reduce N+1 query problems.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="testing">Testing<a href="https://metron-project.github.io/blog/october-2025-update#testing" class="hash-link" aria-label="Direct link to Testing" title="Direct link to Testing" translate="no">​</a></h4>
+<p>Added comprehensive test coverage:</p>
+<ul>
+<li>README files for test directories (<a href="https://github.com/Metron-Project/metron/pull/404" target="_blank" rel="noopener noreferrer">#404</a>)</li>
+<li>ForeignKey history tracking tests</li>
+<li>Improved test fixtures and factories</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="user-experience-improvements">User Experience Improvements<a href="https://metron-project.github.io/blog/october-2025-update#user-experience-improvements" class="hash-link" aria-label="Direct link to User Experience Improvements" title="Direct link to User Experience Improvements" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="template-modernization">Template Modernization<a href="https://metron-project.github.io/blog/october-2025-update#template-modernization" class="hash-link" aria-label="Direct link to Template Modernization" title="Direct link to Template Modernization" translate="no">​</a></h4>
+<p>Significant template improvements focused on consistency and usability:</p>
+<ul>
+<li>Introduced reusable partials for forms, pagination, and card grids</li>
+<li>Enhanced empty states and error messages</li>
+<li>Improved mobile responsiveness</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="uiux-enhancements">UI/UX Enhancements<a href="https://metron-project.github.io/blog/october-2025-update#uiux-enhancements" class="hash-link" aria-label="Direct link to UI/UX Enhancements" title="Direct link to UI/UX Enhancements" translate="no">​</a></h4>
+<ul>
+<li>User profile pages now show contribution statistics</li>
+<li>Better icon consistency across the interface</li>
+<li>Improved text contrast for accessibility</li>
+<li>Integration of Bulma Calendar for date inputs</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure--dependencies">Infrastructure &amp; Dependencies<a href="https://metron-project.github.io/blog/october-2025-update#infrastructure--dependencies" class="hash-link" aria-label="Direct link to Infrastructure &amp; Dependencies" title="Direct link to Infrastructure &amp; Dependencies" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="django-updates">Django Updates<a href="https://metron-project.github.io/blog/october-2025-update#django-updates" class="hash-link" aria-label="Direct link to Django Updates" title="Direct link to Django Updates" translate="no">​</a></h4>
+<ul>
+<li>Updated to <strong>Django 5.2.7</strong> (<a href="https://github.com/Metron-Project/metron/pull/371" target="_blank" rel="noopener noreferrer">#371</a>) and subsequent patch releases</li>
+<li>Added <strong>django-money</strong> for proper currency handling</li>
+<li>Integrated <strong>django-htmx</strong> for performance optimizations</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="code-quality-tools">Code Quality Tools<a href="https://metron-project.github.io/blog/october-2025-update#code-quality-tools" class="hash-link" aria-label="Direct link to Code Quality Tools" title="Direct link to Code Quality Tools" translate="no">​</a></h4>
+<ul>
+<li>Updated pre-commit hooks and code formatting rules (<a href="https://github.com/Metron-Project/metron/pull/401" target="_blank" rel="noopener noreferrer">#401</a>)</li>
+<li>Enforced consistent code style with djlint and ruff</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="api-improvements">API Improvements<a href="https://metron-project.github.io/blog/october-2025-update#api-improvements" class="hash-link" aria-label="Direct link to API Improvements" title="Direct link to API Improvements" translate="no">​</a></h3>
+<ul>
+<li>Enhanced pagination schema definitions (<a href="https://github.com/Metron-Project/metron/pull/398" target="_blank" rel="noopener noreferrer">#398</a>) (Artem Ryabkov)</li>
+<li>Improved serializers for better API response efficiency</li>
+<li>Fixed edge cases in various API endpoints</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes--minor-improvements">Bug Fixes &amp; Minor Improvements<a href="https://metron-project.github.io/blog/october-2025-update#bug-fixes--minor-improvements" class="hash-link" aria-label="Direct link to Bug Fixes &amp; Minor Improvements" title="Direct link to Bug Fixes &amp; Minor Improvements" translate="no">​</a></h3>
+<ul>
+<li>Fixed template rendering for mobile devices (<a href="https://github.com/Metron-Project/metron/pull/395" target="_blank" rel="noopener noreferrer">#395</a>)</li>
+<li>Improved empty state handling (<a href="https://github.com/Metron-Project/metron/pull/399" target="_blank" rel="noopener noreferrer">#399</a>)</li>
+<li>Enhanced form validation and error handling</li>
+<li>Better currency display in API responses</li>
+<li>Fixed various template formatting issues</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="future-plans">Future Plans<a href="https://metron-project.github.io/blog/october-2025-update#future-plans" class="hash-link" aria-label="Direct link to Future Plans" title="Direct link to Future Plans" translate="no">​</a></h2>
+<p>I've started to think about what I'd like to work on next year, and the big item is to reduce the project reliance on me. In particular, I want to address:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="financial-independence">Financial Independence<a href="https://metron-project.github.io/blog/october-2025-update#financial-independence" class="hash-link" aria-label="Direct link to Financial Independence" title="Direct link to Financial Independence" translate="no">​</a></h3>
+<p>Over the past six years, I've covered the hosting costs and related expenses (domain registration, email services, etc.). Recently, I've started drawing from the project's <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">OpenCollective</a> funds, which currently provide approximately 11 months of runway at our current capacity.</p>
+<p><strong>The Goal:</strong> Build a sustainable funding base through many small contributions ($2-$5/month) rather than relying on a few large donors. This distributes the financial responsibility and ensures the project's long-term stability.</p>
+<p><strong>How You Can Help:</strong></p>
+<ul>
+<li>Share ideas for attracting recurring financial supporters</li>
+<li>Suggest ways to recognize and thank contributors (I'm considering adding <a href="https://documentation.opencollective.com/collectives/raising-money/adding-donation-buttons-badges-and-banners" target="_blank" rel="noopener noreferrer">OpenCollective widgets</a> to the site)</li>
+<li>Spread the word about the project's funding needs</li>
+</ul>
+<p>If you have suggestions or feedback, please reach out!</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="governance">Governance<a href="https://metron-project.github.io/blog/october-2025-update#governance" class="hash-link" aria-label="Direct link to Governance" title="Direct link to Governance" translate="no">​</a></h3>
+<p>As the project has grown, so has the need to evolve from a single-person decision-making model to a more collaborative governance structure. While centralized decision-making worked well in the early days, enabling quick iterations and changes, but as the project has matured it make sense to add more leadership.</p>
+<p><strong>Why Change:</strong> Distributing governance responsibilities will:</p>
+<ul>
+<li>Bring diverse perspectives to project decisions</li>
+<li>Reduce dependency on a single maintainer</li>
+<li>Create more opportunities for community involvement</li>
+<li>Ensure the project's continuity and resilience</li>
+</ul>
+<p><strong>Next Steps:</strong> I'm researching governance models from similar projects, particularly the <a href="https://www.comics.org/" target="_blank" rel="noopener noreferrer">Grand Comics Database (GCD)</a>, to understand what structures work well for community-driven comic databases. My experience with <a href="https://fedoraproject.org/" target="_blank" rel="noopener noreferrer">Fedora Project</a> governance provides a foundation, though Metron likely needs a different, more streamlined approach given our scope and community size.</p>
+<p>I'll be starting a discussion thread on our <a href="https://github.com/Metron-Project/metron/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions page</a> soon. If you're interested in helping shape Metron's governance structure, please join the conversation or reach out directly.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/october-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
+<p>If you would like to help keep the lights on at the project, we have an account at <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">Open Collective</a> to defray the servers costs and help with increasing future server capacity.</p>
+<p>Anyway, I think that everything for this month! Take care.</p>]]></content:encoded>
+            <category>comic</category>
+            <category>metron</category>
+            <category>opencollective</category>
+        </item>
         <item>
             <title><![CDATA[September 2025 News]]></title>
             <link>https://metron-project.github.io/blog/september-2025-update</link>
@@ -874,42 +1019,6 @@ community for any suggestions of changes they'd like to see.</p>]]></content:enc
             <category>database</category>
             <category>metron</category>
             <category>metrontagger</category>
-        </item>
-        <item>
-            <title><![CDATA[January 2024 Update]]></title>
-            <link>https://metron-project.github.io/blog/january-2024-update</link>
-            <guid>https://metron-project.github.io/blog/january-2024-update</guid>
-            <pubDate>Thu, 01 Feb 2024 09:12:00 GMT</pubDate>
-            <description><![CDATA[Issues Indexed]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="issues-indexed">Issues Indexed<a href="https://metron-project.github.io/blog/january-2024-update#issues-indexed" class="hash-link" aria-label="Direct link to Issues Indexed" title="Direct link to Issues Indexed" translate="no">​</a></h2>
-<p>The <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> had a total of <strong>7,816</strong> issues added to its database during January bring
-the total number of issues to <strong>106,500</strong>. I wish to give big thanks to everyone who has helped with the project.
-Thanks!</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="universes-support">Universes Support<a href="https://metron-project.github.io/blog/january-2024-update#universes-support" class="hash-link" aria-label="Direct link to Universes Support" title="Direct link to Universes Support" translate="no">​</a></h2>
-<p><a href="https://github.com/bpepple/metron/issues/173" target="_blank" rel="noopener noreferrer">Universe</a> support has been added to Metron, which will allow users to add
-Publisher's universes to Issues, Characters, and Teams. I've used information from a variety of sources to populate the
-initial universes, but I'm sure there is still a lot to be added.</p>
-<p>To aid updating existing issues faster with this information I've created
-a <a href="https://docs.djangoproject.com/en/5.0/howto/custom-management-commands/" target="_blank" rel="noopener noreferrer">Django Management Command</a> to update a
-series' issues. To make a request to update a series with Universe information, please provide the necessary
-information in this <a href="https://github.com/bpepple/metron/discussions/208" target="_blank" rel="noopener noreferrer">discussion page</a>.</p>
-<!-- -->
-<img src="https://metron-project.github.io/assets/images/universe-detail-295b7086e552fd032c7429018e669594.png" alt="Universe Detail" style="width:800px">
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="software-updates">Software Updates<a href="https://metron-project.github.io/blog/january-2024-update#software-updates" class="hash-link" aria-label="Direct link to Software Updates" title="Direct link to Software Updates" translate="no">​</a></h2>
-<p>New versions of <a href="https://github.com/Metron-Project/mokkari" target="_blank" rel="noopener noreferrer">Mokkari</a>
-and <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a> have been released, which primarily deal with
-using <a href="https://pydantic.dev/" target="_blank" rel="noopener noreferrer">Pydantic</a> and adding <em>Universe</em> support.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="outstanding-bug-fixed">Outstanding Bug Fixed<a href="https://metron-project.github.io/blog/january-2024-update#outstanding-bug-fixed" class="hash-link" aria-label="Direct link to Outstanding Bug Fixed" title="Direct link to Outstanding Bug Fixed" translate="no">​</a></h2>
-<p>Fixed an outstanding <a href="https://github.com/bpepple/metron/pull/210" target="_blank" rel="noopener noreferrer">bug</a> where regular users were not able to add a new
-creator when adding a credit record to an Issue. Thanks to <a href="https://github.com/THElegend5" target="_blank" rel="noopener noreferrer">THElegend5</a> for reporting
-this bug!</p>
-<p><img decoding="async" loading="lazy" alt="Creator Widget" src="data:image/png;base64,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CnUM5EZpOFdERMQmhaiIiIhNClERERGbFKIiIiI2KURFRERsUoiKiIjYpBAVERGxSSEqIiJiU0hD9Pnnn2fdunVBb/fNN9/kG9/4RtDbFRERGYmQhujZs2fp6uoKertdXV2cPXs26O2KiIiMRMhC9Gc/+xnvvvsu3/ve90hLS6O2tpbU1FS2bt0aOGbFihU88sgjge1du3YxZ84cAHw+Hy+88AI5OTlkZWXx6quvArB9+3a++93vsnHjRtLS0njjjTdCdQkiIiLXFLR7517uxRdfZP/+/RQWFvLNb34TgJUrV1JRUcHSpUvp6enh0KFDtLW14fV6iY2Npby8nMceewyAl156CY/Hw7Fjx2hra2PhwoXk5+dTVFTEz3/+cyoqKnR/SxERGVU3dWFRaWkpFRUVAFRUVLBs2TIefPBBtmzZAsCWLVsCIfrrX/+ab33rW4SFhZGamkppaSmVlZU3s1wREZFrCllPdDgPPfQQX/nKV2hra2Pz5s088cQTNDc3s3HjRr70pS9RX1/P4sWL8fl8NDc388wzzxAWdqnEtWvX3sxyRURErinkIWpZVuBxREQEDz/8MJWVlezYsYNf/OIXnD9/nhdffJHy8nJKSkpwOBxERESQnJzMa6+9xpIlS67broiIyGgI6XBufHw81dXVQwKvtLSUV155hXnz5hEeHk5cXBwul4uf/OQngaFcgK997Wu88MILtLS0AHDy5El6e3sD7e7fvz+wLSIiMhpCGqLf/va3OXToENnZ2WzatAmAZcuWceDAAVauXBk47oknnqC2tpaSkpLAvh//+McUFRVxzz33MHPmTJ577jlOnjwJ+Ff1zpo1i5ycHH74wx+G8hJERESuKqTDuXfeeScHDhwYsi86Opq+vr4h+55++mmefvrpIfsiIyN5+eWXefnll69oNyoqio0bNwa/YBERkRHQbf9ERERsUoiKiIjYpBAVERGxSSEqIiJik0JURETEJoWoiIiITUH7iItuBi8iIreboITo6tWrg9GMiIjIuKLhXBEREZsUoiIiIjYpREVERGyyNSf6978aCHYdIiJj2qrE0a5AxiL1REVERGxSiIqIiNikEBUREbFJISoiImKTQlRERMQmhaiIiIhNClERERGbFKIiIiI2KURFRERsUoiKiIjYpBAVERGxKWh/lPtyidFQmu8gO9lgSrzB+X5obLXY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" title="Creator Widget" width="465" height="138" class="img_ev3q"></p>]]></content:encoded>
-            <category>comic</category>
-            <category>database</category>
-            <category>metron</category>
-            <category>metrontagger</category>
-            <category>multiverses</category>
-            <category>universes</category>
         </item>
     </channel>
 </rss>
