@@ -1,7 +1,7 @@
 ---
 title: October 2025 News
 slug: october-2025-update
-date: 2025-11-09T15:51
+date: 2025-11-09T15:06
 authors: [ bpepple ]
 tags: [ comic, metron, opencollective ]
 ---
@@ -125,23 +125,32 @@ Significant template improvements focused on consistency and usability:
 
 I've started to think about what I'd like to work on next year, and the big item is to reduce the project reliance on me. In particular, I want to address:
 
-- Financial Independence
+### Financial Independence
 
-  For the last six years or so, I've covered the cost of the server and related expenses (domain name, e-mail, etc.) and have just recently start using the projects [OpenCollective](https://opencollective.com/metron) funds. We currently have enough funding for about 11 months, assuming we don't have to increase server capacity.
+  Over the past six years, I've covered the hosting costs and related expenses (domain registration, email services, etc.). Recently, I've started drawing from the project's [OpenCollective](https://opencollective.com/metron) funds, which currently provide approximately 11 months of runway at our current capacity.
 
-  What I'd like to work on is increasing our number of financial backers, preferably at a low level ($2-$5 per month) so no one is carrying too much of the financial burden. If anyone, has ideas on how to help achieve goal I'd appreciate any help.
+  **The Goal:** Build a sustainable funding base through many small contributions ($2-$5/month) rather than relying on a few large donors. This distributes the financial responsibility and ensures the project's long-term stability.
 
-  I've also been thinking about ways to acknowledge/thank folks that have contributed, which maybe could be accomplished by adding one of the [OpenCollective Widgets](https://documentation.opencollective.com/collectives/raising-money/adding-donation-buttons-badges-and-banners) to the site. If you have another suggestion, please reach out.
+  **How You Can Help:**
+  - Share ideas for attracting recurring financial supporters
+  - Suggest ways to recognize and thank contributors (I'm considering adding [OpenCollective widgets](https://documentation.opencollective.com/collectives/raising-money/adding-donation-buttons-badges-and-banners) to the site)
+  - Spread the word about the project's funding needs
 
-- Governance
+  If you have suggestions or feedback, please reach out!
 
-  For the most part, most of the decisions/rules for the site has been made by me, which has worked well while the site was starting out, since we could make decisions fairly quick. Now, that the site has grown it makes sense to start looking at adding additional folks to help guide the site.
+### Governance
 
-  I've got a bit of experience setting this up during my time with [Fedora](https://fedoraproject.org/), but that was a much more technical project and I'm not sure the same setup is necessary with Metron.
+  As the project has grown, so has the need to evolve from a single-person decision-making model to a more collaborative governance structure. While centralized decision-making worked well in the early days, enabling quick iterations and changes, but as the project has matured it make sense to add more leadership.
 
-  It makes sense to look at how other project setup their governance, I'm thinking about [GCD](https://www.comics.org/) in particular, and see what works and doesn't.
+  **Why Change:** Distributing governance responsibilities will:
+  - Bring diverse perspectives to project decisions
+  - Reduce dependency on a single maintainer
+  - Create more opportunities for community involvement
+  - Ensure the project's continuity and resilience
 
-  Sometime in the near future, I'll start a thread on the [Discussions Page](https://github.com/Metron-Project/metron/discussions), so if you're interest in this, contact me.
+  **Next Steps:** I'm researching governance models from similar projects, particularly the [Grand Comics Database (GCD)](https://www.comics.org/), to understand what structures work well for community-driven comic databases. My experience with [Fedora Project](https://fedoraproject.org/) governance provides a foundation, though Metron likely needs a different, more streamlined approach given our scope and community size.
+
+  I'll be starting a discussion thread on our [GitHub Discussions page](https://github.com/Metron-Project/metron/discussions) soon. If you're interested in helping shape Metron's governance structure, please join the conversation or reach out directly.
 
 ## OpenCollective
 
