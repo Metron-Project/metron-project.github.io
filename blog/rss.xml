@@ -4,10 +4,191 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Sun, 09 Nov 2025 15:06:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 11 Nov 2025 14:14:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Reading Lists]]></title>
+            <link>https://metron-project.github.io/blog/october-2025-reading-lists</link>
+            <guid>https://metron-project.github.io/blog/october-2025-reading-lists</guid>
+            <pubDate>Tue, 11 Nov 2025 14:14:00 GMT</pubDate>
+            <description><![CDATA[I'm happy to announce a new feature to the site that has been requested for awhile: Reading Lists.]]></description>
+            <content:encoded><![CDATA[<p>I'm happy to announce a new feature to the site that has been requested for awhile: <strong>Reading Lists</strong>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-are-reading-lists">What Are Reading Lists?<a href="https://metron-project.github.io/blog/october-2025-reading-lists#what-are-reading-lists" class="hash-link" aria-label="Direct link to What Are Reading Lists?" title="Direct link to What Are Reading Lists?" translate="no">​</a></h2>
+<p>Reading Lists allow you to create curated, ordered collections of comic book issues. Think of them as your personal reading guides that you can build, customize, and share with the community.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="key-features">Key Features<a href="https://metron-project.github.io/blog/october-2025-reading-lists#key-features" class="hash-link" aria-label="Direct link to Key Features" title="Direct link to Key Features" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-create-custom-reading-orders">🎯 Create Custom Reading Orders<a href="https://metron-project.github.io/blog/october-2025-reading-lists#-create-custom-reading-orders" class="hash-link" aria-label="Direct link to 🎯 Create Custom Reading Orders" title="Direct link to 🎯 Create Custom Reading Orders" translate="no">​</a></h3>
+<p>Build reading lists from scratch by searching through Metron's comic database. Our smart search makes it easy to find exactly the issues you need (provided it exists in the database):</p>
+<ul>
+<li>Search by series name and issue number</li>
+<li>Use the <code>#</code> separator for precise searches (e.g., "Amazing Spider-Man #700")</li>
+<li>Add multiple issues at once</li>
+<li>Drag and drop to reorder issues exactly how you want them</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-public-or-private-lists">🔒 Public or Private Lists<a href="https://metron-project.github.io/blog/october-2025-reading-lists#-public-or-private-lists" class="hash-link" aria-label="Direct link to 🔒 Public or Private Lists" title="Direct link to 🔒 Public or Private Lists" translate="no">​</a></h3>
+<p>Share your research with the community by making your lists public, or keep them private for personal reference. It's your choice!</p>
+<ul>
+<li><strong>Public Lists</strong>: Help other readers discover great reading orders</li>
+<li><strong>Private Lists</strong>: Perfect for tracking your personal reading queue</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-smart-organization">📚 Smart Organization<a href="https://metron-project.github.io/blog/october-2025-reading-lists#-smart-organization" class="hash-link" aria-label="Direct link to 📚 Smart Organization" title="Direct link to 📚 Smart Organization" translate="no">​</a></h3>
+<p>Every reading list automatically displays helpful information:</p>
+<ul>
+<li><strong>Date Range</strong>: See the start and end years covered by the list</li>
+<li><strong>Publishers</strong>: View all publishers represented in the reading order</li>
+<li><strong>Issue Count</strong>: Know exactly how many issues you're committing to</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-easy-discovery">🔍 Easy Discovery<a href="https://metron-project.github.io/blog/october-2025-reading-lists#-easy-discovery" class="hash-link" aria-label="Direct link to 🔍 Easy Discovery" title="Direct link to 🔍 Easy Discovery" translate="no">​</a></h3>
+<p>Find the perfect reading order with our search functionality:</p>
+<ul>
+<li>Search by list name (e.g., "Civil War")</li>
+<li>Search by creator/username</li>
+<li>Filter by attribution source</li>
+<li>Browse all public lists</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-cbl-import-admin-feature">📥 CBL Import (Admin Feature)<a href="https://metron-project.github.io/blog/october-2025-reading-lists#-cbl-import-admin-feature" class="hash-link" aria-label="Direct link to 📥 CBL Import (Admin Feature)" title="Direct link to 📥 CBL Import (Admin Feature)" translate="no">​</a></h3>
+<p>For site administrators, we've included support for importing Comic Book List (.cbl) files from popular reading order websites. This means we can quickly add curated reading orders from trusted sources like:</p>
+<ul>
+<li>Comic Book Reading Orders (CBRO)</li>
+<li>Complete Marvel Reading Orders (CMRO)</li>
+<li>Comic Book Herald</li>
+<li>And many others!</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="curated-reading-lists-coming-soon">Curated Reading Lists Coming Soon<a href="https://metron-project.github.io/blog/october-2025-reading-lists#curated-reading-lists-coming-soon" class="hash-link" aria-label="Direct link to Curated Reading Lists Coming Soon" title="Direct link to Curated Reading Lists Coming Soon" translate="no">​</a></h2>
+<p>We'll be importing a collection of curated reading lists from trusted sources in the near future! These researched reading orders will be available under the <strong><code>Metron</code> user account</strong> for the entire community to enjoy.</p>
+<p><strong>What to expect:</strong></p>
+<ul>
+<li>High-quality reading orders from established comic reading order websites</li>
+<li>Major crossover events and story arcs</li>
+<li>Character-specific reading guides</li>
+<li>Publisher-specific chronologies</li>
+<li>All properly attributed to their original sources</li>
+</ul>
+<p>These curated lists will complement the community-created lists and provide excellent starting points for readers looking to dive into complex storylines or explore new series.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="use-cases">Use Cases<a href="https://metron-project.github.io/blog/october-2025-reading-lists#use-cases" class="hash-link" aria-label="Direct link to Use Cases" title="Direct link to Use Cases" translate="no">​</a></h2>
+<p>Here are just a few ways you can use Reading Lists:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="for-event-readers">For Event Readers<a href="https://metron-project.github.io/blog/october-2025-reading-lists#for-event-readers" class="hash-link" aria-label="Direct link to For Event Readers" title="Direct link to For Event Readers" translate="no">​</a></h3>
+<p>Create comprehensive reading orders for major crossover events:</p>
+<ul>
+<li>"Secret Wars (2015) - Complete Reading Order"</li>
+<li>"DC's Crisis on Infinite Earths"</li>
+<li>"Infinity Gauntlet and Tie-ins"</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="for-character-fans">For Character Fans<a href="https://metron-project.github.io/blog/october-2025-reading-lists#for-character-fans" class="hash-link" aria-label="Direct link to For Character Fans" title="Direct link to For Character Fans" translate="no">​</a></h3>
+<p>Track a character's appearances across multiple series:</p>
+<ul>
+<li>"Wolverine's First Appearances"</li>
+<li>"Spider-Gwen Complete Chronology"</li>
+<li>"The Many Robins of Gotham"</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="for-new-readers">For New Readers<a href="https://metron-project.github.io/blog/october-2025-reading-lists#for-new-readers" class="hash-link" aria-label="Direct link to For New Readers" title="Direct link to For New Readers" translate="no">​</a></h3>
+<p>Help newcomers find the perfect entry point:</p>
+<ul>
+<li>"Getting Started with the X-Men"</li>
+<li>"Best Batman Stories for New Readers"</li>
+<li>"Modern Marvel Essentials"</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="for-completionists">For Completionists<a href="https://metron-project.github.io/blog/october-2025-reading-lists#for-completionists" class="hash-link" aria-label="Direct link to For Completionists" title="Direct link to For Completionists" translate="no">​</a></h3>
+<p>Organize entire eras or creative runs:</p>
+<ul>
+<li>"Claremont's X-Men Run"</li>
+<li>"Hickman's Marvel Universe"</li>
+<li>"Grant Morrison's DC Work"</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="getting-started">Getting Started<a href="https://metron-project.github.io/blog/october-2025-reading-lists#getting-started" class="hash-link" aria-label="Direct link to Getting Started" title="Direct link to Getting Started" translate="no">​</a></h2>
+<p>Ready to create your first reading list? Here's how:</p>
+<ol>
+<li><strong>Log in</strong> to your Metron account</li>
+<li>Navigate to <strong>Reading Lists</strong> in the menu</li>
+<li>Click <strong>"Create Reading List"</strong></li>
+<li>Give your list a name and description</li>
+<li>Choose public or private</li>
+<li>Click <strong>"Create"</strong></li>
+</ol>
+<p>Once created, you can start adding issues:</p>
+<ol>
+<li>Click <strong>"Add Issues"</strong> on your reading list</li>
+<li>Search for issues using the autocomplete field</li>
+<li>Drag and drop to reorder</li>
+<li>Click <strong>"Submit"</strong> to save</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="search-tips">Search Tips<a href="https://metron-project.github.io/blog/october-2025-reading-lists#search-tips" class="hash-link" aria-label="Direct link to Search Tips" title="Direct link to Search Tips" translate="no">​</a></h2>
+<p>Our autocomplete search makes finding issues quick and easy:</p>
+<p><strong>Basic Search:</strong></p>
+<ul>
+<li>Type <code>"spider"</code> to find all Spider-Man related series</li>
+</ul>
+<p><strong>Smart Search with #:</strong></p>
+<ul>
+<li>Type <code>"amazing #700"</code> to find Amazing Spider-Man #700</li>
+<li>Type <code>"batman #1"</code> to find Batman issue #1</li>
+<li>Type <code>"#100"</code> to find all issue #100s</li>
+</ul>
+<p><strong>Pro Tip:</strong> The search works on both series names and issue numbers, so you can be as specific or as broad as you need!</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="community-sharing">Community Sharing<a href="https://metron-project.github.io/blog/october-2025-reading-lists#community-sharing" class="hash-link" aria-label="Direct link to Community Sharing" title="Direct link to Community Sharing" translate="no">​</a></h2>
+<p>One of the most exciting aspects of Reading Lists is the ability to share your research with the community. If you've spent hours researching the perfect reading order for a complex storyline, make it public and help other readers benefit from your work!</p>
+<p><strong>When creating public lists, consider:</strong></p>
+<ul>
+<li>Using clear, descriptive names</li>
+<li>Adding detailed descriptions explaining what the list covers</li>
+<li>Organizing issues in the optimal reading order</li>
+<li>Keeping the list updated as new issues are released</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="attribution-and-sources">Attribution and Sources<a href="https://metron-project.github.io/blog/october-2025-reading-lists#attribution-and-sources" class="hash-link" aria-label="Direct link to Attribution and Sources" title="Direct link to Attribution and Sources" translate="no">​</a></h2>
+<p>We believe in giving credit where it's due. When creating a reading list based on someone else's research, please mention the source in your description. Admin users can also set official attribution sources and URLs when importing reading lists.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="examples-to-inspire-you">Examples to Inspire You<a href="https://metron-project.github.io/blog/october-2025-reading-lists#examples-to-inspire-you" class="hash-link" aria-label="Direct link to Examples to Inspire You" title="Direct link to Examples to Inspire You" translate="no">​</a></h2>
+<p>Here are some reading list ideas to get you started:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="event-based-lists">Event-Based Lists<a href="https://metron-project.github.io/blog/october-2025-reading-lists#event-based-lists" class="hash-link" aria-label="Direct link to Event-Based Lists" title="Direct link to Event-Based Lists" translate="no">​</a></h3>
+<ul>
+<li>"Avengers vs. X-Men - Complete Reading Order"</li>
+<li>"Blackest Night - Full Crossover"</li>
+<li>"House of M and Decimation"</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="character-focused-lists">Character-Focused Lists<a href="https://metron-project.github.io/blog/october-2025-reading-lists#character-focused-lists" class="hash-link" aria-label="Direct link to Character-Focused Lists" title="Direct link to Character-Focused Lists" translate="no">​</a></h3>
+<ul>
+<li>"Miles Morales: Complete Journey"</li>
+<li>"Harley Quinn: From Villain to Hero"</li>
+<li>"The Death and Return of Superman"</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="creator-runs">Creator Runs<a href="https://metron-project.github.io/blog/october-2025-reading-lists#creator-runs" class="hash-link" aria-label="Direct link to Creator Runs" title="Direct link to Creator Runs" translate="no">​</a></h3>
+<ul>
+<li>"Brian K. Vaughan's Runaways"</li>
+<li>"Ed Brubaker's Captain America"</li>
+<li>"Gail Simone's Birds of Prey"</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="beginner-guides">Beginner Guides<a href="https://metron-project.github.io/blog/october-2025-reading-lists#beginner-guides" class="hash-link" aria-label="Direct link to Beginner Guides" title="Direct link to Beginner Guides" translate="no">​</a></h3>
+<ul>
+<li>"Start Here: Modern Marvel"</li>
+<li>"DC Comics for New Readers"</li>
+<li>"Essential Image Comics"</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="thematic-lists">Thematic Lists<a href="https://metron-project.github.io/blog/october-2025-reading-lists#thematic-lists" class="hash-link" aria-label="Direct link to Thematic Lists" title="Direct link to Thematic Lists" translate="no">​</a></h3>
+<ul>
+<li>"Best Time Travel Stories"</li>
+<li>"Multiverse Madness"</li>
+<li>"Street-Level Heroes"</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="whats-next">What's Next?<a href="https://metron-project.github.io/blog/october-2025-reading-lists#whats-next" class="hash-link" aria-label="Direct link to What's Next?" title="Direct link to What's Next?" translate="no">​</a></h2>
+<p>This is just the first part of the features for Reading Lists! I'm already planning on some future enhancements:</p>
+<ul>
+<li>Provide API to search and retrieve Reading Lists data.</li>
+<li>List statistics and analytics</li>
+<li>Progress tracking (mark issues as read)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="join-the-conversation">Join the Conversation<a href="https://metron-project.github.io/blog/october-2025-reading-lists#join-the-conversation" class="hash-link" aria-label="Direct link to Join the Conversation" title="Direct link to Join the Conversation" translate="no">​</a></h2>
+<p>We'd love to hear your feedback! What reading lists are you excited to create? What features would you like to see added? Let us know in the comments or reach out to the Metron team.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="start-building-today">Start Building Today<a href="https://metron-project.github.io/blog/october-2025-reading-lists#start-building-today" class="hash-link" aria-label="Direct link to Start Building Today" title="Direct link to Start Building Today" translate="no">​</a></h2>
+<p>Reading Lists is live now! Log in to your Metron account and start creating your first reading list. Whether you're organizing your next reading marathon, helping new readers find their footing, or sharing your expertise with the community, Reading Lists makes it easy.</p>
+<p><strong>Ready to get started?</strong></p>
+<ul>
+<li>👉 <a href="https://metron.cloud/reading-lists/" target="_blank" rel="noopener noreferrer">Browse Reading Lists</a></li>
+<li>👉 <a href="https://metron.cloud/reading-lists/create/" target="_blank" rel="noopener noreferrer">Create Your First List</a></li>
+<li>👉 <a href="https://metron.cloud/wiki/user-documentation/readling-lists/" target="_blank" rel="noopener noreferrer">View Documentation</a></li>
+</ul>
+<p>Happy reading, and we can't wait to see what amazing reading lists you create!</p>]]></content:encoded>
+            <category>metron</category>
+        </item>
         <item>
             <title><![CDATA[October 2025 News]]></title>
             <link>https://metron-project.github.io/blog/october-2025-update</link>
@@ -966,55 +1147,6 @@ the <a href="https://metron.cloud/issue/batman-beyond-2012-1/" target="_blank" r
 print version should <em><strong>not</strong></em> be added as an associated seres, but added as reprints to the appropriate issues. For an
 example of this, please refer to this <a href="https://metron.cloud/issue/batman-the-adventures-continue-2020-1-1/" target="_blank" rel="noopener noreferrer">issue</a>.</p>
 <p>Anyway, that's all I've got for this month. Take Care!</p>]]></content:encoded>
-            <category>comic</category>
-            <category>database</category>
-            <category>metron</category>
-            <category>metrontagger</category>
-        </item>
-        <item>
-            <title><![CDATA[February 2024 Update]]></title>
-            <link>https://metron-project.github.io/blog/february-2024-update</link>
-            <guid>https://metron-project.github.io/blog/february-2024-update</guid>
-            <pubDate>Wed, 06 Mar 2024 10:22:00 GMT</pubDate>
-            <description><![CDATA[Monthly statistics]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly statistics<a href="https://metron-project.github.io/blog/february-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly statistics" title="Direct link to Monthly statistics" translate="no">​</a></h2>
-<p>During February the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> had a total of <strong>5,635</strong> issues added to its database during
-February bring the total number of issues to <strong>112,135</strong>. We also had <strong>65</strong> new users join.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="comictagger">ComicTagger<a href="https://metron-project.github.io/blog/february-2024-update#comictagger" class="hash-link" aria-label="Direct link to ComicTagger" title="Direct link to ComicTagger" translate="no">​</a></h2>
-<p>Recently <a href="https://github.com/comictagger/comictagger" target="_blank" rel="noopener noreferrer">comictagger</a> released the <a href="https://github.com/comictagger/metron_talker" target="_blank" rel="noopener noreferrer">metron_talker</a> plugin, but unfortunately it's got a few design flaws
-that is generating 2-4 times the number of API calls compared to other clients, and it's also downloading the cover for
-each issue, instead of using the issue's <code>cover_hash</code> exposed by the Metron API. The developers are working on
-addressing these issues, but if you are planning to tag a large number of comics we would appreciate it if you waited
-for a new release or use Metron-Tagger in the interim.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="server-news">Server News<a href="https://metron-project.github.io/blog/february-2024-update#server-news" class="hash-link" aria-label="Direct link to Server News" title="Direct link to Server News" translate="no">​</a></h2>
-<p>With the server load increase due to the comictagger bug, I've gone ahead and increased the CPU and RAM for the server
-and with any luck users shouldn't see a decrease in server quality of service.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metron-tagger">Metron-Tagger<a href="https://metron-project.github.io/blog/february-2024-update#metron-tagger" class="hash-link" aria-label="Direct link to Metron-Tagger" title="Direct link to Metron-Tagger" translate="no">​</a></h2>
-<p><a href="https://github.com/ajslater" target="_blank" rel="noopener noreferrer">AJ Slater</a> recently released a new library (<a href="https://github.com/ajslater/comicfn2dict" target="_blank" rel="noopener noreferrer">comicfn2dict</a>) for parsing comic filenames, and since the code
-for handling that in <a href="https://github.com/Metron-Project/darkseid" target="_blank" rel="noopener noreferrer">darkseid</a> was fairly old and crusty it seemed like a good time to do a little work on
-<a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer">Metron-Tagger</a>. Some of the changes are as follows:</p>
-<ul>
-<li>
-<p>comicfn2dict</p>
-<p>So, I switched over to using <code>comicfn2dict</code> for filename parsing, and did some testing on around 1,000 or so comics.
-Overall, it's performed as well as the old code and has the added benefit of being used by multiple projects.</p>
-</li>
-<li>
-<p>Improved Matching</p>
-<p>Spent some time improving comic matching by implementing the following changes:</p>
-<ul>
-<li>Only use the series name and issue number when querying Metron. By doing this we are likely to get a result from
-Metron. Also, we are striping out any special characters (like <code>,</code>, <code>-</code>, or <code>&amp;</code>) from the series name.</li>
-<li>Use the <code>cover hash</code> from Metron to verify the issue is correct, otherwise we'll ask the user for help.</li>
-<li>Use existing <code>ComicInfo.xml</code> for matching. If a comic has already been tagged by comictagger (or Metron-Tagger)
-and has information to help identify the issue (like the <a href="https://comicvine.gamespot.com/" target="_blank" rel="noopener noreferrer">Comic Vine</a> ID), we'll
-use that before using the filename.</li>
-</ul>
-</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="miscellaneous">Miscellaneous<a href="https://metron-project.github.io/blog/february-2024-update#miscellaneous" class="hash-link" aria-label="Direct link to Miscellaneous" title="Direct link to Miscellaneous" translate="no">​</a></h2>
-<p>Right now, I'm thinking about making some changes to the API (like adding versioning), and if I do I'll ask the
-community for any suggestions of changes they'd like to see.</p>]]></content:encoded>
             <category>comic</category>
             <category>database</category>
             <category>metron</category>
