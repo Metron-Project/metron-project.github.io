@@ -1,7 +1,7 @@
 ---
 title: Reading Lists
-slug: reading-lists
-date: 2025-11-11T15:06
+slug: october-2025-reading-lists
+date: 2025-11-11T14:14
 authors: [ bpepple ]
 tags: [ metron ]
 ---
