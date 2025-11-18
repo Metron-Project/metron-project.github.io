@@ -191,8 +191,8 @@ Reading Lists is live now! Log in to your Metron account and start creating your
 
 **Ready to get started?**
 
-- 👉 [Browse Reading Lists](/reading-lists/)
-- 👉 [Create Your First List](/reading-lists/create/)
-- 👉 [View Documentation](README.md)
+- 👉 [Browse Reading Lists](https://metron.cloud/reading-lists/)
+- 👉 [Create Your First List](https://metron.cloud/reading-lists/create/)
+- 👉 [View Documentation](https://metron.cloud/wiki/user-documentation/readling-lists/)
 
 Happy reading, and we can't wait to see what amazing reading lists you create!
