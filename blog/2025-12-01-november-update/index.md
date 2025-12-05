@@ -33,7 +33,7 @@ I've added the option to add a series to a reading list, which should be easier 
 
 ### API
 
-I've spent the last week or so, and it's finally been pushed to production. There is a fairly detail [README](https://github.com/Metron-Project/metron/blob/d2a93b081630b210c436155bb8b6ad11ffab73df/reading_lists/API_README.md) that gives a good overview and as with the rest of the API, there are [Swagger API Documents](https://metron.cloud/docs/).
+I've spent the last week or so, and it's finally been pushed to production. There is a fairly detail API documentation on the [wiki](https://metron.cloud/wiki/api/api-documentation/), and there is also the [Swagger API Documents](https://metron.cloud/docs/).
 
 ## Mokkari
 
@@ -68,6 +68,14 @@ A new version of [Mokkari](https://github.com/Metron-Project/mokkari) has been r
 ...                 raise
 >>> issue = fetch_with_rate_limit_handling(1)
 ```
+
+## Metron-Tagger
+
+A couple of releases of [Metron-Tagger](https://github.com/Metron-Project/metron-tagger) were made since my last blog post. The big change was support for writing / reading metadata was added, but implemented differently than other tagging software which have overloaded the PDF's metadata. I decided to treat PDF's, like we do with CBZ, by embedding the metadata.
+
+After discussing this with [AJ](https://github.com/ajslater), he has also made a release of [Comicbox](https://github.com/ajslater/comicbox/releases/tag/v2.1.0) supporting this method of writing comic metadata to a PDF.
+
+The latest release has also improved the rate limiting, so that when the daily limit is exceeded, the user is asked whether they want to wait the reported number of minutes or quit processing the remaining files.
 
 ## OpenCollective
 
