@@ -1,7 +1,7 @@
 ---
 title: November 2025 News
 slug: november-2025-update
-date: 2025-12-04T15:06
+date: 2025-12-04T12:26
 authors: [ bpepple ]
 tags: [ comic, metron, opencollective, api ]
 ---
