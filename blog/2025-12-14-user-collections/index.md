@@ -121,6 +121,10 @@ Built on Django with:
 
 **For Organizers**: Use storage locations to keep track of where comics are physically stored. Perfect for managing multiple longboxes or storage units.
 
+## Mokkari
+
+A new release of [Mokkari](https://github.com/Metron-Project/mokkari) will be made this week with support for the user collections API endpoints.
+
 ## Possible Future Enhancements
 
 **More Import Options**: When I get some time, I'll look at adding support for importing existing collections. If you track your collection elsewhere I'd be interest what export options you have, so please contact me.
