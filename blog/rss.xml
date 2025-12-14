@@ -4,10 +4,128 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Thu, 04 Dec 2025 12:26:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Dec 2025 15:26:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[User Collections]]></title>
+            <link>https://metron-project.github.io/blog/user-collections</link>
+            <guid>https://metron-project.github.io/blog/user-collections</guid>
+            <pubDate>Sun, 14 Dec 2025 15:26:00 GMT</pubDate>
+            <description><![CDATA[I've spent the last week or so, implementing User Collections, a feature for Metron that lets you catalog, organize, and track your personal comic book collection.]]></description>
+            <content:encoded><![CDATA[<p>I've spent the last week or so, implementing <strong>User Collections</strong>, a feature for Metron that lets you catalog, organize, and track your personal comic book collection.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-user-collections">What is User Collections?<a href="https://metron-project.github.io/blog/user-collections#what-is-user-collections" class="hash-link" aria-label="Direct link to What is User Collections?" title="Direct link to What is User Collections?" translate="no">​</a></h2>
+<p>User Collections is a comic book collection management system.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="key-features">Key Features<a href="https://metron-project.github.io/blog/user-collections#key-features" class="hash-link" aria-label="Direct link to Key Features" title="Direct link to Key Features" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-complete-cataloging">📚 Complete Cataloging<a href="https://metron-project.github.io/blog/user-collections#-complete-cataloging" class="hash-link" aria-label="Direct link to 📚 Complete Cataloging" title="Direct link to 📚 Complete Cataloging" translate="no">​</a></h3>
+<p>Track every aspect of your collection:</p>
+<ul>
+<li><strong>Quantity tracking</strong> for duplicate copies</li>
+<li><strong>Format support</strong> (Print, Digital, or Both)</li>
+<li><strong>Professional grading</strong> (CGC, CBCS, PGX) or self-assessed grades</li>
+<li><strong>Purchase details</strong> including date, price, and store</li>
+<li><strong>Storage locations</strong> to help you find your comics</li>
+<li><strong>Personal notes</strong> for each item</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-bulk-operations">⚡ Bulk Operations<a href="https://metron-project.github.io/blog/user-collections#-bulk-operations" class="hash-link" aria-label="Direct link to ⚡ Bulk Operations" title="Direct link to ⚡ Bulk Operations" translate="no">​</a></h3>
+<p>Adding your entire collection is fast and efficient:</p>
+<ul>
+<li><strong>Add entire series runs</strong> in seconds with the "Add from Series" feature</li>
+<li><strong>Specify issue ranges</strong> to add specific portions of a series</li>
+<li><strong>Automatic duplicate detection</strong> prevents adding the same issue twice</li>
+<li><strong>Smart defaults</strong> for format and reading status when adding multiple issues</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statistics--analytics">📊 Statistics &amp; Analytics<a href="https://metron-project.github.io/blog/user-collections#-statistics--analytics" class="hash-link" aria-label="Direct link to 📊 Statistics &amp; Analytics" title="Direct link to 📊 Statistics &amp; Analytics" translate="no">​</a></h3>
+<p>Get insights into your collection:</p>
+<ul>
+<li><strong>Total items and value</strong> tracking</li>
+<li><strong>Reading progress</strong> (read vs. unread counts)</li>
+<li><strong>Format breakdown</strong> with visual charts</li>
+<li><strong>Publisher distribution</strong> to see where your collection focuses</li>
+<li><strong>Top 10 series</strong> by item count</li>
+<li><strong>Series type analysis</strong> (ongoing, mini-series, etc.)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-smart-gap-detection">🔍 Smart Gap Detection<a href="https://metron-project.github.io/blog/user-collections#-smart-gap-detection" class="hash-link" aria-label="Direct link to 🔍 Smart Gap Detection" title="Direct link to 🔍 Smart Gap Detection" translate="no">​</a></h3>
+<p>Helps you complete your series runs:</p>
+<ul>
+<li><strong>Missing Issues list</strong> shows series where you own some but not all issues</li>
+<li><strong>Color-coded progress bars</strong> (red/yellow/green) indicate completion percentage</li>
+<li><strong>Detailed missing issue views</strong> list exactly which issues you need</li>
+<li><strong>Completion statistics</strong> help you prioritize which series to finish</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-reading-tracker--ratings">⭐ Reading Tracker &amp; Ratings<a href="https://metron-project.github.io/blog/user-collections#-reading-tracker--ratings" class="hash-link" aria-label="Direct link to ⭐ Reading Tracker &amp; Ratings" title="Direct link to ⭐ Reading Tracker &amp; Ratings" translate="no">​</a></h3>
+<p>Track your reading journey:</p>
+<ul>
+<li><strong>Mark issues as read</strong> with date tracking</li>
+<li><strong>5-star rating system</strong> for personal recommendations</li>
+<li><strong>Quick rating</strong> via HTMX (no page reload required)</li>
+<li><strong>Filter by reading status</strong> to find unread comics</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-privacy-first">🔐 Privacy First<a href="https://metron-project.github.io/blog/user-collections#-privacy-first" class="hash-link" aria-label="Direct link to 🔐 Privacy First" title="Direct link to 🔐 Privacy First" translate="no">​</a></h3>
+<p>Your collection is completely private:</p>
+<ul>
+<li><strong>Login required</strong> for all collection features</li>
+<li><strong>No public sharing</strong> (unlike reading lists)</li>
+<li><strong>Owner-only access</strong> ensures only you can view/edit your items</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-it-works">How It Works<a href="https://metron-project.github.io/blog/user-collections#how-it-works" class="hash-link" aria-label="Direct link to How It Works" title="Direct link to How It Works" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="adding-individual-issues">Adding Individual Issues<a href="https://metron-project.github.io/blog/user-collections#adding-individual-issues" class="hash-link" aria-label="Direct link to Adding Individual Issues" title="Direct link to Adding Individual Issues" translate="no">​</a></h3>
+<p>Navigate to <code>/collection/add/</code> and search for any issue using the autocomplete feature. Fill in optional details like grade, purchase price, storage location, and click "Add to Collection."</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bulk-adding-from-series">Bulk Adding from Series<a href="https://metron-project.github.io/blog/user-collections#bulk-adding-from-series" class="hash-link" aria-label="Direct link to Bulk Adding from Series" title="Direct link to Bulk Adding from Series" translate="no">​</a></h3>
+<p>Visit <code>/collection/add-from-series/</code> to quickly add entire series runs:</p>
+<ol>
+<li>Select a series</li>
+<li>Choose to add all issues or specify a range (e.g., #1-50)</li>
+<li>Set default format and reading status</li>
+<li>Click "Add Issues"</li>
+</ol>
+<p>The system automatically skips issues already in your collection, making it perfect for cataloging longboxes or digital libraries.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="finding-missing-issues">Finding Missing Issues<a href="https://metron-project.github.io/blog/user-collections#finding-missing-issues" class="hash-link" aria-label="Direct link to Finding Missing Issues" title="Direct link to Finding Missing Issues" translate="no">​</a></h3>
+<p>The Missing Issues feature (<code>/collection/missing/</code>) identifies gaps in your series runs:</p>
+<ul>
+<li>See completion percentages for each series</li>
+<li>Click "View Missing" to see specific issue numbers</li>
+<li>Use these lists when shopping for back issues</li>
+<li>Track your progress toward completing series</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="powerful-filtering">Powerful Filtering<a href="https://metron-project.github.io/blog/user-collections#powerful-filtering" class="hash-link" aria-label="Direct link to Powerful Filtering" title="Direct link to Powerful Filtering" translate="no">​</a></h2>
+<p>Find exactly what you're looking for with extensive filtering options:</p>
+<ul>
+<li><strong>Series name, publisher, or imprint</strong></li>
+<li><strong>Grade and grading company</strong></li>
+<li><strong>Format (print/digital/both)</strong></li>
+<li><strong>Reading status and ratings</strong></li>
+<li><strong>Storage location or purchase store</strong></li>
+<li><strong>Combine multiple filters</strong> for precise searches</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="technical-highlights">Technical Highlights<a href="https://metron-project.github.io/blog/user-collections#technical-highlights" class="hash-link" aria-label="Direct link to Technical Highlights" title="Direct link to Technical Highlights" translate="no">​</a></h2>
+<p>Built on Django with:</p>
+<ul>
+<li><strong>CGC grading scale</strong> with 27 grade levels (0.5 to 10.0)</li>
+<li><strong>Money field support</strong> for accurate purchase price tracking</li>
+<li><strong>HTMX integration</strong> for seamless rating updates</li>
+<li><strong>Chartkick visualizations</strong> for statistics</li>
+<li><strong>Optimized queries</strong> with proper indexes for performance</li>
+<li><strong>Unique constraints</strong> prevent duplicate entries</li>
+<li><strong>RESTful API</strong> available at <code>/api/collection/</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="use-cases">Use Cases<a href="https://metron-project.github.io/blog/user-collections#use-cases" class="hash-link" aria-label="Direct link to Use Cases" title="Direct link to Use Cases" translate="no">​</a></h2>
+<p><strong>For Completionists</strong>: Use Missing Issues to systematically fill gaps in your series runs. Color-coded progress bars show which series you're close to completing.</p>
+<p><strong>For Investors</strong>: Track purchase prices and grades for valuable books. Monitor total collection value and maintain detailed records for insurance.</p>
+<p><strong>For Readers</strong>: Mark issues as read, rate them, and track your progress. Filter to find unread comics in your collection.</p>
+<p><strong>For Organizers</strong>: Use storage locations to keep track of where comics are physically stored. Perfect for managing multiple longboxes or storage units.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="mokkari">Mokkari<a href="https://metron-project.github.io/blog/user-collections#mokkari" class="hash-link" aria-label="Direct link to Mokkari" title="Direct link to Mokkari" translate="no">​</a></h2>
+<p>A new release of <a href="https://github.com/Metron-Project/mokkari" target="_blank" rel="noopener noreferrer">Mokkari</a> will be made this week with support for the user collections API endpoints.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="possible-future-enhancements">Possible Future Enhancements<a href="https://metron-project.github.io/blog/user-collections#possible-future-enhancements" class="hash-link" aria-label="Direct link to Possible Future Enhancements" title="Direct link to Possible Future Enhancements" translate="no">​</a></h2>
+<p><strong>More Import Options</strong>: When I get some time, I'll look at adding support for importing existing collections. If you track your collection elsewhere I'd be interest what export options you have, so please contact me.</p>
+<p><strong>Wish List</strong>: A logical addition would be to have the option for make a wish list of issues to purchase.</p>
+<p><strong>Pull List</strong>: Another closely related feature that could be useful.</p>
+<p><strong>Comic Value</strong>: It would be interesting to be able to provided estimated market values for issues.</p>]]></content:encoded>
+            <category>comic</category>
+            <category>metron</category>
+            <category>collections</category>
+        </item>
         <item>
             <title><![CDATA[November 2025 News]]></title>
             <link>https://metron-project.github.io/blog/november-2025-update</link>
@@ -1127,49 +1245,6 @@ I'll write up a announcement blog post.</p>
             <category>metron</category>
             <category>series</category>
             <category>format</category>
-        </item>
-        <item>
-            <title><![CDATA[May 2024 Update]]></title>
-            <link>https://metron-project.github.io/blog/may-2024-update</link>
-            <guid>https://metron-project.github.io/blog/may-2024-update</guid>
-            <pubDate>Sat, 01 Jun 2024 10:09:00 GMT</pubDate>
-            <description><![CDATA[Monthly Statistics]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/may-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
-<p>During May the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
-<ul>
-<li>Users: <strong>39</strong></li>
-<li>Issues: <strong>3,140</strong></li>
-<li>Creators: <strong>230</strong></li>
-<li>Characters: <strong>852</strong></li>
-</ul>
-<p>Thanks to everyone that contributed!</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="api-change">API Change<a href="https://metron-project.github.io/blog/may-2024-update#api-change" class="hash-link" aria-label="Direct link to API Change" title="Direct link to API Change" translate="no">​</a></h2>
-<p>A new parameter, <code>rating</code>, was <a href="https://github.com/bpepple/metron/pull/248" target="_blank" rel="noopener noreferrer">added</a> to the <em><strong>issue</strong></em> endpoint and
-accepts the follow case-insensitive values:</p>
-<ul>
-<li>Unknown</li>
-<li>Everyone</li>
-<li>Teen</li>
-<li>Mature</li>
-<li>Teen Plus</li>
-<li>CCA</li>
-</ul>
-<p>An example of its usage would be: <code>https://metron.cloud/api/issue/?publisher_name=dynamite&amp;rating=teen</code></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="metron-tagger">Metron-Tagger<a href="https://metron-project.github.io/blog/may-2024-update#metron-tagger" class="hash-link" aria-label="Direct link to Metron-Tagger" title="Direct link to Metron-Tagger" translate="no">​</a></h2>
-<p>Released a new version of <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v2.3.0" target="_blank" rel="noopener noreferrer">Metron-Tagger</a>, which
-contains a couple of new features/changes:</p>
-<ul>
-<li><strong>Digital Comics Renaming</strong>: When renaming a digital-only comic, <code>Digital Chapter</code> will be appended to the filename.</li>
-<li><strong>Remove Non-Valid Metadata Option</strong>: Using the <code>--remove-non-valid</code> option with the <code>--validate</code> option will remove
-any <code>comicinfo.xml</code> that is not valid.</li>
-<li><strong>Removed Oddball Rename Tokens</strong>: Removed the <em>genre</em>, <em>story titles</em>, <em>language</em>, <em>critical rating</em>, and <em>story arc</em>
-tokens from the renaming templates since they are not commonly used.</li>
-</ul>
-<p>Well, that's all I got for this month. Take care!</p>]]></content:encoded>
-            <category>comic</category>
-            <category>database</category>
-            <category>metron</category>
-            <category>metrontagger</category>
         </item>
     </channel>
 </rss>
