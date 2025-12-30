@@ -127,4 +127,117 @@ Fixed a significant bug where WeekList, NextWeekList, and FutureList views were 
 
 With the User Collections feature now live and Reading Lists enhanced, there is a solid foundation for comic book tracking and curation. Future work will focus on refining these features based on user feedback and exploring additional integration opportunities.
 
+# Desaad: A Comic Book Library Management System
+
+## What is Desaad?
+
+[Desaad](https://codeberg.org/bpepple/desaad) is a self-hosted, web-based comic book library management and reading application built with Django, that I've been working on the last week or so. I created it to help test/plan features in Metron that might be of use to comic servers.
+
+## Key Features
+
+### Library Management
+
+Desaad imports your CBZ, CBR, and PDF comic archives and automatically extracts metadata including series information, publishers, creators, characters, teams, universes, and story arcs from MetronInfo.xml metadata. There are no plans to add support for ComicInfo.xml.
+
+The application uses [Darkseid](https://github.com/Metron-Project/darkseid) for comic archive handling and metadata extraction.
+
+### Built-in Web Reader
+
+The web reader using [HTMX](https://htmx.org/) automatically saves your reading position and progress, so you can pick up right where you left off.
+
+### Reading Lists
+
+Import reading lists from [Metron](https://metron.cloud) using the API. The reading list feature automatically tracks which issues are in your library and identifies missing issues from your collection.
+
+### OPDS 1.2 Catalog Support
+
+Access your comic library from mobile devices and e-readers using OPDS-compatible applications like Chunky Comic Reader (iOS), Panels (iOS), or Challenger Comics Viewer (Android).
+
+I attempted to test it on the Challenger app, but their OPDS support doesn't seem to work and is marked as a Beta feature.
+
+### Auto-Import Functionality
+
+Currently, there is an import management command that can be either using manually or setup to watch a directory for new comics.
+
+I haven't done much optimization on it yet, but the most costly aspect of it is the cover extraction, which most likely will be moved to a background task sometime in the future.
+
+I deployed it on an extra [GMKtec NucBox G3](https://www.gmktec.com/products/nucbox-g3-most-cost-effective-mini-pc-with-intel-n100-processor) I had laying around, and it took about 3 hours to import around 65,000 comics. Moving the cover extraction to a background task, I can most likely get it down to an 1-2 hours.
+
+## Technical Foundation
+
+Desaad is built on:
+
+- **Backend**: Django 6.0
+- **Database**: SQLite for simplicity (for now... most likely it will change to PostgreSQL, since there are some serious performance/missing capabilities with using SQLite)
+- **Frontend**: Bulma CSS framework with HTMX 
+- **Comic Processing**: [Darkseid](https://github.com/Metron-Project/darkseid) library
+- **Deployment**: Container-ready with Podman support and systemd integration
+
+The application requires Python 3.13+ and uses the modern [uv](https://github.com/astral-sh/uv) package manager for fast, reliable dependency management.
+
+## Important Considerations
+
+Desaad is designed with specific assumptions in mind:
+
+1. **Single Metadata Source**: The application assumes all comics use metadata from a single source (Metron, Comic Vine, etc.). Mixed metadata sources are not currently supported.
+
+2. **MetronInfo.xml Format**: The application exclusively supports the MetronInfo.xml metadata specification. Your comics should have metadata written by software implementing this specification.
+
+3. **Under Active Development**: The project is currently under heavy construction and not yet recommended for production use. Features and APIs may change.
+
+## Who Should Use Desaad?
+
+Desaad is ideal for:
+
+- **Developers/Testers** who prefer browser-based reading and are interested in seeing possible new features, like scrobbling. 
+- **Users with metadata from a single source** Metron, Comic Vine, or Grand Comics Database. If your collection is a hodgepodge of metadata from multiple source, Desaad is not for you.
+
+## Getting Started
+
+Setting up Desaad is straightforward:
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd desaad
+
+# Configure environment
+cp .env.example .env
+# Edit .env with your settings
+
+# Install dependencies and setup
+uv sync
+uv run python manage.py migrate
+uv run python manage.py createsuperuser
+uv run python manage.py collectstatic
+
+# Run the development server
+uv run python manage.py runserver
+```
+
+For production deployments, Desaad includes Podman compose configurations with systemd service integration for easy management.
+
+## Container Deployment
+
+If you are using Fedora Linux, the included Podman configuration should make deployment simple. Theoretically, it should work fine on other OS's running Podman, but it hasn't been tested. Using it should pretty just consist on doing the following:
+
+```bash
+# Build and start
+podman-compose up -d
+
+# Create admin user
+podman-compose exec web python manage.py createsuperuser
+
+# Import comics
+podman-compose exec web python manage.py import_comics
+```
+
+The application will be available at `http://localhost:9000`.
+
+There's more information in the [projects](https://codeberg.org/bpepple/desaad) README.md, like creating [systemd](https://systemd.io/) service files.
+
+---
+
+*Note: Desaad is currently in active development. Please check the repository for the latest updates and stability information before deploying in production environments.*
+
 
