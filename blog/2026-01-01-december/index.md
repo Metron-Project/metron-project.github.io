@@ -23,123 +23,64 @@ Thanks to everyone that contributed!
 
 ### 🎉 New Feature: User Collections
 
-The biggest addition this month is the brand new **User Collections** system! This feature allows users to track their personal comic book collections.
+This month I added a User Collections system that lets you track your personal comic book collection. You can manage your collection by adding or removing issues, mark things as read, and track comic condition using the CGC grading scale (0.5 to 10.0). The grading system supports professional grading companies like CGC, CBCS, and PGX, as well as user-assessed grades for raw comics.
 
-#### Key Features:
-- **Collection Management**: Add, edit, and remove issues from your personal collection
-- **Read Tracking**: Mark issues as read and track when you read them
-- **Grading System**: Track comic condition using the CGC grading scale (0.5 to 10.0)
-  - Support for professional grading companies (CGC, CBCS, PGX)
-  - User-assessed grades for raw comics
-- **Star Rating System**: Rate issues in your collection (1-5 stars) with HTMX-powered interactive interface
-- **Format Tracking**: Track whether you own Print, Digital, or Both formats
-- **Bulk Operations**: Add entire series runs at once with customizable defaults
-- **Missing Issues Tracking**:
-  - View incomplete series with completion percentages
-  - See specific missing issues to guide collecting efforts
-  - Track gaps in your runs
-- **Collection Statistics**: Visual charts and statistics about your collection
-- **Advanced Filtering**: Search and filter by series, publisher, format, read status, grade, and more
-- **Full API Support**: Read-only API endpoints for accessing collection data and statistics
+There's also a star rating system (1-5 stars) for rating issues in your collection, format tracking for print and digital copies, and bulk operations to add entire series runs at once. If you're trying to complete runs, there's a missing issues tracker that shows you which issues you need and displays completion percentages for each series.
 
-This feature includes fairly comprehensive documentation and technical documentation.
+The feature includes collection statistics with visual charts, advanced filtering options to search by series, publisher, format, read status, grade, and more. There are also read-only API endpoints for accessing your collection data and statistics, along with documentation to help you get started.
 
 ### 📚 Reading Lists Enhancements
 
-Reading lists received some improvements this month with new features and better organization.
+Reading lists got some updates this month. You can now tag issues as Prologue, Core Issue, Tie-In, or Epilogue, with inline editing and visual badges to make it easier to see what's what. I also added a 5-star rating system for public reading lists, so you can see average ratings and filter lists by minimum rating.
 
-#### New Capabilities:
-- **Issue Type Categorization**: Tag issues as Prologue, Core Issue, Tie-In, or Epilogue
-  - HTMX-based inline editing for seamless updates
-  - Visual badges for easy identification
-- **Community Ratings**:
-  - 5-star rating system for public reading lists
-  - Average ratings and rating counts displayed
-  - Filter lists by minimum rating
-  - Interactive star rating component
-- **Story Arc Integration**: Add all issues from a story arc to reading lists in one action
-- **Group-Based Permissions**: New "reading list editor" group for managing Metron's curated lists
-  - Allows trusted users to curate without full staff privileges.
-  - **Note**: If you wish to be part of this group, please contact me.
-- **Read-Only API**:
-  - Browse and retrieve reading lists
-  - Paginated items endpoint (50 items/page) for performance
-  - Comprehensive filtering options
-  - Extensive API documentation
+There's also story arc integration that lets you add all issues from a story arc to a reading list in one go, which should save some time. I created a "reading list editor" group for managing Metron's curated lists - this allows trusted users to help curate without needing full staff privileges. If you're interested in being part of this group, just let me know.
+
+The reading list API now supports browsing and retrieving lists with paginated results (50 items per page) and filtering options.
 
 ### 🔍 Search & Filtering Overhaul
 
-Search functionality improvements.
+I spent some time improving the search functionality across the site. Series lists now support multi-word search with filters for type, publisher, imprint, year range, status, and volume. Issue lists have quick search with advanced filters for series info, dates, and IDs. Reading lists can be searched by name, creator, attribution source, and privacy status. User collections have quick search across series names and notes with multi-field filtering.
 
-#### Enhanced Search Views:
-- **Series Lists**: Multi-word search, filters for type, publisher, imprint, year range, status, and volume
-- **Issue Lists**: Quick search with advanced filters for series info, dates, and IDs
-- **Reading Lists**: Search by name, creator, attribution source, and privacy status
-- **User Collections**: Quick search across series names and notes with advanced multi-field filtering
+All the search interfaces now have collapsible advanced filter sections, preserve your filter state, show active filter indicators, and have better empty states. I tried to keep the UI patterns consistent across all of them.
 
-All search interfaces now feature:
-- Collapsible advanced filter sections
-- Filter state preservation
-- Active filter indicators
-- Improved empty states
-- Consistent UI patterns
-
-### 🐛 Critical Bug Fixes
+### 🐛 Bug Fixes
 
 #### Week Views Date Calculation Fix (#437)
-Fixed a significant bug where WeekList, NextWeekList, and FutureList views were using class-level date calculations evaluated at import time. This caused views to always show the same week (from server startup) instead of dynamically updating.
-
-**Solution**: Moved date calculations to per-request methods and switched to precise date range queries.
+Fixed a bug where WeekList, NextWeekList, and FutureList views were using class-level date calculations evaluated at import time. This meant the views would always show the same week (from when the server started) instead of updating dynamically. I moved the date calculations to per-request methods and switched to precise date range queries to fix this.
 
 ### 📱 Mobile Improvements
 
-- Fixed filter button functionality on mobile devices
-- Improved home page mobile responsiveness
-- Fixed home.html layout issues on mobile
-- Enhanced button layouts across collection and reading list views
+Fixed a few mobile-specific issues this month: filter buttons now work properly on mobile devices, improved the home page responsiveness, fixed layout issues in home.html, and cleaned up button layouts across collection and reading list views.
 
 ### 🎨 UI/UX Enhancements
 
-- **Home Page Updates**:
-  - Added Reading List & Collections section
-  - Made first information card full width
-  - Layout improvements for better visual hierarchy
-- **Optimized Queries**: Significantly reduced N+1 queries across detail views
-  - Reading list detail views reduced from ~20 to 4-6 queries
-  - Better prefetching and annotation strategies
-- **Cover Images**: Added cover images and descriptions to collection detail views with lazy loading
+Added a Reading List & Collections section to the home page, made the first information card full width, and improved the overall layout for better visual hierarchy. I also spent time optimizing database queries - reading list detail views went from around 20 queries down to 4-6 by using better prefetching and annotation strategies. Collection detail views now show cover images and descriptions with lazy loading.
 
 ### 🔒 Security & Validation
 
-- Improved permission checks across reading list operations
+Improved permission checks across reading list operations.
 
 ### 🔧 Technical Improvements
 
-- **Django Update**: Upgraded to Django 5.2.9
-- **Documentation**: Extensive new documentation for User Collections and Reading Lists
-  - User guides (README.md files)
-  - Technical documentation for developers
-  - API documentation
-- **Code Organization**: Refactored and simplified views with better inheritance patterns
-
+Upgraded to Django 5.2.9 and added documentation for User Collections and Reading Lists, including user guides, technical documentation for developers, and API documentation. I also refactored and simplified some views with better inheritance patterns.
 
 ### Looking Ahead
 
-With the User Collections feature now live and Reading Lists enhanced, there is a solid foundation for comic book tracking and curation. Future work will focus on refining these features based on user feedback and exploring additional integration opportunities.
+Now that User Collections is up and running and Reading Lists have been improved, the plan is to refine these features based on user feedback and explore additional integration opportunities.
 
 # Desaad: A Comic Book Library Management System
 
 ## What is Desaad?
 
-[Desaad](https://codeberg.org/bpepple/desaad) is a self-hosted, web-based comic book library management and reading application built with Django, that I've been working on the last week or so. I created it to help test/plan features in Metron that might be of use to other comic servers.
+[Desaad](https://codeberg.org/bpepple/desaad) is a self-hosted, web-based comic book library manager and reader built with Django that I've been working on over the past week or so. I created it to test and plan features for Metron that might be useful for other comic servers.
 
 ## Key Features
 
 ### Library Management
 
-Desaad imports your CBZ, CBR, and PDF comic archives and automatically extracts metadata including series information, publishers, creators, characters, teams, universes, and story arcs from MetronInfo.xml metadata. There are no plans to add support for ComicInfo.xml.
+Desaad imports CBZ, CBR, and PDF comic archives and automatically pulls metadata from MetronInfo.xml files - things like series information, publishers, creators, characters, teams, universes, and story arcs. I'm not planning to add ComicInfo.xml support, since there are a _lot_ of comic servers that already do.
 
-The application uses [Darkseid](https://github.com/Metron-Project/darkseid) for comic archive handling and metadata extraction.
+It uses [Darkseid](https://github.com/Metron-Project/darkseid) for handling comic archives and extracting metadata.
 
 <img 
   src={require('./series_detail.png').default} 
@@ -155,11 +96,11 @@ The application uses [Darkseid](https://github.com/Metron-Project/darkseid) for 
 
 ### Built-in Web Reader
 
-The web reader using [HTMX](https://htmx.org/) automatically saves your reading position and progress, so you can pick up right where you left off.
+The web reader uses [HTMX](https://htmx.org/) and automatically saves your reading position and progress, so you can pick up where you left off.
 
 ### Reading Lists
 
-Import reading lists from [Metron](https://metron.cloud) using the API. The reading list feature automatically tracks which issues are in your library and identifies missing issues from your collection.
+You can import reading lists from [Metron](https://metron.cloud) using the API. The feature automatically tracks which issues are in your library and shows you which ones you're missing.
 
 <img 
   src={require('./reading_list.png').default} 
@@ -169,50 +110,39 @@ Import reading lists from [Metron](https://metron.cloud) using the API. The read
 
 ### OPDS 1.2 Catalog Support
 
-Access your comic library from mobile devices and e-readers using OPDS-compatible applications like Chunky Comic Reader (iOS), Panels (iOS), or Challenger Comics Viewer (Android).
+You can access your comic library from mobile devices and e-readers using OPDS-compatible apps like Chunky Comic Reader (iOS), Panels (iOS), or Challenger Comics Viewer (Android).
 
-I attempted to test it on the Challenger app, but their OPDS support doesn't seem to work and is marked as a Beta feature, so if anyone wants to rest with Chunky or Panels it would be appreciated.
+I tried testing it with the Challenger app, but their OPDS support doesn't seem to work and is still marked as Beta. If anyone wants to test with Chunky or Panels, I'd appreciate hearing how it goes.
 
 ### Auto-Import Functionality
 
-Currently, there is an import management command that can be either using manually or setup to watch a directory for new comics.
+There's an import management command that you can run manually or set up to watch a directory for new comics.
 
-I haven't done much optimization on it yet, but the most costly aspect of it is the cover extraction, which most likely will be moved to a background task sometime in the future.
-
-I deployed it on an extra [GMKtec NucBox G3](https://www.gmktec.com/products/nucbox-g3-most-cost-effective-mini-pc-with-intel-n100-processor) I had laying around, and it took about 3 hours to import around 65,000 comics. Moving the cover extraction to a background task, I can most likely get it down to an 1-2 hours.
+I haven't optimized it much yet - the most expensive part is cover extraction, which I'll probably move to a background task at some point. I deployed it on a spare [GMKtec NucBox G3](https://www.gmktec.com/products/nucbox-g3-most-cost-effective-mini-pc-with-intel-n100-processor) I had, and it took about 3 hours to import around 65,000 comics. Once I move cover extraction to a background task, I should be able to get that down to 1-2 hours.
 
 ## Technical Foundation
 
-Desaad is built on:
+Desaad is built on Django 6.0 with SQLite for simplicity (though I'll probably switch to PostgreSQL at some point since SQLite has some performance limitations and missing features). The frontend uses the Bulma CSS framework with HTMX, and comic processing is handled by the [Darkseid](https://github.com/Metron-Project/darkseid) library. It's container-ready with Podman support and systemd integration.
 
-- **Backend**: Django 6.0
-- **Database**: SQLite for simplicity (for now... most likely it will change to PostgreSQL, since there are some serious performance/missing capabilities with using SQLite)
-- **Frontend**: Bulma CSS framework with HTMX 
-- **Comic Processing**: [Darkseid](https://github.com/Metron-Project/darkseid) library
-- **Deployment**: Container-ready with Podman support and systemd integration
-
-The application requires Python 3.13+ and uses the modern [uv](https://github.com/astral-sh/uv) package manager for fast, reliable dependency management.
+It requires Python 3.13+ and uses the [uv](https://github.com/astral-sh/uv) package manager for dependency management.
 
 ## Important Considerations
 
-Desaad is designed with specific assumptions in mind:
+A few things to keep in mind about Desaad:
 
-1. **Single Metadata Source**: The application assumes all comics use metadata from a single source (Metron, Comic Vine, etc.). Mixed metadata sources are not currently supported.
+1. **Single Metadata Source**: It assumes all your comics use metadata from a single source (Metron, Comic Vine, etc.). Mixed metadata sources aren't supported.
 
-2. **MetronInfo.xml Format**: The application exclusively supports the MetronInfo.xml metadata specification. Your comics should have metadata written by software implementing this specification.
+2. **MetronInfo.xml Format**: Only supports the MetronInfo.xml metadata specification. Your comics need metadata written by software that implements this spec.
 
-3. **Under Active Development**: The project is currently under heavy construction and not yet recommended for production use. Features and APIs may change.
+3. **Under Active Development**: The project is still under construction and not ready for production use. Features and APIs will change.
 
 ## Who Should Use Desaad?
 
-Desaad is ideal for:
-
-- **Developers/Testers** who prefer browser-based reading and are interested in seeing possible new features, like scrobbling. 
-- **Users with metadata from a single source** Metron, Comic Vine, or Grand Comics Database. If your collection is a hodgepodge of metadata from multiple source, Desaad is not for you.
+Desaad might be a good fit if you're a developer or tester who prefers browser-based reading and wants to see possible new features like scrobbling. It works best if your collection uses metadata from a single source (Metron, Comic Vine, or Grand Comics Database). If your collection has mixed metadata from multiple sources, Desaad probably isn't the right tool for you.
 
 ## Getting Started
 
-Setting up Desaad is straightforward:
+Setting up Desaad is pretty straightforward:
 
 ```bash
 # Clone the repository
@@ -233,11 +163,11 @@ uv run python manage.py collectstatic
 uv run python manage.py runserver
 ```
 
-For production deployments, Desaad includes Podman compose configurations with systemd service integration for easy management.
+For production deployments, there are Podman compose configurations with systemd service integration.
 
 ## Container Deployment
 
-If you are using Fedora Linux, the included Podman configuration should make deployment simple. Theoretically, it should work fine on other OS's running Podman, but it hasn't been tested. Using it should pretty just consist on doing the following:
+If you're using Fedora Linux, the included Podman configuration should make deployment simple. It should work on other systems running Podman too, but I haven't tested that yet. To get started:
 
 ```bash
 # Build and start
@@ -252,12 +182,12 @@ podman-compose exec web python manage.py import_comics
 
 The application will be available at `http://localhost:9000`.
 
-There's more information in the [projects](https://codeberg.org/bpepple/desaad) README.md, like creating [systemd](https://systemd.io/) service files.
+There's more information in the [project's](https://codeberg.org/bpepple/desaad) README.md, including how to create [systemd](https://systemd.io/) service files.
 
 ## OpenCollective
 
-If you would like to help keep the lights on at the project, we have an account at [Open Collective](https://opencollective.com/metron) to defray the servers costs and help with increasing future server capacity.
+If you'd like to help keep the lights on, we have an [Open Collective](https://opencollective.com/metron) account to help cover server costs and future capacity increases.
 
-Anyway, I think that everything for this month! Take care.
+Anyway, that's everything for this month! Take care.
 
 
