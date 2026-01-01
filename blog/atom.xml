@@ -2,11 +2,120 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2025-12-14T15:26:00.000Z</updated>
+    <updated>2026-01-01T12:26:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[December 2025 News]]></title>
+        <id>https://metron-project.github.io/blog/december-2025-update</id>
+        <link href="https://metron-project.github.io/blog/december-2025-update"/>
+        <updated>2026-01-01T12:26:00.000Z</updated>
+        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/december-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
+<p>During December the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
+<ul>
+<li>Users: <strong>99</strong></li>
+<li>Issues: <strong>1,668</strong></li>
+<li>Creators: <strong>208</strong></li>
+<li>Characters: <strong>1,176</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="website-development">Website Development<a href="https://metron-project.github.io/blog/december-2025-update#website-development" class="hash-link" aria-label="Direct link to Website Development" title="Direct link to Website Development" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-new-feature-user-collections">🎉 New Feature: User Collections<a href="https://metron-project.github.io/blog/december-2025-update#-new-feature-user-collections" class="hash-link" aria-label="Direct link to 🎉 New Feature: User Collections" title="Direct link to 🎉 New Feature: User Collections" translate="no">​</a></h3>
+<p>This month I added a User Collections system that lets you track your personal comic book collection. You can manage your collection by adding or removing issues, mark things as read, and track comic condition using the CGC grading scale (0.5 to 10.0). The grading system supports professional grading companies like CGC, CBCS, and PGX, as well as user-assessed grades for raw comics.</p>
+<p>There's also a star rating system (1-5 stars) for rating issues in your collection, format tracking for print and digital copies, and bulk operations to add entire series runs at once. If you're trying to complete runs, there's a missing issues tracker that shows you which issues you need and displays completion percentages for each series.</p>
+<p>The feature includes collection statistics with visual charts, advanced filtering options to search by series, publisher, format, read status, grade, and more. There are also read-only API endpoints for accessing your collection data and statistics, along with documentation to help you get started.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-reading-lists-enhancements">📚 Reading Lists Enhancements<a href="https://metron-project.github.io/blog/december-2025-update#-reading-lists-enhancements" class="hash-link" aria-label="Direct link to 📚 Reading Lists Enhancements" title="Direct link to 📚 Reading Lists Enhancements" translate="no">​</a></h3>
+<p>Reading lists got some updates this month. You can now tag issues as Prologue, Core Issue, Tie-In, or Epilogue, with inline editing and visual badges to make it easier to see what's what. I also added a 5-star rating system for public reading lists, so you can see average ratings and filter lists by minimum rating.</p>
+<p>There's also story arc integration that lets you add all issues from a story arc to a reading list in one go, which should save some time. I created a "reading list editor" group for managing Metron's curated lists - this allows trusted users to help curate without needing full staff privileges. If you're interested in being part of this group, just let me know.</p>
+<p>The reading list API now supports browsing and retrieving lists with paginated results (50 items per page) and filtering options.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-search--filtering-overhaul">🔍 Search &amp; Filtering Overhaul<a href="https://metron-project.github.io/blog/december-2025-update#-search--filtering-overhaul" class="hash-link" aria-label="Direct link to 🔍 Search &amp; Filtering Overhaul" title="Direct link to 🔍 Search &amp; Filtering Overhaul" translate="no">​</a></h3>
+<p>I spent some time improving the search functionality across the site. Series lists now support multi-word search with filters for type, publisher, imprint, year range, status, and volume. Issue lists have quick search with advanced filters for series info, dates, and IDs. Reading lists can be searched by name, creator, attribution source, and privacy status. User collections have quick search across series names and notes with multi-field filtering.</p>
+<p>All the search interfaces now have collapsible advanced filter sections, preserve your filter state, show active filter indicators, and have better empty states. I tried to keep the UI patterns consistent across all of them.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-bug-fixes">🐛 Bug Fixes<a href="https://metron-project.github.io/blog/december-2025-update#-bug-fixes" class="hash-link" aria-label="Direct link to 🐛 Bug Fixes" title="Direct link to 🐛 Bug Fixes" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="week-views-date-calculation-fix-437">Week Views Date Calculation Fix (#437)<a href="https://metron-project.github.io/blog/december-2025-update#week-views-date-calculation-fix-437" class="hash-link" aria-label="Direct link to Week Views Date Calculation Fix (#437)" title="Direct link to Week Views Date Calculation Fix (#437)" translate="no">​</a></h4>
+<p>Fixed a bug where WeekList, NextWeekList, and FutureList views were using class-level date calculations evaluated at import time. This meant the views would always show the same week (from when the server started) instead of updating dynamically. I moved the date calculations to per-request methods and switched to precise date range queries to fix this.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-mobile-improvements">📱 Mobile Improvements<a href="https://metron-project.github.io/blog/december-2025-update#-mobile-improvements" class="hash-link" aria-label="Direct link to 📱 Mobile Improvements" title="Direct link to 📱 Mobile Improvements" translate="no">​</a></h3>
+<p>Fixed a few mobile-specific issues this month: filter buttons now work properly on mobile devices, improved the home page responsiveness, fixed layout issues in home.html, and cleaned up button layouts across collection and reading list views.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-uiux-enhancements">🎨 UI/UX Enhancements<a href="https://metron-project.github.io/blog/december-2025-update#-uiux-enhancements" class="hash-link" aria-label="Direct link to 🎨 UI/UX Enhancements" title="Direct link to 🎨 UI/UX Enhancements" translate="no">​</a></h3>
+<p>Added a Reading List &amp; Collections section to the home page, made the first information card full width, and improved the overall layout for better visual hierarchy. I also spent time optimizing database queries - reading list detail views went from around 20 queries down to 4-6 by using better prefetching and annotation strategies. Collection detail views now show cover images and descriptions with lazy loading.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-security--validation">🔒 Security &amp; Validation<a href="https://metron-project.github.io/blog/december-2025-update#-security--validation" class="hash-link" aria-label="Direct link to 🔒 Security &amp; Validation" title="Direct link to 🔒 Security &amp; Validation" translate="no">​</a></h3>
+<p>Improved permission checks across reading list operations.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-technical-improvements">🔧 Technical Improvements<a href="https://metron-project.github.io/blog/december-2025-update#-technical-improvements" class="hash-link" aria-label="Direct link to 🔧 Technical Improvements" title="Direct link to 🔧 Technical Improvements" translate="no">​</a></h3>
+<p>Upgraded to Django 5.2.9 and added documentation for User Collections and Reading Lists, including user guides, technical documentation for developers, and API documentation. I also refactored and simplified some views with better inheritance patterns.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="looking-ahead">Looking Ahead<a href="https://metron-project.github.io/blog/december-2025-update#looking-ahead" class="hash-link" aria-label="Direct link to Looking Ahead" title="Direct link to Looking Ahead" translate="no">​</a></h3>
+<p>Now that User Collections is up and running and Reading Lists have been improved, the plan is to refine these features based on user feedback and explore additional integration opportunities.</p>
+<h1>Desaad: A Comic Book Library Management System</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-desaad">What is Desaad?<a href="https://metron-project.github.io/blog/december-2025-update#what-is-desaad" class="hash-link" aria-label="Direct link to What is Desaad?" title="Direct link to What is Desaad?" translate="no">​</a></h2>
+<p><a href="https://codeberg.org/bpepple/desaad" target="_blank" rel="noopener noreferrer">Desaad</a> is a self-hosted, web-based comic book library manager and reader built with Django that I've been working on over the past week or so. I created it to test and plan features for Metron that might be useful for other comic servers.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="key-features">Key Features<a href="https://metron-project.github.io/blog/december-2025-update#key-features" class="hash-link" aria-label="Direct link to Key Features" title="Direct link to Key Features" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="library-management">Library Management<a href="https://metron-project.github.io/blog/december-2025-update#library-management" class="hash-link" aria-label="Direct link to Library Management" title="Direct link to Library Management" translate="no">​</a></h3>
+<p>Desaad imports CBZ, CBR, and PDF comic archives and automatically pulls metadata from MetronInfo.xml files - things like series information, publishers, creators, characters, teams, universes, and story arcs. I'm not planning to add ComicInfo.xml support, since there are a <em>lot</em> of comic servers that already do.</p>
+<p>It uses <a href="https://github.com/Metron-Project/darkseid" target="_blank" rel="noopener noreferrer">Darkseid</a> for handling comic archives and extracting metadata.</p>
+<img src="https://metron-project.github.io/assets/images/series_detail-e5ce4009841cbaac64a189d34bdda318.png" alt="Screenshot of a Series Detail" style="max-width:100%;height:auto">
+<img src="https://metron-project.github.io/assets/images/issue_detail-df6c9afa99db335976863c860a7fe759.png" alt="Screenshot of a Issue Detail" style="max-width:100%;height:auto">
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="built-in-web-reader">Built-in Web Reader<a href="https://metron-project.github.io/blog/december-2025-update#built-in-web-reader" class="hash-link" aria-label="Direct link to Built-in Web Reader" title="Direct link to Built-in Web Reader" translate="no">​</a></h3>
+<p>The web reader uses <a href="https://htmx.org/" target="_blank" rel="noopener noreferrer">HTMX</a> and automatically saves your reading position and progress, so you can pick up where you left off.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="reading-lists">Reading Lists<a href="https://metron-project.github.io/blog/december-2025-update#reading-lists" class="hash-link" aria-label="Direct link to Reading Lists" title="Direct link to Reading Lists" translate="no">​</a></h3>
+<p>You can import reading lists from <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron</a> using the API. The feature automatically tracks which issues are in your library and shows you which ones you're missing.</p>
+<img src="https://metron-project.github.io/assets/images/reading_list-02c7e172bb3cc44846a964f0f89099d9.png" alt="Screenshot of a Reading List" style="max-width:100%;height:auto">
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="opds-12-catalog-support">OPDS 1.2 Catalog Support<a href="https://metron-project.github.io/blog/december-2025-update#opds-12-catalog-support" class="hash-link" aria-label="Direct link to OPDS 1.2 Catalog Support" title="Direct link to OPDS 1.2 Catalog Support" translate="no">​</a></h3>
+<p>You can access your comic library from mobile devices and e-readers using OPDS-compatible apps like Chunky Comic Reader (iOS), Panels (iOS), or Challenger Comics Viewer (Android).</p>
+<p>I tried testing it with the Challenger app, but their OPDS support doesn't seem to work and is still marked as Beta. If anyone wants to test with Chunky or Panels, I'd appreciate hearing how it goes.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="auto-import-functionality">Auto-Import Functionality<a href="https://metron-project.github.io/blog/december-2025-update#auto-import-functionality" class="hash-link" aria-label="Direct link to Auto-Import Functionality" title="Direct link to Auto-Import Functionality" translate="no">​</a></h3>
+<p>There's an import management command that you can run manually or set up to watch a directory for new comics.</p>
+<p>I haven't optimized it much yet - the most expensive part is cover extraction, which I'll probably move to a background task at some point. I deployed it on a spare <a href="https://www.gmktec.com/products/nucbox-g3-most-cost-effective-mini-pc-with-intel-n100-processor" target="_blank" rel="noopener noreferrer">GMKtec NucBox G3</a> I had, and it took about 3 hours to import around 65,000 comics. Once I move cover extraction to a background task, I should be able to get that down to 1-2 hours.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="technical-foundation">Technical Foundation<a href="https://metron-project.github.io/blog/december-2025-update#technical-foundation" class="hash-link" aria-label="Direct link to Technical Foundation" title="Direct link to Technical Foundation" translate="no">​</a></h2>
+<p>Desaad is built on Django 6.0 with SQLite for simplicity (though I'll probably switch to PostgreSQL at some point since SQLite has some performance limitations and missing features). The frontend uses the Bulma CSS framework with HTMX, and comic processing is handled by the <a href="https://github.com/Metron-Project/darkseid" target="_blank" rel="noopener noreferrer">Darkseid</a> library. It's container-ready with Podman support and systemd integration.</p>
+<p>It requires Python 3.13+ and uses the <a href="https://github.com/astral-sh/uv" target="_blank" rel="noopener noreferrer">uv</a> package manager for dependency management.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="important-considerations">Important Considerations<a href="https://metron-project.github.io/blog/december-2025-update#important-considerations" class="hash-link" aria-label="Direct link to Important Considerations" title="Direct link to Important Considerations" translate="no">​</a></h2>
+<p>A few things to keep in mind about Desaad:</p>
+<ol>
+<li>
+<p><strong>Single Metadata Source</strong>: It assumes all your comics use metadata from a single source (Metron, Comic Vine, etc.). Mixed metadata sources aren't supported.</p>
+</li>
+<li>
+<p><strong>MetronInfo.xml Format</strong>: Only supports the MetronInfo.xml metadata specification. Your comics need metadata written by software that implements this spec.</p>
+</li>
+<li>
+<p><strong>Under Active Development</strong>: The project is still under construction and not ready for production use. Features and APIs will change.</p>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="who-should-use-desaad">Who Should Use Desaad?<a href="https://metron-project.github.io/blog/december-2025-update#who-should-use-desaad" class="hash-link" aria-label="Direct link to Who Should Use Desaad?" title="Direct link to Who Should Use Desaad?" translate="no">​</a></h2>
+<p>Desaad might be a good fit if you're a developer or tester who prefers browser-based reading and wants to see possible new features like scrobbling. It works best if your collection uses metadata from a single source (Metron, Comic Vine, or Grand Comics Database). If your collection has mixed metadata from multiple sources, Desaad probably isn't the right tool for you.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="getting-started">Getting Started<a href="https://metron-project.github.io/blog/december-2025-update#getting-started" class="hash-link" aria-label="Direct link to Getting Started" title="Direct link to Getting Started" translate="no">​</a></h2>
+<p>Setting up Desaad is pretty straightforward:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Clone the repository</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">git clone &lt;repository-url&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">cd desaad</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Configure environment</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">cp .env.example .env</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Edit .env with your settings</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Install dependencies and setup</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">uv sync</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">uv run python manage.py migrate</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">uv run python manage.py createsuperuser</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">uv run python manage.py collectstatic</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Run the development server</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">uv run python manage.py runserver</span><br></span></code></pre></div></div>
+<p>For production deployments, there are Podman compose configurations with systemd service integration.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="container-deployment">Container Deployment<a href="https://metron-project.github.io/blog/december-2025-update#container-deployment" class="hash-link" aria-label="Direct link to Container Deployment" title="Direct link to Container Deployment" translate="no">​</a></h2>
+<p>If you're using Fedora Linux, the included Podman configuration should make deployment simple. It should work on other systems running Podman too, but I haven't tested that yet. To get started:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Build and start</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">podman-compose up -d</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Create admin user</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">podman-compose exec web python manage.py createsuperuser</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Import comics</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">podman-compose exec web python manage.py import_comics</span><br></span></code></pre></div></div>
+<p>The application will be available at <code>http://localhost:9000</code>.</p>
+<p>There's more information in the <a href="https://codeberg.org/bpepple/desaad" target="_blank" rel="noopener noreferrer">project's</a> README.md, including how to create <a href="https://systemd.io/" target="_blank" rel="noopener noreferrer">systemd</a> service files.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/december-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
+<p>A huge thank you to everyone who has contributed to our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">Open Collective</a>! Your support makes a real difference in keeping the Metron Project running and growing.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="what-your-contributions-support">What Your Contributions Support<a href="https://metron-project.github.io/blog/december-2025-update#what-your-contributions-support" class="hash-link" aria-label="Direct link to What Your Contributions Support" title="Direct link to What Your Contributions Support" translate="no">​</a></h3>
+<p>Funds from Open Collective go directly toward:</p>
+<ul>
+<li><strong>Server hosting costs</strong> - Keeping the Metron website and API available</li>
+<li><strong>Domain registration</strong> - Annual domain name renewals</li>
+<li><strong>Future capacity increases</strong> - Scaling resources as the database and user base grows</li>
+</ul>
+<p>All expenses are transparent and publicly viewable on our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer">Open Collective page</a>, so you can see exactly where every dollar goes.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="support-the-project">Support the Project<a href="https://metron-project.github.io/blog/december-2025-update#support-the-project" class="hash-link" aria-label="Direct link to Support the Project" title="Direct link to Support the Project" translate="no">​</a></h3>
+<p>If you'd like to help keep the lights on and support continued development, contributions of any size are appreciated and help ensure Metron remains a free resource for the comic book community.</p>
+<p>Anyway, that's everything for this month! Take care.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="metron" term="metron"/>
+        <category label="opencollective" term="opencollective"/>
+        <category label="api" term="api"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[User Collections]]></title>
         <id>https://metron-project.github.io/blog/user-collections</id>
@@ -1268,61 +1377,5 @@ I'll write up a announcement blog post.</p>
         <category label="database" term="database"/>
         <category label="server" term="server"/>
         <category label="metadata" term="metadata"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Database Series Type Changes]]></title>
-        <id>https://metron-project.github.io/blog/june-2024-update</id>
-        <link href="https://metron-project.github.io/blog/june-2024-update"/>
-        <updated>2024-07-19T10:09:00.000Z</updated>
-        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/june-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
-<p>During June the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
-<ul>
-<li>Users: <strong>26</strong></li>
-<li>Issues: <strong>3,025</strong></li>
-<li>Creators: <strong>189</strong></li>
-<li>Characters: <strong>822</strong></li>
-</ul>
-<p>Thanks to everyone that contributed!</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="database-series-type-changes">Database Series Type Changes<a href="https://metron-project.github.io/blog/june-2024-update#database-series-type-changes" class="hash-link" aria-label="Direct link to Database Series Type Changes" title="Direct link to Database Series Type Changes" translate="no">​</a></h2>
-<p>Was discussing changes to the <a href="https://github.com/Metron-Project/metroninfo" target="_blank" rel="noopener noreferrer">MetronInfo</a> schema with the developer of
-<a href="https://github.com/Kareadita/Kavita" target="_blank" rel="noopener noreferrer">Kavita</a>, and it got me thinking about the Series Types that Metron uses.</p>
-<p>Based on that discussion, we've consolidated <code>Cancelled</code> and <code>Ongoing</code> types to <code>Single Issue</code>, changed <code>Annual Series</code> to <code>Annual</code>, and also add <code>Omnibus</code> which would give us the following values:</p>
-<ul>
-<li><strong>Annual</strong>: An over-sized special of a comic book that is released in addition to the regular comics in that series.</li>
-<li><strong>Digital Chapters</strong>: This is where a comic is released in a digital format, but can sometimes be released in print later.</li>
-<li><strong>Graphic Novel</strong>: This is a comic book that comes out in the trade paperback/hardcover format without being in the serial single issue format beforehand.</li>
-<li><strong>Hardcover</strong>: Similar to a Trade Paperback but the cover has a very thick stock just like a hardcover novel.</li>
-<li><strong>Limited Series</strong>: This is a comic series that has a set number of issues.</li>
-<li><strong>Omnibus</strong>: These are very large number of single issues collected in one edition.</li>
-<li><strong>One-Shot</strong>: A story that is contained to a single issue.</li>
-<li><strong>Single Issue</strong>: This is the serial magazine-style format of a comic. For example, <code>Action Comics v1 #2</code>.</li>
-<li><strong>Trade Paperback</strong>: This is the most common kind of collected edition where it is usually collecting 6-12 single issues.</li>
-</ul>
-<p><strong>Note</strong>: Series Types descriptions are from this excellent article at <a href="https://www.howtolovecomics.com/comic-book-glossary-of-terms/" target="_blank" rel="noopener noreferrer">How to Love Comics</a></p>
-<p>In addition to those changes, we've added a new database field <code>status</code> to the <code>Series</code> model to track a series' status. The values for this field are as follows:</p>
-<ul>
-<li><strong>Cancelled</strong>: Used when a <em>Single Issue</em> or <em>Annual</em> series is ended. Sometimes can be used when a <em>Limited</em> series is abandoned before completing its story.</li>
-<li><strong>Complete</strong>: Commonly used when a <em>Limited</em>, <em>One-Shot</em>, <em>Graphic Novel</em>, <em>Hardcover</em>, <em>Omnibus</em>, or <em>Digital Chapters</em> series is ended.</li>
-<li><strong>Hiatus</strong>: When a series stops publishing before ending with the expectation that it will be finished at a later date.</li>
-<li><strong>Ongoing</strong>: Used with the <em>Single Issue</em> or <em>Annual</em> series while it is still being published.</li>
-</ul>
-<p>To help users update their existing comics with the new values without having to use Metron's API to re-tag their comics, I've written <a href="https://github.com/bpepple/karkas" target="_blank" rel="noopener noreferrer">Karkas</a> which will change the <em>Format</em> element of a comics <code>ComicInfo.xml</code> to <strong>Single Issue</strong> if they are currently <strong>Cancelled</strong> or <strong>Ongoing</strong>, and <strong>Annual</strong> if the value is <strong>Annual Series</strong>. Since this is a program that most likely will only be used once I've decided to not publish it to <a href="https://pypi.org/" target="_blank" rel="noopener noreferrer">PyPi</a>, but you can grab the wheel from <a href="https://static.metron.cloud/misc/karkas-1.0.0-py3-none-any.whl" target="_blank" rel="noopener noreferrer">here</a>.</p>
-<p>To install it you just need to run:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">wget https://static.metron.cloud/misc/karkas-1.0.0-py3-none-any.whl</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">pipx install karkas-1.0.0-py3-none-any.whl</span><br></span></code></pre></div></div>
-<p>Then just run:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">karkas /path/to/comics</span><br></span></code></pre></div></div>
-<p>In the next day or so, I'll be releasing a new version of Mokkari that will include the new <strong>Series Status</strong> field.</p>
-<p>If you run into any problems, please open a bug report with the appropriate project, i.e. Metron, Karkas, Mokkari, etc.</p>
-<p>Anyway, that's all I've got for this month. Take care!</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="database" term="database"/>
-        <category label="metron" term="metron"/>
-        <category label="series" term="series"/>
-        <category label="format" term="format"/>
     </entry>
 </feed>
