@@ -12,10 +12,10 @@ tags: [ comic, metron, opencollective, api ]
 
 During December the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TODO**
-- Issues: **TODO**
-- Creators: **TODO**
-- Characters: **TODO**
+- Users: **99**
+- Issues: **1,668**
+- Creators: **208**
+- Characters: **1,176**
 
 Thanks to everyone that contributed!
 
@@ -131,7 +131,7 @@ With the User Collections feature now live and Reading Lists enhanced, there is 
 
 ## What is Desaad?
 
-[Desaad](https://codeberg.org/bpepple/desaad) is a self-hosted, web-based comic book library management and reading application built with Django, that I've been working on the last week or so. I created it to help test/plan features in Metron that might be of use to comic servers.
+[Desaad](https://codeberg.org/bpepple/desaad) is a self-hosted, web-based comic book library management and reading application built with Django, that I've been working on the last week or so. I created it to help test/plan features in Metron that might be of use to other comic servers.
 
 ## Key Features
 
@@ -141,6 +141,18 @@ Desaad imports your CBZ, CBR, and PDF comic archives and automatically extracts 
 
 The application uses [Darkseid](https://github.com/Metron-Project/darkseid) for comic archive handling and metadata extraction.
 
+<img 
+  src={require('./series_detail.png').default} 
+  alt="Screenshot of a Series Detail" 
+  style={{maxWidth: '100%', height: 'auto'}} 
+/>
+
+<img 
+  src={require('./issue_detail.png').default} 
+  alt="Screenshot of a Issue Detail" 
+  style={{maxWidth: '100%', height: 'auto'}} 
+/>
+
 ### Built-in Web Reader
 
 The web reader using [HTMX](https://htmx.org/) automatically saves your reading position and progress, so you can pick up right where you left off.
@@ -149,11 +161,17 @@ The web reader using [HTMX](https://htmx.org/) automatically saves your reading 
 
 Import reading lists from [Metron](https://metron.cloud) using the API. The reading list feature automatically tracks which issues are in your library and identifies missing issues from your collection.
 
+<img 
+  src={require('./reading_list.png').default} 
+  alt="Screenshot of a Reading List" 
+  style={{maxWidth: '100%', height: 'auto'}} 
+/>
+
 ### OPDS 1.2 Catalog Support
 
 Access your comic library from mobile devices and e-readers using OPDS-compatible applications like Chunky Comic Reader (iOS), Panels (iOS), or Challenger Comics Viewer (Android).
 
-I attempted to test it on the Challenger app, but their OPDS support doesn't seem to work and is marked as a Beta feature.
+I attempted to test it on the Challenger app, but their OPDS support doesn't seem to work and is marked as a Beta feature, so if anyone wants to rest with Chunky or Panels it would be appreciated.
 
 ### Auto-Import Functionality
 
@@ -236,8 +254,10 @@ The application will be available at `http://localhost:9000`.
 
 There's more information in the [projects](https://codeberg.org/bpepple/desaad) README.md, like creating [systemd](https://systemd.io/) service files.
 
----
+## OpenCollective
 
-*Note: Desaad is currently in active development. Please check the repository for the latest updates and stability information before deploying in production environments.*
+If you would like to help keep the lights on at the project, we have an account at [Open Collective](https://opencollective.com/metron) to defray the servers costs and help with increasing future server capacity.
+
+Anyway, I think that everything for this month! Take care.
 
 
