@@ -146,7 +146,7 @@ Setting up Desaad is pretty straightforward:
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://codeberg.org/bpepple/desaad.git
 cd desaad
 
 # Configure environment
