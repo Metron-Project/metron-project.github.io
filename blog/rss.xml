@@ -4,10 +4,61 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Thu, 01 Jan 2026 12:26:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 09 Jan 2026 12:46:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Collection Scrobbling]]></title>
+            <link>https://metron-project.github.io/blog/collection-scrobbling</link>
+            <guid>https://metron-project.github.io/blog/collection-scrobbling</guid>
+            <pubDate>Fri, 09 Jan 2026 12:46:00 GMT</pubDate>
+            <description><![CDATA[Introducing Collection Scrobbling]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introducing-collection-scrobbling">Introducing Collection Scrobbling<a href="https://metron-project.github.io/blog/collection-scrobbling#introducing-collection-scrobbling" class="hash-link" aria-label="Direct link to Introducing Collection Scrobbling" title="Direct link to Introducing Collection Scrobbling" translate="no">​</a></h2>
+<p>We've added a new scrobble endpoint to Metron that makes tracking your comic reading progress more convenient.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-scrobbling">What is Scrobbling?<a href="https://metron-project.github.io/blog/collection-scrobbling#what-is-scrobbling" class="hash-link" aria-label="Direct link to What is Scrobbling?" title="Direct link to What is Scrobbling?" translate="no">​</a></h3>
+<p>Scrobbling is a quick way to mark an issue as read via the API. The term comes from music services like Last.fm, where it refers to automatically tracking what you're listening to. For Metron, it means you can instantly log that you've finished reading a comic issue without navigating through the web interface.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="how-it-works">How It Works<a href="https://metron-project.github.io/blog/collection-scrobbling#how-it-works" class="hash-link" aria-label="Direct link to How It Works" title="Direct link to How It Works" translate="no">​</a></h3>
+<p>The new <code>/api/collection/scrobble/</code> endpoint accepts a simple POST request with an issue ID. When you scrobble an issue, Metron will:</p>
+<ul>
+<li>Mark the issue as read in your collection</li>
+<li>Record the exact date and time you finished it</li>
+<li>Optionally save a star rating (1-5)</li>
+<li>Automatically add the issue to your collection if it's not already there</li>
+</ul>
+<p>If the issue doesn't exist in your collection yet, scrobbling creates a new collection item with reasonable defaults (digital format, quantity of 1). If it's already in your collection, the endpoint just updates the read status and timestamp.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="why-we-built-this">Why We Built This<a href="https://metron-project.github.io/blog/collection-scrobbling#why-we-built-this" class="hash-link" aria-label="Direct link to Why We Built This" title="Direct link to Why We Built This" translate="no">​</a></h3>
+<p>The web interface works fine for managing your collection, but marking issues as read can feel cumbersome when you're actively reading. You have to navigate to the right page, find the issue, click edit, check the box, and save. That's several steps just to record something simple.</p>
+<p>Scrobbling reduces this to a single API call. This opens up possibilities for:</p>
+<ul>
+<li><strong>Browser extensions</strong> that add a "mark as read" button to digital comic readers</li>
+<li><strong>Mobile apps</strong> that track reading activity in the background</li>
+<li><strong>Import scripts</strong> that bring in reading history from other services</li>
+<li><strong>Reading tracker tools</strong> that focus specifically on logging your progress. If you are using <a href="https://codeberg.org/bpepple/desaad" target="_blank" rel="noopener noreferrer">Dessad</a> this feature has already been added.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="technical-changes">Technical Changes<a href="https://metron-project.github.io/blog/collection-scrobbling#technical-changes" class="hash-link" aria-label="Direct link to Technical Changes" title="Direct link to Technical Changes" translate="no">​</a></h3>
+<p>To support more precise tracking, we migrated the <code>date_read</code> field from <code>DateField</code> to <code>DateTimeField</code>. This means you can now track exactly when you finished reading an issue, not just which day. All existing data was preserved during the migration.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="reading-history">Reading History<a href="https://metron-project.github.io/blog/collection-scrobbling#reading-history" class="hash-link" aria-label="Direct link to Reading History" title="Direct link to Reading History" translate="no">​</a></h3>
+<p>Along with scrobbling, we added a reading history view that displays your recently-read comics in a timeline format. You can see:</p>
+<ul>
+<li>When you read each issue (with exact timestamps)</li>
+<li>Cover thumbnails for quick visual reference</li>
+<li>Format badges showing whether you read print or digital</li>
+<li>Your star ratings</li>
+</ul>
+<p>The full reading history is available at <code>/collection/history/</code>, and your user profile now shows your 10 most recent reads.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="getting-started">Getting Started<a href="https://metron-project.github.io/blog/collection-scrobbling#getting-started" class="hash-link" aria-label="Direct link to Getting Started" title="Direct link to Getting Started" translate="no">​</a></h3>
+<p>To scrobble an issue, make a POST request to <code>/api/collection/scrobble/</code>:</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"issue_id"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">12345</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"date_read"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"2026-01-08T14:30:00Z"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"rating"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">4</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<p>The <code>date_read</code> and <code>rating</code> fields are optional. If you omit <code>date_read</code>, it defaults to the current timestamp.</p>
+<p>Authentication is required (Basic Auth or session), and the endpoint respects collection privacy—you can only scrobble to your own collection.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="whats-next">What's Next<a href="https://metron-project.github.io/blog/collection-scrobbling#whats-next" class="hash-link" aria-label="Direct link to What's Next" title="Direct link to What's Next" translate="no">​</a></h3>
+<p>The scrobble endpoint provides a foundation for better reading tracking. We'd like to see what tools the community builds with it. If you create a browser extension, mobile app, or other integration, let us know.</p>
+<p>For complete API documentation, see the <a href="https://metron.cloud/wiki/user-documentation/user-collection/#wiki-toc-quick-scrobble-api" target="_blank" rel="noopener noreferrer">User Collection Documentation</a>.</p>]]></content:encoded>
+            <category>comic</category>
+            <category>metron</category>
+            <category>scrobbling</category>
+        </item>
         <item>
             <title><![CDATA[December 2025 News]]></title>
             <link>https://metron-project.github.io/blog/december-2025-update</link>
@@ -1264,39 +1315,6 @@ I'll write up a announcement blog post.</p>
             <category>database</category>
             <category>publisher</category>
             <category>imprint</category>
-            <category>metadata</category>
-        </item>
-        <item>
-            <title><![CDATA[July 2024 Update]]></title>
-            <link>https://metron-project.github.io/blog/july-2024-update</link>
-            <guid>https://metron-project.github.io/blog/july-2024-update</guid>
-            <pubDate>Thu, 01 Aug 2024 11:20:00 GMT</pubDate>
-            <description><![CDATA[Monthly Statistics]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/july-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
-<p>During July the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron Project</a> added the following to its database:</p>
-<ul>
-<li>Users: <strong>47</strong></li>
-<li>Issues: <strong>1,940</strong></li>
-<li>Creators: <strong>71</strong></li>
-<li>Characters: <strong>329</strong></li>
-</ul>
-<p>Thanks to everyone that contributed!</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="more-database-series-type-changes">More Database Series Type Changes<a href="https://metron-project.github.io/blog/july-2024-update#more-database-series-type-changes" class="hash-link" aria-label="Direct link to More Database Series Type Changes" title="Direct link to More Database Series Type Changes" translate="no">​</a></h2>
-<p>Made a couple of changes to some Series Type names on <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer">Metron</a> based on some suggestions from <a href="https://github.com/Buried-In-Code" target="_blank" rel="noopener noreferrer">Buried-In-Code</a> over on <a href="https://matrix.to/#/%23metron-devel:matrix.org" target="_blank" rel="noopener noreferrer">Matrix</a>. They include:</p>
-<ul>
-<li>Change <em><strong>Digital Chapters</strong></em> to <em><strong>Digital Chapter</strong></em></li>
-<li>Change <em><strong>Hard Cover</strong></em> to <em><strong>Hardcover</strong></em></li>
-</ul>
-<p>If you wish to update your existing <code>ComicInfo.xml</code> metadata, I've released a new version of <a href="https://github.com/bpepple/karkas" target="_blank" rel="noopener noreferrer">Karkas</a> that addresses these changes. You can download this version from <a href="https://github.com/bpepple/karkas/releases/download/v1.2.0/karkas-1.2.0-py3-none-any.whl" target="_blank" rel="noopener noreferrer">this link</a>, and just install it by running:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pipx install /path/to/karkas-1.2.0-py3-none-any.whl</span><br></span></code></pre></div></div>
-<p>Then just run:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">karkas /path/to/comics</span><br></span></code></pre></div></div>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="server-os-upgrade">Server OS Upgrade<a href="https://metron-project.github.io/blog/july-2024-update#server-os-upgrade" class="hash-link" aria-label="Direct link to Server OS Upgrade" title="Direct link to Server OS Upgrade" translate="no">​</a></h2>
-<p>I'm tentatively planning to upgrade Metron's operating system later this month, so there might be some downtime (most likely a few hours) when I do that. Once I have a better idea what changes this version has (PostgreSQL-16.2, Python-3.12, etc.) I'll have a better idea the work involved. Regardless, I'll post a notification on the site for the week leading to the upgrade, which most likely will occur on a Saturday.</p>
-<p>Anyway, that's all I've got for this month. Take care!</p>]]></content:encoded>
-            <category>comic</category>
-            <category>database</category>
-            <category>server</category>
             <category>metadata</category>
         </item>
     </channel>
