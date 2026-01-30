@@ -19,57 +19,6 @@ During January the [Metron Project](https://metron.cloud/) added the following t
 
 Thanks to everyone that contributed!
 
-# Desaad Updates
-
-## Scrobbling to Metron
-
-Issue scrobbling was added this month, and more information on it can be found in this [blog post](../2026-01-09-scrobble/index.md).
-
-## Database Migration to PostgreSQL
-
-The application has migrated from SQLite to PostgreSQL. This followed an initial attempt to improve SQLite concurrency with WAL mode and retry logic, but PostgreSQL proved to be a better fit for handling concurrent operations during comic imports while the web server is running.
-
-## Reader Improvements
-
-The comic reader received several updates:
-
-- Added previous/next issue navigation for reading through a series
-- Added gesture hints overlay to help users discover touch controls
-- Implemented browser caching for page images with proper HTTP cache headers (ETag, Cache-Control)
-- Improved performance by using the stored page count from the database rather than reading from the archive each time
-- Added customizable auto-hide delay for reader controls
-
-After testing both approaches, the reader reverted to using base64 image data instead of image URLs, as this provided a better reading experience.
-
-## Background Task Processing
-
-The app now uses Django 6.0's Tasks framework with django-tasks[rq] for several operations:
-
-- **Reading list imports** now run asynchronously with status polling via HTMX
-- **Cover extraction** is deferred to a background queue, making initial imports faster
-- **Missing reading list items** are automatically linked when matching issues are imported
-
-## Metron Integration
-
-A new `import_reading_status` management command allows users to sync their reading history from their Metron collection. This imports completion status and ratings for issues that match by Metron ID. Currently, it only imports the read status, but in the near future it will add the dates the issues were read on also.
-
-## HTMX Adoption
-
-Replaced JavaScript with HTMX in several places:
-
-- Notification dismiss buttons
-- Reading list detail page (delete modal, hide/show missing toggle)
-- Navbar burger menu
-
-## Other Changes
-
-- Added sorl-thumbnail with Redis cache backend for cover images
-- Added cover images to the series list view
-- Added a home view showing next unread issues for started series
-- Added completion indicators to reading list overview
-- Added django-debug-toolbar for development
-- Various container and deployment fixes
-
 ## Website Updates
 
 ### New Features
@@ -116,3 +65,56 @@ The issue autocomplete now supports more flexible searching:
 
 - Updated to Django 5.2.10
 - Removed request for GitHub stars from the welcome flow
+
+## Desaad Updates
+
+The following changes were made to [Desaad](https://codeberg.org/bpepple/desaad).
+
+### Scrobbling to Metron
+
+Issue scrobbling was added this month, and more information on it can be found in this [blog post](../2026-01-09-scrobble/index.md).
+
+### Database Migration to PostgreSQL
+
+The application has migrated from SQLite to PostgreSQL. This followed an initial attempt to improve SQLite concurrency with WAL mode and retry logic, but PostgreSQL proved to be a better fit for handling concurrent operations during comic imports while the web server is running.
+
+#### Reader Improvements
+
+The comic reader received several updates:
+
+- Added previous/next issue navigation for reading through a series
+- Added gesture hints overlay to help users discover touch controls
+- Implemented browser caching for page images with proper HTTP cache headers (ETag, Cache-Control)
+- Improved performance by using the stored page count from the database rather than reading from the archive each time
+- Added customizable auto-hide delay for reader controls
+
+After testing both approaches, the reader reverted to using base64 image data instead of image URLs, as this provided a better reading experience.
+
+### Background Task Processing
+
+The app now uses Django 6.0's Tasks framework with django-tasks[rq] for several operations:
+
+- **Reading list imports** now run asynchronously with status polling via HTMX
+- **Cover extraction** is deferred to a background queue, making initial imports faster
+- **Missing reading list items** are automatically linked when matching issues are imported
+
+### Metron Integration
+
+A new `import_reading_status` management command allows users to sync their reading history from their Metron collection. This imports completion status and ratings for issues that match by Metron ID. Currently, it only imports the read status, but in the near future it will add the dates the issues were read on also.
+
+### HTMX Adoption
+
+Replaced JavaScript with HTMX in several places:
+
+- Notification dismiss buttons
+- Reading list detail page (delete modal, hide/show missing toggle)
+- Navbar burger menu
+
+### Other Changes
+
+- Added sorl-thumbnail with Redis cache backend for cover images
+- Added cover images to the series list view
+- Added a home view showing next unread issues for started series
+- Added completion indicators to reading list overview
+- Added django-debug-toolbar for development
+- Various container and deployment fixes
