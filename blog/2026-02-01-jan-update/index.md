@@ -54,6 +54,20 @@ The issue autocomplete now supports more flexible searching:
 - Search terms can be in any order ("Spider Amazing" matches "Amazing Spider-Man")
 - Series year filtering using parentheses (e.g., "Speed Racer (2025) #4")
 
+**Email Compatibility for Account Activation**
+
+Updated how Metron sends account activation emails to ensure they display correctly across all major email clients.
+
+The changes include:
+
+- **Multipart emails**: Activation emails now send both HTML and plain text versions, ensuring users can read them regardless of their email client settings
+- **Universal styling**: Replaced CSS stylesheets with inline styles, since Gmail and Outlook strip CSS from the `<head>` section
+- **Table-based layout**: Switched from div-based layouts to tables for consistent rendering in older email clients
+- **Better color support**: Removed CSS gradients in favor of solid colors for Outlook compatibility
+- **Web-safe fonts**: Now using Arial and Helvetica instead of system fonts for cross-platform consistency
+
+These updates should ensure new users have a smooth onboarding experience, regardless of whether they use Gmail, Outlook, Apple Mail, or any other email client.
+
 ### Bug Fixes
 
 - Fixed duplicate issue creation race condition—users now see a friendly error instead of a 500 error
