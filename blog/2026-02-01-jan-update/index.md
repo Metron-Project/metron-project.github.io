@@ -23,21 +23,26 @@ Thanks to everyone that contributed!
 
 ### New Features
 
-**Scrobble API Support**  
+**Scrobble API Support**
+
 A new `/scrobble` endpoint allows users to quickly mark issues as read via the API with optional rating and timestamp. This enables integration with third-party reading apps and automated tracking workflows. The `date_read` field was migrated from a date to datetime for more precise tracking.
 
-**Reading History**  
+**Reading History**
+
 Users can now view their reading history in a timeline layout with monthly grouping. Recent reading activity also appears on user profile pages.
 
-**Multiple Read Dates**  
+**Multiple Read Dates**
+
 Collection items now support tracking multiple read dates, since comic issues are often re-read over time. The UI includes HTMX-powered controls for adding and removing read dates directly from the detail page.
 
-**Community View**  
+**Community View**
+
 User profiles now use username-based URLs (`/accounts/username/`) instead of numeric IDs. A new user list view with search functionality was added, making it easier to find and view other community members.
 
 ### Improvements
 
-**HTMX Migration**  
+**HTMX Migration**
+
 Significant portions of the frontend JavaScript have been replaced with HTMX:
 - Global HTMX import in the base template
 - Navbar burger menu converted to HTMX
@@ -46,10 +51,12 @@ Significant portions of the frontend JavaScript have been replaced with HTMX:
 - Modal dialogs for read date deletion converted to HTMX
 - Removed several legacy JavaScript files (jquery.formset.js, bulma-modal.js, bulma-navbar-burger.js, bulma-notifications.js)
 
-**Auto-Dismissing Notifications**  
+**Auto-Dismissing Notifications**
+
 Non-error notifications now automatically disappear after 5 seconds. Error messages remain visible until manually dismissed.
 
-**Issue Autocomplete Search**  
+**Issue Autocomplete Search**
+
 The issue autocomplete now supports more flexible searching:
 - Search terms can be in any order ("Spider Amazing" matches "Amazing Spider-Man")
 - Series year filtering using parentheses (e.g., "Speed Racer (2025) #4")
