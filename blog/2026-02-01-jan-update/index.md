@@ -29,7 +29,7 @@ A new `/scrobble` endpoint allows users to quickly mark issues as read via the A
 
 **Reading History**
 
-Users can now view their reading history in a timeline layout with monthly grouping. Recent reading activity also appears on user profile pages.
+Users can now view their reading history in a timeline layout with daily grouping. Recent reading activity also appears on user profile pages.
 
 **Multiple Read Dates**
 
@@ -139,3 +139,23 @@ Replaced JavaScript with HTMX in several places:
 - Added completion indicators to reading list overview
 - Added django-debug-toolbar for development
 - Various container and deployment fixes
+
+## OpenCollective
+
+A huge thank you to everyone who has contributed to our [Open Collective](https://opencollective.com/metron)! Your support makes a real difference in keeping the Metron Project running and growing.
+
+### What Your Contributions Support
+
+Funds from Open Collective go directly toward:
+
+- **Server hosting costs** - Keeping the Metron website and API available
+- **Domain registration** - Annual domain name renewals
+- **Future capacity increases** - Scaling resources as the database and user base grows
+
+All expenses are transparent and publicly viewable on our [Open Collective page](https://opencollective.com/metron), so you can see exactly where every dollar goes.
+
+### Support the Project
+
+If you'd like to help keep the lights on and support continued development, contributions of any size are appreciated and help ensure Metron remains a free resource for the comic book community.
+
+Anyway, that's everything for this month! Take care.
