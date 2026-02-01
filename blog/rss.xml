@@ -4,10 +4,136 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Fri, 09 Jan 2026 12:46:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 01 Feb 2026 12:26:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[January 2026 News]]></title>
+            <link>https://metron-project.github.io/blog/january-2026-update</link>
+            <guid>https://metron-project.github.io/blog/january-2026-update</guid>
+            <pubDate>Sun, 01 Feb 2026 12:26:00 GMT</pubDate>
+            <description><![CDATA[Monthly Statistics]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/january-2026-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
+<p>During January the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
+<ul>
+<li class="">Users: <strong>169</strong></li>
+<li class="">Issues: <strong>2,238</strong></li>
+<li class="">Creators: <strong>395</strong></li>
+<li class="">Characters: <strong>1,430</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="website-updates">Website Updates<a href="https://metron-project.github.io/blog/january-2026-update#website-updates" class="hash-link" aria-label="Direct link to Website Updates" title="Direct link to Website Updates" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-features">New Features<a href="https://metron-project.github.io/blog/january-2026-update#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features" translate="no">​</a></h3>
+<p><strong>Scrobble API Support</strong></p>
+<p>A new <code>/scrobble</code> endpoint allows users to quickly mark issues as read via the API with optional rating and timestamp. This enables integration with third-party reading apps and automated tracking workflows. The <code>date_read</code> field was migrated from a date to datetime for more precise tracking.</p>
+<p><strong>Reading History</strong></p>
+<p>Users can now view their reading history in a timeline layout with daily grouping. Recent reading activity also appears on user profile pages.</p>
+<p><strong>Multiple Read Dates</strong></p>
+<p>Collection items now support tracking multiple read dates, since comic issues are often re-read over time. The UI includes HTMX-powered controls for adding and removing read dates directly from the detail page.</p>
+<p><strong>Community View</strong></p>
+<p>User profiles now use username-based URLs (<code>/accounts/username/</code>) instead of numeric IDs. A new user list view with search functionality was added, making it easier to find and view other community members.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="improvements">Improvements<a href="https://metron-project.github.io/blog/january-2026-update#improvements" class="hash-link" aria-label="Direct link to Improvements" title="Direct link to Improvements" translate="no">​</a></h3>
+<p><strong>HTMX Migration</strong></p>
+<p>Significant portions of the frontend JavaScript have been replaced with HTMX:</p>
+<ul>
+<li class="">Global HTMX import in the base template</li>
+<li class="">Navbar burger menu converted to HTMX</li>
+<li class="">File upload handlers simplified with inline onchange attributes</li>
+<li class="">Notification dismissals now use HTMX</li>
+<li class="">Modal dialogs for read date deletion converted to HTMX</li>
+<li class="">Removed several legacy JavaScript files (jquery.formset.js, bulma-modal.js, bulma-navbar-burger.js, bulma-notifications.js)</li>
+</ul>
+<p><strong>Auto-Dismissing Notifications</strong></p>
+<p>Non-error notifications now automatically disappear after 5 seconds. Error messages remain visible until manually dismissed.</p>
+<p><strong>Issue Autocomplete Search</strong></p>
+<p>The issue autocomplete now supports more flexible searching:</p>
+<ul>
+<li class="">Search terms can be in any order ("Spider Amazing" matches "Amazing Spider-Man")</li>
+<li class="">Series year filtering using parentheses (e.g., "Speed Racer (2025) #4")</li>
+</ul>
+<p><strong>Email Compatibility for Account Activation</strong></p>
+<p>Updated how Metron sends account activation emails to ensure they display correctly across all major email clients.</p>
+<p>The changes include:</p>
+<ul>
+<li class=""><strong>Multipart emails</strong>: Activation emails now send both HTML and plain text versions, ensuring users can read them regardless of their email client settings</li>
+<li class=""><strong>Universal styling</strong>: Replaced CSS stylesheets with inline styles, since Gmail and Outlook strip CSS from the <code>&lt;head&gt;</code> section</li>
+<li class=""><strong>Table-based layout</strong>: Switched from div-based layouts to tables for consistent rendering in older email clients</li>
+<li class=""><strong>Better color support</strong>: Removed CSS gradients in favor of solid colors for Outlook compatibility</li>
+<li class=""><strong>Web-safe fonts</strong>: Now using Arial and Helvetica instead of system fonts for cross-platform consistency</li>
+</ul>
+<p>These updates should ensure new users have a smooth onboarding experience, regardless of whether they use Gmail, Outlook, Apple Mail, or any other email client.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://metron-project.github.io/blog/january-2026-update#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h3>
+<ul>
+<li class="">Fixed duplicate issue creation race condition—users now see a friendly error instead of a 500 error</li>
+<li class="">Fixed SlugRedirectView when requesting non-existent items</li>
+<li class="">Fixed success message formatting in user account activation</li>
+<li class="">Fixed sequential read date deletion (HTMX event handlers now reinitialize properly after content swaps)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://metron-project.github.io/blog/january-2026-update#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
+<ul>
+<li class="">Updated to Django 5.2.10</li>
+<li class="">Removed request for GitHub stars from the welcome flow</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="desaad-updates">Desaad Updates<a href="https://metron-project.github.io/blog/january-2026-update#desaad-updates" class="hash-link" aria-label="Direct link to Desaad Updates" title="Direct link to Desaad Updates" translate="no">​</a></h2>
+<p>The following changes were made to <a href="https://codeberg.org/bpepple/desaad" target="_blank" rel="noopener noreferrer" class="">Desaad</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="scrobbling-to-metron">Scrobbling to Metron<a href="https://metron-project.github.io/blog/january-2026-update#scrobbling-to-metron" class="hash-link" aria-label="Direct link to Scrobbling to Metron" title="Direct link to Scrobbling to Metron" translate="no">​</a></h3>
+<p>Issue scrobbling was added this month, and more information on it can be found in this <a class="" href="https://metron-project.github.io/blog/collection-scrobbling">blog post</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="database-migration-to-postgresql">Database Migration to PostgreSQL<a href="https://metron-project.github.io/blog/january-2026-update#database-migration-to-postgresql" class="hash-link" aria-label="Direct link to Database Migration to PostgreSQL" title="Direct link to Database Migration to PostgreSQL" translate="no">​</a></h3>
+<p>The application has migrated from SQLite to PostgreSQL. This followed an initial attempt to improve SQLite concurrency with WAL mode and retry logic, but PostgreSQL proved to be a better fit for handling concurrent operations during comic imports while the web server is running.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="reader-improvements">Reader Improvements<a href="https://metron-project.github.io/blog/january-2026-update#reader-improvements" class="hash-link" aria-label="Direct link to Reader Improvements" title="Direct link to Reader Improvements" translate="no">​</a></h4>
+<p>The comic reader received several updates:</p>
+<ul>
+<li class="">Added previous/next issue navigation for reading through a series</li>
+<li class="">Added gesture hints overlay to help users discover touch controls</li>
+<li class="">Implemented browser caching for page images with proper HTTP cache headers (ETag, Cache-Control)</li>
+<li class="">Improved performance by using the stored page count from the database rather than reading from the archive each time</li>
+<li class="">Added customizable auto-hide delay for reader controls</li>
+</ul>
+<p>After testing both approaches, the reader reverted to using base64 image data instead of image URLs, as this provided a better reading experience.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="background-task-processing">Background Task Processing<a href="https://metron-project.github.io/blog/january-2026-update#background-task-processing" class="hash-link" aria-label="Direct link to Background Task Processing" title="Direct link to Background Task Processing" translate="no">​</a></h3>
+<p>The app now uses Django 6.0's Tasks framework with django-tasks[rq] for several operations:</p>
+<ul>
+<li class=""><strong>Reading list imports</strong> now run asynchronously with status polling via HTMX</li>
+<li class=""><strong>Cover extraction</strong> is deferred to a background queue, making initial imports faster</li>
+<li class=""><strong>Missing reading list items</strong> are automatically linked when matching issues are imported</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="metron-integration">Metron Integration<a href="https://metron-project.github.io/blog/january-2026-update#metron-integration" class="hash-link" aria-label="Direct link to Metron Integration" title="Direct link to Metron Integration" translate="no">​</a></h3>
+<p>A new <code>import_reading_status</code> management command allows users to sync their reading history from their Metron collection. This imports completion status and ratings for issues that match by Metron ID. Currently, it only imports the read status, but in the near future it will add the dates the issues were read on also.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="htmx-adoption">HTMX Adoption<a href="https://metron-project.github.io/blog/january-2026-update#htmx-adoption" class="hash-link" aria-label="Direct link to HTMX Adoption" title="Direct link to HTMX Adoption" translate="no">​</a></h3>
+<p>Replaced JavaScript with HTMX in several places:</p>
+<ul>
+<li class="">Notification dismiss buttons</li>
+<li class="">Reading list detail page (delete modal, hide/show missing toggle)</li>
+<li class="">Navbar burger menu</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="other-changes">Other Changes<a href="https://metron-project.github.io/blog/january-2026-update#other-changes" class="hash-link" aria-label="Direct link to Other Changes" title="Direct link to Other Changes" translate="no">​</a></h3>
+<ul>
+<li class="">Added sorl-thumbnail with Redis cache backend for cover images</li>
+<li class="">Added cover images to the series list view</li>
+<li class="">Added a home view showing next unread issues for started series</li>
+<li class="">Added completion indicators to reading list overview</li>
+<li class="">Added django-debug-toolbar for development</li>
+<li class="">Various container and deployment fixes</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/january-2026-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
+<p>A huge thank you to everyone who has contributed to our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a>! Your support makes a real difference in keeping the Metron Project running and growing.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-your-contributions-support">What Your Contributions Support<a href="https://metron-project.github.io/blog/january-2026-update#what-your-contributions-support" class="hash-link" aria-label="Direct link to What Your Contributions Support" title="Direct link to What Your Contributions Support" translate="no">​</a></h3>
+<p>Funds from Open Collective go directly toward:</p>
+<ul>
+<li class=""><strong>Server hosting costs</strong> - Keeping the Metron website and API available</li>
+<li class=""><strong>Domain registration</strong> - Annual domain name renewals</li>
+<li class=""><strong>Future capacity increases</strong> - Scaling resources as the database and user base grows</li>
+</ul>
+<p>All expenses are transparent and publicly viewable on our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective page</a>, so you can see exactly where every dollar goes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="support-the-project">Support the Project<a href="https://metron-project.github.io/blog/january-2026-update#support-the-project" class="hash-link" aria-label="Direct link to Support the Project" title="Direct link to Support the Project" translate="no">​</a></h3>
+<p>If you'd like to help keep the lights on and support continued development, contributions of any size are appreciated and help ensure Metron remains a free resource for the comic book community.</p>
+<p>Anyway, that's everything for this month! Take care.</p>]]></content:encoded>
+            <category>comic</category>
+            <category>metron</category>
+            <category>opencollective</category>
+            <category>api</category>
+        </item>
         <item>
             <title><![CDATA[Collection Scrobbling]]></title>
             <link>https://metron-project.github.io/blog/collection-scrobbling</link>
@@ -93,7 +219,7 @@
 <p>Fixed a few mobile-specific issues this month: filter buttons now work properly on mobile devices, improved the home page responsiveness, fixed layout issues in home.html, and cleaned up button layouts across collection and reading list views.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-uiux-enhancements">🎨 UI/UX Enhancements<a href="https://metron-project.github.io/blog/december-2025-update#-uiux-enhancements" class="hash-link" aria-label="Direct link to 🎨 UI/UX Enhancements" title="Direct link to 🎨 UI/UX Enhancements" translate="no">​</a></h3>
 <p>Added a Reading List &amp; Collections section to the home page, made the first information card full width, and improved the overall layout for better visual hierarchy. I also spent time optimizing database queries - reading list detail views went from around 20 queries down to 4-6 by using better prefetching and annotation strategies. Collection detail views now show cover images and descriptions with lazy loading.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-security--validation">🔒 Security &amp; Validation<a href="https://metron-project.github.io/blog/december-2025-update#-security--validation" class="hash-link" aria-label="Direct link to 🔒 Security &amp; Validation" title="Direct link to ��🔒 Security &amp; Validation" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-security--validation">🔒 Security &amp; Validation<a href="https://metron-project.github.io/blog/december-2025-update#-security--validation" class="hash-link" aria-label="Direct link to 🔒 Security &amp; Validation" title="Direct link to 🔒 Security &amp; Validation" translate="no">​</a></h3>
 <p>Improved permission checks across reading list operations.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-technical-improvements">🔧 Technical Improvements<a href="https://metron-project.github.io/blog/december-2025-update#-technical-improvements" class="hash-link" aria-label="Direct link to 🔧 Technical Improvements" title="Direct link to 🔧 Technical Improvements" translate="no">​</a></h3>
 <p>Upgraded to Django 5.2.9 and added documentation for User Collections and Reading Lists, including user guides, technical documentation for developers, and API documentation. I also refactored and simplified some views with better inheritance patterns.</p>
@@ -1299,23 +1425,6 @@ I'll write up a announcement blog post.</p>
             <category>server</category>
             <category>metadata</category>
             <category>comicvine</category>
-        </item>
-        <item>
-            <title><![CDATA[Publisher Imprint Support]]></title>
-            <link>https://metron-project.github.io/blog/imprint-support</link>
-            <guid>https://metron-project.github.io/blog/imprint-support</guid>
-            <pubDate>Tue, 13 Aug 2024 14:02:00 GMT</pubDate>
-            <description><![CDATA[Spent the weekend working on finally adding support for Publisher's imprints. Before this, Metron simply lumped Publishers and Imprint together under the Publisher views which was not ideal, but this change will allow them to be separated.]]></description>
-            <content:encoded><![CDATA[<p>Spent the weekend working on <em>finally</em> adding support for Publisher's imprints. Before this, <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron</a> simply lumped <em>Publishers</em> and <em>Imprint</em> together under the <strong>Publisher</strong> views which was not ideal, but this change will allow them to be separated.</p>
-<p>New views, filters, and API endpoints have been added for this feature, so if you see anything missing or behaving not as expected, please open a <a href="https://github.com/bpepple/metron/issues" target="_blank" rel="noopener noreferrer" class="">bug report</a>.</p>
-<p><img decoding="async" loading="lazy" alt="Series detail for Afterlife with Archie. Show new imprint information." src="https://metron-project.github.io/assets/images/afterlife-64ab201204411c13afb27bbd4fc8d6d9.png" title="Series Detail View" width="819" height="415" class="img_ev3q"></p>
-<p>In addition, I've released new version of <a href="https://github.com/Metron-Project/darkseid/releases/tag/v4.1.2" target="_blank" rel="noopener noreferrer" class="">Darkseid</a>, <a href="https://github.com/Metron-Project/mokkari/releases/tag/v3.3.0" target="_blank" rel="noopener noreferrer" class="">Mokarri</a>, and <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v2.5.0" target="_blank" rel="noopener noreferrer" class="">Metron-Tagger</a> that add support for imprints. And as always, if you discover any bugs, it would be appreciated if you opened a report in the appropriate git repository.</p>
-<p>Anyway, that's all I got for now. Take care!</p>]]></content:encoded>
-            <category>comic</category>
-            <category>database</category>
-            <category>publisher</category>
-            <category>imprint</category>
-            <category>metadata</category>
         </item>
     </channel>
 </rss>
