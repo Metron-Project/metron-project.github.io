@@ -99,7 +99,7 @@ Issue scrobbling was added this month, and more information on it can be found i
 
 The application has migrated from SQLite to PostgreSQL. This followed an initial attempt to improve SQLite concurrency with WAL mode and retry logic, but PostgreSQL proved to be a better fit for handling concurrent operations during comic imports while the web server is running.
 
-#### Reader Improvements
+### Reader Improvements
 
 The comic reader received several updates:
 
