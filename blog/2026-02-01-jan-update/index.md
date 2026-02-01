@@ -12,10 +12,10 @@ tags: [ comic, metron, opencollective, api ]
 
 During January the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TODO**
-- Issues: **TODO**
-- Creators: **TODO**
-- Characters: **TODO**
+- Users: **169**
+- Issues: **2,238**
+- Creators: **395**
+- Characters: **1,430**
 
 Thanks to everyone that contributed!
 
