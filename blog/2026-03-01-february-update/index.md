@@ -49,7 +49,7 @@ Several changes were made to improve API and database query performance.
 - **API query optimization**: Refactored multiple API endpoint viewsets to reduce unnecessary
   database queries through better use of `select_related` and `prefetch_related`.
 - **Additional database indexes**: Added missing indexes on several models (Publisher, Series,
-  Team, Universe) and their related issue querysets, which should speed up common lookups. ([jyggen]((https://github.com/jyggen)))
+  Team, Universe) and their related issue querysets, which should speed up common lookups. ([jyggen](https://github.com/jyggen))
 - **Fixed paginated Series queryset warning**: Added explicit `order_by()` to `SeriesViewSet` and the
   publisher series-list action to resolve a `UnorderedObjectListWarning` that could surface during
   pagination.
@@ -58,7 +58,7 @@ Several changes were made to improve API and database query performance.
 
 - **Conditional request support**: The API now supports HTTP conditional requests using `ETag`
   and `Last-Modified` headers. Clients can send `If-None-Match` or `If-Modified-Since` headers to
-  avoid re-downloading unchanged data, saving bandwidth. ([jyggen]((https://github.com/jyggen)))
+  avoid re-downloading unchanged data, saving bandwidth. ([jyggen](https://github.com/jyggen))
 - **Read dates in collection API**: The collection list endpoint now includes `read_dates` data,
   giving API consumers access to reading history information directly from the list view.
 
