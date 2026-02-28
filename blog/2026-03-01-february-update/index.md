@@ -67,8 +67,6 @@ Several changes were made to improve API and database query performance.
 - **Reading history charts**: The Collection Statistics page now includes daily (last 30 days)
   and monthly (last 12 months) column charts showing reading activity over time. Days with no reading
   activity are included in the daily chart.
-- **Re-read badge in reading history**: Issues that have been read more than once now show a
-  count badge on their cover image in the reading history view.
 - **Refined badge display logic**: The read-count badge is now only shown when an issue has been read
   multiple times on the same calendar day, avoiding misleading counts from reads on different days.
 
