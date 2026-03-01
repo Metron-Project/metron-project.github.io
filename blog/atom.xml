@@ -2,11 +2,121 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2026-02-01T12:26:00.000Z</updated>
+    <updated>2026-03-01T12:26:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[February 2026 News]]></title>
+        <id>https://metron-project.github.io/blog/february-2026-update</id>
+        <link href="https://metron-project.github.io/blog/february-2026-update"/>
+        <updated>2026-03-01T12:26:00.000Z</updated>
+        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/february-2026-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
+<p>During February the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
+<ul>
+<li class="">Users: <strong>152</strong></li>
+<li class="">Issues: <strong>1,357</strong></li>
+<li class="">Creators: <strong>246</strong></li>
+<li class="">Characters: <strong>678</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-usage">API Usage<a href="https://metron-project.github.io/blog/february-2026-update#api-usage" class="hash-link" aria-label="Direct link to API Usage" title="Direct link to API Usage" translate="no">​</a></h2>
+<p>Over the last 6 months, API usage has seen a significant increase — which is great! However, we are now at a point where our current server capacity is being strained.</p>
+<img src="https://metron-project.github.io/assets/images/server_load-898b10098b668d0bc941ddc996707fa9.png" alt="Screenshot of a CPU load" style="max-width:100%;height:auto">
+<p><a href="https://github.com/jyggen" target="_blank" rel="noopener noreferrer" class="">Jonas Stendahl</a> and I have landed <a href="https://github.com/Metron-Project/metron/commit/e3178e3b2a267ad5d3643c08bfd0e4922c0d570f" target="_blank" rel="noopener noreferrer" class="">some</a> <a href="https://github.com/Metron-Project/metron/commit/a9b90b7f112385c40b866df7aa93163b826cce45" target="_blank" rel="noopener noreferrer" class="">optimizations</a> in the site's code, but they only go so far in relieving the pressure.</p>
+<p>That leaves us with two options:</p>
+<ol>
+<li class=""><strong>Upgrade our server capacity</strong> — an additional $27–$43/month depending on the CPU tier selected.</li>
+<li class=""><strong>Reduce the daily rate-limit</strong> from 10,000 requests to something like 5,000.</li>
+</ol>
+<p>Option #1 is clearly preferable, but we currently don't receive enough <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">donations</a> to cover the extra cost. That means we will likely need to reduce the daily rate-limit in the <strong>very</strong> near future, and we'll post an announcement here when that happens.</p>
+<p>If you have other ideas or suggestions, please reach out!</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="website-updates">Website Updates<a href="https://metron-project.github.io/blog/february-2026-update#website-updates" class="hash-link" aria-label="Direct link to Website Updates" title="Direct link to Website Updates" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance-improvements">Performance Improvements<a href="https://metron-project.github.io/blog/february-2026-update#performance-improvements" class="hash-link" aria-label="Direct link to Performance Improvements" title="Direct link to Performance Improvements" translate="no">​</a></h3>
+<p>Several changes were made to improve API and database query performance.</p>
+<ul>
+<li class=""><strong>API query optimization</strong>: Refactored multiple API endpoint viewsets to reduce unnecessary database queries through better use of <code>select_related</code> and <code>prefetch_related</code>.</li>
+<li class=""><strong>Additional database indexes</strong>: Added missing indexes on several models (Publisher, Series, Team, Universe) and their related issue querysets, which should speed up common lookups. (<a href="https://github.com/jyggen" target="_blank" rel="noopener noreferrer" class="">jyggen</a>)</li>
+<li class=""><strong>Fixed paginated Series queryset warning</strong>: Added explicit <code>order_by()</code> to <code>SeriesViewSet</code> and the publisher series-list action to resolve a <code>UnorderedObjectListWarning</code> that could surface during pagination.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-enhancements">API Enhancements<a href="https://metron-project.github.io/blog/february-2026-update#api-enhancements" class="hash-link" aria-label="Direct link to API Enhancements" title="Direct link to API Enhancements" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Conditional request support</strong>: The API now supports HTTP conditional requests using <code>ETag</code> and <code>Last-Modified</code> headers. Clients can send <code>If-None-Match</code> or <code>If-Modified-Since</code> headers to avoid re-downloading unchanged data, saving bandwidth. (<a href="https://github.com/jyggen" target="_blank" rel="noopener noreferrer" class="">jyggen</a>)</li>
+<li class=""><strong>Read dates in collection API</strong>: The collection list endpoint now includes <code>read_dates</code> data, giving API consumers access to reading history information directly from the list view.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="collection--reading-history">Collection &amp; Reading History<a href="https://metron-project.github.io/blog/february-2026-update#collection--reading-history" class="hash-link" aria-label="Direct link to Collection &amp; Reading History" title="Direct link to Collection &amp; Reading History" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Reading history charts</strong>: The Collection Statistics page now includes daily (last 30 days) and monthly (last 12 months) column charts showing reading activity over time. Days with no reading activity are included in the daily chart.</li>
+<li class=""><strong>Refined badge display logic</strong>: The read-count badge is now only shown when an issue has been read multiple times on the same calendar day, avoiding misleading counts from reads on different days.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="user-interface-fixes">User Interface Fixes<a href="https://metron-project.github.io/blog/february-2026-update#user-interface-fixes" class="hash-link" aria-label="Direct link to User Interface Fixes" title="Direct link to User Interface Fixes" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>ESC key closes cover modal</strong>: On issue detail pages, pressing the Escape key now closes the cover image modal, matching standard UX conventions.</li>
+<li class=""><strong>Variant formset display tweaks</strong>: Minor layout improvements to the variant issue formset to better display its fields.</li>
+<li class=""><strong>User template improvements for editors</strong>: The user profile template now shows additional information for editors.</li>
+<li class=""><strong>Series form validation fix</strong>: Handled a case where a missing series type would cause an unhandled error during form validation.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="other">Other<a href="https://metron-project.github.io/blog/february-2026-update#other" class="hash-link" aria-label="Direct link to Other" title="Direct link to Other" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Django 5.2.11</strong> (#454): Updated to the latest Django 5.2 patch release.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mokkari-updates">Mokkari Updates<a href="https://metron-project.github.io/blog/february-2026-update#mokkari-updates" class="hash-link" aria-label="Direct link to Mokkari Updates" title="Direct link to Mokkari Updates" translate="no">​</a></h2>
+<p>The following changes made to <a href="https://github.com/bpepple/mokkari" target="_blank" rel="noopener noreferrer" class="">Mokkari</a>, the Python wrapper for the Metron API, over the past month:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="added-if_modified_since-parameter-to-detail-endpoints">Added <code>if_modified_since</code> parameter to detail endpoints<a href="https://metron-project.github.io/blog/february-2026-update#added-if_modified_since-parameter-to-detail-endpoints" class="hash-link" aria-label="Direct link to added-if_modified_since-parameter-to-detail-endpoints" title="Direct link to added-if_modified_since-parameter-to-detail-endpoints" translate="no">​</a></h3>
+<p>All the detail methods (<code>arc</code>, <code>character</code>, <code>creator</code>, <code>imprint</code>, <code>issue</code>, <code>publisher</code>, <code>series</code>, <code>team</code>, <code>universe</code>, <code>reading_list</code>, and <code>collection</code>) now accept an optional <code>if_modified_since</code> datetime parameter. When provided, the request includes an <code>If-Modified-Since</code> HTTP header (formatted per RFC 7231) and returns <code>None</code> on a <code>304 Not Modified</code> response — useful for efficiently detecting whether a resource has changed since you last fetched it. Naive datetimes are treated as UTC, and non-UTC datetimes are automatically converted before the header is sent.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="added-read-dates-to-collectionlist-schema">Added Read Dates to <code>CollectionList</code> schema<a href="https://metron-project.github.io/blog/february-2026-update#added-read-dates-to-collectionlist-schema" class="hash-link" aria-label="Direct link to added-read-dates-to-collectionlist-schema" title="Direct link to added-read-dates-to-collectionlist-schema" translate="no">​</a></h3>
+<p>The collection schemas have been updated to match the latest Metron API:</p>
+<ul>
+<li class="">A new <code>ReadDate</code> model was added with <code>id</code>, <code>read_date</code>, and <code>created_on</code> fields.</li>
+<li class=""><code>read_dates</code> and <code>read_count</code> fields were added to <code>CollectionList</code> and <code>CollectionRead</code>.</li>
+<li class="">The <code>date_read</code> field type in <code>CollectionRead</code> was changed from <code>date</code> to <code>datetime</code> to align with the API's date-time format.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="migrated-to-pyratelimiter-4x">Migrated to PyrateLimiter 4.x<a href="https://metron-project.github.io/blog/february-2026-update#migrated-to-pyratelimiter-4x" class="hash-link" aria-label="Direct link to Migrated to PyrateLimiter 4.x" title="Direct link to Migrated to PyrateLimiter 4.x" translate="no">​</a></h3>
+<p>The rate-limiting implementation was updated for the breaking changes in <code>pyrate-limiter</code> 4.0:</p>
+<ul>
+<li class="">Removed the now-deleted <code>BucketFullException</code> and <code>LimiterDelayException</code> imports.</li>
+<li class="">Simplified <code>Limiter</code> construction.</li>
+<li class="">Rewrote <code>_check_rate_limit()</code> to use the boolean return value of <code>try_acquire(blocking=False)</code> instead of catching exceptions.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="desaad-update">Desaad Update<a href="https://metron-project.github.io/blog/february-2026-update#desaad-update" class="hash-link" aria-label="Direct link to Desaad Update" title="Direct link to Desaad Update" translate="no">​</a></h2>
+<p>Here's a roundup of changes shipped to <a href="https://codeberg.org/bpepple/desaad" target="_blank" rel="noopener noreferrer" class="">Desaad</a> over the past month.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-history-import">Reading History Import<a href="https://metron-project.github.io/blog/february-2026-update#reading-history-import" class="hash-link" aria-label="Direct link to Reading History Import" title="Direct link to Reading History Import" translate="no">​</a></h3>
+<p>The <code>import_reading_status</code> management command was upgraded: it now imports reading history dates from Metron, not just reading status. A new
+<code>ReadDate</code> model was added to store the actual date an issue was read, and the <code>UserStatsView</code> was updated to use these dates for reading activity stats. Previously, stats reflected the import timestamp rather than when issues were actually read.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="importer-require-external-ids">Importer: Require External IDs<a href="https://metron-project.github.io/blog/february-2026-update#importer-require-external-ids" class="hash-link" aria-label="Direct link to Importer: Require External IDs" title="Direct link to Importer: Require External IDs" translate="no">​</a></h3>
+<p>The comic importer was tightened up to require an external ID when creating characters, teams, universes, arcs, locations, genres, and creators. Previously, the importer would fall back to name-based lookups and create records without a verified external ID, leading to potential unverified duplicates. This change simplifies the importer significantly and ensures all entities can be reliably matched against a metadata source.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reader-ux-double-tap-confirmation">Reader UX: Double-Tap Confirmation<a href="https://metron-project.github.io/blog/february-2026-update#reader-ux-double-tap-confirmation" class="hash-link" aria-label="Direct link to Reader UX: Double-Tap Confirmation" title="Direct link to Reader UX: Double-Tap Confirmation" translate="no">​</a></h3>
+<p>The comic reader's <strong>Prev Issue</strong>, <strong>Next Issue</strong>, and <strong>Close</strong> buttons now require a double-tap to activate. On the first tap, the button turns yellow and prompts "Tap again"; a second tap within 2 seconds proceeds with navigation. Otherwise, the button resets. This prevents accidental navigation away from your current reading position.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure-updates">Infrastructure Updates<a href="https://metron-project.github.io/blog/february-2026-update#infrastructure-updates" class="hash-link" aria-label="Direct link to Infrastructure Updates" title="Direct link to Infrastructure Updates" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Python 3.14</strong>: The container image was updated to use Python 3.14.</li>
+<li class=""><strong>Timezone via environment variable</strong>: The Django timezone setting is now configurable via an environment variable. Missing <code>DB_*</code> variables were also documented in the README.</li>
+<li class=""><strong>Dependency updates</strong>: Project dependencies were refreshed across the board.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/february-2026-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
+<p>A huge thank you to everyone who has contributed to our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a>! Your support makes a real difference in keeping the Metron Project running and growing.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-your-contributions-support">What Your Contributions Support<a href="https://metron-project.github.io/blog/february-2026-update#what-your-contributions-support" class="hash-link" aria-label="Direct link to What Your Contributions Support" title="Direct link to What Your Contributions Support" translate="no">​</a></h3>
+<p>Funds from Open Collective go directly toward:</p>
+<ul>
+<li class=""><strong>Server hosting costs</strong> - Keeping the Metron website and API available</li>
+<li class=""><strong>Domain registration</strong> - Annual domain name renewals</li>
+<li class=""><strong>Future capacity increases</strong> - Scaling resources as the database and user base grows</li>
+</ul>
+<p>All expenses are transparent and publicly viewable on our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective page</a>, so you can see exactly where every dollar goes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="support-the-project">Support the Project<a href="https://metron-project.github.io/blog/february-2026-update#support-the-project" class="hash-link" aria-label="Direct link to Support the Project" title="Direct link to Support the Project" translate="no">​</a></h3>
+<p>If you'd like to help keep the lights on and support continued development, contributions of any size are appreciated and help ensure Metron remains a free resource for the comic book community.</p>
+<p>Anyway, that's everything for this month! Take care.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="comic" term="comic"/>
+        <category label="metron" term="metron"/>
+        <category label="opencollective" term="opencollective"/>
+        <category label="api" term="api"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[January 2026 News]]></title>
         <id>https://metron-project.github.io/blog/january-2026-update</id>
@@ -1444,65 +1554,5 @@ and <a href="https://github.com/majora2007" target="_blank" rel="noopener norefe
         <category label="comic" term="comic"/>
         <category label="comicvine" term="comicvine"/>
         <category label="metron" term="metron"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[October 2024 Update]]></title>
-        <id>https://metron-project.github.io/blog/october-2024-update</id>
-        <link href="https://metron-project.github.io/blog/october-2024-update"/>
-        <updated>2024-11-02T15:52:00.000Z</updated>
-        <summary type="html"><![CDATA[Ok, been fairly busy the last couple of months so naturally blogging has taken a back-burner. So, here's a summary of]]></summary>
-        <content type="html"><![CDATA[<p>Ok, been fairly busy the last couple of months so naturally blogging has taken a back-burner. So, here's a summary of
-what's been going on the last few months.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/october-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
-<p>During August the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
-<ul>
-<li class="">Users: <strong>41</strong></li>
-<li class="">Issues: <strong>1,377</strong></li>
-<li class="">Creators: <strong>147</strong></li>
-<li class="">Characters: <strong>346</strong></li>
-</ul>
-<p>During September the following was added:</p>
-<ul>
-<li class="">Users: <strong>100</strong></li>
-<li class="">Issues: <strong>1,330</strong></li>
-<li class="">Creators: <strong>124</strong></li>
-<li class="">Characters: <strong>379</strong></li>
-</ul>
-<p>During October the following was added:</p>
-<ul>
-<li class="">Users: <strong>51</strong></li>
-<li class="">Issues: <strong>1,996</strong></li>
-<li class="">Creators: <strong>122</strong></li>
-<li class="">Characters: <strong>740</strong></li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="comic-vine-outage">Comic Vine Outage<a href="https://metron-project.github.io/blog/october-2024-update#comic-vine-outage" class="hash-link" aria-label="Direct link to Comic Vine Outage" title="Direct link to Comic Vine Outage" translate="no">​</a></h2>
-<p><a href="https://comicvine.gamespot.com/" target="_blank" rel="noopener noreferrer" class="">Comic Vine</a> went down at the end of September for about 6 days, so we saw an influx of
-new users which necessitated in increasing our server's capacity. One thing this episode brought to light out was the
-need for the project to accept donations for future infrastructure costs (since I'm currently covering the server
-costs).</p>
-<p>To help us set this up it would be greatly appreciated if you could star
-the <a href="https://github.com/Metron-Project/metron" target="_blank" rel="noopener noreferrer" class="">repository</a> since one of the requirements to set up an account
-on <a href="https://opencollective.com/" target="_blank" rel="noopener noreferrer" class="">Open Collective</a> is to have 100 stars.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="server-os-upgrade">Server OS Upgrade<a href="https://metron-project.github.io/blog/october-2024-update#server-os-upgrade" class="hash-link" aria-label="Direct link to Server OS Upgrade" title="Direct link to Server OS Upgrade" translate="no">​</a></h2>
-<p>I had planned to upgrade the server in August, but y'know... life. Anyway, I'm tentatively planning to upgrade Metron's
-operating system on November 16th, so there might be some downtime (most likely a few hours) when I do that. I'll post a
-notification on the site for the week leading to the upgrade.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="metroninfoxml">MetronInfo.xml<a href="https://metron-project.github.io/blog/october-2024-update#metroninfoxml" class="hash-link" aria-label="Direct link to MetronInfo.xml" title="Direct link to MetronInfo.xml" translate="no">​</a></h2>
-<p>The last couple of months there has been a bunch of work done on finalizing
-the <a href="https://github.com/Metron-Project/metroninfo" target="_blank" rel="noopener noreferrer" class="">MetronInfo.xsd</a>
-by <a href="https://github.com/majora2007" target="_blank" rel="noopener noreferrer" class="">Joe</a>, <a href="https://github.com/ajslater" target="_blank" rel="noopener noreferrer" class="">AJ</a>, <a href="https://github.com/Buried-In-Code" target="_blank" rel="noopener noreferrer" class="">Buried-In-Code</a>
-and myself, and I believe there are just a couple of
-outstanding <a href="https://github.com/Metron-Project/metroninfo/issues/38" target="_blank" rel="noopener noreferrer" class="">items</a> that need a resolution. Once that is done,
-I'll write up a announcement blog post.</p>
-<p>Anyway, that's all I've got for this month. Take care!</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="database" term="database"/>
-        <category label="server" term="server"/>
-        <category label="metadata" term="metadata"/>
-        <category label="comicvine" term="comicvine"/>
     </entry>
 </feed>
