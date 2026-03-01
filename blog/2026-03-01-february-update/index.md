@@ -12,10 +12,10 @@ tags: [ comic, metron, opencollective, api ]
 
 During February the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TODO**
-- Issues: **TODO**
-- Creators: **TODO**
-- Characters: **TODO**
+- Users: **152**
+- Issues: **1,357**
+- Creators: **246**
+- Characters: **678**
 
 Thanks to everyone that contributed!
 
@@ -84,3 +84,33 @@ Several changes were made to improve API and database query performance.
 ### Other
 
 - **Django 5.2.11** (#454): Updated to the latest Django 5.2 patch release.
+
+## Mokkari Updates
+
+The following changes made to [Mokkari](https://github.com/bpepple/mokkari), the Python wrapper for the [Metron Comic Book Database](https://metron.cloud) API, over the past month:
+
+### v3.19.0
+
+**Added `if_modified_since` parameter to detail endpoints**
+
+All the detail methods (`arc`, `character`, `creator`, `imprint`, `issue`, `publisher`, `series`, `team`, `universe`, `reading_list`, and `collection`) now accept an optional `if_modified_since` datetime parameter. When provided, the request includes an `If-Modified-Since` HTTP header (formatted per RFC 7231) and returns `None` on a `304 Not Modified` response — useful for efficiently detecting whether a resource has changed since you last fetched it. Naive datetimes are treated as UTC, and non-UTC datetimes are automatically converted before the header is sent.
+
+### v3.18.0
+
+**Added Read Dates to `CollectionList` schema**
+
+The collection schemas have been updated to match the latest Metron API:
+
+- A new `ReadDate` model was added with `id`, `read_date`, and `created_on` fields.
+- `read_dates` and `read_count` fields were added to `CollectionList` and `CollectionRead`.
+- The `date_read` field type in `CollectionRead` was changed from `date` to `datetime` to align with the API's date-time format.
+
+### Dependency Updates
+
+**Migrated to PyrateLimiter 4.x**
+
+The rate-limiting implementation was updated for the breaking changes in `pyrate-limiter` 4.0:
+
+- Removed the now-deleted `BucketFullException` and `LimiterDelayException` imports.
+- Simplified `Limiter` construction.
+- Rewrote `_check_rate_limit()` to use the boolean return value of `try_acquire(blocking=False)` instead of catching exceptions.
