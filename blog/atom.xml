@@ -2,11 +2,43 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2026-03-01T12:26:00.000Z</updated>
+    <updated>2026-03-04T14:55:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[API Rate Limit Reduction]]></title>
+        <id>https://metron-project.github.io/blog/api-rate-limit-reduction</id>
+        <link href="https://metron-project.github.io/blog/api-rate-limit-reduction"/>
+        <updated>2026-03-04T14:55:00.000Z</updated>
+        <summary type="html"><![CDATA[As mentioned in our February 2026 update, we have been dealing with increased server load due to the growth in API usage. We have made the decision to reduce the API rate limits effective immediately.]]></summary>
+        <content type="html"><![CDATA[<p>As mentioned in our <a class="" href="https://metron-project.github.io/blog/february-2026-update">February 2026 update</a>, we have been dealing with increased server load due to the growth in API usage. We have made the decision to reduce the API rate limits effective immediately.</p>
+<p>The new limits are:</p>
+<ul>
+<li class=""><strong>20 requests per minute</strong> (down from 30)</li>
+<li class=""><strong>5,000 requests per day</strong> (down from 10,000)</li>
+</ul>
+<p>We know this is not ideal, and we're sorry for any inconvenience this may cause. If we receive enough <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">donations</a> in the future to cover the cost of a server upgrade, we would look at restoring the daily limit back to 10,000 requests per day.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updated-client-libraries">Updated Client Libraries<a href="https://metron-project.github.io/blog/api-rate-limit-reduction#updated-client-libraries" class="hash-link" aria-label="Direct link to Updated Client Libraries" title="Direct link to Updated Client Libraries" translate="no">​</a></h2>
+<p>New releases of our client libraries have been published that reflect these updated rate limits:</p>
+<ul>
+<li class=""><strong><a href="https://github.com/Metron-Project/mokkari/releases/tag/v3.20.0" target="_blank" rel="noopener noreferrer" class="">Mokkari v3.20.0</a></strong> — the Python wrapper for the Metron API has been updated with the new rate limit configuration.</li>
+<li class=""><strong><a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v4.9.0" target="_blank" rel="noopener noreferrer" class="">Metron-Tagger v4.9.0</a></strong> — updated to use the latest version of Mokkari, picking up the new rate limits automatically.</li>
+</ul>
+<p>If you use either of these tools, we recommend upgrading to the latest version.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="note-for-api-consumers">Note for API Consumers<a href="https://metron-project.github.io/blog/api-rate-limit-reduction#note-for-api-consumers" class="hash-link" aria-label="Direct link to Note for API Consumers" title="Direct link to Note for API Consumers" translate="no">​</a></h2>
+<p>If you have written software that directly consumes the Metron API, please ensure your code correctly handles <strong>HTTP 429 (Too Many Requests)</strong> responses. When this status code is returned, the response will include a <code>Retry-After</code> header indicating how many seconds to wait before retrying. Your application should respect this header and delay its next request accordingly, rather than continuing to hammer the server. Failing to handle this gracefully may result in your requests being blocked.</p>
+<p>If you have any questions or suggestions, don't hesitate to <a href="mailto:bpepple@metron.cloud" target="_blank" rel="noopener noreferrer" class="">e-mail me</a> or ping me on <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer" class="">Matrix</a>.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="metron" term="metron"/>
+        <category label="api" term="api"/>
+        <category label="mokkari" term="mokkari"/>
+        <category label="metron-tagger" term="metron-tagger"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[February 2026 News]]></title>
         <id>https://metron-project.github.io/blog/february-2026-update</id>
@@ -1490,69 +1522,5 @@ or so, before starting any large scale projects.</p>
         <category label="opencollective" term="opencollective"/>
         <category label="metron" term="metron"/>
         <category label="api" term="api"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MetronInfo V1.0]]></title>
-        <id>https://metron-project.github.io/blog/metroninfo-v1</id>
-        <link href="https://metron-project.github.io/blog/metroninfo-v1"/>
-        <updated>2024-11-22T11:45:00.000Z</updated>
-        <summary type="html"><![CDATA[I'm happy to announce the v1.0 of the]]></summary>
-        <content type="html"><![CDATA[<p>I'm happy to announce the v1.0 of the
-<a href="https://raw.githubusercontent.com/Metron-Project/metroninfo/refs/heads/master/schema/v1.0/MetronInfo.xsd" target="_blank" rel="noopener noreferrer" class="">MetronInfo schema</a>
-has been finalized and is now ready to be used by developers and consumers. So, I'll start off by answering some
-questions (most of this will be from the projects README).</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-is-it">What is it?<a href="https://metron-project.github.io/blog/metroninfo-v1#what-is-it" class="hash-link" aria-label="Direct link to What is it?" title="Direct link to What is it?" translate="no">​</a></h2>
-<p>MetronInfo is a <em>new</em> xml document type that fixes some deficiencies that exist in the current de facto xml
-file, <a href="https://github.com/anansi-project/comicinfo" target="_blank" rel="noopener noreferrer" class="">ComicInfo.xml</a>, to store metadata for a comic. Some of our
-improvements include:</p>
-<ul>
-<li class="">Addition elements to track information that are not included with the current standard.</li>
-<li class="">Better handling of data types. For instance, instead of using delimited strings we use arrays of elements.</li>
-<li class="">Elements to track where the data was obtained from.</li>
-<li class=""><code>id</code> attributes for resources (Characters, Creators, etc.), so items with different names can be associated correctly.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="is-the-schema-only-for-the-metron-database">Is the schema only for the Metron Database?<a href="https://metron-project.github.io/blog/metroninfo-v1#is-the-schema-only-for-the-metron-database" class="hash-link" aria-label="Direct link to Is the schema only for the Metron Database?" title="Direct link to Is the schema only for the Metron Database?" translate="no">​</a></h2>
-<p>No, the schema only has <em>Metron</em> in the name since almost every other format has <em>Comic</em> in the name, and the
-originating author hates naming projects, so he went with the simplest choice. 😄 It was designed to be used for any of
-the comic resources (Comic Vine, AniList, etc.)</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="where-can-i-find-the-schemas">Where can I find the schemas?<a href="https://metron-project.github.io/blog/metroninfo-v1#where-can-i-find-the-schemas" class="hash-link" aria-label="Direct link to Where can I find the schemas?" title="Direct link to Where can I find the schemas?" translate="no">​</a></h2>
-<p>Version 1.0 of the schema is located in <a href="https://github.com/Metron-Project/metroninfo/tree/master/schema" target="_blank" rel="noopener noreferrer" class="">schema</a>
-directory</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="is-there-documentation-for-it">Is there documentation for it?<a href="https://metron-project.github.io/blog/metroninfo-v1#is-there-documentation-for-it" class="hash-link" aria-label="Direct link to Is there documentation for it?" title="Direct link to Is there documentation for it?" translate="no">​</a></h2>
-<p>Yes, there is <a href="https://metron-project.github.io/docs/category/metroninfo" target="_blank" rel="noopener noreferrer" class="">documentation</a> describing the elements usage
-and also a Matrix to help with age rating mapping.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-can-i-validate-my-xml">How can I validate my XML?<a href="https://metron-project.github.io/blog/metroninfo-v1#how-can-i-validate-my-xml" class="hash-link" aria-label="Direct link to How can I validate my XML?" title="Direct link to How can I validate my XML?" translate="no">​</a></h2>
-<p>It's recommended that any software that writes the XML make use of the schema to validate, so consumers of the XML
-document can be sure of its data. The schema use XSD 1.1, so you need to make sure your validation code uses that
-instead of XSD 1.0.</p>
-<p>For example to validate the XML in python:</p>
-<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> pathlib </span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> Path</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> xmlschema </span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> XMLSchema11</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> XMLSchemaValidationError</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">xsd </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Path</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"/home/user/MetronInfo.xsd"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">xml </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Path</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"/home/user/MetronInfo.xml"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">schema </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> XMLSchema11</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">xsd</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">try</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    schema</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">validate</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">xml</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">except</span><span class="token plain"> XMLSchemaValidationError </span><span class="token keyword" style="color:#00009f">as</span><span class="token plain"> e</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string-interpolation string" style="color:#e3116c">f"Failed to validate XML: </span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">{</span><span class="token string-interpolation interpolation">e</span><span class="token string-interpolation interpolation conversion-option punctuation" style="color:#393A34">!r</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">}</span><span class="token string-interpolation string" style="color:#e3116c">"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    exit</span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Code to write / read the xml file</span><br></span></code></pre></div></div>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-software-currently-supports-it">What software currently supports it?<a href="https://metron-project.github.io/blog/metroninfo-v1#what-software-currently-supports-it" class="hash-link" aria-label="Direct link to What software currently supports it?" title="Direct link to What software currently supports it?" translate="no">​</a></h2>
-<p>Currently, the following software does:</p>
-<ul>
-<li class=""><a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer" class="">Metron-Tagger</a> - Commandline tool to tag comic with metadata (
-MetronInfo or ComicInfo) from Metron Comic Book Database.</li>
-</ul>
-<p>If you are a developer that has added support for MetronInfo.xml to your software, please create a PR to update the
-README
-or <a href="mailto:bpepple@metron.cloud?subject=MetronInfo%20Support&amp;body=Please%20add%20the%20following%20software%20to%the%20README:%20" target="_blank" rel="noopener noreferrer" class="">contact me</a>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="future">Future<a href="https://metron-project.github.io/blog/metroninfo-v1#future" class="hash-link" aria-label="Direct link to Future" title="Direct link to Future" translate="no">​</a></h2>
-<p>One of the goals of the project was to be responsive to the needs of the community, so if you have suggestion for
-improvements to the schema please file a
-<a href="https://github.com/Metron-Project/metroninfo/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=feature_request.md&amp;title=" target="_blank" rel="noopener noreferrer" class="">feature request</a>,
-<a href="https://github.com/Metron-Project/metroninfo/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=bug_report.md&amp;title=" target="_blank" rel="noopener noreferrer" class="">bug report</a>,
-or start a <a href="https://github.com/Metron-Project/metroninfo/discussions" target="_blank" rel="noopener noreferrer" class="">discussion</a>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="thanks">Thanks<a href="https://metron-project.github.io/blog/metroninfo-v1#thanks" class="hash-link" aria-label="Direct link to Thanks" title="Direct link to Thanks" translate="no">​</a></h2>
-<p>I'd like to thank everyone that has contributed to the schema, and in
-particular <a href="https://github.com/ajslater" target="_blank" rel="noopener noreferrer" class="">AJ</a>, <a href="https://github.com/Buried-In-Code" target="_blank" rel="noopener noreferrer" class="">Buried-In-Code</a>,
-and <a href="https://github.com/majora2007" target="_blank" rel="noopener noreferrer" class="">Joe</a> who have helped out a lot in the last few months.</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="metadata" term="metadata"/>
-        <category label="comic" term="comic"/>
-        <category label="comicvine" term="comicvine"/>
-        <category label="metron" term="metron"/>
     </entry>
 </feed>
