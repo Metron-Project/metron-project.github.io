@@ -12,10 +12,10 @@ tags: [release, api, reading-lists, collection, performance, mokkari, features]
 
 During March the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TBD**
-- Issues: **TBD**
-- Creators: **TBD**
-- Characters: **TBD**
+- Users: **164**
+- Issues: **1,107**
+- Creators: **36**
+- Characters: **240**
 
 Thanks to everyone that contributed!
 
