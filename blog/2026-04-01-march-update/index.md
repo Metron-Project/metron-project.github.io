@@ -185,6 +185,12 @@ Reading lists sourced from Metron can now be refreshed. Desaad stores the `modif
 
 Desaad can now check your local library against Metron to identify issues in a series that you don't yet have. A new `MissingSeriesIssue` model tracks these gaps, and a **Check Missing Issues** button on the series detail page triggers the check inline via HTMX. Like reading list refresh, subsequent checks use conditional requests — if nothing has changed on Metron's side, you'll see an "already up to date" response.
 
+<img
+  src={require('./missing-issues.png').default}
+  alt="Image of the missing issues on the Series Detail view"
+  style={{maxWidth: '100%', height: 'auto'}}
+/>
+
 A dedicated **Missing Issues** list view provides an overview of all tracked gaps across your library, and a background task automatically cleans up missing issue records when you import a previously absent issue.
 
 ### Reading List Improvements
