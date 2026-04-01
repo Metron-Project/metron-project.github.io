@@ -19,11 +19,19 @@ During March the [Metron Project](https://metron.cloud/) added the following to 
 
 Thanks to everyone that contributed!
 
-## Metron
+## API Rate Limit Reduction
 
-Here's a summary of everything that landed in Metron since the start of March 2026, covering API improvements, reading list enhancements, collection stats, and a handful of performance and bug fixes.
+Early in March, we [reduced the API rate limits](/blog/api-rate-limit-reduction) due to increased server load from growing API usage. The new limits are:
 
-<!-- truncate -->
+- **20 requests per minute** (down from 30)
+- **5,000 requests per day** (down from 10,000)
+
+Updated releases of [Mokkari](https://github.com/Metron-Project/mokkari/releases/tag/v3.20.0) and [Metron-Tagger](https://github.com/Metron-Project/metron-tagger/releases/tag/v4.9.0) were published to reflect these changes. If you consume the API directly, make sure your code handles **HTTP 429** responses and respects the `Retry-After` header. If we receive enough [donations](https://opencollective.com/metron) to cover a server upgrade, we would look at restoring the daily limit to 10,000 requests per day.
+
+## Website
+
+Here's a summary of everything that landed in the website since the start of March, covering API improvements, reading list enhancements, collection stats, and a handful of performance and bug fixes.
+
 
 ### API Improvements
 
@@ -130,7 +138,7 @@ Two new fields were added to the reading list schemas:
 
 ## Metron-Tagger
 
-Here's a summary of everything that landed in Metron-Tagger during March 2026, covering rate limit improvements, bug fixes, and dependency updates.
+Here's a summary of everything that landed in Metron-Tagger during March, covering rate limit improvements, bug fixes, and dependency updates.
 
 ### Rate Limit Handling
 
@@ -182,5 +190,29 @@ A dedicated **Missing Issues** list view provides an overview of all tracked gap
 ### Reading List Improvements
 
 Reading list search results and detail pages now show human-readable attribution source labels. Issue type display and filtering were added to reading list items, and attribution source tags appear on reading list cards for quicker at-a-glance identification.
+
+<img
+  src={require('./reading_list_update.png').default}
+  alt="Image of the reading list view"
+  style={{maxWidth: '100%', height: 'auto'}}
+/>
+
+## OpenCollective
+
+A huge thank you to everyone who has contributed to our [Open Collective](https://opencollective.com/metron)! Your support makes a real difference in keeping the Metron Project running and growing.
+
+### What Your Contributions Support
+
+Funds from Open Collective go directly toward:
+
+- **Server hosting costs** - Keeping the Metron website and API available
+- **Domain registration** - Annual domain name renewals
+- **Future capacity increases** - Scaling resources as the database and user base grows
+
+All expenses are transparent and publicly viewable on our [Open Collective page](https://opencollective.com/metron), so you can see exactly where every dollar goes.
+
+### Support the Project
+
+If you'd like to help keep the lights on and support continued development, contributions of any size are appreciated and help ensure Metron remains a free resource for the comic book community.
 
 Anyway, that's everything for this month! Take care.
