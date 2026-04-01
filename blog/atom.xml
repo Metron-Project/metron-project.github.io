@@ -2,11 +2,167 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2026-03-04T14:55:00.000Z</updated>
+    <updated>2026-04-01T12:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[March 2026 News]]></title>
+        <id>https://metron-project.github.io/blog/march-2026-update</id>
+        <link href="https://metron-project.github.io/blog/march-2026-update"/>
+        <updated>2026-04-01T12:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/march-2026-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
+<p>During March the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
+<ul>
+<li class="">Users: <strong>164</strong></li>
+<li class="">Issues: <strong>1,107</strong></li>
+<li class="">Creators: <strong>36</strong></li>
+<li class="">Characters: <strong>240</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-rate-limit-reduction">API Rate Limit Reduction<a href="https://metron-project.github.io/blog/march-2026-update#api-rate-limit-reduction" class="hash-link" aria-label="Direct link to API Rate Limit Reduction" title="Direct link to API Rate Limit Reduction" translate="no">​</a></h2>
+<p>Early in March, we <a class="" href="https://metron-project.github.io/blog/api-rate-limit-reduction">reduced the API rate limits</a> due to increased server load from growing API usage. The new limits are:</p>
+<ul>
+<li class=""><strong>20 requests per minute</strong> (down from 30)</li>
+<li class=""><strong>5,000 requests per day</strong> (down from 10,000)</li>
+</ul>
+<p>Updated releases of <a href="https://github.com/Metron-Project/mokkari/releases/tag/v3.20.0" target="_blank" rel="noopener noreferrer" class="">Mokkari</a> and <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v4.9.0" target="_blank" rel="noopener noreferrer" class="">Metron-Tagger</a> were published to reflect these changes. If you consume the API directly, make sure your code handles <strong>HTTP 429</strong> responses and respects the <code>Retry-After</code> header. If we receive enough <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">donations</a> to cover a server upgrade, we would look at restoring the daily limit to 10,000 requests per day.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="website">Website<a href="https://metron-project.github.io/blog/march-2026-update#website" class="hash-link" aria-label="Direct link to Website" title="Direct link to Website" translate="no">​</a></h2>
+<p>Here's a summary of everything that landed in the website since the start of March, covering API improvements, reading list enhancements, collection stats, and a handful of performance and bug fixes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-improvements">API Improvements<a href="https://metron-project.github.io/blog/march-2026-update#api-improvements" class="hash-link" aria-label="Direct link to API Improvements" title="Direct link to API Improvements" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="rate-limit-changes-and-visibility">Rate Limit Changes and Visibility<a href="https://metron-project.github.io/blog/march-2026-update#rate-limit-changes-and-visibility" class="hash-link" aria-label="Direct link to Rate Limit Changes and Visibility" title="Direct link to Rate Limit Changes and Visibility" translate="no">​</a></h4>
+<p>The API rate limit was adjusted to <strong>20 requests/minute</strong> and <strong>5,000 requests/day</strong>. To make this more transparent, the API now returns rate limit response headers on every response, so clients can see exactly how many requests they have remaining. Users can also see their current daily API usage — requests used, remaining, and a color-coded progress bar — directly in their profile's Account Settings section.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="conditional-request-support">Conditional Request Support<a href="https://metron-project.github.io/blog/march-2026-update#conditional-request-support" class="hash-link" aria-label="Direct link to Conditional Request Support" title="Direct link to Conditional Request Support" translate="no">​</a></h4>
+<p>Two more endpoints now support conditional requests (ETags / <code>If-None-Match</code>):</p>
+<ul>
+<li class="">The <strong>reading list detail</strong> endpoint — item add/remove operations now bump the parent list's <code>modified</code> timestamp, so clients can detect item changes without polling <code>/items/</code>.</li>
+<li class="">The <strong><code>/issue_list/</code></strong> endpoints — thanks to <a href="https://github.com/Metron-Project/metron/pull/476" target="_blank" rel="noopener noreferrer" class="">Jonas Stendahl</a> for this contribution.</li>
+</ul>
+<p>This means clients can avoid re-downloading unchanged data, saving bandwidth for both users and the server.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-list-enhancements">Reading List Enhancements<a href="https://metron-project.github.io/blog/march-2026-update#reading-list-enhancements" class="hash-link" aria-label="Direct link to Reading List Enhancements" title="Direct link to Reading List Enhancements" translate="no">​</a></h4>
+<p>The <code>ReadingList</code> model and API received several new additions:</p>
+<ul>
+<li class=""><strong><code>list_type</code> field</strong> — exposed in both the list and detail serializers, with human-readable display values.</li>
+<li class=""><strong><code>image</code> field</strong> — reading lists can now have a cover image. When set, the reading list detail page displays a semi-transparent hero header using the image; it falls back to the plain header when none is present.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://metron-project.github.io/blog/march-2026-update#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h4>
+<ul>
+<li class="">Fixed a <code>PATCH</code> request to <code>SeriesViewSet</code> that was silently clearing the <code>imprint</code> field when it was omitted from the request body.</li>
+<li class="">Fixed the <code>ReadingList</code> unique constraint to include <code>attribution_source</code>, allowing a user to have multiple lists with the same name as long as they come from different sources.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-list-web-views">Reading List Web Views<a href="https://metron-project.github.io/blog/march-2026-update#reading-list-web-views" class="hash-link" aria-label="Direct link to Reading List Web Views" title="Direct link to Reading List Web Views" translate="no">​</a></h3>
+<ul>
+<li class="">Added a <strong>publisher filter</strong> to the reading list view, available in the Advanced Filters panel.</li>
+<li class="">Fixed an issue count display bug in <code>ReadingListListView</code>.</li>
+<li class="">Fixed a slow query in the publisher filter — the previous JOIN-based approach caused ~30 second response times on live data. We implemented a subquery-based approach is 5.6x faster.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="collection-stats">Collection Stats<a href="https://metron-project.github.io/blog/march-2026-update#collection-stats" class="hash-link" aria-label="Direct link to Collection Stats" title="Direct link to Collection Stats" translate="no">​</a></h3>
+<ul>
+<li class="">Added <strong>Top Writers</strong> and <strong>Top Artists</strong> horizontal bar charts to the Collection Stats view.</li>
+<li class="">Fixed chart text readability in dark mode — chart tick labels, grid lines, legend text, and titles now follow Bulma's theme-aware colors rather than Chart.js's hardcoded defaults.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="general-ui--frontend">General UI / Frontend<a href="https://metron-project.github.io/blog/march-2026-update#general-ui--frontend" class="hash-link" aria-label="Direct link to General UI / Frontend" title="Direct link to General UI / Frontend" translate="no">​</a></h3>
+<ul>
+<li class="">Cover images in issue detail pages and card grids now handle <strong>landscape-oriented covers</strong> correctly. Instead of forcing all covers into a portrait <code>2by3</code> aspect ratio with a center crop, the template detects the aspect ratio of the generated thumbnail and uses <code>is-3by2</code> for landscape images and <code>is-2by3</code> for portrait.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance">Performance<a href="https://metron-project.github.io/blog/march-2026-update#performance" class="hash-link" aria-label="Direct link to Performance" title="Direct link to Performance" translate="no">​</a></h3>
+<ul>
+<li class="">Replaced <code>prefetch_related</code> with <code>select_related</code> in <code>HomePageView</code> for recently edited issues, reducing two extra queries to a single JOIN.</li>
+<li class="">Eliminated unnecessary series type queries in several views — thanks to <a href="https://github.com/Metron-Project/metron/pull/472" target="_blank" rel="noopener noreferrer" class="">Jonas Stendahl</a> for this contribution.</li>
+<li class="">Fixed issue count annotations not appearing in <code>PublisherSeriesList</code> and <code>ImprintSeriesList</code> card grids.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes-1">Bug Fixes<a href="https://metron-project.github.io/blog/march-2026-update#bug-fixes-1" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h3>
+<ul>
+<li class="">Fixed an autocomplete widget crash (Internal Server Error) on create/update views when submitting a form without selecting an autocomplete field value. A <code>SafeAutocompleteWidget</code> subclass now normalises empty string and empty list values to <code>None</code> before the upstream widget tries to filter on them.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dependency-updates">Dependency Updates<a href="https://metron-project.github.io/blog/march-2026-update#dependency-updates" class="hash-link" aria-label="Direct link to Dependency Updates" title="Direct link to Dependency Updates" translate="no">​</a></h3>
+<ul>
+<li class="">Updated to <strong>Django 5.2.12</strong>.</li>
+<li class="">Updated <strong>Pillow</strong>.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="contributors">Contributors<a href="https://metron-project.github.io/blog/march-2026-update#contributors" class="hash-link" aria-label="Direct link to Contributors" title="Direct link to Contributors" translate="no">​</a></h3>
+<p>Thanks to <a href="https://github.com/jonasStendahl" target="_blank" rel="noopener noreferrer" class="">Jonas Stendahl</a> for his contributions this month.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mokkari">Mokkari<a href="https://metron-project.github.io/blog/march-2026-update#mokkari" class="hash-link" aria-label="Direct link to Mokkari" title="Direct link to Mokkari" translate="no">​</a></h2>
+<p>Here's a summary of everything that landed in Mokkari during March, covering rate-limiting overhaul, new schema fields, and dependency refreshes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rate-limiting-changes">Rate Limiting Changes<a href="https://metron-project.github.io/blog/march-2026-update#rate-limiting-changes" class="hash-link" aria-label="Direct link to Rate Limiting Changes" title="Direct link to Rate Limiting Changes" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="reduced-api-limits">Reduced API limits<a href="https://metron-project.github.io/blog/march-2026-update#reduced-api-limits" class="hash-link" aria-label="Direct link to Reduced API limits" title="Direct link to Reduced API limits" translate="no">​</a></h4>
+<p>The per-session rate limits were updated to match the current Metron website limits:</p>
+<table><thead><tr><th>Limit</th><th>Old</th><th>New</th></tr></thead><tbody><tr><td>Per minute</td><td>30</td><td>20</td></tr><tr><td>Per day</td><td>10,000</td><td>5,000</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="pluggable-rate-limit-buckets">Pluggable rate-limit buckets<a href="https://metron-project.github.io/blog/march-2026-update#pluggable-rate-limit-buckets" class="hash-link" aria-label="Direct link to Pluggable rate-limit buckets" title="Direct link to Pluggable rate-limit buckets" translate="no">​</a></h4>
+<p><code>Session</code> and the top-level <code>api()</code> function now accept an optional <code>bucket</code> parameter typed as <code>AbstractBucket</code> from <code>pyrate_limiter</code>. This lets you plug in any compatible backend — Redis, a database, or a plain in-memory store — to share rate-limit state across multiple workers or processes.</p>
+<p>The default behaviour is unchanged: a SQLite-backed bucket is created lazily and shared across all sessions in the same process. A <code>DEFAULT_RATES</code> constant is now exported from <code>mokkari.session</code> so you can construct custom buckets with the same rate definitions:</p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> pyrate_limiter </span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> RedisBucket</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> redis</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> mokkari</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">pool </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> redis</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">ConnectionPool</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">from_url</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"redis://localhost:6379"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">bucket </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> RedisBucket</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">init</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">mokkari</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">session</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">DEFAULT_RATES</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> redis</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">Redis</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">connection_pool</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">pool</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"mokkari"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">m </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> mokkari</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">api</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"username"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"password"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> bucket</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">bucket</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="contributors-1">Contributors<a href="https://metron-project.github.io/blog/march-2026-update#contributors-1" class="hash-link" aria-label="Direct link to Contributors" title="Direct link to Contributors" translate="no">​</a></h3>
+<p>Thanks to <a href="https://github.com/myers" target="_blank" rel="noopener noreferrer" class="">Myers Carpenter</a> for his initial work on the pluggable rate-limit buckets this month.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-list-schema-additions">Reading List Schema Additions<a href="https://metron-project.github.io/blog/march-2026-update#reading-list-schema-additions" class="hash-link" aria-label="Direct link to Reading List Schema Additions" title="Direct link to Reading List Schema Additions" translate="no">​</a></h3>
+<p>Two new fields were added to the reading list schemas:</p>
+<ul>
+<li class=""><strong><code>image</code></strong> — an image URL field on <code>ReadingListRead</code>, surfacing the cover image for a reading list.</li>
+<li class=""><strong><code>list_type</code></strong> — a new field on the reading list schemas that exposes the list's type classification.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="metron-tagger">Metron-Tagger<a href="https://metron-project.github.io/blog/march-2026-update#metron-tagger" class="hash-link" aria-label="Direct link to Metron-Tagger" title="Direct link to Metron-Tagger" translate="no">​</a></h2>
+<p>Here's a summary of everything that landed in Metron-Tagger during March, covering rate limit improvements, bug fixes, and dependency updates.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rate-limit-handling">Rate Limit Handling<a href="https://metron-project.github.io/blog/march-2026-update#rate-limit-handling" class="hash-link" aria-label="Direct link to Rate Limit Handling" title="Direct link to Rate Limit Handling" translate="no">​</a></h3>
+<p>The tagger's handling of Metron API rate limits was improved:</p>
+<ul>
+<li class=""><strong>Clock-skew buffer</strong> — A <code>RATE_LIMIT_RETRY_BUFFER</code> constant (2 seconds) is now added to every <code>retry_after</code> wait to account for small differences between the client clock and the server clock, reducing the chance of hitting the limit again immediately after waking up.</li>
+<li class=""><strong>Nested rate limit handling</strong> — If a second rate limit error is encountered <em>during</em> a retry attempt, the tagger now performs one additional silent wait-and-retry instead of surfacing an error to the user. Only if that second retry also fails is an error reported.</li>
+</ul>
+<p>These changes result in fewer spurious rate-limit errors when tagging large batches of comics (#238).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes-2">Bug Fixes<a href="https://metron-project.github.io/blog/march-2026-update#bug-fixes-2" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h3>
+<ul>
+<li class="">Fixed a crash that occurred when a MetronInfo file did not include an <code>info_source</code> field. Previously, iterating over <code>md.info_source</code> without checking for its existence would raise an exception. The fix adds an early <code>None</code> guard in <code>get_id_from_metron_info</code> so files without a source are silently skipped rather than crashing the tagger.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dependency-updates-1">Dependency Updates<a href="https://metron-project.github.io/blog/march-2026-update#dependency-updates-1" class="hash-link" aria-label="Direct link to Dependency Updates" title="Direct link to Dependency Updates" translate="no">​</a></h3>
+<ul>
+<li class="">Updated the <a href="https://github.com/Metron-Project/mokkari" target="_blank" rel="noopener noreferrer" class="">Mokkari</a> dependency to pick up its latest improvements.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="contributors-2">Contributors<a href="https://metron-project.github.io/blog/march-2026-update#contributors-2" class="hash-link" aria-label="Direct link to Contributors" title="Direct link to Contributors" translate="no">​</a></h3>
+<p>Thanks to <a href="https://github.com/bearinfo" target="_blank" rel="noopener noreferrer" class="">@bearinfo</a> for his contributions this month.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="desaad">Desaad<a href="https://metron-project.github.io/blog/march-2026-update#desaad" class="hash-link" aria-label="Direct link to Desaad" title="Direct link to Desaad" translate="no">​</a></h2>
+<p>During March several new features around content discovery, reading list management, and library gap tracking were made.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="creator-views">Creator Views<a href="https://metron-project.github.io/blog/march-2026-update#creator-views" class="hash-link" aria-label="Direct link to Creator Views" title="Direct link to Creator Views" translate="no">​</a></h3>
+<p>Creators now have their own browsable pages. A new <strong>Creators</strong> section in the navigation gives access to a full creator list and individual detail pages showing a creator's roles across your library. A dedicated <strong>Creator Series/Issues</strong> view lets you drill down into their work by series.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bookmarks">Bookmarks<a href="https://metron-project.github.io/blog/march-2026-update#bookmarks" class="hash-link" aria-label="Direct link to Bookmarks" title="Direct link to Bookmarks" translate="no">​</a></h3>
+<p>You can now bookmark series and issues directly from the list views. A bookmark icon overlays the cover image; clicking it toggles the bookmark state inline via HTMX without a page reload. A new <strong>Bookmarks</strong> page collects all your saved items in one place, with inline unbookmark support.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="advanced-search-for-series-and-issues">Advanced Search for Series and Issues<a href="https://metron-project.github.io/blog/march-2026-update#advanced-search-for-series-and-issues" class="hash-link" aria-label="Direct link to Advanced Search for Series and Issues" title="Direct link to Advanced Search for Series and Issues" translate="no">​</a></h3>
+<p>The Series and Issue list views gained advanced filtering capabilities. You can now filter by multiple criteria simultaneously, making it much easier to navigate large libraries.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-list-refresh-with-conditional-requests">Reading List Refresh with Conditional Requests<a href="https://metron-project.github.io/blog/march-2026-update#reading-list-refresh-with-conditional-requests" class="hash-link" aria-label="Direct link to Reading List Refresh with Conditional Requests" title="Direct link to Reading List Refresh with Conditional Requests" translate="no">​</a></h3>
+<p>Reading lists sourced from Metron can now be refreshed. Desaad stores the <code>modified</code> datetime returned by Metron and uses it on subsequent refresh requests via <code>If-Modified-Since</code>. If Metron returns 304 Not Modified, you'll see an "already up to date" message. Otherwise, existing items are cleared and a background re-import is enqueued. A <strong>Refresh</strong> button appears on the detail page for any Metron-sourced list with a completed import.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="series-missing-issues-tracking">Series Missing Issues Tracking<a href="https://metron-project.github.io/blog/march-2026-update#series-missing-issues-tracking" class="hash-link" aria-label="Direct link to Series Missing Issues Tracking" title="Direct link to Series Missing Issues Tracking" translate="no">​</a></h3>
+<p>Desaad can now check your local library against Metron to identify issues in a series that you don't yet have. A new <code>MissingSeriesIssue</code> model tracks these gaps, and a <strong>Check Missing Issues</strong> button on the series detail page triggers the check inline via HTMX. Like reading list refresh, subsequent checks use conditional requests — if nothing has changed on Metron's side, you'll see an "already up to date" response.</p>
+<img src="https://metron-project.github.io/assets/images/missing-issues-f31d14b28e943b2a71463707b8a95442.png" alt="Image of the missing issues on the Series Detail view" style="max-width:100%;height:auto">
+<p>A dedicated <strong>Missing Issues</strong> list view provides an overview of all tracked gaps across your library, and a background task automatically cleans up missing issue records when you import a previously absent issue.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-list-improvements">Reading List Improvements<a href="https://metron-project.github.io/blog/march-2026-update#reading-list-improvements" class="hash-link" aria-label="Direct link to Reading List Improvements" title="Direct link to Reading List Improvements" translate="no">​</a></h3>
+<p>Reading list search results and detail pages now show human-readable attribution source labels. Issue type display and filtering were added to reading list items, and attribution source tags appear on reading list cards for quicker at-a-glance identification.</p>
+<img src="https://metron-project.github.io/assets/images/reading_list_update-178cd417bb9e98a32ae278f686d06d67.png" alt="Image of the reading list view" style="max-width:100%;height:auto">
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/march-2026-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
+<p>A huge thank you to everyone who has contributed to our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a>! Your support makes a real difference in keeping the Metron Project running and growing.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-your-contributions-support">What Your Contributions Support<a href="https://metron-project.github.io/blog/march-2026-update#what-your-contributions-support" class="hash-link" aria-label="Direct link to What Your Contributions Support" title="Direct link to What Your Contributions Support" translate="no">​</a></h3>
+<p>Funds from Open Collective go directly toward:</p>
+<ul>
+<li class=""><strong>Server hosting costs</strong> - Keeping the Metron website and API available</li>
+<li class=""><strong>Domain registration</strong> - Annual domain name renewals</li>
+<li class=""><strong>Future capacity increases</strong> - Scaling resources as the database and user base grows</li>
+</ul>
+<p>All expenses are transparent and publicly viewable on our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective page</a>, so you can see exactly where every dollar goes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="support-the-project">Support the Project<a href="https://metron-project.github.io/blog/march-2026-update#support-the-project" class="hash-link" aria-label="Direct link to Support the Project" title="Direct link to Support the Project" translate="no">​</a></h3>
+<p>If you'd like to help keep the lights on and support continued development, contributions of any size are appreciated and help ensure Metron remains a free resource for the comic book community.</p>
+<p>Anyway, that's everything for this month! Take care.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="release" term="release"/>
+        <category label="api" term="api"/>
+        <category label="reading-lists" term="reading-lists"/>
+        <category label="collection" term="collection"/>
+        <category label="performance" term="performance"/>
+        <category label="mokkari" term="mokkari"/>
+        <category label="features" term="features"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[API Rate Limit Reduction]]></title>
         <id>https://metron-project.github.io/blog/api-rate-limit-reduction</id>
@@ -1456,71 +1612,5 @@ on <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel=
         </author>
         <category label="opencollective" term="opencollective"/>
         <category label="donating" term="donating"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[November 2024 Update]]></title>
-        <id>https://metron-project.github.io/blog/november-2024-update</id>
-        <link href="https://metron-project.github.io/blog/november-2024-update"/>
-        <updated>2024-12-01T15:52:00.000Z</updated>
-        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/november-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
-<p>During November the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
-<ul>
-<li class="">Users: <strong>31</strong></li>
-<li class="">Issues: <strong>2,210</strong></li>
-<li class="">Creators: <strong>104</strong></li>
-<li class="">Characters: <strong>426</strong></li>
-</ul>
-<p>Thanks to everyone that contributed!</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="metron-tagger-v310">Metron-Tagger v3.1.0<a href="https://metron-project.github.io/blog/november-2024-update#metron-tagger-v310" class="hash-link" aria-label="Direct link to Metron-Tagger v3.1.0" title="Direct link to Metron-Tagger v3.1.0" translate="no">​</a></h2>
-<p>I released a new <a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v3.1.0" target="_blank" rel="noopener noreferrer" class="">version</a>
-of <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer" class="">Metron-Tagger</a> today that adds the ability to migrate data from a
-comic that contains a <code>ComicInfo.xml</code>.</p>
-<p>The conversion from <code>ComicInfo.xml</code> -&gt; <code>MetronInfo.xml</code> does have some caveats though:</p>
-<ul>
-<li class="">Elements containing data with a comma in a delimited ComicInfo element. If for example, the <code>Title</code> element contained
-a story call <em>"Babs: True Blue, I Love You"</em> and it was originally written with a tool other than Metron-Tagger it
-will split the story into two element items: <em>Babs: True Blue</em> and <em>I Love You</em> .</li>
-<li class="">Ratings.
-We <a href="https://github.com/Metron-Project/darkseid/blob/2abac78a972a460482cf48be4580295179f45ffe/darkseid/metroninfo.py#L138" target="_blank" rel="noopener noreferrer" class="">map</a>
-these to the enums used in MetronInfo, but it's not perfect since the ComicInfo documentation isn't terribly clear how
-it defines it values, so if you feel our mapping is incorrect please notify us and explain what it should be. Also,
-I've seen some users use non-valid values which obviously won't work.</li>
-<li class="">Series Format. We've also done our best
-to <a href="https://github.com/Metron-Project/darkseid/blob/2abac78a972a460482cf48be4580295179f45ffe/darkseid/metroninfo.py#L148" target="_blank" rel="noopener noreferrer" class="">map</a>
-the series format, but this is even <em>less</em> defined the age rating since this is just a text element in the schema, and
-could be anything. We've used
-the <a href="https://github.com/comictagger/comictagger/blob/5df935915140d2dd443efd0ee5a5619726a95e48/comictaggerlib/taggerwindow.py#L1436" target="_blank" rel="noopener noreferrer" class="">values</a>
-in Comic-Tagger to handle the conversion, but this isn't perfect.</li>
-</ul>
-<p>To migrate your <code>ComicInfo.xml</code> to <code>MetronInfo.xml</code> without any online lookup would simply run:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">metron-tagger --migrate /path/to/comics</span><br></span></code></pre></div></div>
-<p>If you wanted to tag you comics with data from the Metron Comic Book Database, and migrate the data from the existing
-<code>ComicInfo.xml</code> for those comics not on Metron, you would run:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">metron-tagger -om --migrate /path/to/comics</span><br></span></code></pre></div></div>
-<p>If you run across any bugs or have suggestions for improvements, please file
-a <a href="https://github.com/Metron-Project/metron-tagger/issues/new/choose" target="_blank" rel="noopener noreferrer" class="">Bug Report or Feature Request</a>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="server-upgrade">Server Upgrade<a href="https://metron-project.github.io/blog/november-2024-update#server-upgrade" class="hash-link" aria-label="Direct link to Server Upgrade" title="Direct link to Server Upgrade" translate="no">​</a></h2>
-<p>Finally got around to <a href="https://metron-project.github.io/blog/october-2024-update#server-os-upgrade" target="_blank" rel="noopener noreferrer" class="">upgrading</a> the
-server, and it was fairly uneventful. Yay! 🎉</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/november-2024-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
-<p>The main repository has finally reached 100 stars, and so most likely in the next week or two, I'll set up a funding
-option at <a href="https://opencollective.com/" target="_blank" rel="noopener noreferrer" class="">Open Collective</a> to help defray the server costs and help with increasing future
-server capacity.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="future">Future<a href="https://metron-project.github.io/blog/november-2024-update#future" class="hash-link" aria-label="Direct link to Future" title="Direct link to Future" translate="no">​</a></h2>
-<p>Now the bulk of the work is done with getting the <a href="https://github.com/Metron-Project/metroninfo" target="_blank" rel="noopener noreferrer" class="">MetronInfo</a> out the
-door and some initial tooling to generate them, I'm planning to work on some low-hanging bugs with the website over the next month
-or so, before starting any large scale projects.</p>
-<p>Anyway, that's all I've got for this month. Take care!</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="metadata" term="metadata"/>
-        <category label="comicvine" term="comicvine"/>
-        <category label="opencollective" term="opencollective"/>
-        <category label="metron" term="metron"/>
-        <category label="api" term="api"/>
     </entry>
 </feed>
