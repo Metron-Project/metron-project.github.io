@@ -9,6 +9,95 @@ The Metron API gives developers programmatic access to a comprehensive comic boo
 
 <!-- truncate -->
 
+## Metron vs. Comic Vine: Searching for an Issue
+
+If you've previously worked with the Comic Vine API, a few differences are worth knowing up front.
+
+### Terminology: volumes vs. series
+
+Comic Vine calls what Metron calls a *series* a **volume**. When Comic Vine says "volume 1 of Amazing Spider-Man", Metron stores that as a series with `year_began=1963`. The concepts are equivalent — the names are not.
+
+### Authentication
+
+| | Metron | Comic Vine |
+|-|--------|------------|
+| Method | HTTP Basic Auth (`Authorization` header) | API key as a query parameter (`?api_key=...`) |
+| Credentials in URLs | No | Yes — take care with logs and caches |
+
+### Finding an issue
+
+**Comic Vine** requires you to know the volume ID before you can look up an issue. A typical lookup is a two-step process:
+
+```
+# Step 1 — find the volume ID
+GET https://comicvine.gamespot.com/api/volumes/
+    ?api_key=YOUR_KEY&format=json
+    &filter=name:Amazing Spider-Man
+
+# Step 2 — find the issue within that volume
+GET https://comicvine.gamespot.com/api/issues/
+    ?api_key=YOUR_KEY&format=json
+    &filter=volume:12345,issue_number:1
+```
+
+**Metron** lets you query directly against issue fields in a single request, without needing a prior volume/series lookup:
+
+```
+# One request — no prior series ID needed
+GET /api/issue/?series_name=amazing+spider-man&number=1&series_year_began=1963
+```
+
+You can also identify issues by identifiers that Comic Vine doesn't expose as filters:
+
+| Identifier | Metron filter | Notes |
+|------------|---------------|-------|
+| UPC barcode | `?upc=75960609558200111` | Exact match |
+| Distributor SKU | `?sku=MAR250123` | Exact match |
+| Store release date | `?store_date_range_after=2025-01-01` | Date or Date range |
+| Grand Comics Database (GCD) ID | `?gcd_id=54321` | Look up a Metron record by its GCD ID |
+| Comic Vine issue ID | `?cv_id=12345` | Look up a Metron record by its CV ID |
+
+That last filter is especially useful during a migration: if your existing data stores Comic Vine IDs, you can resolve them to Metron IDs one-by-one without a name search.
+
+```python
+# Resolve a Comic Vine issue ID to a Metron issue ID
+r = requests.get("https://metron.cloud/api/issue/?cv_id=12345", auth=auth)
+results = r.json()["results"]
+if results:
+    metron_id = results[0]["id"]
+```
+
+### Response format
+
+Comic Vine wraps every response in an outer envelope:
+
+```json
+{
+  "error": "OK",
+  "limit": 100,
+  "offset": 0,
+  "number_of_page_results": 1,
+  "number_of_total_results": 1,
+  "status_code": 1,
+  "results": { ... }
+}
+```
+
+Metron follows the standard DRF paginated format:
+
+```json
+{
+  "count": 1,
+  "next": null,
+  "previous": null,
+  "results": [ ... ]
+}
+```
+
+`next` and `previous` are ready-to-use URLs — pass them directly to your HTTP client rather than constructing page URLs manually.
+
+---
+
 ## Understand the Rate Limits
 
 The API enforces two independent throttle windows per authenticated user:
@@ -215,7 +304,7 @@ auth = (os.environ["METRON_USER"], os.environ["METRON_PASS"])
 
 ## Scrobbling Read Issues
 
-The collection scrobble endpoint (`POST /api/collection/scrobble/`) is a convenient way to mark an issue as read from an external reader or automation. It creates a collection entry automatically if one doesn't exist. Because it's a write operation it counts against your rate limit, so batch or debounce calls rather than firing one per page turn.
+The collection scrobble endpoint (`POST /api/collection/scrobble/`) is a convenient way to mark an issue as read from an external reader or automation. It creates a collection entry automatically if one doesn't exist. The endpoint accepts one issue per request, so if you're triggering scrobbles from a reading app, debounce on the client side and send a single request when the user finishes an issue rather than firing on every page turn.
 
 ```json
 POST /api/collection/scrobble/
