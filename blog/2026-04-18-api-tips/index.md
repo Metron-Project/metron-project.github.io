@@ -1,6 +1,7 @@
 ---
 slug: api-best-practices
 title: Metron API Best Practices
+date: 2026-04-18T12:40
 authors: bpepple
 tags: [api, best-practices, developers]
 ---
