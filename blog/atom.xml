@@ -2,11 +2,80 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2026-04-18T12:40:00.000Z</updated>
+    <updated>2026-05-01T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[April 2026 Updates]]></title>
+        <id>https://metron-project.github.io/blog/april-2026-updates</id>
+        <link href="https://metron-project.github.io/blog/april-2026-updates"/>
+        <updated>2026-05-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Here's a summary of everything that landed in Metron since the beginning of April 2026.]]></summary>
+        <content type="html"><![CDATA[<p>Here's a summary of everything that landed in Metron since the beginning of April 2026.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/april-2026-updates#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
+<p>During April the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
+<ul>
+<li class="">Users: <strong>180</strong></li>
+<li class="">Issues: <strong>4,923</strong></li>
+<li class="">Creators: <strong>376</strong></li>
+<li class="">Characters: <strong>1,096</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-features">New Features<a href="https://metron-project.github.io/blog/april-2026-updates#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-governance-polls">Community Governance Polls<a href="https://metron-project.github.io/blog/april-2026-updates#community-governance-polls" class="hash-link" aria-label="Direct link to Community Governance Polls" title="Direct link to Community Governance Polls" translate="no">​</a></h3>
+<p>Registered users can now participate in site governance through the new <strong>Polls</strong> app. Site admins can create time-bounded polls and users can cast a single vote per poll during the active window. Once the poll closes, results are visible to everyone. A link to active polls appears in the main navigation bar.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="uk-publisher-and-gbp-currency-support">UK Publisher and GBP Currency Support<a href="https://metron-project.github.io/blog/april-2026-updates#uk-publisher-and-gbp-currency-support" class="hash-link" aria-label="Direct link to UK Publisher and GBP Currency Support" title="Direct link to UK Publisher and GBP Currency Support" translate="no">​</a></h3>
+<p>Publishers based in the United Kingdom can now be added to the database, and issue cover prices can be recorded in <strong>GBP</strong> alongside the existing USD support. The issue detail API response now includes a <code>price_currency</code> field so API consumers can distinguish between currencies without parsing the price string.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="publisher-filter-for-reading-list-api">Publisher Filter for Reading List API<a href="https://metron-project.github.io/blog/april-2026-updates#publisher-filter-for-reading-list-api" class="hash-link" aria-label="Direct link to Publisher Filter for Reading List API" title="Direct link to Publisher Filter for Reading List API" translate="no">​</a></h3>
+<p>The Reading List API endpoint now accepts a <code>publisher</code> query parameter, matching the filtering already available in the web interface. This makes it easier to fetch reading lists scoped to a specific publisher programmatically.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance-improvements">Performance Improvements<a href="https://metron-project.github.io/blog/april-2026-updates#performance-improvements" class="hash-link" aria-label="Direct link to Performance Improvements" title="Direct link to Performance Improvements" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="indexes-on-hot-api-query-paths">Indexes on Hot API Query Paths<a href="https://metron-project.github.io/blog/april-2026-updates#indexes-on-hot-api-query-paths" class="hash-link" aria-label="Direct link to Indexes on Hot API Query Paths" title="Direct link to Indexes on Hot API Query Paths" translate="no">​</a></h3>
+<p>Additional database indexes were added to the Issue and Series models based on an analysis of the most frequently executed API queries. Combined with making the <code>unaccent</code> function immutable, these indexes give PostgreSQL more opportunities to avoid full-table scans on the busiest code paths. (<a href="https://github.com/jonasStendahl" target="_blank" rel="noopener noreferrer" class="">Jonas Stendahl</a>)</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="gin-trigram-indexes-for-search-and-autocomplete">GIN Trigram Indexes for Search and Autocomplete<a href="https://metron-project.github.io/blog/april-2026-updates#gin-trigram-indexes-for-search-and-autocomplete" class="hash-link" aria-label="Direct link to GIN Trigram Indexes for Search and Autocomplete" title="Direct link to GIN Trigram Indexes for Search and Autocomplete" translate="no">​</a></h3>
+<p>All unaccent <code>icontains</code> searches — used for the Arc, Character, Creator, Imprint, Publisher, Team, and Universe autocomplete fields — previously relied on standard B-tree indexes that PostgreSQL could not use for partial-string matching. These have been replaced with <strong>GIN trigram indexes</strong> on the unaccented name column, allowing PostgreSQL to use index scans instead of sequential scans for every search and autocomplete lookup. (<a href="https://github.com/bpepple" target="_blank" rel="noopener noreferrer" class="">Brian Pepple</a>)</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="http2-and-gzip-compression">HTTP/2 and Gzip Compression<a href="https://metron-project.github.io/blog/april-2026-updates#http2-and-gzip-compression" class="hash-link" aria-label="Direct link to HTTP/2 and Gzip Compression" title="Direct link to HTTP/2 and Gzip Compression" translate="no">​</a></h3>
+<p>The nginx proxy now serves all responses over <strong>HTTP/2</strong> and compresses them with <strong>gzip</strong>, reducing both page load latency and bandwidth consumption for all users. (<a href="https://github.com/jonasStendahl" target="_blank" rel="noopener noreferrer" class="">Jonas Stendahl</a>)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-and-infrastructure">Security and Infrastructure<a href="https://metron-project.github.io/blog/april-2026-updates#security-and-infrastructure" class="hash-link" aria-label="Direct link to Security and Infrastructure" title="Direct link to Security and Infrastructure" translate="no">​</a></h2>
+<p>The bulk of the infrastructure work in April was a full server migration from <strong>Ubuntu</strong> to <strong>CentOS</strong>, moving all services into <strong>Podman</strong> containers managed by Quadlet systemd unit files. This migration brought with it a number of security and reliability improvements described below.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="anubis-bot-protection-proxy">Anubis Bot-Protection Proxy<a href="https://metron-project.github.io/blog/april-2026-updates#anubis-bot-protection-proxy" class="hash-link" aria-label="Direct link to Anubis Bot-Protection Proxy" title="Direct link to Anubis Bot-Protection Proxy" translate="no">​</a></h3>
+<p>Browser traffic now passes through <a href="https://anubis.techaro.lol/" target="_blank" rel="noopener noreferrer" class="">Anubis</a>, a proof-of-work challenge proxy that sits between nginx and the application. Visitors solve a lightweight in-browser challenge on their first request; subsequent requests are passed through automatically using a signed cookie backed by persistent BBolt storage. The <code>/api/</code> path is fully exempted so API consumers are unaffected, and HTMX partial requests are allowed through once the initial challenge has been passed.</p>
+<p>Alongside Anubis, a set of targeted nginx deny rules blocks common bad actors: PHP exploit scanners, bots spoofing Chrome with fake version strings, Facebook and Apple crawlers, and clients sending requests with no User-Agent header at all.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fail2ban-integration">fail2ban Integration<a href="https://metron-project.github.io/blog/april-2026-updates#fail2ban-integration" class="hash-link" aria-label="Direct link to fail2ban Integration" title="Direct link to fail2ban Integration" translate="no">​</a></h3>
+<p><a href="https://github.com/fail2ban/fail2ban" target="_blank" rel="noopener noreferrer" class="">fail2ban</a> jails now automatically ban IPs that generate excessive <strong>401</strong>, <strong>403</strong>, <strong>404</strong>, <strong>429</strong>, or <strong>499</strong> responses, as well as IPs that send requests with no User-Agent. Bans are enforced via the firewalld drop zone so they take effect at the network layer before nginx processes the connection.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="migration-to-podman">Migration to Podman<a href="https://metron-project.github.io/blog/april-2026-updates#migration-to-podman" class="hash-link" aria-label="Direct link to Migration to Podman" title="Direct link to Migration to Podman" translate="no">​</a></h3>
+<p>The production deployment has been migrated from a bare-metal installation to <strong><a href="https://podman.io/" target="_blank" rel="noopener noreferrer" class="">Podman</a></strong> with Quadlet systemd unit files. Each service (nginx, gunicorn, Anubis, PostgreSQL, Redis) is now managed as a native systemd service, improving process supervision and startup ordering.</p>
+<p>As part of this migration, <strong><a href="https://github.com/jonasStendahl" target="_blank" rel="noopener noreferrer" class="">Jonas Stendahl</a></strong> joined the project as a system administrator and contributed to the infrastructure work.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="postgresql-backups-to-digitalocean-spaces">PostgreSQL Backups to DigitalOcean Spaces<a href="https://metron-project.github.io/blog/april-2026-updates#postgresql-backups-to-digitalocean-spaces" class="hash-link" aria-label="Direct link to PostgreSQL Backups to DigitalOcean Spaces" title="Direct link to PostgreSQL Backups to DigitalOcean Spaces" translate="no">​</a></h3>
+<p>Automated off-droplet database backups are now shipped to <strong>DigitalOcean Spaces</strong> on a nightly schedule, providing an off-site recovery point independent of the primary VPS.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-reliability-improvements">S3 Reliability Improvements<a href="https://metron-project.github.io/blog/april-2026-updates#s3-reliability-improvements" class="hash-link" aria-label="Direct link to S3 Reliability Improvements" title="Direct link to S3 Reliability Improvements" translate="no">​</a></h3>
+<p>The S3 client used for cover image storage received several reliability fixes: configurable socket timeouts and TCP keepalive settings to handle intermittent connectivity issues, an increase in retry attempts to 3, and a short-circuit that skips the S3 download in <code>pre_save_cover_hash</code> when the image field has not changed.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="developer-experience">Developer Experience<a href="https://metron-project.github.io/blog/april-2026-updates#developer-experience" class="hash-link" aria-label="Direct link to Developer Experience" title="Direct link to Developer Experience" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="github-actions-ci">GitHub Actions CI<a href="https://metron-project.github.io/blog/april-2026-updates#github-actions-ci" class="hash-link" aria-label="Direct link to GitHub Actions CI" title="Direct link to GitHub Actions CI" translate="no">​</a></h3>
+<p>A GitHub Actions workflow now runs on every push and pull request, executing the full <strong>ruff</strong> linter and <strong>pytest</strong> test suite in parallel. This gives contributors fast feedback without needing to set up a local environment.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/april-2026-updates#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
+<p>A huge thank you to everyone who has contributed to our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a>! Your support makes a real difference in keeping the Metron Project running and growing.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-your-contributions-support">What Your Contributions Support<a href="https://metron-project.github.io/blog/april-2026-updates#what-your-contributions-support" class="hash-link" aria-label="Direct link to What Your Contributions Support" title="Direct link to What Your Contributions Support" translate="no">​</a></h3>
+<p>Funds from Open Collective go directly toward:</p>
+<ul>
+<li class=""><strong>Server hosting costs</strong> - Keeping the Metron website and API available</li>
+<li class=""><strong>Domain registration</strong> - Annual domain name renewals</li>
+<li class=""><strong>Future capacity increases</strong> - Scaling resources as the database and user base grows</li>
+</ul>
+<p>All expenses are transparent and publicly viewable on our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective page</a>, so you can see exactly where every dollar goes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="support-the-project">Support the Project<a href="https://metron-project.github.io/blog/april-2026-updates#support-the-project" class="hash-link" aria-label="Direct link to Support the Project" title="Direct link to Support the Project" translate="no">​</a></h3>
+<p>This month we increased our server specs to better handle the growing demand, but we're still struggling to keep up with API usage. Any donations to help maintain our current API rate limits and keep the service free are greatly appreciated. Contributions of any size help ensure Metron remains a free resource for the comic book community.</p>
+<p>Anyway, that's everything for this month! Take care.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="release" term="release"/>
+        <category label="features" term="features"/>
+        <category label="performance" term="performance"/>
+        <category label="security" term="security"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Metron API Best Practices]]></title>
         <id>https://metron-project.github.io/blog/api-best-practices</id>
@@ -1638,55 +1707,5 @@ costs and help with increasing future server capacity.</p>
         <category label="metron" term="metron"/>
         <category label="gcd" term="gcd"/>
         <category label="grandcomicsdatabase" term="grandcomicsdatabase"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[December 2024 Update]]></title>
-        <id>https://metron-project.github.io/blog/december-2024-update</id>
-        <link href="https://metron-project.github.io/blog/december-2024-update"/>
-        <updated>2025-01-01T15:52:00.000Z</updated>
-        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/december-2024-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
-<p>During December the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
-<ul>
-<li class="">Users: <strong>39</strong></li>
-<li class="">Issues: <strong>823</strong></li>
-<li class="">Creators: <strong>259</strong></li>
-<li class="">Characters: <strong>413</strong></li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2024-annual-statistics">2024 Annual Statistics<a href="https://metron-project.github.io/blog/december-2024-update#2024-annual-statistics" class="hash-link" aria-label="Direct link to 2024 Annual Statistics" title="Direct link to 2024 Annual Statistics" translate="no">​</a></h2>
-<p>During 2024 the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
-<ul>
-<li class="">Users: <strong>566</strong></li>
-<li class="">Issues: <strong>33,784</strong></li>
-<li class="">Creators: <strong>2,283</strong></li>
-<li class="">Characters: <strong>7,748</strong></li>
-</ul>
-<p>Thanks to everyone that contributed!</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="grand-comics-database-gcd-id-support">Grand Comics Database (GCD) ID Support<a href="https://metron-project.github.io/blog/december-2024-update#grand-comics-database-gcd-id-support" class="hash-link" aria-label="Direct link to Grand Comics Database (GCD) ID Support" title="Direct link to Grand Comics Database (GCD) ID Support" translate="no">​</a></h2>
-<p>Recently support for <a href="https://www.comics.org/" target="_blank" rel="noopener noreferrer" class="">GCD</a> ID's was added to the site, and we've currently linked about 50% of
-the issues on the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">site</a>, and with luck, should be completed in the next week or so.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="potential-january-projects">Potential January Projects<a href="https://metron-project.github.io/blog/december-2024-update#potential-january-projects" class="hash-link" aria-label="Direct link to Potential January Projects" title="Direct link to Potential January Projects" translate="no">​</a></h2>
-<p>I'm looking at some small projects to work on in January, and some potential ones I'm thinking about are:</p>
-<ul>
-<li class="">Add Legacy Numbering field</li>
-<li class="">Alternative Series Name field</li>
-<li class="">Advanced Resources (Series, Issues, etc) Search</li>
-<li class=""><a href="https://github.com/Metron-Project/metron/issues/180" target="_blank" rel="noopener noreferrer" class="">Resource ID URLS</a></li>
-</ul>
-<p>Not sure which ones (or any) will be implemented, but I'm planning to dig into them a bit more in the next few weeks.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/december-2024-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
-<p>We've recently set up an account at <a href="https://opencollective.com/" target="_blank" rel="noopener noreferrer" class="">Open Collective</a> if you wish to help defray the server
-costs and help with increasing future server capacity.</p>
-<p>Anyway, that's all I got for now, hope everyone had a great holiday and are enjoying New Years day. Take Care!</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="metadata" term="metadata"/>
-        <category label="comicvine" term="comicvine"/>
-        <category label="opencollective" term="opencollective"/>
-        <category label="metron" term="metron"/>
-        <category label="api" term="api"/>
     </entry>
 </feed>
