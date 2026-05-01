@@ -101,6 +101,6 @@ All expenses are transparent and publicly viewable on our [Open Collective page]
 
 ### Support the Project
 
-If you'd like to help keep the lights on and support continued development, contributions of any size are appreciated and help ensure Metron remains a free resource for the comic book community.
+This month we increased our server specs to better handle the growing demand, but we're still struggling to keep up with API usage. Any donations to help maintain our current API rate limits and keep the service free are greatly appreciated. Contributions of any size help ensure Metron remains a free resource for the comic book community.
 
 Anyway, that's everything for this month! Take care.
