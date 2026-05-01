@@ -16,10 +16,10 @@ Here's a summary of everything that landed in Metron since the beginning of Apri
 
 During April the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TODO**
-- Issues: **TODO**
-- Creators: **TODO**
-- Characters: **TODO**
+- Users: **180**
+- Issues: **4,923**
+- Creators: **376**
+- Characters: **1,096**
 
 Thanks to everyone that contributed!
 
