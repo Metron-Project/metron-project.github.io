@@ -104,6 +104,8 @@ The acquire endpoint is the key integration point between the Wish List and the 
 
 The operation is idempotent: if the issue is already in the collection, the existing collection item is left untouched and `created` returns `false`.
 
+A new version of [Mokkari](https://github.com/Metron-Project/mokkari/releases/tag/v3.27.0) has been released that adds support for these new endpoints.
+
 ## API Improvements
 
 ### New Filter Parameters
@@ -147,6 +149,6 @@ All expenses are transparent and publicly viewable on our [Open Collective page]
 
 ### Support the Project
 
-This month we increased our server specs to better handle the growing demand, but we're still struggling to keep up with API usage. Any donations to help maintain our current API rate limits and keep the service free are greatly appreciated. Contributions of any size help ensure Metron remains a free resource for the comic book community.
+Any donations to help maintain our current API rate limits and keep the service free are greatly appreciated. Contributions of any size help ensure Metron remains a free resource for the comic book community.
 
 Anyway, that's everything for this month! Take care.
