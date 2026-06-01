@@ -2,11 +2,90 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2026-05-01T00:00:00.000Z</updated>
+    <updated>2026-06-01T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[May 2026 Updates]]></title>
+        <id>https://metron-project.github.io/blog/may-2026-updates</id>
+        <link href="https://metron-project.github.io/blog/may-2026-updates"/>
+        <updated>2026-06-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Here's a summary of everything that landed in Metron since the beginning of May 2026.]]></summary>
+        <content type="html"><![CDATA[<p>Here's a summary of everything that landed in Metron since the beginning of May 2026.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/may-2026-updates#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
+<p>During May the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
+<ul>
+<li class="">Users: <strong>220</strong></li>
+<li class="">Issues: <strong>1,809</strong></li>
+<li class="">Creators: <strong>196</strong></li>
+<li class="">Characters: <strong>506</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-features">New Features<a href="https://metron-project.github.io/blog/may-2026-updates#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="wish-list-and-pull-list">Wish List and Pull List<a href="https://metron-project.github.io/blog/may-2026-updates#wish-list-and-pull-list" class="hash-link" aria-label="Direct link to Wish List and Pull List" title="Direct link to Wish List and Pull List" translate="no">​</a></h3>
+<p>The biggest addition this month is the launch of the <strong>Wish List</strong> and <strong>Pull List</strong> apps. Both lists are private to their owner, consistent with the existing User Collection, and are created automatically on first access — no setup required.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="pull-list">Pull List<a href="https://metron-project.github.io/blog/may-2026-updates#pull-list" class="hash-link" aria-label="Direct link to Pull List" title="Direct link to Pull List" translate="no">​</a></h4>
+<p>The Pull List is the digital equivalent of a comic shop pull list: a collection of ongoing series you follow. It is accessible under <code>/pull-list/</code> on the site and fully supported via the API at <code>/api/pull_list/</code>.</p>
+<p><strong>API endpoints:</strong></p>
+<table><thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead><tbody><tr><td><code>GET</code></td><td><code>/api/pull_list/</code></td><td>Pull list metadata (series count, last modified)</td></tr><tr><td><code>GET</code></td><td><code>/api/pull_list/series/</code></td><td>Paginated list of series on the pull list</td></tr><tr><td><code>POST</code></td><td><code>/api/pull_list/series/add</code></td><td>Add a series (<code>{"series_id": 123}</code>)</td></tr><tr><td><code>DELETE</code></td><td><code>/api/pull_list/series/{series_id}/remove</code></td><td>Remove a series</td></tr><tr><td><code>GET</code></td><td><code>/api/pull_list/issues/</code></td><td>Upcoming issues from pull list series</td></tr></tbody></table>
+<p>The <code>/api/pull_list/issues/</code> endpoint is especially useful for building "what's coming out this week" views. It returns issues ordered by store date then series name, and accepts two optional date filters:</p>
+<table><thead><tr><th>Parameter</th><th>Format</th><th>Description</th></tr></thead><tbody><tr><td><code>store_date_after</code></td><td><code>YYYY-MM-DD</code></td><td>Issues on or after this store date</td></tr><tr><td><code>store_date_before</code></td><td><code>YYYY-MM-DD</code></td><td>Issues on or before this store date</td></tr></tbody></table>
+<p>Each issue in the response includes the series summary, issue number, cover date, store date, and cover image.</p>
+<p>Adding a series is idempotent: posting a <code>series_id</code> that is already on the list returns <code>200 OK</code> with the existing entry rather than an error.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="wish-list">Wish List<a href="https://metron-project.github.io/blog/may-2026-updates#wish-list" class="hash-link" aria-label="Direct link to Wish List" title="Direct link to Wish List" translate="no">​</a></h4>
+<p>The Wish List tracks specific issues you want to acquire, with support for priority, condition goals, budget limits, and acquisition status. It lives at <code>/wish-list/</code> on the site and is backed by the API at <code>/api/wish_list/</code>.</p>
+<p><strong>API endpoints:</strong></p>
+<table><thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead><tbody><tr><td><code>GET</code></td><td><code>/api/wish_list/</code></td><td>Wish list metadata (item count, last modified)</td></tr><tr><td><code>GET</code></td><td><code>/api/wish_list/items/</code></td><td>Paginated list of items</td></tr><tr><td><code>POST</code></td><td><code>/api/wish_list/items/add</code></td><td>Add an issue to the wish list</td></tr><tr><td><code>POST</code></td><td><code>/api/wish_list/items/{item_id}/acquire</code></td><td>Mark an item as acquired</td></tr><tr><td><code>DELETE</code></td><td><code>/api/wish_list/items/{item_id}/remove</code></td><td>Remove an item</td></tr></tbody></table>
+<p>When adding an item, only <code>issue_id</code> is required. All other fields are optional:</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"issue_id"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">5001</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"priority"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"desired_grade"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"6.0"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"max_price"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"500.00"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"max_price_currency"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"GBP"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"notes"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"First appearance of Spider-Man"</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></div></code></pre></div></div>
+<p>Priority defaults to <code>3</code> and <code>max_price_currency</code> defaults to <code>USD</code> if omitted. Like the pull list, adding an issue that is already on the wish list is idempotent — it returns <code>200 OK</code> with the existing item.</p>
+<p>Each item carries a <strong>status</strong> that moves through a simple lifecycle:</p>
+<table><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody><tr><td><code>Wanted</code></td><td>Actively looking for this issue</td></tr><tr><td><code>Found</code></td><td>Located a copy, not yet purchased</td></tr><tr><td><code>Acquired</code></td><td>Purchased; a collection item has been created</td></tr></tbody></table>
+<p>The acquire endpoint is the key integration point between the Wish List and the User Collection. Posting to <code>/api/wish_list/items/{item_id}/acquire</code> with optional purchase details (date, price, currency, store, notes) marks the wish list item as <code>Acquired</code> and creates a corresponding <code>CollectionItem</code>. The response tells you whether the collection item was newly created or already existed:</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"wish_list_item_id"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">42</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"collection_item_id"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">987</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"created"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean" style="color:#36acaa">true</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"status"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"Acquired"</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></div></code></pre></div></div>
+<p>The operation is idempotent: if the issue is already in the collection, the existing collection item is left untouched and <code>created</code> returns <code>false</code>.</p>
+<p>A new version of <a href="https://github.com/Metron-Project/mokkari/releases/tag/v3.27.0" target="_blank" rel="noopener noreferrer" class="">Mokkari</a> has been released that adds support for these new endpoints.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-improvements">API Improvements<a href="https://metron-project.github.io/blog/may-2026-updates#api-improvements" class="hash-link" aria-label="Direct link to API Improvements" title="Direct link to API Improvements" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-filter-parameters">New Filter Parameters<a href="https://metron-project.github.io/blog/may-2026-updates#new-filter-parameters" class="hash-link" aria-label="Direct link to New Filter Parameters" title="Direct link to New Filter Parameters" translate="no">​</a></h3>
+<p>Several new filter parameters have been added to the Issue and Series list endpoints, making it much easier to build targeted queries:</p>
+<table><thead><tr><th>Filter</th><th>Issue endpoint</th><th>Series endpoint</th></tr></thead><tbody><tr><td><code>creator_id</code></td><td>✓</td><td>✓</td></tr><tr><td><code>character_id</code></td><td>✓</td><td>✓</td></tr><tr><td><code>team_id</code></td><td>✓</td><td>✓</td></tr><tr><td><code>universe_id</code></td><td>✓</td><td>✓</td></tr><tr><td><code>imprint_id</code></td><td></td><td>✓</td></tr><tr><td><code>role_id</code></td><td>✓</td><td>✓</td></tr></tbody></table>
+<p><code>role_id</code> supports multiple comma-separated values to filter by several roles at once.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="year_end-in-series-list"><code>year_end</code> in Series List<a href="https://metron-project.github.io/blog/may-2026-updates#year_end-in-series-list" class="hash-link" aria-label="Direct link to year_end-in-series-list" title="Direct link to year_end-in-series-list" translate="no">​</a></h3>
+<p>The Series list endpoint now includes the <code>year_end</code> field, so clients can tell at a glance whether a series is ongoing or has concluded — without needing to fetch the full detail endpoint.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="dependency-and-tooling-upgrades">Dependency and Tooling Upgrades<a href="https://metron-project.github.io/blog/may-2026-updates#dependency-and-tooling-upgrades" class="hash-link" aria-label="Direct link to Dependency and Tooling Upgrades" title="Direct link to Dependency and Tooling Upgrades" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Python 3.14</strong> — the project is now running on Python's latest release.</li>
+<li class=""><strong>Migrated from pipenv to uv</strong> — dependency management and the container build now use <a href="https://github.com/astral-sh/uv" target="_blank" rel="noopener noreferrer" class="">uv</a>, with a multi-stage Containerfile that keeps the final image lean and CI caching keyed to the lockfile.</li>
+<li class=""><strong>Django 6.0.5</strong> — upgraded from Django 5.x to the recently released Django 6 series.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="metron-software-wiki-page">Metron Software Wiki Page<a href="https://metron-project.github.io/blog/may-2026-updates#metron-software-wiki-page" class="hash-link" aria-label="Direct link to Metron Software Wiki Page" title="Direct link to Metron Software Wiki Page" translate="no">​</a></h2>
+<p>We've added a dedicated <a href="https://metron.cloud/wiki/software/" target="_blank" rel="noopener noreferrer" class="">Software page</a> to the Metron wiki where developers can showcase projects built on the Metron API.</p>
+<p>If you've built a tool, app, or library that uses Metron's data — whether it's a reading tracker, a pull list manager, a CLI tool, or anything else — this is the place to list it. The page is intended to help users discover what the community has built and to give developers a bit of visibility.</p>
+<p>To get your project listed, simply edit the wiki page directly and add an entry for it.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/may-2026-updates#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
+<p>A huge thank you to everyone who has contributed to our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a>! Your support makes a real difference in keeping the Metron Project running and growing.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-your-contributions-support">What Your Contributions Support<a href="https://metron-project.github.io/blog/may-2026-updates#what-your-contributions-support" class="hash-link" aria-label="Direct link to What Your Contributions Support" title="Direct link to What Your Contributions Support" translate="no">​</a></h3>
+<p>Funds from Open Collective go directly toward:</p>
+<ul>
+<li class=""><strong>Server hosting costs</strong> - Keeping the Metron website and API available</li>
+<li class=""><strong>Domain registration</strong> - Annual domain name renewals</li>
+<li class=""><strong>Future capacity increases</strong> - Scaling resources as the database and user base grows</li>
+</ul>
+<p>All expenses are transparent and publicly viewable on our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective page</a>, so you can see exactly where every dollar goes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="support-the-project">Support the Project<a href="https://metron-project.github.io/blog/may-2026-updates#support-the-project" class="hash-link" aria-label="Direct link to Support the Project" title="Direct link to Support the Project" translate="no">​</a></h3>
+<p>Any donations to help maintain our current API rate limits and keep the service free are greatly appreciated. Contributions of any size help ensure Metron remains a free resource for the comic book community.</p>
+<p>Anyway, that's everything for this month! Take care.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="release" term="release"/>
+        <category label="api" term="api"/>
+        <category label="features" term="features"/>
+        <category label="infrastructure" term="infrastructure"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[April 2026 Updates]]></title>
         <id>https://metron-project.github.io/blog/april-2026-updates</id>
@@ -1650,62 +1729,5 @@ server costs and help with increasing future server capacity. Any help would be 
         <category label="opencollective" term="opencollective"/>
         <category label="readinglist" term="readinglist"/>
         <category label="cbl" term="cbl"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[January 2025 Update]]></title>
-        <id>https://metron-project.github.io/blog/january-2025-update</id>
-        <link href="https://metron-project.github.io/blog/january-2025-update"/>
-        <updated>2025-02-01T10:38:00.000Z</updated>
-        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/january-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
-<p>During January the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
-<ul>
-<li class="">Users: <strong>52</strong></li>
-<li class="">Issues: <strong>1,038</strong></li>
-<li class="">Creators: <strong>326</strong></li>
-<li class="">Characters: <strong>326</strong></li>
-</ul>
-<p>Thanks to everyone that contributed!</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="grand-comics-database-gcd-ids">Grand Comics Database (GCD) IDs<a href="https://metron-project.github.io/blog/january-2025-update#grand-comics-database-gcd-ids" class="hash-link" aria-label="Direct link to Grand Comics Database (GCD) IDs" title="Direct link to Grand Comics Database (GCD) IDs" translate="no">​</a></h2>
-<p>Recently support for <a href="https://www.comics.org/" target="_blank" rel="noopener noreferrer" class="">GCD</a> ID support was added and currently about 92% of the issues on the
-site has had them added.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternative--legacy-numbering">Alternative / Legacy Numbering<a href="https://metron-project.github.io/blog/january-2025-update#alternative--legacy-numbering" class="hash-link" aria-label="Direct link to Alternative / Legacy Numbering" title="Direct link to Alternative / Legacy Numbering" translate="no">​</a></h2>
-<p>Recently, Metron <a href="https://github.com/Metron-Project/metron/pull/330" target="_blank" rel="noopener noreferrer" class="">added</a> a new field to track alternative / legacy
-numbering, which are used primarily with <a href="https://www.dc.com/comics" target="_blank" rel="noopener noreferrer" class="">DC</a> &amp; <a href="https://www.marvel.com/comics" target="_blank" rel="noopener noreferrer" class="">Marvel</a>
-comics with their long-running characters.</p>
-<p>In addition, I've also made changes to the filter so that issue numbers will be <em>not</em> case-sensitive when searched,
-which will improve matching for issue
-like <a href="https://metron.cloud/issue/the-amazing-spider-man-2022-65deaths/" target="_blank" rel="noopener noreferrer" class="">The Amazing Spider-Man (2022) #65.DEATHS</a>.</p>
-<p>I'm planning to add a new param to the API that will allow you to search the number <em>and</em> alternative number fields at
-the same time, but there isn't an ETA when that will be added.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="url-redirects">URL Redirects<a href="https://metron-project.github.io/blog/january-2025-update#url-redirects" class="hash-link" aria-label="Direct link to URL Redirects" title="Direct link to URL Redirects" translate="no">​</a></h2>
-<p>Recently, support for <a href="https://github.com/Metron-Project/metron/pull/321" target="_blank" rel="noopener noreferrer" class="">ID URL Redirects</a> was added, so if you know
-the Metron ID number for an issue it will redirect to the correct page. For example, <a href="https://metron.cloud/issue/133777/" target="_blank" rel="noopener noreferrer" class="">https://metron.cloud/issue/133777/</a>
-will redirect you to the detail page for <code>The Amazing Spider-Man (2022) #66</code>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="digital-releases">Digital Releases<a href="https://metron-project.github.io/blog/january-2025-update#digital-releases" class="hash-link" aria-label="Direct link to Digital Releases" title="Direct link to Digital Releases" translate="no">​</a></h2>
-<p>Recently a decision was made not to include digital releases that are 5 pages or less, like
-the <a href="https://comicvine.gamespot.com/search/?header=1&amp;i=volume&amp;q=legacy%20primer%20page" target="_blank" rel="noopener noreferrer" class="">Marvel Legacy Primer Pages</a>. If
-you have questions whether a release should be added or not, you can ask on
-the <a href="https://github.com/Metron-Project/metron/discussions" target="_blank" rel="noopener noreferrer" class="">Discussions Page</a> or
-on <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer" class="">Matrix</a>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="international-support">International Support<a href="https://metron-project.github.io/blog/january-2025-update#international-support" class="hash-link" aria-label="Direct link to International Support" title="Direct link to International Support" translate="no">​</a></h2>
-<p>In the effort to add support to the site for Non-US publishers, a <code>country</code> field has been added to the
-Publisher model, though only the United States will be valid. Modifying the <code>price</code> field for an issue to handle
-different currencies still needs to be done, but with some luck I'll find some time to do it this year.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/january-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
-<p>We've recently set up an account at <a href="https://opencollective.com/" target="_blank" rel="noopener noreferrer" class="">Open Collective</a> if you wish to help defray the server
-costs and help with increasing future server capacity.</p>
-<p>Anyway, I think that covers most of the changes to the site that were made this month. Take care!</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="metadata" term="metadata"/>
-        <category label="comicvine" term="comicvine"/>
-        <category label="opencollective" term="opencollective"/>
-        <category label="metron" term="metron"/>
-        <category label="gcd" term="gcd"/>
-        <category label="grandcomicsdatabase" term="grandcomicsdatabase"/>
     </entry>
 </feed>
