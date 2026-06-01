@@ -16,10 +16,10 @@ Here's a summary of everything that landed in Metron since the beginning of May 
 
 During May the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TODO**
-- Issues: **TODO**
-- Creators: **TODO**
-- Characters: **TODO**
+- Users: **220**
+- Issues: **1,809**
+- Creators: **196**
+- Characters: **506**
 
 Thanks to everyone that contributed!
 
@@ -132,6 +132,15 @@ The Series list endpoint now includes the `year_end` field, so clients can tell 
 - **Python 3.14** — the project is now running on Python's latest release.
 - **Migrated from pipenv to uv** — dependency management and the container build now use [uv](https://github.com/astral-sh/uv), with a multi-stage Containerfile that keeps the final image lean and CI caching keyed to the lockfile.
 - **Django 6.0.5** — upgraded from Django 5.x to the recently released Django 6 series.
+
+## Metron Software Wiki Page
+
+We've added a dedicated [Software page](https://metron.cloud/wiki/software/) to the Metron wiki where developers can showcase projects built on the Metron API.
+
+If you've built a tool, app, or library that uses Metron's data — whether it's a reading tracker, a pull list manager, a CLI tool, or anything else — this is the place to list it. The page is intended to help users discover what the community has built and to give developers a bit of visibility.
+
+To get your project listed, simply edit the wiki page directly and add an entry for it.
+
 
 ## OpenCollective
 
