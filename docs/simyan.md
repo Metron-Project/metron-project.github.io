@@ -12,24 +12,33 @@ Simyan is a python wrapper for the [Comic Vine API](https://comicvine.gamespot.c
 ## Installation
 
 ```
-$ pip3 install -U --user simyan
+$ pip3 install simyan
 ```
 
 ## Example Usage
 
-```
-from simyan.comicvine import Comicvine
-from simyan.sqlite_cache import SQLiteCache
+```python
+from datetime import timedelta
+from pathlib import Path
 
-session = Comicvine(api_key="ComicVine API Key", cache=SQLiteCache())
+from simyan.comicvine import Comicvine
+
+session = Comicvine(
+    api_key="Comicvine API Key",
+    cache_path=Path("cache.sqlite"),  # Optional, defaults to ~/.cache/simyan/cache.sqlite
+    cache_expiry=timedelta(days=1),  # Optional, defaults to 14 days
+    ratelimit_path=Path(
+        "ratelimits.sqlite"
+    ),  # Optional, defaults to ~/.cache/simyan/ratelimits.sqlite
+)
 
 # Search for Publisher
-results = session.publisher_list(params={"filter": "name:DC Comics"})
+results = session.list_publishers(params={"filter": "name:DC Comics"})
 for publisher in results:
-    print(f"{publisher.id_} | {publisher.name} - {publisher.site_url}")
+    print(f"{publisher.id} | {publisher.name} - {publisher.site_url}")
 
 # Get details for a Volume
-result = session.volume(volume_id=26266)
+result = session.get_volume(volume_id=26266)
 print(result.summary)
 ```
 
