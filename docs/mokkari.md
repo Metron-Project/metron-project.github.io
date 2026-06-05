@@ -10,13 +10,13 @@ Mokkari is a python wrapper for the Metron Comic Book Database API.
 
 ## Installation
 
-```
-pip3 install --user mokkari
+```bash
+pip install mokkari
 ```
 
 ## Example Usage
 
-```
+```python
 import mokkari
 
 # Your own config file to keep your credentials secret
@@ -32,10 +32,42 @@ for i in this_week:
     print(f"{i.id} {i.issue_name}")
 
 # Retrieve the detail for an individual issue
-asm_68 = m.issue(31660)
+    asm_68 = m.issue(31660)
 
 # Print the issue Description
 print(asm_68.desc)
+```
+
+## Rate Limiting
+
+The API has rate limits of 20 requests per minute and 5,000 requests per day.
+Mokkari automatically enforces these limits locally to prevent unnecessary API
+calls. When a rate limit is exceeded, a `RateLimitError` is raised.
+
+### Handling Rate Limits
+
+The `RateLimitError` includes a `retry_after` attribute that tells you exactly
+how many seconds to wait before making another request:
+
+```python
+import mokkari
+from mokkari.exceptions import RateLimitError
+import time
+
+m = mokkari.api(username, password)
+
+try:
+    issue = m.issue(31660)
+except RateLimitError as e:
+    # Display user-friendly message
+    print(f"Rate limited: {e}")
+
+    # Programmatically wait for the exact time needed
+    print(f"Waiting {e.retry_after} seconds...")
+    time.sleep(e.retry_after)
+
+    # Retry the request
+    issue = m.issue(31660)
 ```
 
 ## Documentation
