@@ -14,12 +14,19 @@ Metron-Tagger is a command line tool to tag comic archives with metadata from Me
 ```
 $ pipx install metron-tagger
 ```
+There are optional dependencies which can be installed by specifying one or more
+of them in braces e.g. metron-tagger[7zip]
+
+The optional dependencies are:
+
+- 7zip: Provides support for reading/writing to CB7 files.
+- pdf: Provides support for reading/writing to PDF files.
+
 ## Documentation
 
 ```
-usage: metron-tagger [-h] [-r] [-o] [--id ID] [-d] [--ignore-existing] [-i] [--missing] [-s] [-z] [--validate] [--remove-non-valid] [--delete-original] [--duplicates]
-                     [--version]
-                     path [path ...]
+usage: metron-tagger [-h] [-r] [-o] [-m] [-c] [--id ID] [-d] [--ignore-existing] [--accept-only] [--missing] [-s] [-z] [--validate] [--remove-non-valid] [--delete-original] [--duplicates] [--migrate] [--version]
+                   path [path ...]
 
 Read in a file or set of files, and return the result.
 
@@ -30,19 +37,22 @@ options:
   -h, --help           show this help message and exit
   -r, --rename         Rename comic archive from the files metadata. (default: False)
   -o, --online         Search online and attempt to identify comic archive. (default: False)
-  --id ID              Identify file for tagging with the Metron Issue Id. (default: None)
+  -m, --metroninfo     Write, delete, or validate MetronInfo.xml. (default: False)
+  -c, --comicinfo      Write, delete, or validate ComicInfo.xml. (default: False)
+  --id ID              Identify file for tagging with the Metron Issue Id, or restrict directory matches to issues from a specific Metron Series Id. (default: None)
   -d, --delete         Delete the metadata tags from the file. (default: False)
   --ignore-existing    Ignore files that have existing metadata tag. (default: False)
-  -i, --interactive    Interactively query the user when there are matches for an online search. (default: False)
+  --accept-only        Automatically accept the match when exactly one valid match is found. (default: False)
+  --skip-multiple      Skip files that have multiple matches instead of prompting for selection. (default: False)
   --missing            List files without metadata. (default: False)
   -s, --sort           Sort files that contain metadata tags. (default: False)
   -z, --export-to-cbz  Export a CBR (rar) archive to a CBZ (zip) archive. (default: False)
-  --validate           Verify that comic archive has a valid ComicInfo.xml. (default: False)
-  --remove-non-valid   Remove ComicInfo.xml from comic if not valid. Used with --validate option (default: False)
+  --validate           Verify that comic archive has a valid metadata xml. (default: False)
+  --remove-non-valid   Remove metadata xml from comic if not valid. Used with --validate option (default: False)
   --delete-original    Delete the original archive after successful export to another format. (default: False)
   --duplicates         Identify and give the option to delete duplicate pages in a directory of comics. (Experimental) (default: False)
+  --migrate            Migrate information from a ComicInfo.xml into a *new* MetronInfo.xml (default: False)
   --version            Show the version number and exit
-
 ```
 
 ## Code
