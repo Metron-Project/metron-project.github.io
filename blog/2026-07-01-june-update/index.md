@@ -6,13 +6,13 @@ tags: [release, ui, features, bugfix, opencollective]
 date: 2026-06-29
 ---
 
-June has been a fairly quiet month for Metron. We shipped a major site UI refresh, a round of reading list improvements, several usability wins across issue and series pages, a new timeline page, account deletion support, and a handful of important bug fixes. Here's a rundown of everything that landed.
+June was a busy month for Metron. We shipped a major site UI refresh, a round of reading list improvements, several usability wins across issue and series pages, a new timeline page, account deletion support, and a handful of important bug fixes — plus some exciting news from third-party developers building on the Metron API. Here's a rundown of everything that landed.
 
 <!-- truncate -->
 
 ## Monthly Statistics
 
-During May the [Metron Project](https://metron.cloud/) added the following to its database:
+During June the [Metron Project](https://metron.cloud/) added the following to its database:
 
 - Users: **TODO**
 - Issues: **TODO**
@@ -25,7 +25,7 @@ Thanks to everyone that contributed!
 
 The biggest change this month is a comprehensive redesign of the site's look and feel.
 
-**New home page.** The home page went through two iterations this month. First, we replaced the old colored card layout with a cleaner Fedora-inspired card grid, featuring sections for the REST API, Collections, Reading Lists, Wish List, Pull List, and Quick Scrobble. The hero section also received a diagonal clip-path accent and updated CTA buttons. Later in the month we added pull list and wish list information to the home page so returning users can jump straight to their tracked content.
+**New home page.** The home page went through two iterations this month. First, we replaced the old colored card layout with a cleaner card grid, featuring sections for the REST API, Collections, Reading Lists, Wish List, Pull List, and Quick Scrobble. The hero section also received a diagonal clip-path accent and updated CTA buttons. Later in the month we added pull list and wish list information to the home page so returning users can jump straight to their tracked content.
 
 **Navbar reorganization.** Authenticated-only links (My Collection, My Pull List, My Wish List, My Reading Lists) have been moved out of the Browse dropdown into a dedicated **My Library** menu that only appears when you're logged in, reducing clutter for non-authenticated visitors.
 
@@ -76,6 +76,35 @@ Reading lists received significant attention this month, landing two PRs worth o
 ## User Account Features
 
 **Account deletion.** Users can now permanently delete their own account from their profile page. The flow includes a confirmation page with a warning about irreversible data loss, with proper session teardown on completion.
+
+## Metron-Tagger 4.10.1
+
+[metron-tagger](https://github.com/Metron-Project/metron-tagger) 4.10.1 is a small release.
+
+**Sweet Shop backup support.** This release improves tagging of comic backups (`.pdf`) purchased from [Sweet Shop](https://sweetshop.app/).
+
+This release also bumps the minimum required version of [darkseid](https://github.com/Metron-Project/darkseid) to 8.1.0.
+
+## Apps Using the Metron API
+
+### Comicbox
+
+[Comicbox](https://github.com/ajslater/comicbox) by [AJ Slater](https://github.com/ajslater) is a comic book archive metadata reader and writer that recently added Metron support:
+
+- **Online metadata tagging.** A new `--online` flag enables automated metadata fetching from Metron (and Comic Vine), with matching by series, issue, and year backed by cover-image verification.
+- **Confidence-based matching modes.** Users can choose from `ask`, `careful`, `auto`, and `eager` modes to control how aggressively comicbox applies matches.
+- **Direct ID tagging.** The `--id` and `--series-id` options allow tagging a file directly against a known Metron record.
+- **Credential management.** Metron credentials can be stored via environment variables or the system keyring, with disk-based caching and a configurable TTL to reduce API calls.
+- **Sweet Shop filename support.** comicbox now recognizes the kebab-case filename format used by [Sweet Shop](https://sweetshop.app/) comic backups.
+- **PDF cover matching.** Online cover matching supports PDFs by rasterizing the cover page before perceptual hashing.
+
+### Metron Comics (iOS)
+
+[Metron Comics](https://apps.apple.com/us/app/metron-comics/id6767698743) is a free, ad-free iPhone and iPad app by Bryan Deemer that brings the Metron database to your iPhone, iPad, Mac, and Apple Vision. It's a great way to browse the Metron database on the go.
+
+### List Your Software
+
+If you've built something that uses the Metron API, we'd love to feature it! We maintain a [software wiki page](https://metron.cloud/wiki/software/) where developers can promote their projects to the Metron community.
 
 ## OpenCollective
 
