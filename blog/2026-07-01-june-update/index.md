@@ -14,10 +14,11 @@ June was a busy month for Metron. We shipped a major site UI refresh, a round of
 
 During June the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TODO**
-- Issues: **TODO**
-- Creators: **TODO**
-- Characters: **TODO**
+- Users: **221**
+- Issues: **1,123**
+- Creators: **122**
+- Characters: **386**
+- Reading Lists: **40**
 
 Thanks to everyone that contributed!
 
