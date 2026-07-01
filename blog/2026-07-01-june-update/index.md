@@ -6,7 +6,7 @@ tags: [release, ui, features, bugfix, opencollective]
 date: 2026-06-29
 ---
 
-June was a busy month for Metron. We shipped a major site UI refresh, a round of reading list improvements, several usability wins across issue and series pages, a new timeline page, account deletion support, and a handful of important bug fixes — plus some exciting news from third-party developers building on the Metron API. Here's a rundown of everything that landed.
+June was a busy month for Metron. We shipped a major site UI refresh, a round of reading list improvements, several usability wins across issue and series pages, a new timeline page, account deletion support, and a handful of bug fixes — plus some news from third-party developers building on the Metron API. Here's a rundown of everything that landed.
 
 <!-- truncate -->
 
@@ -32,7 +32,7 @@ The biggest change this month is a comprehensive redesign of the site's look and
 
 **Actions dropdown on detail pages.** Edit, History, and Delete actions across all detail pages (issue, series, arc, character, creator, imprint, publisher, team, universe) are now grouped into a single **Actions** dropdown. Delete is separated by a divider and only shown to users with delete permissions, keeping the page cleaner for read-only visitors.
 
-**HTMX-powered wish list and pull list toggles.** Issue detail pages now have a wish list toggle button, and series detail pages have a pull list toggle button — both powered by HTMX so the page doesn't reload when you add or remove items.
+**HTMX-powered wish list and pull list toggles.** Issue detail pages now have a wish list toggle button, and series detail pages have a pull list toggle button — both powered by [HTMX](https://htmx.org/) so the page doesn't reload when you add or remove items.
 
 **Project timeline page.** A new timeline page documents Metron's project history with milestone entries, user stats, and issue count markers over time.
 
@@ -80,7 +80,7 @@ Reading lists received significant attention this month, landing two PRs worth o
 
 ## Metron-Tagger 4.10.1
 
-[metron-tagger](https://github.com/Metron-Project/metron-tagger) 4.10.1 is a small release.
+[metron-tagger](https://github.com/Metron-Project/metron-tagger) had a minor release.
 
 **Sweet Shop backup support.** This release improves tagging of comic backups (`.pdf`) purchased from [Sweet Shop](https://sweetshop.app/).
 
@@ -101,7 +101,13 @@ This release also bumps the minimum required version of [darkseid](https://githu
 
 ### Metron Comics (iOS)
 
-[Metron Comics](https://apps.apple.com/us/app/metron-comics/id6767698743) is a free, ad-free iPhone and iPad app by Bryan Deemer that brings the Metron database to your iPhone, iPad, Mac, and Apple Vision. It's a great way to browse the Metron database on the go.
+[Metron Comics](https://apps.apple.com/us/app/metron-comics/id6767698743) is a free, ad-free iPhone and iPad app by [Bryan Deemer](https://www.comicgeekspeak.com/) that brings the Metron database to your iPhone and iPad. It's a great way to browse the Metron database on the go.
+
+<img
+  src={require('./metron-ios.webp').default}
+  alt="Image of the Metron iOS app"
+  style={{maxWidth: '100%', height: 'auto'}}
+/>
 
 ### List Your Software
 
