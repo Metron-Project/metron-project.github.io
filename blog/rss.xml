@@ -4,10 +4,95 @@
         <title>The Metron Project Blog</title>
         <link>https://metron-project.github.io/blog</link>
         <description>The Metron Project Blog</description>
-        <lastBuildDate>Mon, 01 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[June 2026 Updates]]></title>
+            <link>https://metron-project.github.io/blog/june-2026-update</link>
+            <guid>https://metron-project.github.io/blog/june-2026-update</guid>
+            <pubDate>Mon, 29 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[June was a busy month for Metron. We shipped a major site UI refresh, a round of reading list improvements, several usability wins across issue and series pages, a new timeline page, account deletion support, and a handful of bug fixes — plus some news from third-party developers building on the Metron API. Here's a rundown of everything that landed.]]></description>
+            <content:encoded><![CDATA[<p>June was a busy month for Metron. We shipped a major site UI refresh, a round of reading list improvements, several usability wins across issue and series pages, a new timeline page, account deletion support, and a handful of bug fixes — plus some news from third-party developers building on the Metron API. Here's a rundown of everything that landed.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/june-2026-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
+<p>During June the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
+<ul>
+<li class="">Users: <strong>221</strong></li>
+<li class="">Issues: <strong>1,123</strong></li>
+<li class="">Creators: <strong>122</strong></li>
+<li class="">Characters: <strong>386</strong></li>
+<li class="">Reading Lists: <strong>40</strong></li>
+</ul>
+<p>Thanks to everyone that contributed!</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="site-ui-refresh">Site UI Refresh<a href="https://metron-project.github.io/blog/june-2026-update#site-ui-refresh" class="hash-link" aria-label="Direct link to Site UI Refresh" title="Direct link to Site UI Refresh" translate="no">​</a></h2>
+<p>The biggest change this month is a comprehensive redesign of the site's look and feel.</p>
+<p><strong>New home page.</strong> The home page went through two iterations this month. First, we replaced the old colored card layout with a cleaner card grid, featuring sections for the REST API, Collections, Reading Lists, Wish List, Pull List, and Quick Scrobble. The hero section also received a diagonal clip-path accent and updated CTA buttons. Later in the month we added pull list and wish list information to the home page so returning users can jump straight to their tracked content.</p>
+<p><strong>Navbar reorganization.</strong> Authenticated-only links (My Collection, My Pull List, My Wish List, My Reading Lists) have been moved out of the Browse dropdown into a dedicated <strong>My Library</strong> menu that only appears when you're logged in, reducing clutter for non-authenticated visitors.</p>
+<p><strong>Actions dropdown on detail pages.</strong> Edit, History, and Delete actions across all detail pages (issue, series, arc, character, creator, imprint, publisher, team, universe) are now grouped into a single <strong>Actions</strong> dropdown. Delete is separated by a divider and only shown to users with delete permissions, keeping the page cleaner for read-only visitors.</p>
+<p><strong>HTMX-powered wish list and pull list toggles.</strong> Issue detail pages now have a wish list toggle button, and series detail pages have a pull list toggle button — both powered by <a href="https://htmx.org/" target="_blank" rel="noopener noreferrer" class="">HTMX</a> so the page doesn't reload when you add or remove items.</p>
+<p><strong>Project timeline page.</strong> A new timeline page documents Metron's project history with milestone entries, user stats, and issue count markers over time.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-list-improvements">Reading List Improvements<a href="https://metron-project.github.io/blog/june-2026-update#reading-list-improvements" class="hash-link" aria-label="Direct link to Reading List Improvements" title="Direct link to Reading List Improvements" translate="no">​</a></h2>
+<p>Reading lists received significant attention this month, landing two PRs worth of improvements.</p>
+<p><strong>New card design.</strong> Reading list cards on the browse and user list pages were redesigned with a richer layout: a cover image band, list type badge, year span, attribution source, rating, and issue count — all at a glance.</p>
+<p><strong>Richer detail pages.</strong> The reading list detail page now shows a <strong>Featured Creators</strong> section and a <strong>Featured Characters</strong> section. List items were also rewritten to use a consistent flex layout with cover thumbnail, order number, and issue-type badge.</p>
+<p><strong>Active-filter chips.</strong> The same active-filter chip bar used on the issue and series list pages is now available on the reading list browse page, giving you one-click access to remove individual filters without opening the filter panel.</p>
+<p><strong>Template consolidation.</strong> The separate user reading list template was merged into the shared <code>readinglist_list.html</code>, driven by an <code>is_user_view</code> context flag. This eliminated roughly 400 lines of duplicated markup.</p>
+<p><strong>New Creator list type.</strong> A new <code>CREATOR</code> list type has been added to the <code>ReadingList</code> model for reading lists focused on a particular creator's run or body of work. The API documentation has been updated to reflect this new option.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="issue-and-series-page-usability">Issue and Series Page Usability<a href="https://metron-project.github.io/blog/june-2026-update#issue-and-series-page-usability" class="hash-link" aria-label="Direct link to Issue and Series Page Usability" title="Direct link to Issue and Series Page Usability" translate="no">​</a></h2>
+<p><strong>Issue list sorting.</strong> The issue list, week list, next-week list, and future list now support sorting by Series A–Z, cover date, or recently added.</p>
+<p><strong>Active-filter chips on issue and series lists.</strong> Both list pages now render removable chips below the search panel showing which filters are active, consistent with the reading list page.</p>
+<p><strong>Sticky form navigation.</strong> The issue form and attribution form both received a sticky action bar that keeps Save/Cancel buttons visible while scrolling long forms, along with section anchor navigation to jump between form sections.</p>
+<p><strong>Role autocomplete.</strong> The multi-select role listbox in the credits formset has been replaced with an autocomplete widget, making it much easier to assign roles to creators on the issue form.</p>
+<p><strong>Issue detail improvements.</strong> Breadcrumb navigation and a subtitle were added to the issue detail page. Copy-to-clipboard buttons now appear next to Metron, Comic Vine, and GCD IDs.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="developer-experience">Developer Experience<a href="https://metron-project.github.io/blog/june-2026-update#developer-experience" class="hash-link" aria-label="Direct link to Developer Experience" title="Direct link to Developer Experience" translate="no">​</a></h2>
+<p><strong>Developer setup documentation.</strong> A new <code>DEVELOPMENT.md</code> file covers how to run PostgreSQL and Redis locally using Podman, set up the database, and get a development server running. The <code>.env.example</code> file was also expanded with comments and grouped sections for each service.</p>
+<p><strong>Django 6.0.6.</strong> The project was updated to Django 6.0.6.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://metron-project.github.io/blog/june-2026-update#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h2>
+<p><strong>Store date and FOC date filters fixed.</strong> A long-standing bug where the <code>store_date</code> and <code>foc_date</code> range filters on the issue list view were silently ignored has been fixed. The filter field names were mismatched with the template's query parameter names, so the filters never applied.</p>
+<p><strong>Reading list item order starting from 0.</strong> Reading list items were displaying their order number starting from 0 instead of 1. This is now fixed.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="user-account-features">User Account Features<a href="https://metron-project.github.io/blog/june-2026-update#user-account-features" class="hash-link" aria-label="Direct link to User Account Features" title="Direct link to User Account Features" translate="no">​</a></h2>
+<p><strong>Account deletion.</strong> Users can now permanently delete their own account from their profile page. The flow includes a confirmation page with a warning about irreversible data loss, with proper session teardown on completion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="metron-tagger-4101">Metron-Tagger 4.10.1<a href="https://metron-project.github.io/blog/june-2026-update#metron-tagger-4101" class="hash-link" aria-label="Direct link to Metron-Tagger 4.10.1" title="Direct link to Metron-Tagger 4.10.1" translate="no">​</a></h2>
+<p><a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer" class="">metron-tagger</a> had a minor release.</p>
+<p><strong>Sweet Shop backup support.</strong> This release improves tagging of comic backups (<code>.pdf</code>) purchased from <a href="https://sweetshop.app/" target="_blank" rel="noopener noreferrer" class="">Sweet Shop</a>.</p>
+<p>This release also bumps the minimum required version of <a href="https://github.com/Metron-Project/darkseid" target="_blank" rel="noopener noreferrer" class="">darkseid</a> to 8.1.0.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="apps-using-the-metron-api">Apps Using the Metron API<a href="https://metron-project.github.io/blog/june-2026-update#apps-using-the-metron-api" class="hash-link" aria-label="Direct link to Apps Using the Metron API" title="Direct link to Apps Using the Metron API" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="comicbox">Comicbox<a href="https://metron-project.github.io/blog/june-2026-update#comicbox" class="hash-link" aria-label="Direct link to Comicbox" title="Direct link to Comicbox" translate="no">​</a></h3>
+<p><a href="https://github.com/ajslater/comicbox" target="_blank" rel="noopener noreferrer" class="">Comicbox</a> by <a href="https://github.com/ajslater" target="_blank" rel="noopener noreferrer" class="">AJ Slater</a> is a comic book archive metadata reader and writer that recently added Metron support:</p>
+<ul>
+<li class=""><strong>Online metadata tagging.</strong> A new <code>--online</code> flag enables automated metadata fetching from Metron (and Comic Vine), with matching by series, issue, and year backed by cover-image verification.</li>
+<li class=""><strong>Confidence-based matching modes.</strong> Users can choose from <code>ask</code>, <code>careful</code>, <code>auto</code>, and <code>eager</code> modes to control how aggressively comicbox applies matches.</li>
+<li class=""><strong>Direct ID tagging.</strong> The <code>--id</code> and <code>--series-id</code> options allow tagging a file directly against a known Metron record.</li>
+<li class=""><strong>Credential management.</strong> Metron credentials can be stored via environment variables or the system keyring, with disk-based caching and a configurable TTL to reduce API calls.</li>
+<li class=""><strong>Sweet Shop filename support.</strong> comicbox now recognizes the kebab-case filename format used by <a href="https://sweetshop.app/" target="_blank" rel="noopener noreferrer" class="">Sweet Shop</a> comic backups.</li>
+<li class=""><strong>PDF cover matching.</strong> Online cover matching supports PDFs by rasterizing the cover page before perceptual hashing.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="metron-comics-ios">Metron Comics (iOS)<a href="https://metron-project.github.io/blog/june-2026-update#metron-comics-ios" class="hash-link" aria-label="Direct link to Metron Comics (iOS)" title="Direct link to Metron Comics (iOS)" translate="no">​</a></h3>
+<p><a href="https://apps.apple.com/us/app/metron-comics/id6767698743" target="_blank" rel="noopener noreferrer" class="">Metron Comics</a> is a free, ad-free iPhone and iPad app by <a href="https://www.comicgeekspeak.com/" target="_blank" rel="noopener noreferrer" class="">Bryan Deemer</a> that brings the Metron database to your iPhone and iPad. It's a great way to browse the Metron database on the go.</p>
+<img src="https://metron-project.github.io/assets/images/metron-ios-41e11d687115f61f7e61fb902b0524d8.webp" alt="Image of the Metron iOS app" style="max-width:100%;height:auto">
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="list-your-software">List Your Software<a href="https://metron-project.github.io/blog/june-2026-update#list-your-software" class="hash-link" aria-label="Direct link to List Your Software" title="Direct link to List Your Software" translate="no">​</a></h3>
+<p>If you've built something that uses the Metron API, we'd love to feature it! We maintain a <a href="https://metron.cloud/wiki/software/" target="_blank" rel="noopener noreferrer" class="">software wiki page</a> where developers can promote their projects to the Metron community.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/june-2026-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
+<p>A huge thank you to everyone who has contributed to our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a>! Your support makes a real difference in keeping the Metron Project running and growing.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-your-contributions-support">What Your Contributions Support<a href="https://metron-project.github.io/blog/june-2026-update#what-your-contributions-support" class="hash-link" aria-label="Direct link to What Your Contributions Support" title="Direct link to What Your Contributions Support" translate="no">​</a></h3>
+<p>Funds from Open Collective go directly toward:</p>
+<ul>
+<li class=""><strong>Server hosting costs</strong> - Keeping the Metron website and API available</li>
+<li class=""><strong>Domain registration</strong> - Annual domain name renewals</li>
+<li class=""><strong>Future capacity increases</strong> - Scaling resources as the database and user base grows</li>
+</ul>
+<p>All expenses are transparent and publicly viewable on our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective page</a>, so you can see exactly where every dollar goes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="support-the-project">Support the Project<a href="https://metron-project.github.io/blog/june-2026-update#support-the-project" class="hash-link" aria-label="Direct link to Support the Project" title="Direct link to Support the Project" translate="no">​</a></h3>
+<p>We needed to increase our server capabilities this month, so any donations to help maintain our current API rate limits and keep the service free are greatly appreciated. Contributions of any size help ensure Metron remains a free resource for the comic book community.</p>
+<hr>
+<p>Thanks to everyone who contributed issues, pull requests, and feedback this month. As always, the project is open source and community contributions are welcome.</p>]]></content:encoded>
+            <category>release</category>
+            <category>ui</category>
+            <category>features</category>
+            <category>bugfix</category>
+            <category>opencollective</category>
+        </item>
         <item>
             <title><![CDATA[May 2026 Updates]]></title>
             <link>https://metron-project.github.io/blog/may-2026-updates</link>
@@ -1580,76 +1665,6 @@ server costs and help with increasing future server capacity. Any help would be 
             <category>metadata</category>
             <category>metron</category>
             <category>opencollective</category>
-        </item>
-        <item>
-            <title><![CDATA[February 2025 Update]]></title>
-            <link>https://metron-project.github.io/blog/february-2025-update</link>
-            <guid>https://metron-project.github.io/blog/february-2025-update</guid>
-            <pubDate>Sat, 01 Mar 2025 10:38:00 GMT</pubDate>
-            <description><![CDATA[Monthly Statistics]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/february-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
-<p>During February the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
-<ul>
-<li class="">Users: <strong>51</strong></li>
-<li class="">Issues: <strong>2,674</strong></li>
-<li class="">Creators: <strong>526</strong></li>
-<li class="">Characters: <strong>879</strong></li>
-</ul>
-<p>Thanks to everyone that contributed!</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="recent-work">Recent Work<a href="https://metron-project.github.io/blog/february-2025-update#recent-work" class="hash-link" aria-label="Direct link to Recent Work" title="Direct link to Recent Work" translate="no">​</a></h2>
-<p>One of my goals for 2025 was to make the project less dependent on me, and for most of this month I've been working on
-the tooling to allowing some users to use the POST API to add comics to the database. This will allow other folks to
-handle <a href="https://github.com/Metron-Project/metron/discussions/306" target="_blank" rel="noopener noreferrer" class="">requests</a> to add series to Metron. With luck, I should
-finish next month, and I'll start looking at what users to promote.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="comic-book-reading-lists">Comic Book Reading Lists<a href="https://metron-project.github.io/blog/february-2025-update#comic-book-reading-lists" class="hash-link" aria-label="Direct link to Comic Book Reading Lists" title="Direct link to Comic Book Reading Lists" translate="no">​</a></h2>
-<p>Recently, I've been looking at Comic Book Reading Lists since
-a <a href="https://github.com/Metron-Project/metron/issues/302" target="_blank" rel="noopener noreferrer" class="">bug report</a> was opened to add support for generating them.
-Currently, users use <a href="https://github.com/DieselTech/CBL-ReadingLists" target="_blank" rel="noopener noreferrer" class="">CBL's</a> that are imported into their comic server
-of choice (<a href="https://www.kavitareader.com/" target="_blank" rel="noopener noreferrer" class="">Kavita</a>, <a href="https://github.com/ajslater/codex" target="_blank" rel="noopener noreferrer" class="">Codex</a>, etc.), which seems
-non-optimal primarily since, in essence, it's another database of information. Now, this makes sense, since for a long
-time the only source of usable data via an API was <a href="https://comicvine.gamespot.com/" target="_blank" rel="noopener noreferrer" class="">Comic Vine</a>, which hasn't had a
-developer presence in <em>years</em>, and having a new feature added to their site is <strong>extremely</strong> unlikely.</p>
-<p>I think a better solution would be for the other databases that offer an API (<a href="https://www.comics.org/api/" target="_blank" rel="noopener noreferrer" class="">GCD</a> &amp;
-Metron) to have the option for users to create reading lists (similar to <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer" class="">MovieDB</a>) and
-have that data available either by generating a file or through an API call. Now, to do this we would need to work with
-the comic server developers to determine exactly what data they would need, though it would probably look similar to
-this:</p>
-<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">{</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  "arc": {</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    "name": "Foo Bar Wars"</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  "issues": {</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    "issue": {</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      "id": {</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      "cv_id": 9999</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      "metron": 5678</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      "gcd": 9856</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      }</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      "index": 0</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    "issue": {</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      "id": {</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      "cv_id": 12345</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      "metron": 9999</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      "gcd": 123</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      }</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      "index": 1</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">}</span><br></div></code></pre></div></div>
-<p>The current standard (CBL) and the recent <a href="https://github.com/ComicReadingLists/json-cbl-standard" target="_blank" rel="noopener noreferrer" class="">json-cbl-standard</a>
-contains a look of information that I can't see a comic server needing, primarily all the series-level info which the
-comic servers should already have in their databases. Of course, I'd love to hear from any developer in this space to
-verify that.</p>
-<p>Once the basic functionality was added, importing any existing CBL into GCD or Metron should be fairly trivial, since
-Metron links other sites issue id's (GCD would be able to use Metron's API to link since they don't track this
-information).</p>
-<p>Anyway, those are some of my quick thoughts on what the future of Comic Book Reading Lists could look like, and if
-anyone has interest in working on this potential future project, contact me
-on <a href="https://github.com/Metron-Project/metron" target="_blank" rel="noopener noreferrer" class="">GitHub</a>
-or <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer" class="">Matrix</a>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rate-limiting">Rate Limiting<a href="https://metron-project.github.io/blog/february-2025-update#rate-limiting" class="hash-link" aria-label="Direct link to Rate Limiting" title="Direct link to Rate Limiting" translate="no">​</a></h2>
-<p>One thing I've been debating is whether to modify our Rate Limiting policy. The primary reason for this is there are a
-<em>lot</em> of user that hammer the API for 24+ hours straight for days on end, and I'm contemplating <em>adding</em> a total
-number of API hits per day (maybe something like 10,000) in <em>addition</em> to the 30/hour to ease the server load.</p>
-<p>Now doing this will make it a bit harder implement to write software for the API since the developer will need to track
-the API rate between sessions, but there are libraries
-like <a href="https://pyratelimiter.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer" class="">pyrate-limiter</a> which use a SQLite or Redis backend to make
-this easier to implement.</p>
-<p>Anyway, this is something I'm just mulling over and if you want to weigh-in you can
-on <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer" class="">Matrix</a> or in
-a <a href="https://github.com/Metron-Project/metron/discussions" target="_blank" rel="noopener noreferrer" class="">GitHub Discussion</a>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/february-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
-<p>We've recently set up an account at <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a> if you wish to help defray the
-server costs and help with increasing future server capacity. Any help would be greatly appreciated.</p>
-<p>Anyway, that's all I got for this month. Take care!</p>]]></content:encoded>
-            <category>comic</category>
-            <category>metadata</category>
-            <category>comicvine</category>
-            <category>metron</category>
-            <category>gcd</category>
-            <category>grandcomicsdatabase</category>
-            <category>opencollective</category>
-            <category>readinglist</category>
-            <category>cbl</category>
         </item>
     </channel>
 </rss>
