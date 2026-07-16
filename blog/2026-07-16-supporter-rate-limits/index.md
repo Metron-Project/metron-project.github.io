@@ -66,7 +66,7 @@ except RateLimitError as e:
 
 ## For Developers: Reading the Rate Limit Headers
 
-Because your daily limit can now change automatically as your supporter tier changes, don't hardcode a request budget in your scripts or integrations. Instead, read it from the `X-RateLimit-*` headers on every response, the same headers covered in our [API tips post](/blog/api-tips):
+Because your daily limit can now change automatically as your supporter tier changes, don't hardcode a request budget in your scripts or integrations. Instead, read it from the `X-RateLimit-*` headers on every response, the same headers covered in our [API tips post](/blog/api-best-practices):
 
 ```text
 X-RateLimit-Burst-Limit: 20
