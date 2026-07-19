@@ -135,6 +135,10 @@ Trade Paperback and other collections can sometimes have a name for individual T
 
 Number of the book in the series which can accept alphanumeric values like `1MU`.
 
+### AlternativeNumber
+
+An optional alternative number for the book. This can be useful for issues that have both a legacy and a relaunch numbering, for example.
+
 ### Stories
 
 Contains information about the stories contained within an issues.
@@ -302,6 +306,20 @@ So, for simplicity's sake we've settled on the following values (with ages given
 - **Mature** - Appropriate for readers age 17 and older.
 - **Explicit** - Contains material that is more extreme than material found in R rating movies.
 - **Adult** - Likely pornographic in nature
+
+### CommunityRating
+
+The community's average rating for the book.
+
+It has the following children elements:
+
+- #### AverageRating
+
+  The average rating value, which must be a decimal value between `0` and `5.0`.
+
+- #### RatingCount
+
+  Optional. The number of ratings used to determine the `AverageRating` value.
 
 ### URLs
 

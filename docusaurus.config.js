@@ -43,7 +43,7 @@ const config = {
         name: 'metroninfo', // used by CLI, must be path safe
         sourceBaseUrl: 'https://raw.githubusercontent.com/Metron-Project/metroninfo/master/', // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: 'docs/metroninfo/_remote', // the base directory to output to.
-        documents: ['schema/v1.0/MetronInfo.xsd',], // the file names to download
+        documents: ['schema/v1.1/MetronInfo.xsd',], // the file names to download
         noRuntimeDownloads: true,
         performCleanup: false,
       },
