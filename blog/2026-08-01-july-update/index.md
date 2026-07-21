@@ -24,6 +24,8 @@ We also crossed **2,500 registered users** this month. Thanks to everyone that c
 
 ## Issue Ratings
 
+**Backed by a community poll.** Before pushing this to the server, we put the idea to a [community poll](https://metron.cloud/polls/1/), which passed **25 votes (74%) in favor** to **9 votes (26%) against**.
+
 **5-star issue ratings.** Issues can now be rated on a 5-star scale directly from the issue detail page. The average community rating and total rating count are shown in the page header and returned on the issue detail API endpoint as `average_rating` and `rating_count` — both are intentionally left off the list endpoint to keep those responses lean.
 
 **Synced with your collection.** Rating an issue from your collection now keeps the community rating in sync automatically, and a one-time backfill populated existing issue ratings from ratings already recorded in user collections.
