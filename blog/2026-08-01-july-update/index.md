@@ -1,0 +1,97 @@
+---
+slug: july-2026-update
+title: July 2026 Updates
+authors: [bpepple]
+tags: [release, api, features, security, opencollective]
+date: 2026-07-31
+---
+
+July brought a new 5-star issue rating system, the ability to chain reading lists into a larger reading order, a couple of handy API additions, and a round of work keeping scrapers off the site. We also shipped two things big enough to get their own posts this month: [supporter-based API rate limit tiers](/blog/supporter-rate-limits) and [MetronInfo v1.1](/blog/metroninfo-v1-1). Here's everything else that landed.
+
+<!-- truncate -->
+
+## Monthly Statistics
+
+During July the [Metron Project](https://metron.cloud/) added the following to its database:
+
+- Users: **TBD**
+- Issues: **TBD**
+- Creators: **TBD**
+- Characters: **TBD**
+- Reading Lists: **TBD**
+
+We also crossed **2,500 registered users** this month. Thanks to everyone that contributed!
+
+## Issue Ratings
+
+**5-star issue ratings.** Issues can now be rated on a 5-star scale directly from the issue detail page. The average community rating and total rating count are shown in the page header and returned on the issue detail API endpoint as `average_rating` and `rating_count` — both are intentionally left off the list endpoint to keep those responses lean.
+
+**Synced with your collection.** Rating an issue from your collection now keeps the community rating in sync automatically, and a one-time backfill populated existing issue ratings from ratings already recorded in user collections.
+
+**Rating-only Collection API endpoint.** A new `PATCH`/`PUT /api/collection/{id}/` endpoint lets you update just a collection item's personal rating without touching its read-tracking data — `is_read` and `date_read` remain writable only through the [scrobble endpoint](https://github.com/Metron-Project/metron/blob/master/api/README.md#scrobble-endpoint).
+
+## Reading List Improvements
+
+**Chained reading orders.** Reading lists can now be linked to a previous and next list in a sequence — for example, "Batgirl: Mother" → "Batgirl: The Book of Shiva" — letting curators build multi-list reading orders. Saving a link keeps both sides of the connection in sync automatically.
+
+**Ownership transfer.** Staff and members of the "reading list editor" group can now reassign ownership of any reading list to the Metron account itself, via a confirmation page on the reading list detail view.
+
+## API Improvements
+
+**Series ID in issue list responses.** The issue list/search endpoint now includes the series `id` alongside its name, volume, and year, so consumers no longer need a separate request just to resolve the series for a search result.
+
+**UPC prefix filter.** A new `upc_starts_with` filter on the Issue endpoint matches by UPC prefix. Mobile barcode scanning frameworks like Google ML Kit and AVFoundation only read the 12-digit UPC-A and drop the 5-digit EAN supplemental, so this lets mobile clients look up an issue with just what the camera actually captured.
+
+## Security and Infrastructure
+
+A few more scrapers were added to the [Anubis](https://anubis.techaro.lol/) deny list this month after abusing the API. The production droplet was also resized for more CPU headroom.
+
+## Dependency Upgrades
+
+The project was updated to **Django 6.0.7**.
+
+## Tooling Releases
+
+The companion Python projects all shipped multiple releases this month, mostly to keep pace with the API changes above.
+
+### Darkseid 8.4.0
+
+- **8.2.0** - Writes `xmlns:metroninfo`, `xmlns:xsd`, `xmlns:xsi`, and `xsi:schemaLocation` on the `<MetronInfo>` root element to match the upstream schema's expected format.
+- **8.3.0** - Fixes duplicate `xmlns:xsi`/`xsi:schemaLocation` attributes that could appear when merging an existing `MetronInfo.xml`, and raises `XmlError` instead of silently swallowing XML parse failures for callers using the metadata handlers directly.
+- **8.4.0** - Adds support for the [MetronInfo v1.1 schema](/blog/metroninfo-v1-1), wiring up the new `AlternativeNumber` and `CommunityRating` elements.
+
+### Mokkari 4.2.0
+
+- **3.28.0** - Adds the new series `id` to issue list responses, matching the [Metron API change](#api-improvements) above.
+- **3.29.0** - Adds a `collection_patch` method for the rating-only Collection API endpoint.
+- **4.0.0** - Replaces the old static rate limiter with reactive `X-RateLimit-*` header tracking, as covered in the [supporter rate limits post](/blog/supporter-rate-limits). This is a breaking change: the `api` method no longer takes a `bucket` param.
+- **4.1.0** - Adds previous/next reading order links to `ReadingListRead`, matching the new reading list chaining feature.
+- **4.2.0** - Adds `average_rating` and `rating_count` fields to the `Issue` schema for the new community ratings.
+
+### Metron-Tagger 4.11.0
+
+- **4.10.3** - Updates to Mokkari 4.0.0 for the reactive rate-limit tracking described in the [supporter rate limits post](/blog/supporter-rate-limits).
+- **4.10.4** - Updates to Darkseid 8.3.0.
+- **4.11.0** - Reports the remaining daily API quota after a tagging run finishes, writes community ratings to the `CommunityRating` element when tagging `MetronInfo.xml`, stops a batch outright on an unrecoverable 400/401 API error instead of logging and continuing, and no longer stacks the full rate-limit retry wait on top of the time you spent answering the "wait and retry?" prompt.
+
+## OpenCollective
+
+A huge thank you to everyone who has contributed to our [Open Collective](https://opencollective.com/metron)! Your support makes a real difference in keeping the Metron Project running and growing.
+
+### What Your Contributions Support
+
+Funds from Open Collective go directly toward:
+
+- **Server hosting costs** - Keeping the Metron website and API available
+- **Domain registration** - Annual domain name renewals
+- **Future capacity increases** - Scaling resources as the database and user base grows
+
+All expenses are transparent and publicly viewable on our [Open Collective page](https://opencollective.com/metron), so you can see exactly where every dollar goes.
+
+### Support the Project
+
+As covered in our [supporter rate limits post](/blog/supporter-rate-limits), donors now automatically get an elevated daily API rate limit. Any contribution, at any tier, genuinely helps keep Metron free for the whole community.
+
+---
+
+Thanks to everyone who contributed issues, pull requests, and feedback this month. As always, the project is open source and community contributions are welcome.
