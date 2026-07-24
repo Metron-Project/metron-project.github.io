@@ -70,11 +70,33 @@ The companion Python projects all shipped multiple releases this month, mostly t
 - **4.1.0** - Adds previous/next reading order links to `ReadingListRead`, matching the new reading list chaining feature.
 - **4.2.0** - Adds `average_rating` and `rating_count` fields to the `Issue` schema for the new community ratings.
 
+### Simyan 3.0.0
+
+[Simyan](https://github.com/Metron-Project/Simyan), the project's Comic Vine API wrapper maintained by [Buried-In-Code](https://github.com/Buried-In-Code), also had a major release. The HTTP layer was rewritten from `httpx` to `requests`, with the library's custom caching and rate-limiting code dropped in favor of `requests-cache` and `requests-ratelimiter`. This is a breaking change if you were depending on the old `httpx`-based internals directly.
+
 ### Metron-Tagger 4.11.0
 
 - **4.10.3** - Updates to Mokkari 4.0.0 for the reactive rate-limit tracking described in the [supporter rate limits post](/blog/supporter-rate-limits).
 - **4.10.4** - Updates to Darkseid 8.3.0.
 - **4.11.0** - Reports the remaining daily API quota after a tagging run finishes, writes community ratings to the `CommunityRating` element when tagging `MetronInfo.xml`, stops a batch outright on an unrecoverable 400/401 API error instead of logging and continuing, and no longer stacks the full rate-limit retry wait on top of the time you spent answering the "wait and retry?" prompt.
+
+## Desaad
+
+[Desaad](https://codeberg.org/bpepple/desaad), the Metron-powered comic library and reader app that's still under heavy construction, also picked up several changes this month.
+
+**Per-issue star ratings synced to Metron.** You can now rate an issue (1-5 stars) when finishing it in the reader, or edit the rating anytime from the issue detail page. The initial rating rides along with the existing Metron scrobble call, and later edits go through the new Metron collection rating-only endpoint, so re-rating doesn't create duplicate read-date history on Metron.
+
+**Richer reading list sync and UX.** Desaad now syncs additional reading list metadata from Metron — list type, average rating/rating count, cover image, and the new previous/next reading-order links — and surfaces it in the UI: a full-width cover banner and type/rating badges on the detail page, cover thumbnails and badges on the list/search pages, and previous/next navigation between chained lists.
+
+Reading list search also gained minimum-rating, visibility, and curator filters, plus the "Creator" list type. Item ordering now trusts Metron's own per-item `order` value instead of always recomputing it from response order.
+
+This keeps with Desaad's reading list pattern: importing a Metron-curated list should require minimal effort beyond searching with the available filters and clicking import — Desaad brings in as much of the source list's metadata as Metron exposes, and shouldn't require you to manually link a list's issues to items in your library when that mapping is already available from your comics' own metadata.
+
+<img
+  src={require('./desaad-reading-list-detail.png').default}
+  alt="Image of the updated Reading List deatil view."
+  style={{maxWidth: '100%', height: 'auto'}}
+/>
 
 ## OpenCollective
 
