@@ -90,7 +90,7 @@ The companion Python projects all shipped multiple releases this month, mostly t
 
 Reading list search also gained minimum-rating, visibility, and curator filters, plus the "Creator" list type. Item ordering now trusts Metron's own per-item `order` value instead of always recomputing it from response order.
 
-This keeps with Desaad's reading list pattern: importing a Metron-curated list should require minimal effort beyond searching with the available filters and clicking import — Desaad brings in as much of the source list's metadata as Metron exposes, and shouldn't require you to manually link a list's issues to items in your library when that mapping is already available from your comics' own metadata.
+This keeps with Desaad's reading list pattern: importing a Metron-curated list should require minimal effort beyond searching with the available filters and clicking import — Desaad brings in as much of the source list's metadata as Metron exposes, and shouldn't require you to manually link a list's issues to items in your library when that mapping is already available from your comics' own metadata. That includes handling missing and newly imported issues automatically: list items are matched against your existing library where possible, and any issues you don't yet own are still imported and tracked rather than silently dropped.
 
 <img
   src={require('./desaad-reading-list-detail.png').default}
