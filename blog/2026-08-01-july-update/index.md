@@ -6,7 +6,7 @@ tags: [release, api, features, security, opencollective]
 date: 2026-07-31
 ---
 
-July brought a new 5-star issue rating system, the ability to chain reading lists into a larger reading order, a couple of handy API additions, and a round of work keeping scrapers off the site. We also shipped two things big enough to get their own posts this month: [supporter-based API rate limit tiers](/blog/supporter-rate-limits) and [MetronInfo v1.1](/blog/metroninfo-v1-1). Here's everything else that landed.
+July brought a new 5-star issue rating system, the ability to chain reading lists into a larger reading order, alternative series names, a name-search performance fix, and a couple of handy API additions. We also shipped two things big enough to get their own posts this month: [supporter-based API rate limit tiers](/blog/supporter-rate-limits) and [MetronInfo v1.1](/blog/metroninfo-v1-1). Here's everything else that landed.
 
 <!-- truncate -->
 
@@ -32,11 +32,19 @@ We also crossed **2,500 registered users** this month. Thanks to everyone that c
 
 **Rating-only Collection API endpoint.** A new `PATCH`/`PUT /api/collection/{id}/` endpoint lets you update just a collection item's personal rating without touching its read-tracking data — `is_read` and `date_read` remain writable only through the [scrobble endpoint](https://github.com/Metron-Project/metron/blob/master/api/README.md#scrobble-endpoint).
 
+**No rating pre-release issues.** The star rating widget is now hidden (and blocked server-side) for issues whose `store_date` is still in the future, since there's no legitimate way to have read and rated something that hasn't come out yet.
+
 ## Reading List Improvements
 
-**Chained reading orders.** Reading lists can now be linked to a previous and next list in a sequence — for example, "Batgirl: Mother" → "Batgirl: The Book of Shiva" — letting curators build multi-list reading orders. Saving a link keeps both sides of the connection in sync automatically.
+**Chained reading orders.** Reading lists can now be linked to a previous and next list in a sequence — for example, "[Batgirl: Mother](https://metron.cloud/reading-lists/batgirl-mother/)" → "[Batgirl: The Book of Shiva](https://metron.cloud/reading-lists/batgirl-the-book-of-shiva/)" — letting curators build multi-list reading orders. Saving a link keeps both sides of the connection in sync automatically.
 
 **Ownership transfer.** Staff and members of the "reading list editor" group can now reassign ownership of any reading list to the Metron account itself, via a confirmation page on the reading list detail view.
+
+## Alternative Series Names
+
+Series can go by more than one name due to indicia inconsistency — think "[Thor](https://metron.cloud/series/thor-2025/)" versus "The Mortal Thor." Series now have an `alt_names` field for tracking these alternates, exposed through the admin, the create/update form, quick search, autocomplete, and list-view filtering, so a search for either name finds the series either way. The field is also included in the Series API response, and on the nested series object returned from the issue detail endpoint.
+
+**New API filter parameters.** The Series endpoint gains `alt_names` (partial match against the alternative names) and `q` (quick search across both `name` and `alt_names`). The Issue endpoint gains the equivalent `series_alt_names` and `series_q` filters, so you can find issues by a series' alternate name without an extra round trip.
 
 ## API Improvements
 
@@ -44,9 +52,11 @@ We also crossed **2,500 registered users** this month. Thanks to everyone that c
 
 **UPC prefix filter.** A new `upc_starts_with` filter on the Issue endpoint matches by UPC prefix. Mobile barcode scanning frameworks like Google ML Kit and AVFoundation only read the 12-digit UPC-A and drop the 5-digit EAN supplemental, so this lets mobile clients look up an issue with just what the camera actually captured.
 
-## Security and Infrastructure
+## Performance Improvements
 
-A few more scrapers were added to the [Anubis](https://anubis.techaro.lol/) deny list this month after abusing the API. The production droplet was also resized for more CPU headroom.
+**Name search index fix.** The trigram indexes backing name search on Arc, Character, Creator, Imprint, Publisher, Series, Team, and Universe were built against a slightly different expression than the one Django's `icontains` lookup actually generates, so Postgres had been silently falling back to a full sequential scan for every name search since these indexes were introduced. Rebuilding the indexes to match dropped name searches from 31-46ms down to under 3ms in testing.
+
+**Indexable alternative name search.** The new `alt_names` field needed the same fix applied before it even shipped: array-to-string search on a Postgres array field isn't index-friendly by default. Wrapping it in an immutable SQL function and indexing that instead brought alt-names-only search down from 7.7ms to 0.07ms, and combined name/alt-name quick search from 37ms to 1.3ms, in testing against a ~16,000-series dataset.
 
 ## Dependency Upgrades
 
@@ -62,23 +72,26 @@ The companion Python projects all shipped multiple releases this month, mostly t
 - **8.3.0** - Fixes duplicate `xmlns:xsi`/`xsi:schemaLocation` attributes that could appear when merging an existing `MetronInfo.xml`, and raises `XmlError` instead of silently swallowing XML parse failures for callers using the metadata handlers directly.
 - **8.4.0** - Adds support for the [MetronInfo v1.1 schema](/blog/metroninfo-v1-1), wiring up the new `AlternativeNumber` and `CommunityRating` elements.
 
-### Mokkari 4.2.0
+### Mokkari 4.3.0
 
 - **3.28.0** - Adds the new series `id` to issue list responses, matching the [Metron API change](#api-improvements) above.
 - **3.29.0** - Adds a `collection_patch` method for the rating-only Collection API endpoint.
 - **4.0.0** - Replaces the old static rate limiter with reactive `X-RateLimit-*` header tracking, as covered in the [supporter rate limits post](/blog/supporter-rate-limits). This is a breaking change: the `api` method no longer takes a `bucket` param.
 - **4.1.0** - Adds previous/next reading order links to `ReadingListRead`, matching the new reading list chaining feature.
 - **4.2.0** - Adds `average_rating` and `rating_count` fields to the `Issue` schema for the new community ratings.
+- **4.3.0** - Adds `alt_names` to the `Series` and nested `IssueSeries` schemas, matching the new [alternative series names](#alternative-series-names) feature.
 
 ### Simyan 3.0.0
 
 [Simyan](https://github.com/Metron-Project/Simyan), the project's Comic Vine API wrapper maintained by [Buried-In-Code](https://github.com/Buried-In-Code), also had a major release. The HTTP layer was rewritten from `httpx` to `requests`, with the library's custom caching and rate-limiting code dropped in favor of `requests-cache` and `requests-ratelimiter`. This is a breaking change if you were depending on the old `httpx`-based internals directly.
 
-### Metron-Tagger 4.11.0
+### Metron-Tagger 4.13.0
 
 - **4.10.3** - Updates to Mokkari 4.0.0 for the reactive rate-limit tracking described in the [supporter rate limits post](/blog/supporter-rate-limits).
 - **4.10.4** - Updates to Darkseid 8.3.0.
 - **4.11.0** - Reports the remaining daily API quota after a tagging run finishes, writes community ratings to the `CommunityRating` element when tagging `MetronInfo.xml`, stops a batch outright on an unrecoverable 400/401 API error instead of logging and continuing, and no longer stacks the full rate-limit retry wait on top of the time you spent answering the "wait and retry?" prompt.
+- **4.12.0** - Fixes a `MetronInfo.xml` bug, wires the API's `alt_number` field to `Metadata.alternate_number`, and adds an `--ignore-modified` flag to force a fresh API pull when retagging — useful for picking up changes, like an updated community rating, that don't bump the issue's `modified` timestamp.
+- **4.13.0** - Wires series `alt_names` through to `Metadata.series.alternative_names` (via Mokkari 4.3.0), and switches to the new `series_q` filter when searching for an issue's series.
 
 ## Desaad
 
