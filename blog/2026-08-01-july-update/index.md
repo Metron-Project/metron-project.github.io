@@ -6,7 +6,7 @@ tags: [release, api, features, security, opencollective]
 date: 2026-07-31
 ---
 
-July brought a new 5-star issue rating system, the ability to chain reading lists into a larger reading order, alternative series names, a name-search performance fix, and a couple of handy API additions. We also shipped two things big enough to get their own posts this month: [supporter-based API rate limit tiers](/blog/supporter-rate-limits) and [MetronInfo v1.1](/blog/metroninfo-v1-1). Here's everything else that landed.
+July brought a new 5-star issue rating system, the ability to chain reading lists into a larger reading order, alternative series names, a name-search performance fix, and a couple of handy API additions. We also shipped three things big enough to get their own posts this month: [supporter-based API rate limit tiers](/blog/supporter-rate-limits), [MetronInfo v1.1](/blog/metroninfo-v1-1), and [token-based API authentication](/blog/token-authentication). Here's everything else that landed.
 
 <!-- truncate -->
 
