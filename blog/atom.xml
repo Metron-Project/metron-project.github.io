@@ -2,11 +2,52 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2026-07-19T15:45:00.000Z</updated>
+    <updated>2026-07-26T15:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Introducing Token-Based API Authentication]]></title>
+        <id>https://metron-project.github.io/blog/token-authentication</id>
+        <link href="https://metron-project.github.io/blog/token-authentication"/>
+        <updated>2026-07-26T15:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Up to now, the only way to authenticate against the Metron API was HTTP Basic Auth with your account username and password — meaning every script or third-party tool you connected got a copy of your actual login credentials. Today that changes: you can now generate revocable API tokens and use them instead, without giving up Basic Auth.]]></summary>
+        <content type="html"><![CDATA[<p>Up to now, the only way to authenticate against the Metron API was HTTP Basic Auth with your account username and password — meaning every script or third-party tool you connected got a copy of your actual login credentials. Today that changes: <strong>you can now generate revocable API tokens</strong> and use them instead, without giving up Basic Auth.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-new">What's New<a href="https://metron-project.github.io/blog/token-authentication#whats-new" class="hash-link" aria-label="Direct link to What's New" title="Direct link to What's New" translate="no">​</a></h2>
+<p>Your account page has a new <strong>API Tokens</strong> section where you can generate one or more tokens, each with an optional label (e.g. "Mokkari script" or "phone app"). Once generated, use it like this:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">curl -X GET https://metron.cloud/api/issue/ \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  -H "Authorization: Bearer &lt;your-token&gt;"</span><br></div></code></pre></div></div>
+<p>A few things worth knowing:</p>
+<ul>
+<li class=""><strong>Tokens don't expire by default.</strong> These are meant for long-lived integrations, not browser sessions — you revoke a token manually when you're done with it rather than it silently expiring.</li>
+<li class=""><strong>You can create as many as you want.</strong> Give each application its own token, and if one gets compromised or you retire an integration, revoke just that one without touching the others or changing your password.</li>
+<li class=""><strong>The raw token is shown exactly once</strong>, right after you generate it. Metron only ever stores a hash of it, so copy it somewhere safe immediately — there's no way to retrieve it again later (you'd need to revoke it and generate a new one).</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="nothing-is-being-removed--yet">Nothing Is Being Removed — Yet<a href="https://metron-project.github.io/blog/token-authentication#nothing-is-being-removed--yet" class="hash-link" aria-label="Direct link to Nothing Is Being Removed — Yet" title="Direct link to Nothing Is Being Removed — Yet" translate="no">​</a></h2>
+<p>Today, this is purely additive. Basic Auth and Session Auth both continue to work exactly as before — token auth is just a third option, appended alongside them. If you don't want to deal with tokens right now, you don't have to do anything.</p>
+<p>That said, you should start planning to migrate. This is Phase 0 of a longer-term plan to retire Basic Auth entirely:</p>
+<table><thead><tr><th>Phase</th><th>What happens</th></tr></thead><tbody><tr><td><strong>0 — Build &amp; ship (we are here)</strong></td><td>Token auth available alongside Basic/Session; nothing removed</td></tr><tr><td><strong>1 — Encourage migration</strong> (~6 months)</td><td>Basic Auth stays fully functional, but we'll start surfacing deprecation notices and sending reminder emails to accounts still using it</td></tr><tr><td><strong>2 — Sunset warning window</strong> (final ~6-8 weeks)</td><td>Stronger deprecation headers, Basic Auth throttled more aggressively, final notices before the cutoff</td></tr><tr><td><strong>3 — Cutover</strong></td><td>Basic Auth is removed from the API entirely — Token and Session auth only</td></tr></tbody></table>
+<p>The end state is a hard cutover, not a permanently-throttled fallback: once Phase 3 lands, Basic Auth stops working. We're not locking in exact calendar dates yet — Phase 3 in particular is gated on <a href="https://github.com/Metron-Project/mokkari" target="_blank" rel="noopener noreferrer" class="">Mokkari</a> and <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer" class="">Metron-Tagger</a> shipping releases with token support first, so the community's primary tools aren't broken on day one. Tracking issues for both are being opened now. We'll announce firm dates, and give plenty of notice, once Phase 1 begins.</p>
+<p>In the meantime: a token is the better choice for anything other than quick interactive use, since it's scoped to being a credential rather than your actual password, and it's independently revocable. Migrating sooner rather than later means you won't be scrambling later in the year.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="getting-started">Getting Started<a href="https://metron-project.github.io/blog/token-authentication#getting-started" class="hash-link" aria-label="Direct link to Getting Started" title="Direct link to Getting Started" translate="no">​</a></h2>
+<ol>
+<li class="">Log in and head to your profile page.</li>
+<li class="">Click <strong>API Tokens</strong>.</li>
+<li class="">Give it a name (optional, but recommended if you'll have more than one) and hit <strong>Generate Token</strong>.</li>
+<li class="">Copy the token immediately — you won't see it again.</li>
+<li class="">Swap <code>Authorization: Basic ...</code> for <code>Authorization: Bearer &lt;token&gt;</code> in your script or app.</li>
+</ol>
+<p>Full details are documented in the <a href="https://github.com/Metron-Project/metron/blob/main/api/README.md" target="_blank" rel="noopener noreferrer" class="">API README</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="thanks">Thanks<a href="https://metron-project.github.io/blog/token-authentication#thanks" class="hash-link" aria-label="Direct link to Thanks" title="Direct link to Thanks" translate="no">​</a></h2>
+<p>Thanks as always for using Metron — if you run into any issues with token auth or have feedback, <a href="mailto:bpepple@metron.cloud" target="_blank" rel="noopener noreferrer" class="">e-mail me</a> or find me on <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer" class="">Matrix</a>.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="metron" term="metron"/>
+        <category label="api" term="api"/>
+        <category label="authentication" term="authentication"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MetronInfo V1.1]]></title>
         <id>https://metron-project.github.io/blog/metroninfo-v1-1</id>
@@ -1675,54 +1716,5 @@ server capacity.</p>
         <category label="comicbox" term="comicbox"/>
         <category label="documentation" term="documentation"/>
         <category label="comictagger" term="comictagger"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[June 2025 News]]></title>
-        <id>https://metron-project.github.io/blog/june-2025-update</id>
-        <link href="https://metron-project.github.io/blog/june-2025-update"/>
-        <updated>2025-07-01T10:52:00.000Z</updated>
-        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/june-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
-<p>During June the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
-<ul>
-<li class="">Users: <strong>45</strong></li>
-<li class="">Issues: <strong>1,786</strong></li>
-<li class="">Creators: <strong>228</strong></li>
-<li class="">Characters: <strong>448</strong></li>
-</ul>
-<p>Thanks to everyone that contributed!</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="final-order-cutoff-foc-dates">Final Order Cutoff (FOC) Dates<a href="https://metron-project.github.io/blog/june-2025-update#final-order-cutoff-foc-dates" class="hash-link" aria-label="Direct link to Final Order Cutoff (FOC) Dates" title="Direct link to Final Order Cutoff (FOC) Dates" translate="no">​</a></h2>
-<p>With Diamond <a href="https://www.comicsbeat.com/diamond-announces-print-previews-to-end/" target="_blank" rel="noopener noreferrer" class="">announcing</a>
-they will stop printing their Previews, I had some comic industry people contact me about adding
-the Final Order Cutoff (FOC) dates to upcoming issue releases. With that information, users
-could use our API to create their pull lists. This was a fairly simple request, which won't
-affect most users (since my tools that import upcoming releases will handle it) and was
-<a href="https://github.com/Metron-Project/metron/pull/354" target="_blank" rel="noopener noreferrer" class="">added</a> to the site on June 17th.</p>
-<p>One thing I still need to decide on is, whether to add new releases that don't have there final
-cover dressing released (Marvel, in particular, tends to release them <strong>really</strong> late) or not. If
-this was done, I would need to modify my tools to make it easier to update the issue covers with the
-final version when it is released, and most likely clean the sites cover cache more frequently.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="darkseid--metron-tagger-release">Darkseid / Metron-Tagger Release<a href="https://metron-project.github.io/blog/june-2025-update#darkseid--metron-tagger-release" class="hash-link" aria-label="Direct link to Darkseid / Metron-Tagger Release" title="Direct link to Darkseid / Metron-Tagger Release" translate="no">​</a></h2>
-<p>I spent a bit of time this month refactoring <a href="https://github.com/Metron-Project/darkseid" target="_blank" rel="noopener noreferrer" class="">Darkseid</a>
-and <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer" class="">Metron-Tagger</a> which should make it easier
-maintain and give a bit of a performance improvements. If you are interested in the changes, they
-are here:
-<a href="https://github.com/Metron-Project/darkseid/releases/tag/v6.0.0" target="_blank" rel="noopener noreferrer" class="">Darkseid Release Notes</a> &amp;
-<a href="https://github.com/Metron-Project/metron-tagger/releases/tag/v4.0.0" target="_blank" rel="noopener noreferrer" class="">Metron-Tagger Release Notes</a></p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/june-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
-<p>If you would like to help keep the lights on at the project, we have an account at
-<a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a> to defray the servers costs and help with increasing future
-server capacity.</p>
-<p>Anyway, that's all I got for this month. Take care!</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="metadata" term="metadata"/>
-        <category label="metron" term="metron"/>
-        <category label="opencollective" term="opencollective"/>
-        <category label="darkseid" term="darkseid"/>
-        <category label="metrontagger" term="metrontagger"/>
     </entry>
 </feed>
