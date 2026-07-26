@@ -42,32 +42,6 @@ The end state is a hard cutover, not a permanently-throttled fallback: once Phas
 
 In the meantime: a token is the better choice for anything other than quick interactive use, since it's scoped to being a credential rather than your actual password, and it's independently revocable. Migrating sooner rather than later means you won't be scrambling later in the year.
 
-## Checking Your Status: `GET /api/whoami/`
-
-We also added a small endpoint for sanity-checking who you're authenticated as and how your token is doing, without spending a request against a real data endpoint:
-
-```bash
-curl -X GET https://metron.cloud/api/whoami/ \
-  -H "Authorization: Bearer <your-token>"
-```
-
-```json
-{
-  "username": "your-username",
-  "token_expiry": null,
-  "rate_limit": {
-    "limit": 5000,
-    "used": 12,
-    "remaining": 4988,
-    "percent_used": 0.2
-  }
-}
-```
-
-`token_expiry` is `null` if you authenticated with Basic or Session auth, or if your token simply has no expiration set (the default).
-
-In practice, you probably don't need this endpoint. A regular request already tells you whether your token is valid (a `401` means it isn't) and includes the same rate-limit numbers in its `X-RateLimit-*` headers, covered in our [API tips post](/blog/api-best-practices) — `whoami` mainly adds your username to that picture. It's there for the occasional case where you want that confirmation without side effects from a real data request, not as something to poll routinely — and remember it still counts against your rate limit like any other request.
-
 ## Getting Started
 
 1. Log in and head to your profile page.
@@ -76,7 +50,7 @@ In practice, you probably don't need this endpoint. A regular request already te
 4. Copy the token immediately — you won't see it again.
 5. Swap `Authorization: Basic ...` for `Authorization: Bearer <token>` in your script or app.
 
-Full details, including the `whoami` response shape, are documented in the [API README](https://github.com/Metron-Project/metron/blob/main/api/README.md).
+Full details are documented in the [API README](https://github.com/Metron-Project/metron/blob/main/api/README.md).
 
 ## Thanks
 
