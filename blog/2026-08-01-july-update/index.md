@@ -111,6 +111,14 @@ This keeps with Desaad's reading list pattern: importing a Metron-curated list s
   style={{maxWidth: '100%', height: 'auto'}}
 />
 
+## Future Projects
+
+July turned out busier than planned, so expect the next few months to be quieter — mostly bug fixes and minor changes.
+
+The biggest project on deck for the rest of the year is planning a migration from our current vertical scaling setup to a horizontal one. For context, the stack today is a Django app served by gunicorn, PostgreSQL, Redis, nginx, and the Anubis bot-protection proxy, all running as rootless Podman/Quadlet containers on a single CentOS droplet (see [DEPLOYMENT.md](https://github.com/Metron-Project/metron/blob/master/DEPLOYMENT.md) for the full picture) — with static and media files already offloaded to DigitalOcean Spaces. Going horizontal means running multiple app droplets behind a load balancer, which is likely to become necessary before too long, but I don't have a firm timeline yet — I still need to pull together pricing metrics to figure out at what point it actually becomes the more economical option. I did some initial groundwork on this a month ago and have a few loose ends to tie up before picking it back up — the current draft plan is up as [SCALING.md](https://github.com/Metron-Project/metron/blob/master/SCALING.md) if you want to see where things stand or have feedback.
+
+As always, we're looking for team members with server admin experience — [reach out](mailto:bpepple@metron.cloud) if that's you.
+
 ## OpenCollective
 
 A huge thank you to everyone who has contributed to our [Open Collective](https://opencollective.com/metron)! Your support makes a real difference in keeping the Metron Project running and growing.
