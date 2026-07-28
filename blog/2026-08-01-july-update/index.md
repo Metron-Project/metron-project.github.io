@@ -72,7 +72,7 @@ The companion Python projects all shipped multiple releases this month, mostly t
 - **8.3.0** - Fixes duplicate `xmlns:xsi`/`xsi:schemaLocation` attributes that could appear when merging an existing `MetronInfo.xml`, and raises `XmlError` instead of silently swallowing XML parse failures for callers using the metadata handlers directly.
 - **8.4.0** - Adds support for the [MetronInfo v1.1 schema](/blog/metroninfo-v1-1), wiring up the new `AlternativeNumber` and `CommunityRating` elements.
 
-### Mokkari 4.3.0
+### Mokkari 4.4.0
 
 - **3.28.0** - Adds the new series `id` to issue list responses, matching the [Metron API change](#api-improvements) above.
 - **3.29.0** - Adds a `collection_patch` method for the rating-only Collection API endpoint.
@@ -80,18 +80,20 @@ The companion Python projects all shipped multiple releases this month, mostly t
 - **4.1.0** - Adds previous/next reading order links to `ReadingListRead`, matching the new reading list chaining feature.
 - **4.2.0** - Adds `average_rating` and `rating_count` fields to the `Issue` schema for the new community ratings.
 - **4.3.0** - Adds `alt_names` to the `Series` and nested `IssueSeries` schemas, matching the new [alternative series names](#alternative-series-names) feature.
+- **4.4.0** - Adds an `api_token` parameter to `mokkari.api()`/`Session`, supporting the new [token-based API authentication](/blog/token-authentication). When provided, it takes precedence over username/password.
 
 ### Simyan 3.0.0
 
 [Simyan](https://github.com/Metron-Project/Simyan), the project's Comic Vine API wrapper maintained by [Buried-In-Code](https://github.com/Buried-In-Code), also had a major release. The HTTP layer was rewritten from `httpx` to `requests`, with the library's custom caching and rate-limiting code dropped in favor of `requests-cache` and `requests-ratelimiter`. This is a breaking change if you were depending on the old `httpx`-based internals directly.
 
-### Metron-Tagger 4.13.0
+### Metron-Tagger 4.14.0
 
 - **4.10.3** - Updates to Mokkari 4.0.0 for the reactive rate-limit tracking described in the [supporter rate limits post](/blog/supporter-rate-limits).
 - **4.10.4** - Updates to Darkseid 8.3.0.
 - **4.11.0** - Reports the remaining daily API quota after a tagging run finishes, writes community ratings to the `CommunityRating` element when tagging `MetronInfo.xml`, stops a batch outright on an unrecoverable 400/401 API error instead of logging and continuing, and no longer stacks the full rate-limit retry wait on top of the time you spent answering the "wait and retry?" prompt.
 - **4.12.0** - Fixes a `MetronInfo.xml` bug, wires the API's `alt_number` field to `Metadata.alternate_number`, and adds an `--ignore-modified` flag to force a fresh API pull when retagging — useful for picking up changes, like an updated community rating, that don't bump the issue's `modified` timestamp.
 - **4.13.0** - Wires series `alt_names` through to `Metadata.series.alternative_names` (via Mokkari 4.3.0), and switches to the new `series_q` filter when searching for an issue's series.
+- **4.14.0** - Adds [token-based authentication](/blog/token-authentication) support (via Mokkari 4.4.0), with a new `auth_token` setting alongside the existing username/password. Existing username/password users get a one-time prompt to migrate, which is remembered if declined; users with no credentials configured are asked to pick between token auth (recommended) and username/password.
 
 ## Desaad
 
