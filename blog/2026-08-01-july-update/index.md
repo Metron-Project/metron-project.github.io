@@ -52,11 +52,23 @@ Series can go by more than one name due to indicia inconsistency — think "[Tho
 
 **UPC prefix filter.** A new `upc_starts_with` filter on the Issue endpoint matches by UPC prefix. Mobile barcode scanning frameworks like Google ML Kit and AVFoundation only read the 12-digit UPC-A and drop the 5-digit EAN supplemental, so this lets mobile clients look up an issue with just what the camera actually captured.
 
+## Rate Limit Monitoring
+
+**Auth-method and throttle tracking.** Now that [token-based auth](/blog/token-authentication) is live alongside Basic and Session auth, the API tracks which method each request uses and which clients are getting throttled with a 429, so adoption and abuse patterns are visible instead of anecdotal.
+
+**Automated outreach for repeat offenders.** A new management command scans that throttle data for accounts that keep hitting rate limits without backing off. Flagged accounts get up to two e-mails, no more than once a week, asking them to fix their software before API access is revoked. Reporting is the default; nothing is e-mailed unless explicitly enabled, and the trigger thresholds were tuned mid-month to stop a handful of low-volume accounts from being flagged unnecessarily. Right now someone still has to run the command and review the report — fully automating the whole flow (scan, notify, and eventually revoke) on a schedule is coming in the near future.
+
+**New rate limit guide.** [Handling Rate Limits](https://metron.cloud/wiki/api/handling-rate-limits/) is a new wiki page covering the burst/sustained limits, the response headers, how to read a `429`, and example backoff logic in Python, Go, C#, and JavaScript.
+
 ## Performance Improvements
 
 **Name search index fix.** The trigram indexes backing name search on Arc, Character, Creator, Imprint, Publisher, Series, Team, and Universe were built against a slightly different expression than the one Django's `icontains` lookup actually generates, so Postgres had been silently falling back to a full sequential scan for every name search since these indexes were introduced. Rebuilding the indexes to match dropped name searches from 31-46ms down to under 3ms in testing.
 
 **Indexable alternative name search.** The new `alt_names` field needed the same fix applied before it even shipped: array-to-string search on a Postgres array field isn't index-friendly by default. Wrapping it in an immutable SQL function and indexing that instead brought alt-names-only search down from 7.7ms to 0.07ms, and combined name/alt-name quick search from 37ms to 1.3ms, in testing against a ~16,000-series dataset.
+
+## Bug Fixes
+
+**Autocomplete crash on empty selection.** The collection, pull list, wish list, and reading list forms crashed with a 500 error when redisplayed with an autocomplete field left empty. A few of these forms were using the upstream autocomplete widget directly instead of the project's null-safe wrapper; they've been switched over.
 
 ## Dependency Upgrades
 
