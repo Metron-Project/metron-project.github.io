@@ -98,6 +98,19 @@ The companion Python projects all shipped multiple releases this month, mostly t
 
 [Simyan](https://github.com/Metron-Project/Simyan), the project's Comic Vine API wrapper maintained by [Buried-In-Code](https://github.com/Buried-In-Code), also had a major release. The HTTP layer was rewritten from `httpx` to `requests`, with the library's custom caching and rate-limiting code dropped in favor of `requests-cache` and `requests-ratelimiter`. This is a breaking change if you were depending on the old `httpx`-based internals directly.
 
+### New: Shaligo 1.0.0
+
+[Shaligo](https://github.com/Metron-Project/shaligo) is a new zero-dependency JavaScript/TypeScript client for the Metron API, covering the read-only list/retrieve surface: `arc`, `character`, `creator`, `imprint`, `issue`, `publisher`, `role`, `series`, `seriesType`, `team`, and `universe`. It requires Node.js 18+ and, fittingly, authenticates exclusively with an [API token](/blog/token-authentication) rather than username/password. Like Mokkari, it reads the live `X-RateLimit-*` headers on every response and proactively pauses before a request would exceed either the burst or sustained limit. Full API docs are generated with TypeDoc and published to [GitHub Pages](https://metron-project.github.io/shaligo/) on every push to `main`.
+
+```js
+import { MetronClient } from 'shaligo';
+
+const client = new MetronClient({ token: process.env.METRON_TOKEN });
+
+const page = await client.series.list({ name: 'Batman' });
+console.log(page.count, page.results);
+```
+
 ### Metron-Tagger 4.14.0
 
 - **4.10.3** - Updates to Mokkari 4.0.0 for the reactive rate-limit tracking described in the [supporter rate limits post](/blog/supporter-rate-limits).
