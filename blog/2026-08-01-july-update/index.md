@@ -14,11 +14,11 @@ July brought a new 5-star issue rating system, the ability to chain reading list
 
 During July the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TBD**
-- Issues: **TBD**
-- Creators: **TBD**
-- Characters: **TBD**
-- Reading Lists: **TBD**
+- Users: **283**
+- Issues: **1,361**
+- Creators: **165**
+- Characters: **396**
+- Reading Lists: **56**
 
 We also crossed **2,500 registered users** this month. Thanks to everyone that contributed!
 
