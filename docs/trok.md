@@ -10,7 +10,7 @@ Trok is a .NET library for reading and writing `MetronInfo.xml` files, the comic
 
 ## Installation
 
-Not yet published to NuGet.org. Once released:
+Published to [NuGet.org](https://www.nuget.org/packages/MetronInfo.Xml):
 
 ```bash
 dotnet add package MetronInfo.Xml
