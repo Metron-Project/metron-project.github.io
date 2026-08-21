@@ -154,7 +154,9 @@ Store the timestamp of your last successful sync and pass it on the next run. Th
 
 ## Use Conditional Requests to Avoid Redundant Work
 
-Detail endpoints (`GET /api/{resource}/{id}/`) support HTTP conditional requests via `If-Modified-Since` / `Last-Modified` headers. If the resource has not changed since you last fetched it, the server returns `304 Not Modified` with an empty body — saving bandwidth and not counting against your quota in any meaningful sense while keeping your data fresh.
+Detail endpoints (`GET /api/{resource}/{id}/`) support HTTP conditional requests via `If-Modified-Since` / `Last-Modified` headers. If the resource has not changed since you last fetched it, the server returns `304 Not Modified` with an empty body — saving bandwidth while keeping your data fresh.
+
+> **Update (2026-08-21):** An earlier version of this post stated that conditional requests do not count against your daily rate limit quota. That's incorrect — a `304 Not Modified` response still counts as a request against both the burst and sustained limits. Conditional requests save bandwidth (and the cost of re-parsing a payload you already have), but they don't give you extra headroom in your daily quota. Factor that into any polling frequency you choose.
 
 ```python
 import requests
