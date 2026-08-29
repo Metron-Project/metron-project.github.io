@@ -38,6 +38,27 @@ Alongside the UI translation work, the data model picked up support for non-Engl
 
 **EUR/ITL currencies and language filtering.** New `EUR`/`ITL` currency choices and a `COUNTRIES` setting support non-USD pricing, and the series list gained language filter chips. `alt_names` and `language` are exposed through the admin, forms, filters, and the Publisher/Series API serializers and templates, with a GIN trigram index on `Publisher.alt_names` so alternate-name search stays fast, and both web and API search now match against `alt_names` alongside `name`.
 
+## API Response Caching
+
+**Redis-backed caching for read endpoints.** Detail responses now cache under a self-versioning key derived from the object's `modified` timestamp, so writes invalidate automatically with no explicit cache-busting. List responses cache under a per-model version counter, bumped by the same modified-cascade signals already used elsewhere in the app (extended to cover Publisher/Imprint/Universe/Series/Arc/Character/Team/Issue, plus a new Credits → Issue cascade). User-scoped endpoints — Collection, PullList, WishList, ReadingList — are intentionally excluded from list caching so one user's data can't leak into another's cached response. Every cached response now also carries an `X-Cache: HIT`/`MISS` header.
+
+**Shaking out staleness and collision bugs.** Rolling caching out surfaced a run of edge cases, now fixed: embedded fields (like Issue's nested Series/Publisher/Imprint names) that didn't cascade a `modified` bump onto the cached parent; a Series-rename dependency on `IssueViewSet` that was over-broad enough to invalidate every cached issue on any unrelated issue edit in the series; a cache-key collision between an object's own `retrieve` response and a detail-scoped list action (e.g. `/character/<id>/issue_list/`) that could return one endpoint's cached response for the other; further key collisions across pagination pages and request hosts; a `condition()`-wrapped method that silently rebound `request` to the viewset instance instead of the real DRF request; a race that could cache an issue with an empty role list; and a deleted-publisher cache hit that kept returning 200 instead of 404 until the list-cache TTL expired.
+
+## Ratings
+
+**Average series rating.** Series detail pages now show an aggregate rating across all of a series' issues, alongside the existing per-issue ratings.
+
+**Fractional star fill.** The star rating display now renders a partially-filled star for decimal averages instead of rounding to the nearest whole star — a 3.4 average now shows roughly 40% of the fourth star filled in.
+
+## New Series Genres
+
+Four new genres are now available for tagging series:
+
+- **Action** - Comics which focus on physical action, often with violence.
+- **Adventure** - Comics which focus on a character, or multiple characters, who embark on a quest or mission.
+- **Drama** - Comics which have a more serious tone to them.
+- **Mystery** - Comics which focus on solving a crime or mystery.
+
 ## API Improvements
 
 **Collection add/remove endpoints.** `POST /api/collection/add/` adds an issue to a user's collection without marking it as read, and `DELETE /api/collection/{id}/` removes an item — closing the gap where PullList and WishList already had add/remove endpoints but Collection did not.
@@ -64,11 +85,24 @@ Alongside the UI translation work, the data model picked up support for non-Engl
 
 **Copy-confirmation feedback on the API token page.** The "copy" button on the API token page now shows the same checkmark/"Copied" confirmation already used for the identification number copy buttons on the issue detail page.
 
+## Developer Experience
+
+**Faster test suite.** Switching to MD5 password hashing under pytest and reusing the test database between runs (`--reuse-db`) cut the full test suite from roughly 13m40s to 51s — full PBKDF2 hashing on every user fixture had been the dominant cost by far. An unused issue-ratings backfill management command (and its tests) was also removed.
+
 ## Dependency Upgrades
 
 TODO
 
 ## Tooling Releases
+
+### Mokkari 4.6.0
+
+- **4.5.0** - Adds `alt_names` (Publisher) and `language` (Series) fields, and widens `PricePost.currency` to include EUR/ITL, matching the [Italian comics support](#italian-comics-support) above. Also adds `collection_add` and `collection_delete` methods for the new Collection add/remove endpoints.
+- **4.6.0** - Tracks Metron's new `X-Cache` header via `Session.last_cache_status`, reflecting whether the most recent cacheable request was served from cache (`"HIT"`) or generated fresh (`"MISS"`).
+
+### Metron-Tagger 4.15.0
+
+- **4.15.0** - Updates to Mokkari 4.6.0 and wires series language through to `Metadata.series.language`, written as the `lang` attribute on `MetronInfo.xml`'s `Series` element.
 
 ### New: Trok 0.1.0
 
