@@ -2,11 +2,99 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2026-07-31T00:00:00.000Z</updated>
+    <updated>2026-09-01T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[August 2026 Updates]]></title>
+        <id>https://metron-project.github.io/blog/august-2026-update</id>
+        <link href="https://metron-project.github.io/blog/august-2026-update"/>
+        <updated>2026-09-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[During August, Metron added its first internationalization support — a fully translatable UI with an Italian pilot translation, plus data model changes to support non-USD, non-English comics — alongside Redis-backed caching for the API's read endpoints, an average series rating with a fractional star display, and four new series genres. On the tooling side, Trok had its first public release, a new .NET library for reading and writing MetronInfo.xml. Here's everything that landed, plus the usual bug fixes and quality-of-life improvements.]]></summary>
+        <content type="html"><![CDATA[<p>During August, Metron added its first internationalization support — a fully translatable UI with an Italian pilot translation, plus data model changes to support non-USD, non-English comics — alongside Redis-backed caching for the API's read endpoints, an average series rating with a fractional star display, and four new series genres. On the tooling side, <a href="https://github.com/Metron-Project/trok" target="_blank" rel="noopener noreferrer" class="">Trok</a> had its first public release, a new .NET library for reading and writing <code>MetronInfo.xml</code>. Here's everything that landed, plus the usual bug fixes and quality-of-life improvements.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/august-2026-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
+<p>During August the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
+<ul>
+<li class="">Users: <strong>583</strong></li>
+<li class="">Issues: <strong>8,817</strong></li>
+<li class="">Creators: <strong>876</strong></li>
+<li class="">Characters: <strong>1,191</strong></li>
+<li class="">Reading Lists: <strong>19</strong></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="internationalization">Internationalization<a href="https://metron-project.github.io/blog/august-2026-update#internationalization" class="hash-link" aria-label="Direct link to Internationalization" title="Direct link to Internationalization" translate="no">​</a></h2>
+<p>Metron now has the infrastructure to serve the site in languages other than English, with Italian as the pilot translation.</p>
+<p><strong>i18n infrastructure.</strong> <code>LANGUAGES</code>/<code>LOCALE_PATHS</code> settings, <code>LocaleMiddleware</code>, the i18n template context processor, the <code>set_language</code> URL, and a cookie-based language switcher in the navbar lay the groundwork for translating the site.</p>
+<p><strong>Pilot slice, then full markup coverage.</strong> User-facing strings in the base template, navbar/footer/messages partials, and the Issue model/form/view were wrapped in <code>gettext</code> calls first, to prove the translation pipeline end-to-end (including generating and translating an Italian catalog) before committing to the rest of the app. With that validated, the remaining apps followed in phases — timeline, api, polls, pull_list, wish_list, user_collection, users (including both formats of the account activation e-mail), and reading_lists — wrapping templates, views, forms, and model verbose names/help texts/choices, and converting f-string messages to <code>%</code>-style formatting so they stay translatable. Vote counts and other countable strings use proper <code>{% blocktrans count %}</code>/<code>ngettext</code> pluralization rather than an informal "(s)" suffix. The Italian catalog now covers several hundred additional strings picked up across the rollout. With the whole app now translatable, additional languages beyond Italian will be added as needed — e.g. alongside future international publisher support — rather than as a blanket rollout.</p>
+<p><strong>Build and CI.</strong> GitHub Actions runners and the <code>python:3.14-slim</code> base image don't ship GNU gettext by default, which <code>compilemessages</code> needs — CI and the Containerfile build now install it before compiling (and remove it again afterward in the image, to keep the runtime slim). The PR template also gained a checklist reminder for contributors to wrap new user-facing strings and run <code>makemessages -a</code> before opening a PR.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="italian-comics-support">Italian Comics Support<a href="https://metron-project.github.io/blog/august-2026-update#italian-comics-support" class="hash-link" aria-label="Direct link to Italian Comics Support" title="Direct link to Italian Comics Support" translate="no">​</a></h2>
+<p>Alongside the UI translation work, the data model picked up support for non-English, non-USD comics.</p>
+<p><strong>New fields.</strong> <code>Publisher.alt_names</code> tracks alternate publisher names, the same pattern already used for <a class="" href="https://metron-project.github.io/blog/july-2026-update#alternative-series-names">series alt names</a>; <code>Series.language</code> records a series' language; and <code>Issue.price</code>'s <code>max_digits</code> was widened to accommodate cover prices in currencies other than USD.</p>
+<p><strong>EUR/ITL currencies and language filtering.</strong> New <code>EUR</code>/<code>ITL</code> currency choices and a <code>COUNTRIES</code> setting support non-USD pricing, and the series list gained language filter chips. <code>alt_names</code> and <code>language</code> are exposed through the admin, forms, filters, and the Publisher/Series API serializers and templates, with a GIN trigram index on <code>Publisher.alt_names</code> so alternate-name search stays fast, and both web and API search now match against <code>alt_names</code> alongside <code>name</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-response-caching">API Response Caching<a href="https://metron-project.github.io/blog/august-2026-update#api-response-caching" class="hash-link" aria-label="Direct link to API Response Caching" title="Direct link to API Response Caching" translate="no">​</a></h2>
+<p><strong>Redis-backed caching for read endpoints.</strong> Detail responses now cache under a self-versioning key derived from the object's <code>modified</code> timestamp, so writes invalidate automatically with no explicit cache-busting. List responses cache under a per-model version counter, bumped by the same modified-cascade signals already used elsewhere in the app (extended to cover Publisher/Imprint/Universe/Series/Arc/Character/Team/Issue, plus a new Credits → Issue cascade). User-scoped endpoints — Collection, PullList, WishList, ReadingList — are intentionally excluded from list caching so one user's data can't leak into another's cached response. Every cached response now also carries an <code>X-Cache: HIT</code>/<code>MISS</code> header.</p>
+<p><strong>Shaking out staleness and collision bugs.</strong> Rolling caching out surfaced a run of edge cases, now fixed: embedded fields (like Issue's nested Series/Publisher/Imprint names) that didn't cascade a <code>modified</code> bump onto the cached parent; a Series-rename dependency on <code>IssueViewSet</code> that was over-broad enough to invalidate every cached issue on any unrelated issue edit in the series; a cache-key collision between an object's own <code>retrieve</code> response and a detail-scoped list action (e.g. <code>/character/&lt;id&gt;/issue_list/</code>) that could return one endpoint's cached response for the other; further key collisions across pagination pages and request hosts; a <code>condition()</code>-wrapped method that silently rebound <code>request</code> to the viewset instance instead of the real DRF request; a race that could cache an issue with an empty role list; and a deleted-publisher cache hit that kept returning 200 instead of 404 until the list-cache TTL expired.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ratings">Ratings<a href="https://metron-project.github.io/blog/august-2026-update#ratings" class="hash-link" aria-label="Direct link to Ratings" title="Direct link to Ratings" translate="no">​</a></h2>
+<p><strong>Average series rating.</strong> Series detail pages now show an aggregate rating across all of a series' issues, alongside the existing per-issue ratings.</p>
+<p><strong>Fractional star fill.</strong> The star rating display now renders a partially-filled star for decimal averages instead of rounding to the nearest whole star — a 3.4 average now shows roughly 40% of the fourth star filled in.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-series-genres">New Series Genres<a href="https://metron-project.github.io/blog/august-2026-update#new-series-genres" class="hash-link" aria-label="Direct link to New Series Genres" title="Direct link to New Series Genres" translate="no">​</a></h2>
+<p>Four new genres are now available for tagging series:</p>
+<ul>
+<li class=""><strong>Action</strong> - Comics which focus on physical action, often with violence.</li>
+<li class=""><strong>Adventure</strong> - Comics which focus on a character, or multiple characters, who embark on a quest or mission.</li>
+<li class=""><strong>Drama</strong> - Comics which have a more serious tone to them.</li>
+<li class=""><strong>Mystery</strong> - Comics which focus on solving a crime or mystery.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-improvements">API Improvements<a href="https://metron-project.github.io/blog/august-2026-update#api-improvements" class="hash-link" aria-label="Direct link to API Improvements" title="Direct link to API Improvements" translate="no">​</a></h2>
+<p><strong>Collection add/remove endpoints.</strong> <code>POST /api/collection/add/</code> adds an issue to a user's collection without marking it as read, and <code>DELETE /api/collection/{id}/</code> removes an item — closing the gap where PullList and WishList already had add/remove endpoints but Collection did not.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rate-limit-monitoring">Rate Limit Monitoring<a href="https://metron-project.github.io/blog/august-2026-update#rate-limit-monitoring" class="hash-link" aria-label="Direct link to Rate Limit Monitoring" title="Direct link to Rate Limit Monitoring" translate="no">​</a></h2>
+<p><strong>No more duplicate notices for the same spike.</strong> The repeat-offender scan added last month only looked at the trailing lookback window with no memory of what had already been reported, so a single throttling spike could trigger a second notice on a later run purely because the window still overlapped the same day. The notifier now tracks each account's most recent notice date and ignores throttling on or before it, so only new activity after the last notice can trigger another one — a prerequisite for eventually moving this to an unattended daily schedule.</p>
+<p><strong>Clearer notice wording.</strong> The throttle notice and enforcement e-mails (HTML and text) previously read oddly for a single extreme day — "over the past several days" / "across 1 day, including X in a single day" — and now word single-day triggers naturally. The per-candidate summary in <code>notify_throttled_clients</code> also now shows how many times an account has already been notified, so admins can see escalation history at a glance instead of inferring it from the enforce/warn verb.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="account-security">Account Security<a href="https://metron-project.github.io/blog/august-2026-update#account-security" class="hash-link" aria-label="Direct link to Account Security" title="Direct link to Account Security" translate="no">​</a></h2>
+<p><strong>Client IP logged for signup, activation, and API auth.</strong> Signup and account-activation log lines now include the client IP in the same <code>(user=, ip=)</code> format already used for API authentication, and API auth logging now includes the client IP too — making it possible to grep logs and correlate a single IP behind multiple usernames, or against Basic Auth deprecation metrics. <a href="https://github.com/Metron-Project/metron/blob/master/DEPLOYMENT.md" target="_blank" rel="noopener noreferrer" class="">DEPLOYMENT.md</a> documents the <code>journalctl</code> commands for that lookup.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://metron-project.github.io/blog/august-2026-update#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h2>
+<p><strong>Duplicate read-date calendar widgets.</strong> Unrelated <code>htmx</code> swaps on the collection detail page (e.g. rating an issue) re-scanned the whole document and stacked a new calendar widget onto the read-date input each time, since the vendored calendar library's own "already attached" check doesn't work. Re-initialization is now scoped to just the swapped fragment.</p>
+<p><strong>Empty sort dropdown on secondary issue lists.</strong> Only the main issue, week, next-week, and future list views wired up the sort dropdown; every other view that renders the issue list template — series, arc, creator, character, universe, and team pages — left it unset, so the dropdown appeared empty and sorting silently did nothing. All of them now share the same sort helpers.</p>
+<p><strong>Publisher detail page crash on imprints/universes.</strong> The publisher detail page and its HTMX load-more endpoints raised a <code>TemplateSyntaxError</code> on any publisher with imprints or universes, since the <code>{% blocktrans count %}</code> tags in the template referenced <code>series_count</code>/<code>issue_count</code> annotations the view's querysets didn't actually provide. A first fix annotated the querysets, but missed that a correlated subquery returns <code>NULL</code> rather than <code>0</code> for an imprint with no series or a universe with no issues — which still crashed on publishers with empty imprints/universes, like DC Comics. Both counts are now coalesced to <code>0</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ui-improvements">UI Improvements<a href="https://metron-project.github.io/blog/august-2026-update#ui-improvements" class="hash-link" aria-label="Direct link to UI Improvements" title="Direct link to UI Improvements" translate="no">​</a></h2>
+<p><strong>Copy-confirmation feedback on the API token page.</strong> The "copy" button on the API token page now shows the same checkmark/"Copied" confirmation already used for the identification number copy buttons on the issue detail page.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="developer-experience">Developer Experience<a href="https://metron-project.github.io/blog/august-2026-update#developer-experience" class="hash-link" aria-label="Direct link to Developer Experience" title="Direct link to Developer Experience" translate="no">​</a></h2>
+<p><strong>Faster test suite.</strong> Switching to MD5 password hashing under pytest and reusing the test database between runs (<code>--reuse-db</code>) cut the full test suite from roughly 13m40s to 51s — full PBKDF2 hashing on every user fixture had been the dominant cost by far. An unused issue-ratings backfill management command (and its tests) was also removed.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tooling-releases">Tooling Releases<a href="https://metron-project.github.io/blog/august-2026-update#tooling-releases" class="hash-link" aria-label="Direct link to Tooling Releases" title="Direct link to Tooling Releases" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mokkari-460">Mokkari 4.6.0<a href="https://metron-project.github.io/blog/august-2026-update#mokkari-460" class="hash-link" aria-label="Direct link to Mokkari 4.6.0" title="Direct link to Mokkari 4.6.0" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>4.5.0</strong> - Adds <code>alt_names</code> (Publisher) and <code>language</code> (Series) fields, and widens <code>PricePost.currency</code> to include EUR/ITL, matching the <a href="https://metron-project.github.io/blog/august-2026-update#italian-comics-support" class="">Italian comics support</a> above. Also adds <code>collection_add</code> and <code>collection_delete</code> methods for the new Collection add/remove endpoints.</li>
+<li class=""><strong>4.6.0</strong> - Tracks Metron's new <code>X-Cache</code> header via <code>Session.last_cache_status</code>, reflecting whether the most recent cacheable request was served from cache (<code>"HIT"</code>) or generated fresh (<code>"MISS"</code>).</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="metron-tagger-4150">Metron-Tagger 4.15.0<a href="https://metron-project.github.io/blog/august-2026-update#metron-tagger-4150" class="hash-link" aria-label="Direct link to Metron-Tagger 4.15.0" title="Direct link to Metron-Tagger 4.15.0" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>4.15.0</strong> - Updates to Mokkari 4.6.0 and wires series language through to <code>Metadata.series.language</code>, written as the <code>lang</code> attribute on <code>MetronInfo.xml</code>'s <code>Series</code> element.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-trok-010">New: Trok 0.1.0<a href="https://metron-project.github.io/blog/august-2026-update#new-trok-010" class="hash-link" aria-label="Direct link to New: Trok 0.1.0" title="Direct link to New: Trok 0.1.0" translate="no">​</a></h3>
+<p><a href="https://github.com/Metron-Project/trok" target="_blank" rel="noopener noreferrer" class="">Trok</a> is a new .NET library for reading, writing, and validating <code>MetronInfo.xml</code> files, targeting .NET 10 — the <a class="" href="https://metron-project.github.io/blog/metroninfo-v1-1">MetronInfo.xsd</a> counterpart to Darkseid on the Python side. <code>Read</code>/<code>Write</code> work against POCOs under the <code>MetronInfo.Xml.Models</code> namespace that mirror the schema's elements and attributes, and <code>Validate</code> checks a document against an embedded copy of the schema, plus separately enforces the "at most one <code>primary=\"true\"</code>" rules on <code>IDS/ID</code> and <code>URLs/URL</code> that the schema expresses as XSD 1.1 <code>xs:assert</code> rules .NET's built-in XSD 1.0 validator can't evaluate on its own. Published to <a href="https://www.nuget.org/packages/MetronInfo.Xml" target="_blank" rel="noopener noreferrer" class="">NuGet.org</a>. See the <a class="" href="https://metron-project.github.io/docs/trok">docs</a> for full usage examples.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/august-2026-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
+<p>A huge thank you to everyone who has contributed to our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a>! Your support makes a real difference in keeping the Metron Project running and growing.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-your-contributions-support">What Your Contributions Support<a href="https://metron-project.github.io/blog/august-2026-update#what-your-contributions-support" class="hash-link" aria-label="Direct link to What Your Contributions Support" title="Direct link to What Your Contributions Support" translate="no">​</a></h3>
+<p>Funds from Open Collective go directly toward:</p>
+<ul>
+<li class=""><strong>Server hosting costs</strong> - Keeping the Metron website and API available</li>
+<li class=""><strong>Domain registration</strong> - Annual domain name renewals</li>
+<li class=""><strong>Future capacity increases</strong> - Scaling resources as the database and user base grows</li>
+</ul>
+<p>All expenses are transparent and publicly viewable on our <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective page</a>, so you can see exactly where every dollar goes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="support-the-project">Support the Project<a href="https://metron-project.github.io/blog/august-2026-update#support-the-project" class="hash-link" aria-label="Direct link to Support the Project" title="Direct link to Support the Project" translate="no">​</a></h3>
+<p>As covered in our <a class="" href="https://metron-project.github.io/blog/supporter-rate-limits">supporter rate limits post</a>, donors now automatically get an elevated daily API rate limit. Any contribution, at any tier, genuinely helps keep Metron free for the whole community.</p>
+<hr>
+<p>Thanks to everyone who contributed issues, pull requests, and feedback this month. As always, the project is open source and community contributions are welcome.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="api" term="api"/>
+        <category label="features" term="features"/>
+        <category label="opencollective" term="opencollective"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[July 2026 Updates]]></title>
         <id>https://metron-project.github.io/blog/july-2026-update</id>
@@ -1735,40 +1823,5 @@ server capacity.</p>
         <category label="metrontagger" term="metrontagger"/>
         <category label="tradepaperback" term="tradepaperback"/>
         <category label="tpb" term="tpb"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[August 2025 News]]></title>
-        <id>https://metron-project.github.io/blog/august-2025-update</id>
-        <link href="https://metron-project.github.io/blog/august-2025-update"/>
-        <updated>2025-09-02T12:51:00.000Z</updated>
-        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/august-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
-<p>During August the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
-<ul>
-<li class="">Users: <strong>52</strong></li>
-<li class="">Issues: <strong>1,822</strong></li>
-<li class="">Creators: <strong>182</strong></li>
-<li class="">Characters: <strong>332</strong></li>
-</ul>
-<p>Thanks to everyone that contributed!</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="comictagger">ComicTagger<a href="https://metron-project.github.io/blog/august-2025-update#comictagger" class="hash-link" aria-label="Direct link to ComicTagger" title="Direct link to ComicTagger" translate="no">​</a></h2>
-<p>Due to some API usage problems support for Metron was removed from <a href="https://github.com/comictagger/comictagger/issues/783" target="_blank" rel="noopener noreferrer" class="">ComicTagger</a>. This was primarily done since ComicTagger was designed with Comic Vine's API in mind and Metron's API differs enough that ComicTagger was using 2-14x the number of API requests compared to other clients for the same data.</p>
-<p>For example, someone tagging their <a href="https://metron.cloud/series/captain-america-1968/" target="_blank" rel="noopener noreferrer" class="">Captain America</a> series would be using around 4,616 API calls with ComicTagger compared to about 355 API calls if they had used <a href="https://github.com/Metron-Project/metron-tagger" target="_blank" rel="noopener noreferrer" class="">Metron-Tagger</a>. Due to trying to keep up with this additional load, we've had to upgrade our server specs twice this summer and came to the conclusion this wasn't sustainable in the long term.</p>
-<p>So, after September 12th you will be unable to useComic Tagger to tag your comics,but if you still wish to use Metron for tagging, you can use Metron-Tagger or <a href="https://github.com/Buried-In-Code/Perdoo" target="_blank" rel="noopener noreferrer" class="">Perdoo</a>. If you have any questions or concerns don't hesitate to reach out on <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer" class="">Matrix</a>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/august-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
-<p>If you would like to help keep the lights on at the project, we have an account at
-<a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a> to defray the servers costs and help with increasing future
-server capacity.</p>
-<p>Anyway, that's all I got for this month. Take care!</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="metadata" term="metadata"/>
-        <category label="metron" term="metron"/>
-        <category label="opencollective" term="opencollective"/>
-        <category label="comictagger" term="comictagger"/>
-        <category label="metrontagger" term="metrontagger"/>
     </entry>
 </feed>
