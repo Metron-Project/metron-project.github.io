@@ -2,11 +2,10 @@
 slug: august-2026-update
 title: August 2026 Updates
 authors: [bpepple]
-tags: [release]
+tags: [api, features, opencollective]
 date: 2026-09-01
 ---
-
-TODO: intro summary paragraph.
+During August, Metron added its first internationalization support — a fully translatable UI with an Italian pilot translation, plus data model changes to support non-USD, non-English comics — alongside Redis-backed caching for the API's read endpoints, an average series rating with a fractional star display, and four new series genres. On the tooling side, [Trok](https://github.com/Metron-Project/trok) had its first public release, a new .NET library for reading and writing `MetronInfo.xml`. Here's everything that landed, plus the usual bug fixes and quality-of-life improvements.
 
 <!-- truncate -->
 
@@ -14,11 +13,11 @@ TODO: intro summary paragraph.
 
 During August the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TODO**
-- Issues: **TODO**
-- Creators: **TODO**
-- Characters: **TODO**
-- Reading Lists: **TODO**
+- Users: **583**
+- Issues: **8,817**
+- Creators: **876**
+- Characters: **1,191**
+- Reading Lists: **19**
 
 ## Internationalization
 
@@ -89,10 +88,6 @@ Four new genres are now available for tagging series:
 
 **Faster test suite.** Switching to MD5 password hashing under pytest and reusing the test database between runs (`--reuse-db`) cut the full test suite from roughly 13m40s to 51s — full PBKDF2 hashing on every user fixture had been the dominant cost by far. An unused issue-ratings backfill management command (and its tests) was also removed.
 
-## Dependency Upgrades
-
-TODO
-
 ## Tooling Releases
 
 ### Mokkari 4.6.0
@@ -107,10 +102,6 @@ TODO
 ### New: Trok 0.1.0
 
 [Trok](https://github.com/Metron-Project/trok) is a new .NET library for reading, writing, and validating `MetronInfo.xml` files, targeting .NET 10 — the [MetronInfo.xsd](/blog/metroninfo-v1-1) counterpart to Darkseid on the Python side. `Read`/`Write` work against POCOs under the `MetronInfo.Xml.Models` namespace that mirror the schema's elements and attributes, and `Validate` checks a document against an embedded copy of the schema, plus separately enforces the "at most one `primary=\"true\"`" rules on `IDS/ID` and `URLs/URL` that the schema expresses as XSD 1.1 `xs:assert` rules .NET's built-in XSD 1.0 validator can't evaluate on its own. Published to [NuGet.org](https://www.nuget.org/packages/MetronInfo.Xml). See the [docs](/docs/trok) for full usage examples.
-
-## Future Projects
-
-TODO
 
 ## OpenCollective
 
