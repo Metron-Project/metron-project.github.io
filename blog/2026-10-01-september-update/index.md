@@ -2,11 +2,11 @@
 slug: september-2026-update
 title: September 2026 Updates
 authors: [bpepple]
-tags: [api, bugfix]
+tags: [api, ui, bugfix]
 date: 2026-10-01
 ---
 <!-- DRAFT: work in progress, being filled in as the month goes on. -->
-During September the series list endpoint picked up new fields and a serializer consolidation, the API cache invalidation work from [last month](/blog/august-2026-update#api-response-caching) was extended to close its remaining staleness gaps, and a 500 error on invalid API lookups was fixed. The issue endpoint also gained a `cover_date_range` filter, a bug that dropped `Retry-After` from some 429 responses was fixed, and Mokkari shipped an opt-in rate-limiter pacing gate plus connection pooling. Here's everything that landed so far, plus the usual bug fixes and quality-of-life improvements.
+During September the pull list page was redesigned around upcoming releases, the series list endpoint picked up new fields and a serializer consolidation, the API cache invalidation work from [last month](/blog/august-2026-update#api-response-caching) was extended to close its remaining staleness gaps, and a 500 error on invalid API lookups was fixed. The issue endpoint also gained a `cover_date_range` filter, a bug that dropped `Retry-After` from some 429 responses was fixed, and Mokkari shipped an opt-in rate-limiter pacing gate plus connection pooling. Here's everything that landed so far, plus the usual bug fixes and quality-of-life improvements.
 
 <!-- truncate -->
 
@@ -21,6 +21,22 @@ During September the [Metron Project](https://metron.cloud/) added the following
 - Creators: **TBD**
 - Characters: **TBD**
 - Reading Lists: **TBD**
+
+## Pull List Redesign
+
+![Redesigned pull list page, showing a final order cutoff warning, upcoming issues grouped by release day, and the series sidebar](pull-list-redesign.png "Redesigned Pull List")
+
+The [pull list](https://metron.cloud/pull-list/) page has been reworked into an upcoming-releases view. The header now summarizes how many series you follow, how many issues are coming up, and the date of the next release, with the **Add a series** search moved up alongside it.
+
+**Upcoming issues grouped by release day.** Issues with a store date on or after today are grouped under their release day, each group showing a countdown ("Today", "In 5 days", "In 1 week, 5 days") and its issue count. A toggle at the top of the panel switches between a compact list and a grid of covers. Up to 50 upcoming issues are shown at a time.
+
+**Final order cutoff warnings.** Comic shops need to place their orders before a publisher's final order cutoff (FOC). Any issue whose FOC falls within the next 7 days gets a yellow tag and is listed in a warning banner at the top of the page, grouped by cutoff date, so you can let your shop know in time. Issues with a later FOC show it as a blue tag instead. The banner, like the header counts, always covers your whole pull list, even while filtering.
+
+**Series sidebar with filtering.** The series panel lists every series you follow along with the date of its next issue (or "No upcoming issues"). Selecting a series narrows the upcoming list to just that series; selecting it again, or clicking **Clear filter**, shows everything again. Filtering and switching views are handled with [HTMX](https://htmx.org/), so the page doesn't reload, and the URL updates so you can bookmark a filtered view.
+
+**Remove with Undo.** Series are now removed inline with the **×** button — no more separate confirmation page — and a notification names the removed series with an **Undo** button in case you clicked the wrong one. Your current filter and view are kept across both removing and undoing.
+
+**Dark mode fixes.** Several fixed-colour styles on the page were replaced with theme-aware equivalents, so the pull list now renders properly in dark mode. Italian translations were also updated for all the new strings.
 
 ## API Improvements
 
