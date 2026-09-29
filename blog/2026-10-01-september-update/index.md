@@ -80,6 +80,27 @@ The [pull list](https://metron.cloud/pull-list/) page has been reworked into an 
 - **4.7.1** - Drops `issue_count` from `PullListSeriesDetail` again, matching Metron [dropping it from the pull_list endpoint's response](#api-improvements) once it turned out nothing ever populated it.
 - **4.8.0** - Adds an opt-in `rate_limiter` pacing gate to `Session`: a `RateLimiter` protocol a caller can implement to block until capacity frees, plus `HeaderPacedRateLimiter`, a reference implementation that paces requests from Metron's `X-RateLimit-*` headers instead of `Session`'s default fail-fast check — raising on an exhausted daily window rather than silently blocking for hours. Bounds pagination's 429 retries so a sustained rate limit (or a non-blocking custom limiter) can no longer hang a list call forever, now that Metron always sends `Retry-After` on a 429 ([above](#bug-fixes)). Reuses a single pooled `requests.Session` instead of paying a fresh TCP+TLS handshake per request.
 
+## For App Developers: Don't Run Every Install at the Same Time
+
+If you maintain an application that other people install and run, and it talks to Metron on a schedule, please don't have every install run its scheduled jobs at the same time. Personal scripts are fine; this is about software that many people run.
+
+This has happened more than once. The traffic from a third-party app shows up as a sharp spike at the same time every day, or every hour, because every install of that app is running the same job at the same moment. The time varies from app to app: sometimes it's midnight UTC, sometimes the top of the hour, and sometimes whatever time the app ships as its default.
+
+Often nothing in the app's code sets that time directly. In the most recent case, the app used a job queue with a "repeat every 24 hours" option, and that queue lines interval jobs up with the Unix epoch instead of the time the server started. Every install with the default 24-hour interval therefore ran at exactly 00:00 UTC, no matter where it was or when it was started.
+
+Each install stays inside its own rate limit, but they all hit the same server at once. When that happens, responses slow down for everyone, including people using the site at that time.
+
+A few ways to avoid it:
+
+- **Pick a random offset once per install and save it.** For example, choose a random minute and hour on first run, store it in the app's settings, and use it to build the cron expression or pass it as the scheduler's offset. Each install still runs once a day, but the installs are spread across the whole day.
+- **Check how your scheduler works out "every N hours".** Some schedulers count from when the job was registered. Others, like BullMQ's `repeat.every`, line up with the epoch. Cron patterns like `0 0 * * *` or `@daily` always run at the same wall-clock time on every machine.
+- **Don't ship a fixed time as the default.** Most users never change the default, so whatever time you ship, whether it's midnight, 3 AM, or the top of the hour, is the time nearly every install uses.
+- **Add jitter to retries as well.** If every install retries after a failure with the same fixed delay, they'll all come back at the same moment too.
+- **Only fetch what you need.** Filter by the series the user actually follows (for example with `series_id`) instead of pulling every upcoming issue and filtering locally. It cuts the number of requests for both you and us.
+- **Respect the rate limit headers.** Honor `Retry-After` on a 429, and use the `X-RateLimit-*` headers to pace your requests. If you're using Mokkari, 4.8.0's [`HeaderPacedRateLimiter`](#mokkari-480) does this for you.
+
+If you're not sure whether your app is affected, feel free to ask on [Matrix](https://matrix.to/#/#metron-general:matrix.org) and we'll help check.
+
 ## OpenCollective
 
 A huge thank you to everyone who has contributed to our [Open Collective](https://opencollective.com/metron)! Your support makes a real difference in keeping the Metron Project running and growing.
