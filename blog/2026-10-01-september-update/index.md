@@ -2,11 +2,11 @@
 slug: september-2026-update
 title: September 2026 Updates
 authors: [bpepple]
-tags: [api, ui, bugfix]
+tags: [api, ui, bugfix, opencollective]
 date: 2026-10-01
 ---
 <!-- DRAFT: work in progress, being filled in as the month goes on. -->
-During September the pull list page was redesigned around upcoming releases, the series list endpoint picked up new fields and a serializer consolidation, the API cache invalidation work from [last month](/blog/august-2026-update#api-response-caching) was extended to close its remaining staleness gaps, and a 500 error on invalid API lookups was fixed. The issue endpoint also gained a `cover_date_range` filter, a bug that dropped `Retry-After` from some 429 responses was fixed, and Mokkari shipped an opt-in rate-limiter pacing gate plus connection pooling. Here's everything that landed so far, plus the usual bug fixes and quality-of-life improvements.
+During September the pull list page was redesigned around upcoming releases, the series list endpoint picked up new fields and a serializer consolidation, the API cache invalidation work from [last month](/blog/august-2026-update#api-response-caching) was extended to close its remaining staleness gaps, and a 500 error on invalid API lookups was fixed. The issue endpoint also gained a `cover_date_range` filter, a bug that dropped `Retry-After` from some 429 responses was fixed, and Mokkari shipped an opt-in rate-limiter pacing gate plus connection pooling. If you donate on Open Collective, please [don't contribute as Incognito](/blog/september-2026-update#dont-contribute-as-incognito); Metron can't link an Incognito contribution to your account. Here's everything that landed so far, plus the usual bug fixes and quality-of-life improvements.
 
 <!-- truncate -->
 
@@ -118,6 +118,16 @@ All expenses are transparent and publicly viewable on our [Open Collective page]
 ### Support the Project
 
 As covered in our [supporter rate limits post](/blog/supporter-rate-limits), donors now automatically get an elevated daily API rate limit. Any contribution, at any tier, genuinely helps keep Metron free for the whole community.
+
+### Don't Contribute as Incognito
+
+When you contribute on Open Collective, you can choose to contribute as **Incognito**. Please don't use that option if you want the [supporter rate limit](/blog/supporter-rate-limits).
+
+Metron matches each contribution to an account by the contributor's email address. Open Collective doesn't share an Incognito contributor's email, so Metron has nothing to match, and the elevated rate limit is never applied to your account. This applies to recurring donations as well: every monthly charge from an Incognito contribution is skipped the same way.
+
+When you contribute, use your normal profile and the same email address that's confirmed on your Metron account. Your email isn't shown publicly on Open Collective either way.
+
+If you've already contributed as Incognito and your profile page doesn't show a supporter tier, [e-mail me](mailto:bpepple@metron.cloud) with your Open Collective order number and I'll apply it by hand.
 
 ---
 
