@@ -16,6 +16,8 @@ Every hour, Metron checks for new contributions on our Open Collective page and 
 
 There's nothing to sign up for beyond donating — no separate subscription flow, no promo code. If your donation's email matches your account, your profile page will show your active tier and when it expires the next time the sync runs.
 
+> **Update (2026-10-01):** Don't choose the **Incognito** option when you contribute on Open Collective. Open Collective doesn't share an Incognito contributor's email address, so Metron can't match the contribution to your account and the elevated rate limit is never applied. This includes recurring donations: every monthly charge from an Incognito contribution is skipped. Contribute with your normal profile and the email address that's confirmed on your Metron account. Your email isn't shown publicly on Open Collective either way. If you've already contributed as Incognito, [e-mail me](mailto:bpepple@metron.cloud) with your Open Collective order number and I'll apply it by hand. See the [September 2026 update](/blog/september-2026-update#dont-contribute-as-incognito) for details.
+
 ## The Tiers
 
 Your tier is based on how much you've given during your current supporter period:
