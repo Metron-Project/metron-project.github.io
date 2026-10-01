@@ -16,11 +16,11 @@ During September the pull list page was redesigned around upcoming releases, the
 
 During September the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TBD**
-- Issues: **TBD**
-- Creators: **TBD**
-- Characters: **TBD**
-- Reading Lists: **TBD**
+- Users: **521**
+- Issues: **3,386**
+- Creators: **463**
+- Characters: **987**
+- Reading Lists: **20**
 
 ## Pull List Redesign
 
