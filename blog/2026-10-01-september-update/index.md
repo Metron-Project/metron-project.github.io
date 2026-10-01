@@ -5,8 +5,7 @@ authors: [bpepple]
 tags: [api, ui, bugfix, opencollective]
 date: 2026-10-01
 ---
-<!-- DRAFT: work in progress, being filled in as the month goes on. -->
-During September the pull list page was redesigned around upcoming releases, the series list endpoint picked up new fields and a serializer consolidation, the API cache invalidation work from [last month](/blog/august-2026-update#api-response-caching) was extended to close its remaining staleness gaps, and a 500 error on invalid API lookups was fixed. The issue endpoint also gained a `cover_date_range` filter, a bug that dropped `Retry-After` from some 429 responses was fixed, and Mokkari shipped an opt-in rate-limiter pacing gate plus connection pooling. If you donate on Open Collective, please [don't contribute as Incognito](/blog/september-2026-update#dont-contribute-as-incognito); Metron can't link an Incognito contribution to your account. Here's everything that landed so far, plus the usual bug fixes and quality-of-life improvements.
+September brought a redesigned pull list built around upcoming releases, new fields and a `cover_date_range` filter in the API, and fixes for stale API cache entries, Redis stalls that caused API 500s, and missing `Retry-After` headers on some 429 responses. Mokkari 4.8.0 adds optional rate-limit pacing and connection pooling. If you donate on Open Collective, please [don't contribute as Incognito](/blog/september-2026-update#dont-contribute-as-incognito), because Metron can't link an Incognito contribution to your account. Here's the full rundown.
 
 <!-- truncate -->
 
@@ -52,7 +51,13 @@ The [pull list](https://metron.cloud/pull-list/) page has been reworked into an 
 
 **Universe and Team rename staleness.** `IssueViewSet` now tracks Universe renames (measured at a low ~180 historical saves site-wide — lower write volume than Publisher, which was already tracked), and `CharacterViewSet`/`TeamViewSet` now track Universe and Team renames too (~3.1k saves for Team). Creator-driven staleness on Character/Team/Issue, and Genre-driven staleness on Series, are accepted as-is — Creator's write volume (~17.8k-18.6k saves) is roughly 100x Universe's and risks reproducing the cache-thrashing regression already fixed for Series, while Genre names are effectively static. Issue rating changes also intentionally continue to skip Issue cache invalidation, since ratings churn far more than any other field on popular issues.
 
-**Detail cache TTL raised to 96h.** The safety-net TTL for cached detail responses — self-invalidating on write regardless of TTL — went from 48h to 72h and then to 96h this month. Cache effectiveness can now also be read straight from production logs: gunicorn's access log gained a `cache=` field carrying the same `X-Cache` HIT/MISS status the API response already sets, and [DEPLOYMENT.md](https://github.com/Metron-Project/metron/blob/master/DEPLOYMENT.md) documents computing a day's hit rate from it, with a variant that excludes list endpoints since their short TTL skews the raw rate toward MISS.
+**Detail cache TTL adjustments.** The safety-net TTL for cached detail responses — self-invalidating on write regardless of TTL — went from 48h to 72h, 96h, and briefly 5 days this month, before being brought back down to 3 days while the Redis configuration is tuned (see below). Cache effectiveness can now also be read straight from production logs: gunicorn's access log gained a `cache=` field carrying the same `X-Cache` HIT/MISS status the API response already sets, and [DEPLOYMENT.md](https://github.com/Metron-Project/metron/blob/master/DEPLOYMENT.md) documents computing a day's hit rate from it, with a variant that excludes list endpoints since their short TTL skews the raw rate toward MISS.
+
+**Redis stalls and API 500s.** Late in the month some `/api/issue/` requests started failing with 500 errors. The cause was Redis itself: it ran with AOF persistence enabled on top of the default RDB snapshot rules, and with the constant stream of throttle writes, a ~700MB snapshot kicked off roughly every 5 minutes and took ~35s each time. That disk contention blocked AOF fsyncs, causing 400-700ms latency spikes and occasional 5s+ pauses, long enough for the API throttle's cache read to hit redis-py's 5s socket timeout and raise an uncaught `TimeoutError`. Since everything Metron keeps in Redis is disposable, AOF is now disabled, snapshots happen at most hourly (still enough to keep the `sorl-thumbnail` index across restarts), and memory is capped at 1GB with `volatile-lru`, so only cache entries with a TTL are ever evicted. Separately, Metron's cache backend is now a fail-open subclass of Django's `RedisCache`: any Redis error is logged and treated as a cache miss (reads return the default, writes are skipped) instead of turning into a 500. While Redis is failing, rate limits aren't enforced and list-cache version bumps are dropped, the latter bounded by the 2-minute list TTL.
+
+## Site Improvements
+
+**Calendar picker for issue filter dates.** The Store Date and FOC Date From/To filters on the issue list and weekly release pages now use the same bulma-calendar widget as the issue form instead of the browser's native date inputs. Unlike on the issue form, the clear button stays enabled so a date filter can be removed after it's set.
 
 ## Bug Fixes
 
@@ -64,11 +69,15 @@ The [pull list](https://metron.cloud/pull-list/) page has been reworked into an 
 
 **Missing `Retry-After` on some 429 responses.** DRF's throttle `wait()` returns `None` once a user already has more requests in the current window than the (possibly just-lowered) limit allows, and the exception handler only set `Retry-After` when `wait()` was truthy — so those 429s went out with no `Retry-After` at all. The accompanying `X-RateLimit-*-Reset` headers were also wrong in that case: they reported when only the oldest request expires, rather than when enough of them expire to actually free a slot, so a client that waited until Reset could be rejected again. Both are now computed from the same corrected calculation.
 
+**Issue date pickers stopped at 1976.** The bulma-calendar widget on the issue form was initialised without a minimum date, and it builds its year list as the visible date ±50 years, so cover, store, and FOC dates before 1976 couldn't be picked even though the form's validation accepts years back to 1900. The picker now allows dates back to 1900, using the same minimum year as the server-side check. The creator birth and death date pickers had the same limit and were fixed too. Thanks to [Wendel Ortiz](https://github.com/Ort0x36) for the fix!
+
 ## Developer Experience
 
 **Fixed `.env.example` missing required settings.** `settings.py` reads `STATIC_ROOT` and `MEDIA_ROOT` through `config()` with no default whenever `DEBUG` is on, and the example file sets `DEBUG=True` — so copying it as-is raised `UndefinedValueError` on `manage.py` before anything else could run. Both variables are now declared, and `staticfiles/`/`media/` were added to `.gitignore`.
 
 **Upgraded to Django 6.1.1.** Email settings were also migrated ahead of Django 7.0: the deprecated `EMAIL_*` settings are replaced by `settings.MAILERS`, and mail-sending call sites moved off the deprecated `get_connection()`/`EmailMessage(connection=...)` API onto `mail.mailers.default` and `send(using="default")`, clearing the `RemovedInDjango70Warning` the old API raised throughout the test suite.
+
+**nginx log rotation.** nginx was writing every request both to its log file and to stdout, so each one also landed in the systemd journal; together with gunicorn's access log, that filled journald's default 4G cap in about 9 days, and the never-rotated log file had grown to 4.5G. The stdout copy is gone (fail2ban only reads the file), a `logrotate` config now rotates the nginx logs daily, and [DEPLOYMENT.md](https://github.com/Metron-Project/metron/blob/master/DEPLOYMENT.md) documents installing it along with a larger journald size limit.
 
 **Retired the nginx-429 fail2ban jail.** The jail had already been disabled on the server since the `notify_throttled_clients` management command took over — its 429 counts from the logs now feed the throttle-notice e-mails instead.
 
@@ -78,7 +87,16 @@ The [pull list](https://metron.cloud/pull-list/) page has been reworked into an 
 
 - **4.7.0** - Adds `publisher`, `series_type`, `cv_id`, and `gcd_id` to the series schema, and `issue_count` to `PullListSeriesDetail`, matching the [series list endpoint changes](#api-improvements) above. Bumps pyright to target Python 3.14. Upgrades the ESLint toolchain to v10, removing unused dead dependencies and swapping the unmaintained `eslint-plugin-eslint-comments` for the maintained `@eslint-community` fork.
 - **4.7.1** - Drops `issue_count` from `PullListSeriesDetail` again, matching Metron [dropping it from the pull_list endpoint's response](#api-improvements) once it turned out nothing ever populated it.
-- **4.8.0** - Adds an opt-in `rate_limiter` pacing gate to `Session`: a `RateLimiter` protocol a caller can implement to block until capacity frees, plus `HeaderPacedRateLimiter`, a reference implementation that paces requests from Metron's `X-RateLimit-*` headers instead of `Session`'s default fail-fast check — raising on an exhausted daily window rather than silently blocking for hours. Bounds pagination's 429 retries so a sustained rate limit (or a non-blocking custom limiter) can no longer hang a list call forever, now that Metron always sends `Retry-After` on a 429 ([above](#bug-fixes)). Reuses a single pooled `requests.Session` instead of paying a fresh TCP+TLS handshake per request.
+- **4.8.0** - Adds an opt-in `rate_limiter` pacing gate to `Session`: a `RateLimiter` protocol a caller can implement to block until capacity frees, plus `HeaderPacedRateLimiter`, a reference implementation that paces requests from Metron's `X-RateLimit-*` headers instead of `Session`'s default fail-fast check — raising on an exhausted daily window rather than silently blocking for hours. Bounds pagination's 429 retries so a sustained rate limit (or a non-blocking custom limiter) can no longer hang a list call forever, now that Metron always sends `Retry-After` on a 429 ([above](#bug-fixes)). Reuses a single pooled `requests.Session` instead of paying a fresh TCP+TLS handshake per request. Big thanks to [AJ Slater](https://github.com/ajslater) for all his help with this release!
+
+### Darkseid 8.4.1
+
+- **8.4.1** - Fixes `Comic.remove_pages()` reporting success on PDFs while leaving the file unchanged. PDFs count as writable because metadata can be embedded in them, but their pages can't be removed, so `PdfArchiver.remove_files()` now refuses page removals (embedded `ComicInfo.xml`/`MetronInfo.xml` can still be removed). A new `Comic.can_remove_pages()` lets callers check for page-removal support without hard-coding file suffixes. Also documents a single thread-safety contract for the archivers and `Comic`, including PDF's stricter single-thread requirement from PyMuPDF.
+
+### Metron-Tagger 4.16.1
+
+- **4.16.0** - Updates to [Mokkari 4.8.0](#mokkari-480), closing its pooled HTTP connections once a run finishes. The duplicate page scan is much faster: comics are hashed concurrently (one per worker, defaulting to the CPU count capped at 8), and JPEG pages are decoded at reduced size before hashing, since the hash only needs an 8x8 image (about 4x faster for baseline JPEGs). The scan now uses darkseid 8.4.1's `can_remove_pages()` to skip comics whose pages can't be removed, such as CBR and PDF, instead of opening and hashing them.
+- **4.16.1** - Requires darkseid >= 8.4.1.
 
 ## For App Developers: Don't Run Every Install at the Same Time
 
