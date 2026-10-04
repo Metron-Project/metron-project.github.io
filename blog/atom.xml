@@ -2,11 +2,71 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2026-10-01T00:00:00.000Z</updated>
+    <updated>2026-10-04T12:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Using Metron in Commercial Software]]></title>
+        <id>https://metron-project.github.io/blog/commercial-api-use</id>
+        <link href="https://metron-project.github.io/blog/commercial-api-use"/>
+        <updated>2026-10-04T12:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Over the last week I've received quite a few e-mails from app developers, comic shops, and other businesses that want to use the Metron API in their products. Most of them ask the same questions: whether commercial use is allowed, whether one account can serve many users, how to handle attribution, and what the situation is with cover images. Here are the answers in one place.]]></summary>
+        <content type="html"><![CDATA[<p>Over the last week I've received quite a few e-mails from app developers, comic shops, and other businesses that want to use the Metron API in their products. Most of them ask the same questions: whether commercial use is allowed, whether one account can serve many users, how to handle attribution, and what the situation is with cover images. Here are the answers in one place.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="can-i-use-metron-commercially">Can I Use Metron Commercially?<a href="https://metron-project.github.io/blog/commercial-api-use#can-i-use-metron-commercially" class="hash-link" aria-label="Direct link to Can I Use Metron Commercially?" title="Direct link to Can I Use Metron Commercially?" translate="no">​</a></h2>
+<p>Yes. Metron is run by volunteers and isn't a business, but that describes how the project is run. It doesn't limit what you can do with the data. The site's content is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA 4.0), which allows commercial use. Using Metron data in a point-of-sale system, an inventory tool, or software that serves many retailers is fine, as long as you follow the license's attribution and ShareAlike terms (covered <a href="https://metron-project.github.io/blog/commercial-api-use#attribution-and-sharealike" class="">below</a>).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-many-accounts-do-i-need">How Many Accounts Do I Need?<a href="https://metron-project.github.io/blog/commercial-api-use#how-many-accounts-do-i-need" class="hash-link" aria-label="Direct link to How Many Accounts Do I Need?" title="Direct link to How Many Accounts Do I Need?" translate="no">​</a></h2>
+<p>It depends on who is using the data:</p>
+<ul>
+<li class=""><strong>Apps used by many people</strong> (for example, a mobile app, a desktop tagger, or a self-hosted server) need <strong>each user to have their own Metron account</strong>. Have your users sign in with their own account or API token. Don't ship your app with a single built-in account that all of your users share.</li>
+<li class=""><strong>A business using the data for itself</strong> (for example, a comic shop updating its online store with data from Metron, or keeping its own stock records accurate) needs <strong>one account</strong>. That account is for the business, and every request it makes counts toward that account's limits.</li>
+</ul>
+<p>Rate limits apply per account. The standard limits are:</p>
+<ul>
+<li class=""><strong>20 requests per minute</strong></li>
+<li class=""><strong>5,000 requests per day</strong></li>
+</ul>
+<p>Some things that help you stay within them:</p>
+<ul>
+<li class=""><strong>Cache what you fetch.</strong> Comic data doesn't change much once an issue has been released, so store what you've already looked up instead of requesting it again.</li>
+<li class=""><strong>Use API tokens.</strong> <a class="" href="https://metron-project.github.io/blog/token-authentication">Token authentication</a> gives each integration or user its own revocable token instead of an account password. Basic Auth will be retired eventually, so new integrations should start with tokens.</li>
+<li class=""><strong>Read the rate limit headers.</strong> Use the <code>X-RateLimit-*</code> headers and <code>Retry-After</code> to pace requests instead of hardcoding a budget. The <a class="" href="https://metron-project.github.io/blog/api-best-practices">API best practices post</a> covers this, along with other ways to cut down on requests.</li>
+<li class=""><strong>Spread out scheduled jobs.</strong> If your app is installed by many people, don't have every install sync at the same time. See <a class="" href="https://metron-project.github.io/blog/september-2026-update#for-app-developers-dont-run-every-install-at-the-same-time">this section of the September update</a> for why this matters.</li>
+</ul>
+<p>If a business account needs more than 5,000 requests a day, a donation through <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a> raises the daily limit for the account it's matched to, up to 25,000 requests a day. The <a class="" href="https://metron-project.github.io/blog/supporter-rate-limits">supporter rate limits post</a> explains how the tiers work. Please don't create extra accounts to get around the limits.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="attribution-and-sharealike">Attribution and ShareAlike<a href="https://metron-project.github.io/blog/commercial-api-use#attribution-and-sharealike" class="hash-link" aria-label="Direct link to Attribution and ShareAlike" title="Direct link to Attribution and ShareAlike" translate="no">​</a></h2>
+<p>The CC BY-SA 4.0 license has two main requirements:</p>
+<p><strong>Attribution.</strong> Wherever you show Metron data to people, credit Metron, link to the source and the license, and say if you've changed the data. For example:</p>
+<blockquote>
+<p>Comic data from <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron</a>, licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="">CC BY-SA 4.0</a>.</p>
+</blockquote>
+<p>A line like this on an "about" or credits screen, or in the footer of pages that show the data, is enough. You don't need to credit every individual record.</p>
+<p><strong>ShareAlike.</strong> If you publish or distribute material that is adapted from Metron's data, such as a public catalogue, a dataset you share, or an export you give to other businesses, that material must also be released under CC BY-SA 4.0 (or a <a href="https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses/" target="_blank" rel="noopener noreferrer" class="">compatible license</a>). ShareAlike covers what you share with others. Data you keep inside your own system to check your stock against isn't distributed, so it doesn't trigger ShareAlike. This applies only to the data from Metron, not to the rest of your software.</p>
+<p>This is my reading of the license, not legal advice. If your use case is unusual, the <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="">license deed</a> and Creative Commons' <a href="https://creativecommons.org/faq/" target="_blank" rel="noopener noreferrer" class="">FAQ</a> are good places to check.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cover-images">Cover Images<a href="https://metron-project.github.io/blog/commercial-api-use#cover-images" class="hash-link" aria-label="Direct link to Cover Images" title="Direct link to Cover Images" translate="no">​</a></h2>
+<p>Metron doesn't hold a license for cover images, and they are <strong>not</strong> covered by the site's CC BY-SA license. Each cover's copyright belongs to its publisher or creators. Metron hosts covers as fair use: they're mostly the same images publishers release for solicitations, and they're shown so people can identify issues.</p>
+<p>That fair-use reasoning applies to how Metron uses the images. It doesn't automatically extend to your use. Fair use is a US doctrine, and other countries' rules differ; the UK's "fair dealing" exceptions, for example, are narrower. If you want to show covers in your software, you'll need to decide for yourself whether that's allowed where you operate, or get permission from the publishers. Many publishers and distributors provide cover images to retailers for this purpose. Using Metron only to identify comics, and not using its images, avoids the question entirely.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="supporting-the-project">Supporting the Project<a href="https://metron-project.github.io/blog/commercial-api-use#supporting-the-project" class="hash-link" aria-label="Direct link to Supporting the Project" title="Direct link to Supporting the Project" translate="no">​</a></h2>
+<p>Donations are very welcome. Metron is free to use, but the servers aren't free to run, and API traffic, much of it from integrations like the one described here, is the main reason hosting costs keep going up. Contributions through <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a> pay for:</p>
+<ul>
+<li class=""><strong>Server hosting costs</strong>: keeping the website and API available</li>
+<li class=""><strong>Domain registration</strong>: annual domain renewals</li>
+<li class=""><strong>Future capacity increases</strong>: more resources as the database and API usage grow</li>
+</ul>
+<p>All expenses are listed publicly on the <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective page</a>. Businesses can contribute as an organization, either one-time or recurring. If you want the contribution to raise your integration's rate limit, use the email address that's confirmed on the Metron account your service uses, and <a class="" href="https://metron-project.github.io/blog/september-2026-update#dont-contribute-as-incognito">don't contribute as Incognito</a>.</p>
+<p>If you'd like to discuss a larger sponsorship or anything that doesn't fit Open Collective, <a href="mailto:bpepple@metron.cloud" target="_blank" rel="noopener noreferrer" class="">e-mail me</a>.</p>
+<hr>
+<p>Thanks to everyone who asked these questions before starting, rather than finding out afterwards. If your business is thinking about using Metron and has a question this post doesn't answer, <a href="mailto:bpepple@metron.cloud" target="_blank" rel="noopener noreferrer" class="">e-mail me</a> or ask on <a href="https://matrix.to/#/#metron-general:matrix.org" target="_blank" rel="noopener noreferrer" class="">Matrix</a>.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="metron" term="metron"/>
+        <category label="api" term="api"/>
+        <category label="licensing" term="licensing"/>
+        <category label="opencollective" term="opencollective"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[September 2026 Updates]]></title>
         <id>https://metron-project.github.io/blog/september-2026-update</id>
@@ -1737,154 +1797,5 @@ or start a <a href="https://github.com/Metron-Project/metroninfo/discussions" ta
             <uri>https://github.com/bpepple</uri>
         </author>
         <category label="metron" term="metron"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[October 2025 News]]></title>
-        <id>https://metron-project.github.io/blog/october-2025-update</id>
-        <link href="https://metron-project.github.io/blog/october-2025-update"/>
-        <updated>2025-11-09T15:06:00.000Z</updated>
-        <summary type="html"><![CDATA[Monthly Statistics]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monthly-statistics">Monthly Statistics<a href="https://metron-project.github.io/blog/october-2025-update#monthly-statistics" class="hash-link" aria-label="Direct link to Monthly Statistics" title="Direct link to Monthly Statistics" translate="no">​</a></h2>
-<p>During October the <a href="https://metron.cloud/" target="_blank" rel="noopener noreferrer" class="">Metron Project</a> added the following to its database:</p>
-<ul>
-<li class="">Users: <strong>27</strong></li>
-<li class="">Issues: <strong>940</strong></li>
-<li class="">Creators: <strong>83</strong></li>
-<li class="">Characters: <strong>462</strong></li>
-</ul>
-<p>Thanks to everyone that contributed!</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="website-changes">Website Changes<a href="https://metron-project.github.io/blog/october-2025-update#website-changes" class="hash-link" aria-label="Direct link to Website Changes" title="Direct link to Website Changes" translate="no">​</a></h2>
-<p>I spent most of the month working on improvements to the site.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-features">Major Features<a href="https://metron-project.github.io/blog/october-2025-update#major-features" class="hash-link" aria-label="Direct link to Major Features" title="Direct link to Major Features" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="wiki-integration">Wiki Integration<a href="https://metron-project.github.io/blog/october-2025-update#wiki-integration" class="hash-link" aria-label="Direct link to Wiki Integration" title="Direct link to Wiki Integration" translate="no">​</a></h4>
-<p>One of the most substantial additions to Metron is the integration of <strong>django-wiki</strong> (<a href="https://github.com/Metron-Project/metron/pull/403" target="_blank" rel="noopener noreferrer" class="">#403</a>), replacing the previous flatpages system. This enhancement includes:</p>
-<ul>
-<li class="">A wiki with article creation, editing, and history tracking</li>
-<li class="">Custom Bulma CSS styling for all wiki templates with dark mode support</li>
-<li class="">Support for attachments and images through wiki plugins</li>
-</ul>
-<p>I've copied over the information from the old flat pages, but work still needs to be done on adding information that is of use to our users.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance-optimizations-for-detail-views">Performance Optimizations for Detail Views<a href="https://metron-project.github.io/blog/october-2025-update#performance-optimizations-for-detail-views" class="hash-link" aria-label="Direct link to Performance Optimizations for Detail Views" title="Direct link to Performance Optimizations for Detail Views" translate="no">​</a></h4>
-<p>A fairly comprehensive performance overhaul (<a href="https://github.com/Metron-Project/metron/pull/412" target="_blank" rel="noopener noreferrer" class="">#412</a>) dramatically improved page load times across all detail views:</p>
-<ul>
-<li class="">Implemented lazy loading for related resources using HTMX</li>
-<li class="">Added <code>prefetch_related()</code> and <code>select_related()</code> to reduce database queries</li>
-<li class="">Created reusable <code>LazyLoadMixin</code> to eliminate code duplication</li>
-<li class="">Added count annotations to replace separate COUNT queries</li>
-<li class="">Introduced pagination for related items on detail pages</li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="edit-history-tracking">Edit History Tracking<a href="https://metron-project.github.io/blog/october-2025-update#edit-history-tracking" class="hash-link" aria-label="Direct link to Edit History Tracking" title="Direct link to Edit History Tracking" translate="no">​</a></h4>
-<p>The project now includes comprehensive edit history tracking using <strong>django-simple-history</strong> (<a href="https://github.com/Metron-Project/metron/pull/392" target="_blank" rel="noopener noreferrer" class="">#392</a>) compared to our fairly hacky prior implementation:</p>
-<ul>
-<li class="">Historical records for all major models (arcs, characters, creators, issues, publishers, series, teams, universes)</li>
-<li class="">Dedicated history views showing who edited what and when</li>
-<li class="">Improved data audit trail</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feature-enhancements">Feature Enhancements<a href="https://metron-project.github.io/blog/october-2025-update#feature-enhancements" class="hash-link" aria-label="Direct link to Feature Enhancements" title="Direct link to Feature Enhancements" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="issue-credit-duplication">Issue Credit Duplication<a href="https://metron-project.github.io/blog/october-2025-update#issue-credit-duplication" class="hash-link" aria-label="Direct link to Issue Credit Duplication" title="Direct link to Issue Credit Duplication" translate="no">​</a></h4>
-<p>Added a convenient feature to duplicate issue credits (<a href="https://github.com/Metron-Project/metron/pull/411" target="_blank" rel="noopener noreferrer" class="">#411</a>), streamlining the workflow when creating issues with similar creative teams.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="variant-price-support">Variant Price Support<a href="https://metron-project.github.io/blog/october-2025-update#variant-price-support" class="hash-link" aria-label="Direct link to Variant Price Support" title="Direct link to Variant Price Support" translate="no">​</a></h4>
-<p>Extended the variant model to support price information (<a href="https://github.com/Metron-Project/metron/pull/391" target="_blank" rel="noopener noreferrer" class="">#391</a>), including price and currency fields.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="money-field-migration">Money Field Migration<a href="https://metron-project.github.io/blog/october-2025-update#money-field-migration" class="hash-link" aria-label="Direct link to Money Field Migration" title="Direct link to Money Field Migration" translate="no">​</a></h4>
-<p>Migrated the Issue price field to use proper MoneyField (<a href="https://github.com/Metron-Project/metron/pull/390" target="_blank" rel="noopener noreferrer" class="">#390</a>) using a multi-step database migrations:</p>
-<ul>
-<li class="">Currency support with custom widget for price entry</li>
-<li class="">Safe data migration preserving existing price information</li>
-<li class="">Enhanced API serialization for price data</li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="reprint-story-management">Reprint Story Management<a href="https://metron-project.github.io/blog/october-2025-update#reprint-story-management" class="hash-link" aria-label="Direct link to Reprint Story Management" title="Direct link to Reprint Story Management" translate="no">​</a></h4>
-<p>Added functionality to sync characters, teams, and story titles to collections (<a href="https://github.com/Metron-Project/metron/pull/372" target="_blank" rel="noopener noreferrer" class="">#372</a>, <a href="https://github.com/Metron-Project/metron/pull/373" target="_blank" rel="noopener noreferrer" class="">#373</a>) from the issues being reprinted which should make it a bit easier to add collected editions.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="code-quality-improvements">Code Quality Improvements<a href="https://metron-project.github.io/blog/october-2025-update#code-quality-improvements" class="hash-link" aria-label="Direct link to Code Quality Improvements" title="Direct link to Code Quality Improvements" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="refactoring-efforts">Refactoring Efforts<a href="https://metron-project.github.io/blog/october-2025-update#refactoring-efforts" class="hash-link" aria-label="Direct link to Refactoring Efforts" title="Direct link to Refactoring Efforts" translate="no">​</a></h4>
-<p>A bunch of refactoring was done to improve code maintainability:</p>
-<ul>
-<li class=""><strong>Model refactoring</strong> (<a href="https://github.com/Metron-Project/metron/pull/409" target="_blank" rel="noopener noreferrer" class="">#409</a>): Cleaned up model properties and methods</li>
-<li class=""><strong>View refactoring</strong> (<a href="https://github.com/Metron-Project/metron/pull/407" target="_blank" rel="noopener noreferrer" class="">#407</a>): Introduced constants and mixins for DRY code</li>
-<li class=""><strong>API refactoring</strong> (<a href="https://github.com/Metron-Project/metron/pull/406" target="_blank" rel="noopener noreferrer" class="">#406</a>, <a href="https://github.com/Metron-Project/metron/pull/405" target="_blank" rel="noopener noreferrer" class="">#405</a>): Streamlined serializers across all endpoints</li>
-<li class=""><strong>Template refactoring</strong> (<a href="https://github.com/Metron-Project/metron/pull/374" target="_blank" rel="noopener noreferrer" class="">#374</a>, <a href="https://github.com/Metron-Project/metron/pull/375" target="_blank" rel="noopener noreferrer" class="">#375</a>): Reorganized templates with new partial system and improved Bulma CSS integration</li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="query-optimization">Query Optimization<a href="https://metron-project.github.io/blog/october-2025-update#query-optimization" class="hash-link" aria-label="Direct link to Query Optimization" title="Direct link to Query Optimization" translate="no">​</a></h4>
-<p>Optimized database querysets across all major views (<a href="https://github.com/Metron-Project/metron/pull/408" target="_blank" rel="noopener noreferrer" class="">#408</a>) using <code>select_related()</code> and <code>prefetch_related()</code> to reduce N+1 query problems.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="testing">Testing<a href="https://metron-project.github.io/blog/october-2025-update#testing" class="hash-link" aria-label="Direct link to Testing" title="Direct link to Testing" translate="no">​</a></h4>
-<p>Added comprehensive test coverage:</p>
-<ul>
-<li class="">README files for test directories (<a href="https://github.com/Metron-Project/metron/pull/404" target="_blank" rel="noopener noreferrer" class="">#404</a>)</li>
-<li class="">ForeignKey history tracking tests</li>
-<li class="">Improved test fixtures and factories</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="user-experience-improvements">User Experience Improvements<a href="https://metron-project.github.io/blog/october-2025-update#user-experience-improvements" class="hash-link" aria-label="Direct link to User Experience Improvements" title="Direct link to User Experience Improvements" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="template-modernization">Template Modernization<a href="https://metron-project.github.io/blog/october-2025-update#template-modernization" class="hash-link" aria-label="Direct link to Template Modernization" title="Direct link to Template Modernization" translate="no">​</a></h4>
-<p>Significant template improvements focused on consistency and usability:</p>
-<ul>
-<li class="">Introduced reusable partials for forms, pagination, and card grids</li>
-<li class="">Enhanced empty states and error messages</li>
-<li class="">Improved mobile responsiveness</li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="uiux-enhancements">UI/UX Enhancements<a href="https://metron-project.github.io/blog/october-2025-update#uiux-enhancements" class="hash-link" aria-label="Direct link to UI/UX Enhancements" title="Direct link to UI/UX Enhancements" translate="no">​</a></h4>
-<ul>
-<li class="">User profile pages now show contribution statistics</li>
-<li class="">Better icon consistency across the interface</li>
-<li class="">Improved text contrast for accessibility</li>
-<li class="">Integration of Bulma Calendar for date inputs</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure--dependencies">Infrastructure &amp; Dependencies<a href="https://metron-project.github.io/blog/october-2025-update#infrastructure--dependencies" class="hash-link" aria-label="Direct link to Infrastructure &amp; Dependencies" title="Direct link to Infrastructure &amp; Dependencies" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="django-updates">Django Updates<a href="https://metron-project.github.io/blog/october-2025-update#django-updates" class="hash-link" aria-label="Direct link to Django Updates" title="Direct link to Django Updates" translate="no">​</a></h4>
-<ul>
-<li class="">Updated to <strong>Django 5.2.7</strong> (<a href="https://github.com/Metron-Project/metron/pull/371" target="_blank" rel="noopener noreferrer" class="">#371</a>) and subsequent patch releases</li>
-<li class="">Added <strong>django-money</strong> for proper currency handling</li>
-<li class="">Integrated <strong>django-htmx</strong> for performance optimizations</li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="code-quality-tools">Code Quality Tools<a href="https://metron-project.github.io/blog/october-2025-update#code-quality-tools" class="hash-link" aria-label="Direct link to Code Quality Tools" title="Direct link to Code Quality Tools" translate="no">​</a></h4>
-<ul>
-<li class="">Updated pre-commit hooks and code formatting rules (<a href="https://github.com/Metron-Project/metron/pull/401" target="_blank" rel="noopener noreferrer" class="">#401</a>)</li>
-<li class="">Enforced consistent code style with djlint and ruff</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-improvements">API Improvements<a href="https://metron-project.github.io/blog/october-2025-update#api-improvements" class="hash-link" aria-label="Direct link to API Improvements" title="Direct link to API Improvements" translate="no">​</a></h3>
-<ul>
-<li class="">Enhanced pagination schema definitions (<a href="https://github.com/Metron-Project/metron/pull/398" target="_blank" rel="noopener noreferrer" class="">#398</a>) (Artem Ryabkov)</li>
-<li class="">Improved serializers for better API response efficiency</li>
-<li class="">Fixed edge cases in various API endpoints</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes--minor-improvements">Bug Fixes &amp; Minor Improvements<a href="https://metron-project.github.io/blog/october-2025-update#bug-fixes--minor-improvements" class="hash-link" aria-label="Direct link to Bug Fixes &amp; Minor Improvements" title="Direct link to Bug Fixes &amp; Minor Improvements" translate="no">​</a></h3>
-<ul>
-<li class="">Fixed template rendering for mobile devices (<a href="https://github.com/Metron-Project/metron/pull/395" target="_blank" rel="noopener noreferrer" class="">#395</a>)</li>
-<li class="">Improved empty state handling (<a href="https://github.com/Metron-Project/metron/pull/399" target="_blank" rel="noopener noreferrer" class="">#399</a>)</li>
-<li class="">Enhanced form validation and error handling</li>
-<li class="">Better currency display in API responses</li>
-<li class="">Fixed various template formatting issues</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="future-plans">Future Plans<a href="https://metron-project.github.io/blog/october-2025-update#future-plans" class="hash-link" aria-label="Direct link to Future Plans" title="Direct link to Future Plans" translate="no">​</a></h2>
-<p>I've started to think about what I'd like to work on next year, and the big item is to reduce the project reliance on me. In particular, I want to address:</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="financial-independence">Financial Independence<a href="https://metron-project.github.io/blog/october-2025-update#financial-independence" class="hash-link" aria-label="Direct link to Financial Independence" title="Direct link to Financial Independence" translate="no">​</a></h3>
-<p>Over the past six years, I've covered the hosting costs and related expenses (domain registration, email services, etc.). Recently, I've started drawing from the project's <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">OpenCollective</a> funds, which currently provide approximately 11 months of runway at our current capacity.</p>
-<p><strong>The Goal:</strong> Build a sustainable funding base through many small contributions ($2-$5/month) rather than relying on a few large donors. This distributes the financial responsibility and ensures the project's long-term stability.</p>
-<p><strong>How You Can Help:</strong></p>
-<ul>
-<li class="">Share ideas for attracting recurring financial supporters</li>
-<li class="">Suggest ways to recognize and thank contributors (I'm considering adding <a href="https://documentation.opencollective.com/collectives/raising-money/adding-donation-buttons-badges-and-banners" target="_blank" rel="noopener noreferrer" class="">OpenCollective widgets</a> to the site)</li>
-<li class="">Spread the word about the project's funding needs</li>
-</ul>
-<p>If you have suggestions or feedback, please reach out!</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="governance">Governance<a href="https://metron-project.github.io/blog/october-2025-update#governance" class="hash-link" aria-label="Direct link to Governance" title="Direct link to Governance" translate="no">​</a></h3>
-<p>As the project has grown, so has the need to evolve from a single-person decision-making model to a more collaborative governance structure. While centralized decision-making worked well in the early days, enabling quick iterations and changes, but as the project has matured it make sense to add more leadership.</p>
-<p><strong>Why Change:</strong> Distributing governance responsibilities will:</p>
-<ul>
-<li class="">Bring diverse perspectives to project decisions</li>
-<li class="">Reduce dependency on a single maintainer</li>
-<li class="">Create more opportunities for community involvement</li>
-<li class="">Ensure the project's continuity and resilience</li>
-</ul>
-<p><strong>Next Steps:</strong> I'm researching governance models from similar projects, particularly the <a href="https://www.comics.org/" target="_blank" rel="noopener noreferrer" class="">Grand Comics Database (GCD)</a>, to understand what structures work well for community-driven comic databases. My experience with <a href="https://fedoraproject.org/" target="_blank" rel="noopener noreferrer" class="">Fedora Project</a> governance provides a foundation, though Metron likely needs a different, more streamlined approach given our scope and community size.</p>
-<p>I'll be starting a discussion thread on our <a href="https://github.com/Metron-Project/metron/discussions" target="_blank" rel="noopener noreferrer" class="">GitHub Discussions page</a> soon. If you're interested in helping shape Metron's governance structure, please join the conversation or reach out directly.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opencollective">OpenCollective<a href="https://metron-project.github.io/blog/october-2025-update#opencollective" class="hash-link" aria-label="Direct link to OpenCollective" title="Direct link to OpenCollective" translate="no">​</a></h2>
-<p>If you would like to help keep the lights on at the project, we have an account at <a href="https://opencollective.com/metron" target="_blank" rel="noopener noreferrer" class="">Open Collective</a> to defray the servers costs and help with increasing future server capacity.</p>
-<p>Anyway, I think that everything for this month! Take care.</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="comic" term="comic"/>
-        <category label="metron" term="metron"/>
-        <category label="opencollective" term="opencollective"/>
     </entry>
 </feed>
