@@ -59,6 +59,8 @@ Since the check depends on the cover date, the API also re-checks an issue's var
 
 Existing UPCs were cleaned up right after the update went live. A new command found the invalid UPCs already in the database and repaired common data entry mistakes that could be confirmed against cover images, such as a dropped leading `0` on legacy codes, Marvel UPCs missing the leading `7` and check digit, and UPCs missing only their check digit. Anything else that was invalid was cleared, and the old value is kept in the issue's history.
 
+The command found 1,963 invalid UPCs: 1,897 on issues and 66 on variants. Most of them (1,640) had a bad check digit, 297 were the wrong length, and 26 contained something other than digits. Of those, 1,564 were repaired and the remaining 399 were cleared. If you know the correct UPC for an issue that's now missing one, please add it.
+
 ## Open Collective Donor Matching
 
 Metron matches Open Collective contributions to accounts by email address to apply the [supporter rate limit](/blog/supporter-rate-limits). If the Open Collective API token is missing the `email` permission, Open Collective returns no email for any donor and gives no error, so the sync quietly matched nothing. The sync now sends me an alert when none of a run's new individual contributions include an email. Contributions from collectives and organizations never include an email, so they're left out of that check. This isn't the same as the [Incognito problem](/blog/september-2026-update#dont-contribute-as-incognito) from last month, which affects one contribution at a time.
