@@ -5,7 +5,7 @@ authors: [bpepple]
 tags: [api, security, bugfix, opencollective]
 date: 2026-11-01
 ---
-October brought a round of security hardening for accounts and reading lists, fixes for two more causes of stale API cache entries, and a check that catches Open Collective donations that can't be matched to supporters. Mokkari 4.9.0 adds a Redis-backed rate limiter, so several programs using the same Metron account can share one rate limit. Here's the full rundown.
+October brought a round of security hardening for accounts and reading lists, fixes for two more causes of stale API cache entries, UPC validation for issues and variants, and a check that catches Open Collective donations that can't be matched to supporters. Mokkari 4.9.0 adds a Redis-backed rate limiter, so several programs using the same Metron account can share one rate limit. Here's the full rundown.
 
 <!-- truncate -->
 
@@ -47,6 +47,18 @@ During October the [Metron Project](https://metron.cloud/) added the following t
 
 **Stale responses cached during a save.** Cache versions were bumped as soon as an object was saved, before the database transaction committed. An API request in that short window could still read the old data and cache it under the new version, and that stale response then stayed until its TTL expired, up to 3 days for detail responses. The bump now waits until the transaction commits.
 
+## UPC Validation
+
+Until now, the only UPC check was a digits-only test on the issue form. UPCs added through the API or the admin, and all variant UPCs, weren't checked at all. UPCs on issues and variants are now validated everywhere: on the site, in the admin, and in the API.
+
+- **Length** - A UPC must be a 12-digit UPC-A or 13-digit EAN-13 code, optionally followed by a 2 or 5 digit add-on. It must contain only digits, with no spaces or hyphens.
+- **Check digit** - The last digit of the UPC-A or EAN-13 code must be a valid check digit. The add-on has no check digit, so it isn't checked.
+- **Pre-1993 barcodes** - Comics from before 1993 often carry a 13-digit barcode printed without a check digit: an 11-digit UPC-A body followed by a 2-digit cover month. For issues with a cover date before 1993, 13-digit UPCs skip the check digit test.
+
+Since the check depends on the cover date, the API also re-checks an issue's variant UPCs when an update changes its cover date. Moving a pre-1993 issue with legacy variant UPCs to 1993 or later is rejected instead of leaving those UPCs invalid.
+
+Existing UPCs were cleaned up right after the update went live. A new command found the invalid UPCs already in the database and repaired common data entry mistakes that could be confirmed against cover images, such as a dropped leading `0` on legacy codes, Marvel UPCs missing the leading `7` and check digit, and UPCs missing only their check digit. Anything else that was invalid was cleared, and the old value is kept in the issue's history.
+
 ## Open Collective Donor Matching
 
 Metron matches Open Collective contributions to accounts by email address to apply the [supporter rate limit](/blog/supporter-rate-limits). If the Open Collective API token is missing the `email` permission, Open Collective returns no email for any donor and gives no error, so the sync quietly matched nothing. The sync now sends me an alert when none of a run's new individual contributions include an email. Contributions from collectives and organizations never include an email, so they're left out of that check. This isn't the same as the [Incognito problem](/blog/september-2026-update#dont-contribute-as-incognito) from last month, which affects one contribution at a time.
@@ -54,6 +66,8 @@ Metron matches Open Collective contributions to accounts by email address to app
 ## Bug Fixes
 
 **Variant order.** Variants were sorted only by issue, so variants of the same issue came back in no particular order. They're now sorted by name too. A redundant database index on variants was also dropped.
+
+**Lost credits and variants on new issues.** When adding a new issue, an error in the credits, variants, or attribution rows was skipped silently. The issue was created, but those rows were dropped without any error. The form now shows the errors and saves nothing until they're fixed.
 
 ## Tooling Releases
 
