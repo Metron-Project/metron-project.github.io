@@ -5,7 +5,7 @@ authors: [bpepple]
 tags: [api, security, bugfix, opencollective]
 date: 2026-11-01
 ---
-October brought a round of security hardening for accounts and reading lists, fixes for two more causes of stale API cache entries, UPC validation for issues and variants, and a check that catches Open Collective donations that can't be matched to supporters. Mokkari 4.9.0 adds a Redis-backed rate limiter, so several programs using the same Metron account can share one rate limit. Here's the full rundown.
+October brought a round of security hardening for accounts and reading lists, fixes for two more causes of stale API cache entries, UPC validation for issues and variants, and a check that catches Open Collective donations that can't be matched to supporters. Mokkari 4.9.0 adds a Redis-backed rate limiter, so several programs using the same Metron account can share one rate limit, and Darkseid 9.0.0 makes reading and writing untrusted or damaged comic archives safer. Here's the full rundown.
 
 <!-- truncate -->
 
@@ -76,6 +76,16 @@ Metron matches Open Collective contributions to accounts by email address to app
 ### Mokkari 4.9.0
 
 - **4.9.0** - Adds `RedisRateLimiter`, which paces requests the same way as 4.8.0's [`HeaderPacedRateLimiter`](/blog/september-2026-update#mokkari-480) but keeps its state in Redis. Every process and machine using the same Metron account then shares one burst window, one daily limit estimate, and one 429 backoff, instead of each process tracking its own limit and together going over Metron's. Redis support is an optional `redis` extra, and you pass in your own Redis client. When Metron reports the burst window is used up, every process on the account waits until it resets. Errors raised inside a rate limiter's own code are no longer misreported as a missing method, and a failing `release()` or `on_rate_limited()` hook no longer hides the request's actual result. Also drops Python 3.10, which has reached end of life, and adds Python 3.15.
+
+### Darkseid 9.0.0
+
+- **9.0.0** - A major release focused on handling untrusted or damaged comic archives safely. **Breaking changes:** drops Python 3.10, which has reached end of life, and adds Python 3.15. Custom `Archiver` subclasses must now accept a `max_size` argument in `read_file()`. Metadata that declares XML entities, even internal ones, no longer validates.
+  - **Decompression bomb limits** - A small crafted archive could expand a single file to gigabytes in memory. A 1 MB `.cbz` with a 1 GB `ComicInfo.xml` pushed peak memory to 3.1 GB. Archivers now check a file's uncompressed size before reading it, capped at 256 MiB by default (10 MiB for `ComicInfo.xml` and `MetronInfo.xml`), and raise the new `ArchiverFileTooLargeError` when it's over.
+  - **Safe tar and 7z rewrites** - Writing to a `.cbt` or `.cb7` emptied the original file and wrote the new contents over it, so a crash or full disk partway through destroyed the archive. Worse, if the existing archive couldn't be read, the write silently started a new archive holding only the file being written, so a corrupt archive lost every page and the call still reported success. Rewrites now go to a temporary file that replaces the original only once it's complete, and an unreadable archive raises an error instead. Tar rewrites also stream pages instead of loading the whole archive into memory.
+  - **Safe archive exports** - Exporting a hostile CBR with `Comic.export_as_zip()` copied file names like `../evil.jpg` into the new CBZ unchanged, which simpler extractors could write outside their target folder. Absolute paths and names containing `..` are now skipped with a warning.
+  - **Hardened schema validation** - Metadata is now always parsed with entity declarations forbidden during schema validation, matching the `ComicInfo.xml` and `MetronInfo.xml` parsers. Invalid XML is reported as `Invalid XML: ...` instead of logging a traceback.
+  - **JPEG-XL support** - `.jxl` files are now recognized as comic pages. Pillow can't decode JPEG-XL, so their width and height aren't recorded in `ComicInfo.xml` page info, but their file size is.
+  - Also fixes `validate_metadata()` raising `AttributeError` instead of returning `UNKNOWN`, and missing files in CBR archives raising `rarfile.NoRarEntry` instead of `ArchiverReadError`.
 
 ### Metron-Tagger 4.17.1
 
