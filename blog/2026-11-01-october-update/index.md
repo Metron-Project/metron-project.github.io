@@ -65,6 +65,22 @@ The command found 1,963 invalid UPCs: 1,897 on issues and 66 on variants. Most o
 
 Metron matches Open Collective contributions to accounts by email address to apply the [supporter rate limit](/blog/supporter-rate-limits). If the Open Collective API token is missing the `email` permission, Open Collective returns no email for any donor and gives no error, so the sync quietly matched nothing. The sync now sends me an alert when none of a run's new individual contributions include an email. Contributions from collectives and organizations never include an email, so they're left out of that check. This isn't the same as the [Incognito problem](/blog/september-2026-update#dont-contribute-as-incognito) from last month, which affects one contribution at a time.
 
+## When to Add an Attribution
+
+Many recent edits add an attribution to entries that don't need one. An attribution credits a source whose text you copied, so it only applies when you copy that text.
+
+**Add an attribution** when you copy or closely paraphrase text from Wikipedia or the Grand Comics Database. This is usually a description, an issue summary, or a character or creator bio. Wikipedia and the GCD release their text under CC BY-SA, which requires credit, and Metron's attribution box adds the required notice and link for you. Link the page you actually copied from.
+
+**Don't add an attribution** for plain facts, even if you looked them up on one of those sites. Facts aren't covered by copyright, so there's nothing to credit. That includes:
+
+- Issue numbers, titles, and story titles
+- Cover dates, store dates, and FOC dates
+- Prices, UPCs, ISBNs, and page counts
+- Creator credits, characters, teams, and story arcs
+- Series details like publisher, imprint, volume, and years
+
+If you write a summary in your own words, it doesn't need an attribution either, and that's the best option anyway. When an entry has only facts, leave the attribution rows empty.
+
 ## Bug Fixes
 
 **Variant order.** Variants were sorted only by issue, so variants of the same issue came back in no particular order. They're now sorted by name too. A redundant database index on variants was also dropped.
