@@ -2,10 +2,10 @@
 slug: october-2026-update
 title: October 2026 Updates
 authors: [bpepple]
-tags: [api, security, bugfix, opencollective]
+tags: [api, features, security, bugfix, opencollective]
 date: 2026-11-01
 ---
-October brought a round of security hardening for accounts and reading lists, fixes for two more causes of stale API cache entries, UPC validation for issues and variants, and a check that catches Open Collective donations that can't be matched to supporters. Mokkari 4.9.0 adds a Redis-backed rate limiter, so several programs using the same Metron account can share one rate limit, and Darkseid 9.0.0 makes reading and writing untrusted or damaged comic archives safer. Here's the full rundown.
+October brought a round of security hardening for accounts and reading lists, fixes for two more causes of stale API cache entries, UPC validation for issues and variants, a new flag for issue descriptions taken from publisher solicitations, attribution data in the API, and a check that catches Open Collective donations that can't be matched to supporters. Mokkari 4.9.0 adds a Redis-backed rate limiter, so several programs using the same Metron account can share one rate limit, and Darkseid 9.0.0 makes reading and writing untrusted or damaged comic archives safer. Here's the full rundown.
 
 <!-- truncate -->
 
@@ -61,6 +61,14 @@ Existing UPCs were cleaned up right after the update went live. A new command fo
 
 The command found 1,963 invalid UPCs: 1,897 on issues and 66 on variants. Most of them (1,640) had a bad check digit, 297 were the wrong length, and 26 contained something other than digits. Of those, 1,564 were repaired and the remaining 399 were cleared. If you know the correct UPC for an issue that's now missing one, please add it.
 
+## Solicitation Descriptions
+
+Many issue descriptions are copied from the publisher's solicitation, but nothing recorded that, so there was no way to tell solicitation text apart from a description an editor wrote. The issue form now has a **Description is a solicitation** checkbox under the description. When it's checked, a "Solicitation" tag shows next to the summary on the issue page. The issue list's advanced filters also have a new Description group for finding issues with or without solicitation descriptions.
+
+The flag belongs to the description it was set on, so editing the description unchecks the box. If the new text is still the solicitation (for example, the publisher sent an updated one), check it again before saving. Changes that only affect line endings or leading and trailing spaces don't count as an edit.
+
+In the API, issue detail responses include a new `desc_is_solicitation` field, and `/api/issue/` takes a `desc_is_solicitation` filter. Editors can set it when creating or updating an issue. As on the site, an update that changes `desc` without also sending `desc_is_solicitation` resets the flag to `false`.
+
 ## Open Collective Donor Matching
 
 Metron matches Open Collective contributions to accounts by email address to apply the [supporter rate limit](/blog/supporter-rate-limits). If the Open Collective API token is missing the `email` permission, Open Collective returns no email for any donor and gives no error, so the sync quietly matched nothing. The sync now sends me an alert when none of a run's new individual contributions include an email. Contributions from collectives and organizations never include an email, so they're left out of that check. This isn't the same as the [Incognito problem](/blog/september-2026-update#dont-contribute-as-incognito) from last month, which affects one contribution at a time.
@@ -81,11 +89,24 @@ Many recent edits add an attribution to entries that don't need one. An attribut
 
 If you write a summary in your own words, it doesn't need an attribution either, and that's the best option anyway. When an entry has only facts, leave the attribution rows empty.
 
+### Attribution in the API
+
+Attributions were only shown on the site, so API users who reused a description had no way to know where it came from or whether its license required credit. Detail responses for arcs, characters, creators, imprints, issues, publishers, series, teams, and universes now include a read-only `attribution` list. List responses are unchanged.
+
+```json
+"attribution": [
+  {"source": "Wikipedia", "url": "https://en.wikipedia.org/wiki/Spider-Man"},
+  {"source": "Marvel", "url": "https://www.marvel.com/characters/spider-man-peter-parker"}
+]
+```
+
+`source` is one of `Wikipedia`, `Marvel`, `DC`, or `Grand Comics Database`, and the list is empty when there's nothing to credit. If you reuse a description from the API, please credit the sources listed, since Wikipedia's CC BY-SA license requires it. Adding, editing, or removing an attribution also updates the parent's `modified` date and clears its cached detail response, so the change shows up right away.
+
 ## Bug Fixes
 
 **Variant order.** Variants were sorted only by issue, so variants of the same issue came back in no particular order. They're now sorted by name too. A redundant database index on variants was also dropped.
 
-**Lost credits and variants on new issues.** When adding a new issue, an error in the credits, variants, or attribution rows was skipped silently. The issue was created, but those rows were dropped without any error. The form now shows the errors and saves nothing until they're fixed.
+**Lost credits and variants on new issues.** When adding a new issue, an error in the credits, variants, or attribution rows was skipped silently. The issue was created, but those rows were dropped without any error. The form now shows the errors and saves nothing until they're fixed. A notice at the top of the form also says the issue wasn't saved and links to each section with errors, since those sections are near the bottom of the page and the reload otherwise looked like nothing happened.
 
 ## Tooling Releases
 
