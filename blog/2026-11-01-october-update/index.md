@@ -5,7 +5,7 @@ authors: [bpepple]
 tags: [api, features, security, bugfix, opencollective]
 date: 2026-11-01
 ---
-October brought a round of security hardening for accounts and reading lists, fixes for two more causes of stale API cache entries, UPC validation for issues and variants, a new flag for issue descriptions taken from publisher solicitations, attribution data in the API, and a check that catches Open Collective donations that can't be matched to supporters. Mokkari 4.9.0 adds a Redis-backed rate limiter, so several programs using the same Metron account can share one rate limit, and Darkseid 9.0.0 makes reading and writing untrusted or damaged comic archives safer. Here's the full rundown.
+October brought a round of security hardening for accounts and reading lists, stricter email checks at signup, fixes for two more causes of stale API cache entries, UPC validation for issues and variants, a new flag for issue descriptions taken from publisher solicitations, attribution data in the API, and a check that catches Open Collective donations that can't be matched to supporters. Mokkari 4.9.0 adds a Redis-backed rate limiter, so several programs using the same Metron account can share one rate limit, and Darkseid 9.0.0 makes reading and writing untrusted or damaged comic archives safer. Here's the full rundown.
 
 <!-- truncate -->
 
@@ -39,7 +39,9 @@ During October the [Metron Project](https://metron.cloud/) added the following t
 
 **Mail server stalls no longer cause a 500.** Sending the activation email had no timeout, so a stalled mail server tied up a server worker until it was killed, and the signup ended in a 500 error. Sending now times out after 10 seconds. If the email can't be sent, the half-created account is removed and you're asked to try again later. The failed attempt doesn't count against the signup limit for your IP address.
 
-**hCaptcha outages are reported.** The hCaptcha check had no timeout either, and network errors also became a 500 error. It now times out after 10 seconds. If hCaptcha can't be reached, signup shows a "try again" error instead of the usual "activation email sent" page, so you aren't left waiting for an email that's never coming. The email-domain check got the same 10-second timeout.
+**hCaptcha outages are reported.** The hCaptcha check had no timeout either, and network errors also became a 500 error. It now times out after 10 seconds. If hCaptcha can't be reached, signup shows a "try again" error instead of the usual "activation email sent" page, so you aren't left waiting for an email that's never coming. The email check described below has a shorter 3-second timeout.
+
+**Stricter email checks.** The email check at signup used a third-party service through RapidAPI. It now uses [UserCheck](https://www.usercheck.com/) directly, along with the community-maintained [disposable-email-domains](https://github.com/disposable-email-domains/disposable-email-domains) list. Addresses are rejected if their domain is disposable, known for spam, an email forwarding service, or has no mail server. Subdomains of a blocked domain are blocked too, and domain matching now ignores case, so `Duck.com` no longer gets past the block on `duck.com`. If UserCheck spots a likely typo in your domain, the error suggests the fix ("Did you mean gmail.com?"). Your email is now checked only after the captcha passes, and on the profile page only after your password is confirmed. A failed captcha now shows "Please complete the captcha and try again." instead of going on to the "activation email sent" page.
 
 ## API Response Caching
 
