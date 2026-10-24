@@ -5,7 +5,7 @@ authors: [bpepple]
 tags: [api, features, security, bugfix, opencollective]
 date: 2026-11-01
 ---
-October brought a round of security hardening for accounts and reading lists, stricter email checks at signup, fixes for two more causes of stale API cache entries, UPC validation for issues and variants, a new flag for issue descriptions taken from publisher solicitations, attribution data in the API, and a check that catches Open Collective donations that can't be matched to supporters. Mokkari 4.9.0 adds a Redis-backed rate limiter, so several programs using the same Metron account can share one rate limit, and Darkseid 9.0.0 makes reading and writing untrusted or damaged comic archives safer. Here's the full rundown.
+October brought a round of security hardening for accounts and reading lists, stricter email checks at signup, fixes for two more causes of stale API cache entries, UPC validation for issues and variants, a new flag for issue descriptions taken from publisher solicitations, attribution data in the API, and a check that catches Open Collective donations that can't be matched to supporters. Mokkari 4.9.0 adds a Redis-backed rate limiter, so several programs using the same Metron account can share one rate limit, Mokkari 5.0.0 reworks caching and drops username and password authentication, and Darkseid 9.0.0 makes reading and writing untrusted or damaged comic archives safer. Here's the full rundown.
 
 <!-- truncate -->
 
@@ -112,9 +112,20 @@ Attributions were only shown on the site, so API users who reused a description 
 
 ## Tooling Releases
 
-### Mokkari 4.9.0
+### Mokkari 5.0.0
 
 - **4.9.0** - Adds `RedisRateLimiter`, which paces requests the same way as 4.8.0's [`HeaderPacedRateLimiter`](/blog/september-2026-update#mokkari-480) but keeps its state in Redis. Every process and machine using the same Metron account then shares one burst window, one daily limit estimate, and one 429 backoff, instead of each process tracking its own limit and together going over Metron's. Redis support is an optional `redis` extra, and you pass in your own Redis client. When Metron reports the burst window is used up, every process on the account waits until it resets. Errors raised inside a rate limiter's own code are no longer misreported as a missing method, and a failing `release()` or `on_rate_limited()` hook no longer hides the request's actual result. Also drops Python 3.10, which has reached end of life, and adds Python 3.15.
+- **4.10.0** - Warns about everything 5.0 removes, so you can update your code before upgrading. Username and password authentication, importing `RateLimitStatus`, `RateLimitWindow`, or `format_time` from `mokkari.session`, `SqliteCache(expire=...)`, and custom caches whose `store()` can't take `resource` and `kind` keywords now raise a `DeprecationWarning`. Also fixes a bug where a `metron.cloud` entry in your `~/.netrc` replaced the API token, so requests were sent with those username and password credentials instead. The 4.x line gets bug and security fixes until spring 2027.
+- **5.0.0** - A major release that reworks caching and makes API tokens the only way to log in.
+  - **Breaking changes:**
+    - Username and password authentication is removed. `api_token` is now the first argument of `api()` and `Session`, and it's required. All other arguments are keyword-only, so code that passed `cache` by position needs to pass it by keyword. You can create a token from your Metron account page.
+    - `RateLimitStatus` and `RateLimitWindow` must be imported from `mokkari.rate_limit`, and `format_time` from `mokkari.utils`. These paths already work in 4.x.
+    - The string enums (`BookFormat`, `GradingCompany`, `AttributionSource`, `ListType`, and `Currency`) are now `StrEnum`s, so `str(BookFormat.PRINT)` returns `"PRINT"` instead of `"BookFormat.PRINT"`. Comparing them to strings and JSON output are unchanged.
+    - `import mokkari` no longer imports `mokkari.sqlite_cache`, so import `SqliteCache` from there directly. `SqliteCache.con` is removed.
+  - **Reworked `SqliteCache`** - The old cache, in general, was pretty horrible. It let duplicate rows build up, returned entries after they expired, measured expiry in whole days, and kept every resource for the same length of time. It now takes a `default_ttl` (7 days) and a `ttl` map that sets how long each resource is kept, such as 6 hours for issue lists and forever for roles. Per-user data (collections, pull lists, and wish lists) and searches with no results aren't cached unless you opt in. Expired entries are never returned, and one cache file can be shared safely between processes, threads, and API tokens. An existing 4.x cache is emptied the first time 5.0 opens it, so your first requests after upgrading go to Metron. See the [release notes](https://github.com/Metron-Project/mokkari/releases/tag/v5.0.0) for an example.
+  - **Smarter cache invalidation** - A write now removes only the cached entries it could have changed. Before, a one-field PATCH like linking a character's Comic Vine ID cleared every cached character, so the cache did almost nothing for our editors. Custom caches implement the new `Cache` protocol, and `Session` checks a custom cache's methods when it's created instead of failing on the first request.
+  - **Quieter cache errors** - A locked cache file shared between processes used to log an error with a full traceback on every failed lookup. It now logs a one-line warning and fetches from Metron, with the traceback only at debug level.
+  - **New API fields** - Detail responses include the new `attribution` list, and issues include `desc_is_solicitation`, which can also be set when creating or updating an issue. Wish list currencies add `EUR` and `ITL`.
 
 ### Darkseid 9.0.0
 
