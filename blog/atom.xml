@@ -433,7 +433,7 @@ current relaunched volume, but which also carries a legacy <code>AlternativeNumb
 <li class=""><strong>RatingCount</strong> - Optional. The number of ratings used to determine the <code>AverageRating</code> value.</li>
 </ul>
 <p>Both elements are documented in full on the <a class="" href="https://metron-project.github.io/docs/metroninfo/documentation">MetronInfo documentation</a> page, and the
-raw schema is up on the <a class="" href="https://metron-project.github.io/docs/metroninfo/schemas/v1.1">schema page</a>.</p>
+raw schema is up on the <a href="https://github.com/Metron-Project/metroninfo/blob/master/schema/v1.1/MetronInfo.xsd" target="_blank" rel="noopener noreferrer" class="">schema page</a>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-software-currently-supports-it">What Software Currently Supports It?<a href="https://metron-project.github.io/blog/metroninfo-v1-1#what-software-currently-supports-it" class="hash-link" aria-label="Direct link to What Software Currently Supports It?" title="Direct link to What Software Currently Supports It?" translate="no">​</a></h2>
 <p>An upcoming release of <a href="https://github.com/Metron-Project/darkseid" target="_blank" rel="noopener noreferrer" class="">Darkseid</a> will add support for these new
 elements. If you maintain other software that reads or writes MetronInfo.xml, feel free to create a PR to update the
