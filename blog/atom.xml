@@ -2,11 +2,80 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://metron-project.github.io/blog</id>
     <title>The Metron Project Blog</title>
-    <updated>2026-10-04T12:00:00.000Z</updated>
+    <updated>2026-10-28T12:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://metron-project.github.io/blog"/>
     <subtitle>The Metron Project Blog</subtitle>
     <icon>https://metron-project.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[MetronInfo V1.2]]></title>
+        <id>https://metron-project.github.io/blog/metroninfo-v1-2</id>
+        <link href="https://metron-project.github.io/blog/metroninfo-v1-2"/>
+        <updated>2026-10-28T12:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Following up on the v1.1 release from July,]]></summary>
+        <content type="html"><![CDATA[<p>Following up on the <a class="" href="https://metron-project.github.io/blog/metroninfo-v1-1">v1.1 release</a> from July,
+<a href="https://raw.githubusercontent.com/Metron-Project/metroninfo/refs/heads/master/schema/v1.2/MetronInfo.xsd" target="_blank" rel="noopener noreferrer" class="">MetronInfo v1.2</a>
+is out. This release is focused on the <code>Series</code> element, adding three new optional elements and loosening the
+restrictions on language codes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-new">What's New<a href="https://metron-project.github.io/blog/metroninfo-v1-2#whats-new" class="hash-link" aria-label="Direct link to What's New" title="Direct link to What's New" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="series-endyear">Series EndYear<a href="https://metron-project.github.io/blog/metroninfo-v1-2#series-endyear" class="hash-link" aria-label="Direct link to Series EndYear" title="Direct link to Series EndYear" translate="no">​</a></h3>
+<p>An optional element for the year a series ended, complementing the existing <code>StartYear</code> element. Like <code>StartYear</code>, it
+must be a 4 digit value. The schema checks that <code>EndYear</code> isn't earlier than <code>StartYear</code>, and that a series with a
+<code>Status</code> of <code>Ongoing</code> doesn't have an <code>EndYear</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="series-status">Series Status<a href="https://metron-project.github.io/blog/metroninfo-v1-2#series-status" class="hash-link" aria-label="Direct link to Series Status" title="Direct link to Series Status" translate="no">​</a></h3>
+<p>An optional element for the publication status of the series. It must be one of the following values:</p>
+<ul>
+<li class=""><strong>Cancelled</strong></li>
+<li class=""><strong>Completed</strong></li>
+<li class=""><strong>Hiatus</strong></li>
+<li class=""><strong>Ongoing</strong></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="series-summary">Series Summary<a href="https://metron-project.github.io/blog/metroninfo-v1-2#series-summary" class="hash-link" aria-label="Direct link to Series Summary" title="Direct link to Series Summary" translate="no">​</a></h3>
+<p>An optional description or summary of the series itself. This is separate from the existing top-level <code>Summary</code>
+element, which describes the individual book.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="language-codes">Language Codes<a href="https://metron-project.github.io/blog/metroninfo-v1-2#language-codes" class="hash-link" aria-label="Direct link to Language Codes" title="Direct link to Language Codes" translate="no">​</a></h3>
+<p>The <code>lang</code> attribute (used by <code>Series</code> and the <code>Name</code> element of <code>AlternativeNames</code>) previously only accepted a
+two-letter lowercase code like <code>en</code> or <code>ja</code>. It now accepts <a href="https://www.rfc-editor.org/info/bcp47" target="_blank" rel="noopener noreferrer" class="">BCP 47</a> language
+tags, so values like <code>fil</code>, <code>pt-BR</code>, and <code>zh-Hant</code> are now valid. This makes it possible to distinguish things like
+Brazilian and European Portuguese, or Traditional and Simplified Chinese.</p>
+<p>Here's an example of a <code>Series</code> element using the new elements:</p>
+<div class="language-xml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-xml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">Series</span><span class="token tag" style="color:#00009f"> </span><span class="token tag attr-name" style="color:#00a4db">lang</span><span class="token tag attr-value punctuation attr-equals" style="color:#393A34">=</span><span class="token tag attr-value punctuation" style="color:#393A34">"</span><span class="token tag attr-value" style="color:#e3116c">en</span><span class="token tag attr-value punctuation" style="color:#393A34">"</span><span class="token tag" style="color:#00009f"> </span><span class="token tag attr-name" style="color:#00a4db">id</span><span class="token tag attr-value punctuation attr-equals" style="color:#393A34">=</span><span class="token tag attr-value punctuation" style="color:#393A34">"</span><span class="token tag attr-value" style="color:#e3116c">1234</span><span class="token tag attr-value punctuation" style="color:#393A34">"</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">Name</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">Black Lightning</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">Name</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">SortName</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">Black Lightning</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">SortName</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">Volume</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">1</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">Volume</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">Format</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">Single Issue</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">Format</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">StartYear</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">1977</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">StartYear</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">EndYear</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">1978</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">EndYear</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">Status</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">Cancelled</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">Status</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">IssueCount</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">11</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">IssueCount</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">Summary</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">Jefferson Pierce returns to his old neighborhood to fight crime as Black Lightning.</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">Summary</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">Series</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><br></div></code></pre></div></div>
+<p>All of the changes are documented in full on the <a class="" href="https://metron-project.github.io/docs/metroninfo/documentation">MetronInfo documentation</a> page, and
+the raw schema is up on the <a class="" href="https://metron-project.github.io/docs/metroninfo/schemas/v1.2">schema page</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-software-currently-supports-it">What Software Currently Supports It?<a href="https://metron-project.github.io/blog/metroninfo-v1-2#what-software-currently-supports-it" class="hash-link" aria-label="Direct link to What Software Currently Supports It?" title="Direct link to What Software Currently Supports It?" translate="no">​</a></h2>
+<p>The following software already supports MetronInfo v1.2:</p>
+<ul>
+<li class=""><a href="https://github.com/Metron-Project/darkseid" target="_blank" rel="noopener noreferrer" class="">Darkseid</a> as of
+<a href="https://github.com/Metron-Project/darkseid/releases/tag/v9.1.0" target="_blank" rel="noopener noreferrer" class="">v9.1.0</a></li>
+<li class=""><a href="https://github.com/ajslater/comicbox" target="_blank" rel="noopener noreferrer" class="">Comicbox</a> as of
+<a href="https://github.com/ajslater/comicbox/releases/tag/v5.5.0" target="_blank" rel="noopener noreferrer" class="">v5.5.0</a></li>
+<li class=""><a href="https://github.com/ajslater/codex" target="_blank" rel="noopener noreferrer" class="">Codex</a> as of <a href="https://github.com/ajslater/codex/releases/tag/v2.5.7" target="_blank" rel="noopener noreferrer" class="">v2.5.7</a></li>
+</ul>
+<p>If you maintain other software that reads or writes MetronInfo.xml, feel free to create a PR to update the
+README or <a href="mailto:bpepple@metron.cloud?subject=MetronInfo%20Support&amp;body=Please%20add%20the%20following%20software%20to%20the%20README:%20" target="_blank" rel="noopener noreferrer" class="">contact me</a>
+to get it added to the list.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="upgrading">Upgrading<a href="https://metron-project.github.io/blog/metroninfo-v1-2#upgrading" class="hash-link" aria-label="Direct link to Upgrading" title="Direct link to Upgrading" translate="no">​</a></h2>
+<p>This is a backwards-compatible change. The new elements are optional, and the new language code rules accept every
+value the old ones did, so any existing v1.0 or v1.1 documents remain valid. If you're validating against the schema in
+your own tooling, just point it at the <a href="https://github.com/Metron-Project/metroninfo/tree/master/schema/v1.2" target="_blank" rel="noopener noreferrer" class="">v1.2 schema</a>
+instead of v1.1.</p>
+<p>As with v1.1, the <code>EndYear</code> checks are written as XSD 1.1 assertions, so they're only enforced by a validator that
+supports XSD 1.1 (for example, Saxon or Xerces-J with XSD 1.1 enabled).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="future">Future<a href="https://metron-project.github.io/blog/metroninfo-v1-2#future" class="hash-link" aria-label="Direct link to Future" title="Direct link to Future" translate="no">​</a></h2>
+<p>As always, if you have suggestions for the schema, please file a
+<a href="https://github.com/Metron-Project/metroninfo/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=feature_request.md&amp;title=" target="_blank" rel="noopener noreferrer" class="">feature request</a>,
+<a href="https://github.com/Metron-Project/metroninfo/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=bug_report.md&amp;title=" target="_blank" rel="noopener noreferrer" class="">bug report</a>,
+or start a <a href="https://github.com/Metron-Project/metroninfo/discussions" target="_blank" rel="noopener noreferrer" class="">discussion</a>.</p>
+<p>Thanks again to everyone who's contributed feedback and pull requests to the schema.</p>]]></content>
+        <author>
+            <name>Brian Pepple</name>
+            <uri>https://github.com/bpepple</uri>
+        </author>
+        <category label="metadata" term="metadata"/>
+        <category label="comic" term="comic"/>
+        <category label="comicvine" term="comicvine"/>
+        <category label="metron" term="metron"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Using Metron in Commercial Software]]></title>
         <id>https://metron-project.github.io/blog/commercial-api-use</id>
@@ -1612,190 +1681,5 @@ or start a <a href="https://github.com/Metron-Project/metroninfo/discussions" ta
         <category label="metron" term="metron"/>
         <category label="opencollective" term="opencollective"/>
         <category label="api" term="api"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Reading Lists]]></title>
-        <id>https://metron-project.github.io/blog/october-2025-reading-lists</id>
-        <link href="https://metron-project.github.io/blog/october-2025-reading-lists"/>
-        <updated>2025-11-11T14:14:00.000Z</updated>
-        <summary type="html"><![CDATA[I'm happy to announce a new feature to the site that has been requested for awhile: Reading Lists.]]></summary>
-        <content type="html"><![CDATA[<p>I'm happy to announce a new feature to the site that has been requested for awhile: <strong>Reading Lists</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-are-reading-lists">What Are Reading Lists?<a href="https://metron-project.github.io/blog/october-2025-reading-lists#what-are-reading-lists" class="hash-link" aria-label="Direct link to What Are Reading Lists?" title="Direct link to What Are Reading Lists?" translate="no">​</a></h2>
-<p>Reading Lists allow you to create curated, ordered collections of comic book issues. Think of them as your personal reading guides that you can build, customize, and share with the community.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-features">Key Features<a href="https://metron-project.github.io/blog/october-2025-reading-lists#key-features" class="hash-link" aria-label="Direct link to Key Features" title="Direct link to Key Features" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-create-custom-reading-orders">🎯 Create Custom Reading Orders<a href="https://metron-project.github.io/blog/october-2025-reading-lists#-create-custom-reading-orders" class="hash-link" aria-label="Direct link to 🎯 Create Custom Reading Orders" title="Direct link to 🎯 Create Custom Reading Orders" translate="no">​</a></h3>
-<p>Build reading lists from scratch by searching through Metron's comic database. Our smart search makes it easy to find exactly the issues you need (provided it exists in the database):</p>
-<ul>
-<li class="">Search by series name and issue number</li>
-<li class="">Use the <code>#</code> separator for precise searches (e.g., "Amazing Spider-Man #700")</li>
-<li class="">Add multiple issues at once</li>
-<li class="">Drag and drop to reorder issues exactly how you want them</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-public-or-private-lists">🔒 Public or Private Lists<a href="https://metron-project.github.io/blog/october-2025-reading-lists#-public-or-private-lists" class="hash-link" aria-label="Direct link to 🔒 Public or Private Lists" title="Direct link to 🔒 Public or Private Lists" translate="no">​</a></h3>
-<p>Share your research with the community by making your lists public, or keep them private for personal reference. It's your choice!</p>
-<ul>
-<li class=""><strong>Public Lists</strong>: Help other readers discover great reading orders</li>
-<li class=""><strong>Private Lists</strong>: Perfect for tracking your personal reading queue</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-smart-organization">📚 Smart Organization<a href="https://metron-project.github.io/blog/october-2025-reading-lists#-smart-organization" class="hash-link" aria-label="Direct link to 📚 Smart Organization" title="Direct link to 📚 Smart Organization" translate="no">​</a></h3>
-<p>Every reading list automatically displays helpful information:</p>
-<ul>
-<li class=""><strong>Date Range</strong>: See the start and end years covered by the list</li>
-<li class=""><strong>Publishers</strong>: View all publishers represented in the reading order</li>
-<li class=""><strong>Issue Count</strong>: Know exactly how many issues you're committing to</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-easy-discovery">🔍 Easy Discovery<a href="https://metron-project.github.io/blog/october-2025-reading-lists#-easy-discovery" class="hash-link" aria-label="Direct link to 🔍 Easy Discovery" title="Direct link to 🔍 Easy Discovery" translate="no">​</a></h3>
-<p>Find the perfect reading order with our search functionality:</p>
-<ul>
-<li class="">Search by list name (e.g., "Civil War")</li>
-<li class="">Search by creator/username</li>
-<li class="">Filter by attribution source</li>
-<li class="">Browse all public lists</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-cbl-import-admin-feature">📥 CBL Import (Admin Feature)<a href="https://metron-project.github.io/blog/october-2025-reading-lists#-cbl-import-admin-feature" class="hash-link" aria-label="Direct link to 📥 CBL Import (Admin Feature)" title="Direct link to 📥 CBL Import (Admin Feature)" translate="no">​</a></h3>
-<p>For site administrators, we've included support for importing Comic Book List (.cbl) files from popular reading order websites. This means we can quickly add curated reading orders from trusted sources like:</p>
-<ul>
-<li class="">Comic Book Reading Orders (CBRO)</li>
-<li class="">Complete Marvel Reading Orders (CMRO)</li>
-<li class="">Comic Book Herald</li>
-<li class="">And many others!</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="curated-reading-lists-coming-soon">Curated Reading Lists Coming Soon<a href="https://metron-project.github.io/blog/october-2025-reading-lists#curated-reading-lists-coming-soon" class="hash-link" aria-label="Direct link to Curated Reading Lists Coming Soon" title="Direct link to Curated Reading Lists Coming Soon" translate="no">​</a></h2>
-<p>We'll be importing a collection of curated reading lists from trusted sources in the near future! These researched reading orders will be available under the <strong><code>Metron</code> user account</strong> for the entire community to enjoy.</p>
-<p><strong>What to expect:</strong></p>
-<ul>
-<li class="">High-quality reading orders from established comic reading order websites</li>
-<li class="">Major crossover events and story arcs</li>
-<li class="">Character-specific reading guides</li>
-<li class="">Publisher-specific chronologies</li>
-<li class="">All properly attributed to their original sources</li>
-</ul>
-<p>These curated lists will complement the community-created lists and provide excellent starting points for readers looking to dive into complex storylines or explore new series.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="use-cases">Use Cases<a href="https://metron-project.github.io/blog/october-2025-reading-lists#use-cases" class="hash-link" aria-label="Direct link to Use Cases" title="Direct link to Use Cases" translate="no">​</a></h2>
-<p>Here are just a few ways you can use Reading Lists:</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-event-readers">For Event Readers<a href="https://metron-project.github.io/blog/october-2025-reading-lists#for-event-readers" class="hash-link" aria-label="Direct link to For Event Readers" title="Direct link to For Event Readers" translate="no">​</a></h3>
-<p>Create comprehensive reading orders for major crossover events:</p>
-<ul>
-<li class="">"Secret Wars (2015) - Complete Reading Order"</li>
-<li class="">"DC's Crisis on Infinite Earths"</li>
-<li class="">"Infinity Gauntlet and Tie-ins"</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-character-fans">For Character Fans<a href="https://metron-project.github.io/blog/october-2025-reading-lists#for-character-fans" class="hash-link" aria-label="Direct link to For Character Fans" title="Direct link to For Character Fans" translate="no">​</a></h3>
-<p>Track a character's appearances across multiple series:</p>
-<ul>
-<li class="">"Wolverine's First Appearances"</li>
-<li class="">"Spider-Gwen Complete Chronology"</li>
-<li class="">"The Many Robins of Gotham"</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-new-readers">For New Readers<a href="https://metron-project.github.io/blog/october-2025-reading-lists#for-new-readers" class="hash-link" aria-label="Direct link to For New Readers" title="Direct link to For New Readers" translate="no">​</a></h3>
-<p>Help newcomers find the perfect entry point:</p>
-<ul>
-<li class="">"Getting Started with the X-Men"</li>
-<li class="">"Best Batman Stories for New Readers"</li>
-<li class="">"Modern Marvel Essentials"</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-completionists">For Completionists<a href="https://metron-project.github.io/blog/october-2025-reading-lists#for-completionists" class="hash-link" aria-label="Direct link to For Completionists" title="Direct link to For Completionists" translate="no">​</a></h3>
-<p>Organize entire eras or creative runs:</p>
-<ul>
-<li class="">"Claremont's X-Men Run"</li>
-<li class="">"Hickman's Marvel Universe"</li>
-<li class="">"Grant Morrison's DC Work"</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="getting-started">Getting Started<a href="https://metron-project.github.io/blog/october-2025-reading-lists#getting-started" class="hash-link" aria-label="Direct link to Getting Started" title="Direct link to Getting Started" translate="no">​</a></h2>
-<p>Ready to create your first reading list? Here's how:</p>
-<ol>
-<li class=""><strong>Log in</strong> to your Metron account</li>
-<li class="">Navigate to <strong>Reading Lists</strong> in the menu</li>
-<li class="">Click <strong>"Create Reading List"</strong></li>
-<li class="">Give your list a name and description</li>
-<li class="">Choose public or private</li>
-<li class="">Click <strong>"Create"</strong></li>
-</ol>
-<p>Once created, you can start adding issues:</p>
-<ol>
-<li class="">Click <strong>"Add Issues"</strong> on your reading list</li>
-<li class="">Search for issues using the autocomplete field</li>
-<li class="">Drag and drop to reorder</li>
-<li class="">Click <strong>"Submit"</strong> to save</li>
-</ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="search-tips">Search Tips<a href="https://metron-project.github.io/blog/october-2025-reading-lists#search-tips" class="hash-link" aria-label="Direct link to Search Tips" title="Direct link to Search Tips" translate="no">​</a></h2>
-<p>Our autocomplete search makes finding issues quick and easy:</p>
-<p><strong>Basic Search:</strong></p>
-<ul>
-<li class="">Type <code>"spider"</code> to find all Spider-Man related series</li>
-</ul>
-<p><strong>Smart Search with #:</strong></p>
-<ul>
-<li class="">Type <code>"amazing #700"</code> to find Amazing Spider-Man #700</li>
-<li class="">Type <code>"batman #1"</code> to find Batman issue #1</li>
-<li class="">Type <code>"#100"</code> to find all issue #100s</li>
-</ul>
-<p><strong>Pro Tip:</strong> The search works on both series names and issue numbers, so you can be as specific or as broad as you need!</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-sharing">Community Sharing<a href="https://metron-project.github.io/blog/october-2025-reading-lists#community-sharing" class="hash-link" aria-label="Direct link to Community Sharing" title="Direct link to Community Sharing" translate="no">​</a></h2>
-<p>One of the most exciting aspects of Reading Lists is the ability to share your research with the community. If you've spent hours researching the perfect reading order for a complex storyline, make it public and help other readers benefit from your work!</p>
-<p><strong>When creating public lists, consider:</strong></p>
-<ul>
-<li class="">Using clear, descriptive names</li>
-<li class="">Adding detailed descriptions explaining what the list covers</li>
-<li class="">Organizing issues in the optimal reading order</li>
-<li class="">Keeping the list updated as new issues are released</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="attribution-and-sources">Attribution and Sources<a href="https://metron-project.github.io/blog/october-2025-reading-lists#attribution-and-sources" class="hash-link" aria-label="Direct link to Attribution and Sources" title="Direct link to Attribution and Sources" translate="no">​</a></h2>
-<p>We believe in giving credit where it's due. When creating a reading list based on someone else's research, please mention the source in your description. Admin users can also set official attribution sources and URLs when importing reading lists.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="examples-to-inspire-you">Examples to Inspire You<a href="https://metron-project.github.io/blog/october-2025-reading-lists#examples-to-inspire-you" class="hash-link" aria-label="Direct link to Examples to Inspire You" title="Direct link to Examples to Inspire You" translate="no">​</a></h2>
-<p>Here are some reading list ideas to get you started:</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="event-based-lists">Event-Based Lists<a href="https://metron-project.github.io/blog/october-2025-reading-lists#event-based-lists" class="hash-link" aria-label="Direct link to Event-Based Lists" title="Direct link to Event-Based Lists" translate="no">​</a></h3>
-<ul>
-<li class="">"Avengers vs. X-Men - Complete Reading Order"</li>
-<li class="">"Blackest Night - Full Crossover"</li>
-<li class="">"House of M and Decimation"</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="character-focused-lists">Character-Focused Lists<a href="https://metron-project.github.io/blog/october-2025-reading-lists#character-focused-lists" class="hash-link" aria-label="Direct link to Character-Focused Lists" title="Direct link to Character-Focused Lists" translate="no">​</a></h3>
-<ul>
-<li class="">"Miles Morales: Complete Journey"</li>
-<li class="">"Harley Quinn: From Villain to Hero"</li>
-<li class="">"The Death and Return of Superman"</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="creator-runs">Creator Runs<a href="https://metron-project.github.io/blog/october-2025-reading-lists#creator-runs" class="hash-link" aria-label="Direct link to Creator Runs" title="Direct link to Creator Runs" translate="no">​</a></h3>
-<ul>
-<li class="">"Brian K. Vaughan's Runaways"</li>
-<li class="">"Ed Brubaker's Captain America"</li>
-<li class="">"Gail Simone's Birds of Prey"</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="beginner-guides">Beginner Guides<a href="https://metron-project.github.io/blog/october-2025-reading-lists#beginner-guides" class="hash-link" aria-label="Direct link to Beginner Guides" title="Direct link to Beginner Guides" translate="no">​</a></h3>
-<ul>
-<li class="">"Start Here: Modern Marvel"</li>
-<li class="">"DC Comics for New Readers"</li>
-<li class="">"Essential Image Comics"</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="thematic-lists">Thematic Lists<a href="https://metron-project.github.io/blog/october-2025-reading-lists#thematic-lists" class="hash-link" aria-label="Direct link to Thematic Lists" title="Direct link to Thematic Lists" translate="no">​</a></h3>
-<ul>
-<li class="">"Best Time Travel Stories"</li>
-<li class="">"Multiverse Madness"</li>
-<li class="">"Street-Level Heroes"</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What's Next?<a href="https://metron-project.github.io/blog/october-2025-reading-lists#whats-next" class="hash-link" aria-label="Direct link to What's Next?" title="Direct link to What's Next?" translate="no">​</a></h2>
-<p>This is just the first part of the features for Reading Lists! I'm already planning on some future enhancements:</p>
-<ul>
-<li class="">Provide API to search and retrieve Reading Lists data.</li>
-<li class="">List statistics and analytics</li>
-<li class="">Progress tracking (mark issues as read)</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="join-the-conversation">Join the Conversation<a href="https://metron-project.github.io/blog/october-2025-reading-lists#join-the-conversation" class="hash-link" aria-label="Direct link to Join the Conversation" title="Direct link to Join the Conversation" translate="no">​</a></h2>
-<p>We'd love to hear your feedback! What reading lists are you excited to create? What features would you like to see added? Let us know in the comments or reach out to the Metron team.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="start-building-today">Start Building Today<a href="https://metron-project.github.io/blog/october-2025-reading-lists#start-building-today" class="hash-link" aria-label="Direct link to Start Building Today" title="Direct link to Start Building Today" translate="no">​</a></h2>
-<p>Reading Lists is live now! Log in to your Metron account and start creating your first reading list. Whether you're organizing your next reading marathon, helping new readers find their footing, or sharing your expertise with the community, Reading Lists makes it easy.</p>
-<p><strong>Ready to get started?</strong></p>
-<ul>
-<li class="">👉 <a href="https://metron.cloud/reading-lists/" target="_blank" rel="noopener noreferrer" class="">Browse Reading Lists</a></li>
-<li class="">👉 <a href="https://metron.cloud/reading-lists/create/" target="_blank" rel="noopener noreferrer" class="">Create Your First List</a></li>
-<li class="">👉 <a href="https://metron.cloud/wiki/user-documentation/readling-lists/" target="_blank" rel="noopener noreferrer" class="">View Documentation</a></li>
-</ul>
-<p>Happy reading, and we can't wait to see what amazing reading lists you create!</p>]]></content>
-        <author>
-            <name>Brian Pepple</name>
-            <uri>https://github.com/bpepple</uri>
-        </author>
-        <category label="metron" term="metron"/>
     </entry>
 </feed>
