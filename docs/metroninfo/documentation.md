@@ -53,8 +53,9 @@ It also has the following children elements:
 ### Series
 
 Contains information about the series the book is part of. It can have a `lang` attribute, which is defined as a
-2-letter language code (ISO 639-3), and an `id` attribute that can be used to add the identification number from the
-source of information.
+[BCP 47](https://www.rfc-editor.org/info/bcp47) language tag (for example `en`, `fil`, `pt-BR`, or `zh-Hant`) and
+defaults to `en`, and an `id` attribute that can be used to add the identification number from the source of
+information.
 
 It also has the following children elements:
 
@@ -111,6 +112,22 @@ It also has the following children elements:
 
   The year that the series started in. This must be a 4 digit value.
 
+- #### EndYear
+
+  Optional. The year that the series ended in. This must be a 4 digit value, and it can't be earlier than the
+  `StartYear` value.
+
+  This element should not be used if the `Status` of the series is `Ongoing`.
+
+- #### Status
+
+  Optional. The publication status of the series. It must be one of the following values:
+
+    - Cancelled
+    - Completed
+    - Hiatus
+    - Ongoing
+
 - #### AlternativeNames
 
   Any other names the series is named as. It has `AlternativeName` children name for the individual alternative series
@@ -120,8 +137,15 @@ It also has the following children elements:
 
     - ##### Name
 
-      The alternative name of the series. It can have an `id` and `lang` (defined as a 2-letter language code (ISO
-      639-3)) attribute.
+      The alternative name of the series. It can have an `id` and `lang` (defined as a BCP 47 language tag) attribute.
+
+- #### Summary
+
+  Optional. A description or summary of the series. This is separate from the book's [Summary](#summary-1) element.
+
+***Note***: The rules that `EndYear` can't be earlier than `StartYear`, and that an `Ongoing` series has no `EndYear`,
+are enforced with XSD 1.1 assertions. They are only checked by a validator that supports XSD 1.1 (for example, Saxon or
+Xerces-J with XSD 1.1 enabled).
 
 ### MangaVolume
 

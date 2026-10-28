@@ -29,7 +29,7 @@ A new element for tracking the community's average rating for the book. It has t
 - **RatingCount** - Optional. The number of ratings used to determine the `AverageRating` value.
 
 Both elements are documented in full on the [MetronInfo documentation](/docs/metroninfo/documentation) page, and the
-raw schema is up on the [schema page](/docs/metroninfo/schemas/v1.1).
+raw schema is up on the [schema page](https://github.com/Metron-Project/metroninfo/blob/master/schema/v1.1/MetronInfo.xsd).
 
 ## What Software Currently Supports It?
 
