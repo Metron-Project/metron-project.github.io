@@ -5,7 +5,7 @@ authors: [bpepple]
 tags: [api, features, security, bugfix, opencollective]
 date: 2026-11-01
 ---
-October brought a round of security hardening for accounts and reading lists, stricter email checks at signup, fixes for two more causes of stale API cache entries, UPC validation for issues and variants, a new flag for issue descriptions taken from publisher solicitations, attribution data in the API, and a check that catches Open Collective donations that can't be matched to supporters. Mokkari 4.9.0 adds a Redis-backed rate limiter, so several programs using the same Metron account can share one rate limit, Mokkari 5.0.0 reworks caching and drops username and password authentication, and Darkseid 9.0.0 makes reading and writing untrusted or damaged comic archives safer. Here's the full rundown.
+October brought security hardening, stricter signup email checks, UPC validation, a solicitation flag for issue descriptions, and attribution data in the API. New major versions of Mokkari, Darkseid, and Metron-Tagger were also released. Here's the full rundown.
 
 <!-- truncate -->
 
@@ -125,7 +125,7 @@ Attributions were only shown on the site, so API users who reused a description 
   - **Quieter cache errors** - A locked cache file shared between processes used to log an error with a full traceback on every failed lookup. It now logs a one-line warning and fetches from Metron, with the traceback only at debug level.
   - **New API fields** - Detail responses include the new `attribution` list, and issues include `desc_is_solicitation`, which can also be set when creating or updating an issue. Wish list currencies add `EUR` and `ITL`.
 
-### Darkseid 9.0.0
+### Darkseid 9.1.0
 
 - **9.0.0** - A major release focused on handling untrusted or damaged comic archives safely. **Breaking changes:** drops Python 3.10, which has reached end of life, and adds Python 3.15. Custom `Archiver` subclasses must now accept a `max_size` argument in `read_file()`. Metadata that declares XML entities, even internal ones, no longer validates.
   - **Decompression bomb limits** - A small crafted archive could expand a single file to gigabytes in memory. A 1 MB `.cbz` with a 1 GB `ComicInfo.xml` pushed peak memory to 3.1 GB. Archivers now check a file's uncompressed size before reading it, capped at 256 MiB by default (10 MiB for `ComicInfo.xml` and `MetronInfo.xml`), and raise the new `ArchiverFileTooLargeError` when it's over.
@@ -134,11 +134,19 @@ Attributions were only shown on the site, so API users who reused a description 
   - **Hardened schema validation** - Metadata is now always parsed with entity declarations forbidden during schema validation, matching the `ComicInfo.xml` and `MetronInfo.xml` parsers. Invalid XML is reported as `Invalid XML: ...` instead of logging a traceback.
   - **JPEG-XL support** - `.jxl` files are now recognized as comic pages. Pillow can't decode JPEG-XL, so their width and height aren't recorded in `ComicInfo.xml` page info, but their file size is.
   - Also fixes `validate_metadata()` raising `AttributeError` instead of returning `UNKNOWN`, and missing files in CBR archives raising `rarfile.NoRarEntry` instead of `ArchiverReadError`.
+- **9.1.0** - Adds support for [MetronInfo v1.2](/blog/metroninfo-v1-2).
+  - **New `Series` fields** - `end_year`, `status`, and `summary` are read from and written to the new elements. Status matching ignores case, and unknown values are dropped. An end year the schema would reject, such as one on an `Ongoing` series, is left out when writing so the file stays valid.
+  - **Schema version** - Written `MetronInfo.xml` files now declare the v1.2 schema. `validate_metadata()` reports the oldest version a file conforms to, so it returns the new `SchemaVersion.METRON_INFO_V1_2` only for files that need v1.2.
+  - **Language tags** - Series and alternative name languages now accept BCP 47 tags like `pt-BR` and `zh-Hant` and are normalized when read, so `pt-br` becomes `pt-BR`. Also fixes a crash on languages without a two-letter code, like `fil`, and an unknown language on an alternative name no longer fails the whole MetronInfo read. It's logged and dropped instead.
 
-### Metron-Tagger 4.17.1
+### Metron-Tagger 5.0.0
 
 - **4.17.0** - Updates to Mokkari 4.9.0. Set `redis_url` in the `[metron]` section of `settings.ini` and install the `redis` extra (`metron-tagger[redis]`) to share your rate limit with other Mokkari-based programs through Redis. Without Redis, requests are paced by `HeaderPacedRateLimiter`, which spreads them evenly across the burst window instead of sending them back-to-back until it fills, with no change in total time. Drops Python 3.10 and adds Python 3.15.
 - **4.17.1** - Keys the shared Redis rate limit by your Metron username instead of your API token. Since each app should have its own token, keying by token meant apps on the same account never shared a limit. **If you already switched to token authentication, add `user` back to the `[metron]` section of `settings.ini` to use the Redis limiter.**
+- **5.0.0** - A major release that updates to [Mokkari 5.0.0](#mokkari-500) and [Darkseid 9.1.0](#darkseid-910).
+  - **Breaking change:** Username and password authentication is removed, so an API token is now required. If you haven't switched yet, you'll be asked for a token the next time you run `--online` or `--id`. You can create one from your Metron account page. Any password saved in `settings.ini` is deleted automatically. The `user` setting stays, since the Redis rate limiter still needs it.
+  - **MetronInfo v1.2** - Darkseid 9.1.0 adds support for [MetronInfo v1.2](/blog/metroninfo-v1-2), and `--validate` now reports those files as valid. Without this, a file using the new `Series` elements would be reported as not valid, and `--remove-non-valid` would remove its metadata.
+  - **Oversized pages** - Darkseid 9.0.0 won't read pages over its size limit, so the cover match and duplicate page scan now treat those pages as unreadable.
 
 [Barda](https://codeberg.org/Metron-Project/barda) and [Desaad](https://codeberg.org/bpepple/desaad) were also updated to Mokkari 4.9.0 and key their shared rate limit the same way. That lets them all share one limit with Metron-Tagger when they use the same account and Redis server. Barda also now requires an API token, dropping username and password authentication.
 
