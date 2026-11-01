@@ -11,15 +11,13 @@ October brought a round of security hardening for accounts and reading lists, st
 
 ## Monthly Statistics
 
-<!-- TODO: fill in from production at end of month -->
-
 During October the [Metron Project](https://metron.cloud/) added the following to its database:
 
-- Users: **TODO**
-- Issues: **TODO**
-- Creators: **TODO**
-- Characters: **TODO**
-- Reading Lists: **TODO**
+- Users: **716**
+- Issues: **2,363**
+- Creators: **436**
+- Characters: **792**
+- Reading Lists: **4**
 
 ## Security Hardening
 
