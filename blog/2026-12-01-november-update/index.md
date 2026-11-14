@@ -5,7 +5,7 @@ authors: [bpepple]
 tags: [api, features, security, opencollective]
 date: 2026-12-01
 ---
-November started with a new autocomplete widget across the site, built on a new library called Izaya, along with better search results for series, creators, and accented names. Issue UPC and SKU searches now find variant covers too. Here's the full rundown.
+November started with a new autocomplete widget across the site, built on a new library called Izaya, along with better search results for series, creators, and accented names. Issue UPC and SKU searches now find variant covers too, and a new API filter finds issues from a photo or scan of their cover. Behind the scenes, Metron moved to PostgreSQL 18 and Python 3.15. Mokkari 5.1.0 and Metron-Tagger 5.2.0 were also released. Here's the full rundown.
 
 <!-- truncate -->
 
@@ -53,9 +53,39 @@ Searching issues by an exact UPC or SKU only checked the main cover, so a barcod
 
 Thanks to [Eric Kolb](https://github.com/erickolb) for this contribution!
 
+## Find Issues by Cover Image
+
+Every issue in Metron has a `cover_hash`, a perceptual hash of its main cover. Until now you could only search for an exact hash, but two images of the same cover almost never hash exactly the same. A scan, a photo, or a digital edition's cover will usually be a few bits off.
+
+The issue API has a new `cover_hash_near` filter that returns issues whose main cover hash is close to the one you send, with the closest matches first:
+
+```
+GET /api/issue/?cover_hash_near=c585eb18bf1e5423
+```
+
+`cover_hash_max_distance` sets how many bits apart a match can be. It defaults to 10 and goes up to 20. In testing with digital comic files, 98.8% of covers were within 8 bits of the correct issue, and at the default of 10 the correct issue was the only result 94.5% of the time. Camera photos are noisier, so if the default finds nothing, try again with a larger distance. `cover_hash_near` works alongside the other issue filters, so you can narrow results by series, date, and so on.
+
+To get a compatible hash, use `imagehash.phash()` from the [ImageHash](https://github.com/JohannesBuchner/imagehash) library. Some digital comics use a wraparound spread as the cover, with the back cover on the left and the front on the right. Most of the time Metron stores only the front cover, so hash each half of a landscape cover separately and search with both. The [API documentation](https://github.com/Metron-Project/metron/blob/master/api/README.md) has an example of this, along with the rest of the details.
+
+A big thank you to [Eric Kolb](https://github.com/erickolb), who drove this feature forward and provided much of the testing data behind these defaults.
+
+## Behind the Scenes
+
+- **PostgreSQL 18** - The database was upgraded from PostgreSQL 16 to 18. [DEPLOYMENT.md](https://github.com/Metron-Project/metron/blob/master/DEPLOYMENT.md) now documents both minor and major PostgreSQL upgrades.
+- **Python 3.15** - Metron now runs on Python 3.15.
+
 ## Tooling Releases
 
-<!-- TODO: Mokkari, Darkseid, Metron-Tagger, Barda, Desaad releases this month -->
+### Mokkari 5.1.0
+
+- **5.1.0** - Fixes `HeaderPacedRateLimiter` getting about one 429 response per burst window under steady load. Metron times a request from when it arrives, not when it was sent, so `HeaderPacedRateLimiter` and `RedisRateLimiter` now hold each request for 2 extra seconds beyond Metron's 60-second burst window. A 20-per-minute limit is now paced at about 19.4 requests per minute. The new `slack` argument changes the extra time. `HeaderPacedRateLimiter` also now waits for the burst window to reset when a response shows it's used up, as `RedisRateLimiter` already did. An invalid `burst_period` or `slack` now raises `ValueError`. Before, `burst_period=0` quietly turned off burst pacing. Also fixes `RedisRateLimiter` processes with different burst windows removing requests another process on the same account was still holding.
+
+### Metron-Tagger 5.2.0
+
+- **5.1.0** - Matches wraparound covers. When a comic's cover is a two-page spread, Metron-Tagger now also hashes its front and back halves and compares them against Metron's single cover. The back half handles right-to-left books such as manga. Half covers need a closer match (6 bits instead of 10), so a back cover can't match the wrong issue without asking you first.
+- **5.2.0** - Adds an optional `jxl` extra (`metron-tagger[jxl]`) for comics with JPEG XL pages. Without it, those comics couldn't be cover-matched or checked for duplicate pages. JPEG XL pages are always decoded at full size, so the duplicate page scan is slower for them. Use `--quick-duplicates` if that's a problem.
+
+[Desaad](https://codeberg.org/bpepple/desaad) also gained JPEG XL support. Its page counts now include `.jxl` pages, and they can be opened in the reader.
 
 ### Izaya 0.4.0
 
