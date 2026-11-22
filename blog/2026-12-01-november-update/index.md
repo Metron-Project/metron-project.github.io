@@ -2,10 +2,10 @@
 slug: november-2026-update
 title: November 2026 Updates
 authors: [bpepple]
-tags: [api, features, security, opencollective]
+tags: [api, features, security, bugfix, opencollective]
 date: 2026-12-01
 ---
-November started with a new autocomplete widget across the site, built on a new library called Izaya, along with better search results for series, creators, and accented names. Issue UPC and SKU searches now find variant covers too, and a new API filter finds issues from a photo or scan of their cover. Behind the scenes, Metron moved to PostgreSQL 18 and Python 3.15. Mokkari 5.1.0 and Metron-Tagger 5.2.0 were also released. Here's the full rundown.
+November started with a new autocomplete widget across the site, built on a new library called Izaya, along with better search results for series, creators, and accented names. Issue UPC and SKU searches now find variant covers too, and a new API filter finds issues from a photo or scan of their cover, which Metron-Tagger now uses to identify comics. Behind the scenes, Metron moved to PostgreSQL 18 and Python 3.15 and got several server hardening fixes. Mokkari 5.2.0, Metron-Tagger 5.3.0, and Darkseid 10.0.0 were also released. Here's the full rundown.
 
 <!-- truncate -->
 
@@ -73,17 +73,40 @@ A big thank you to [Eric Kolb](https://github.com/erickolb), who drove this feat
 
 - **PostgreSQL 18** - The database was upgraded from PostgreSQL 16 to 18. [DEPLOYMENT.md](https://github.com/Metron-Project/metron/blob/master/DEPLOYMENT.md) now documents both minor and major PostgreSQL upgrades.
 - **Python 3.15** - Metron now runs on Python 3.15.
+- **Firewall ban fix** - Each IP address banned by fail2ban was added to the firewall as its own entry, and those entries piled up across restarts. With about 140 of them, the firewall used a full CPU core and several GB of memory at startup, and after a reboot the site was unreachable until they were removed by hand. Bans now go into a single IP set, which the firewall handles without trouble.
+- **HTTP/2 briefly disabled** - HTTP/2 was turned off to mitigate two nginx vulnerabilities (CVE-2026-123007 and CVE-2026-123633) until a fixed nginx image was available. It's been turned back on now that the site runs nginx 1.31.9.
+- **Release week fix** - 2026 has 53 ISO weeks, and the "Next Week" page would have pointed at the wrong week at the end of the year. Release weeks are now worked out from dates instead of week numbers. This came out of a larger cleanup of the codebase that split up some very large modules and removed a lot of duplicated code. The API itself is unchanged.
 
 ## Tooling Releases
 
-### Mokkari 5.1.0
+### Mokkari 5.2.0
 
 - **5.1.0** - Fixes `HeaderPacedRateLimiter` getting about one 429 response per burst window under steady load. Metron times a request from when it arrives, not when it was sent, so `HeaderPacedRateLimiter` and `RedisRateLimiter` now hold each request for 2 extra seconds beyond Metron's 60-second burst window. A 20-per-minute limit is now paced at about 19.4 requests per minute. The new `slack` argument changes the extra time. `HeaderPacedRateLimiter` also now waits for the burst window to reset when a response shows it's used up, as `RedisRateLimiter` already did. An invalid `burst_period` or `slack` now raises `ValueError`. Before, `burst_period=0` quietly turned off burst pacing. Also fixes `RedisRateLimiter` processes with different burst windows removing requests another process on the same account was still holding.
+- **5.2.0** - Adds `Session.issues_by_cover_hash()`, which uses the new [`cover_hash_near` filter](#find-issues-by-cover-image) and returns each match with its distance from your hash, closest first. `hamming_distance()` and `is_cover_hash()` helpers are in `mokkari.utils`. Cover hash searches aren't cached, so they always reflect Metron's current covers. `Session`'s internals were split into smaller modules without changing the public API, though code that patches its private methods may need updating. Also fixes several edge cases:
+  - A malformed `X-RateLimit-*` header, or a 429 whose `Retry-After` is a date, no longer raises `ValueError` and throws away a response that already arrived.
+  - `HeaderPacedRateLimiter` no longer re-applies an older response's rate limit state when a response has no rate limit headers.
+  - `publisher_patch()` no longer resets a publisher's country to `US` when you don't set one.
+  - `pull_list()` and `wish_list()` raise `ApiError` instead of `IndexError` when Metron returns an empty list.
 
-### Metron-Tagger 5.2.0
+### Metron-Tagger 5.3.0
 
 - **5.1.0** - Matches wraparound covers. When a comic's cover is a two-page spread, Metron-Tagger now also hashes its front and back halves and compares them against Metron's single cover. The back half handles right-to-left books such as manga. Half covers need a closer match (6 bits instead of 10), so a back cover can't match the wrong issue without asking you first.
 - **5.2.0** - Adds an optional `jxl` extra (`metron-tagger[jxl]`) for comics with JPEG XL pages. Without it, those comics couldn't be cover-matched or checked for duplicate pages. JPEG XL pages are always decoded at full size, so the duplicate page scan is slower for them. Use `--quick-duplicates` if that's a problem.
+- **5.3.0** - Identifies comics by their cover first. For a comic without a Metron ID, Metron-Tagger now hashes its cover and searches with [`cover_hash_near`](#find-issues-by-cover-image), narrowed by the issue number and year from the filename. The closest match is accepted automatically when its series name agrees with the filename and it's clearly closer than the next result. Otherwise you choose from the results, closest first. The filename search is still used when the filename has no issue number or year, or nothing matches. In testing on 633 tagged comics, 632 matched automatically, all to the correct issue, compared with 617 using the filename search alone, and the prompts dropped from 15, some with up to 178 choices, to 1.
+  - Updates to [Darkseid 10.0.0](#darkseid-1000), which fixes online tagging missing a Metron ID stored only in `ComicInfo.xml`.
+  - Options that need `--comicinfo` and/or `--metroninfo` now stop with a usage error before anything runs, instead of partway through a run.
+  - `--migrate` no longer stops at the first invalid comic, and duplicate page removal no longer mixes up comics whose paths contain each other, like `a.cbz` and `ba.cbz`.
+  - A 401 error now tells you to check your API token, instead of your username and password.
+  - Each comic is opened once during online tagging instead of three times, which helps with CBR, CB7, and PDF files.
+
+### Darkseid 10.0.0
+
+- **10.0.0** - A major release that fixes a batch of bugs, some of which needed small API changes. Most code that only uses `Comic` won't need changes. See the [migration notes](https://github.com/Metron-Project/darkseid/releases/tag/v10.0.0) for the details.
+  - **Per-format metadata cache** - Once one metadata format had been read, reading the other format from the same `Comic` returned the first format's data.
+  - **Strict reads** - `read_metadata(fmt, strict=True)` raises `ComicMetadataError` when a metadata file exists but can't be read or parsed. Before, broken XML looked the same as an empty file, and writing that result back could replace the archive's real metadata. The default is unchanged.
+  - **`write_metadata()` leaves your `Metadata` alone** - It no longer fills in `page_count` and page sizes on the object you pass in. Read the metadata back if you need them.
+  - **Missing list fields are empty lists** - Missing genres, characters, credits, and similar fields now read as `[]` instead of `None`.
+  - **Other fixes** - `Metadata.overlay()` no longer drops prices and genres. Page lists no longer return pages in the wrong order after an unsorted call. Writing to an archive that only has `comicinfo.xml` now replaces it instead of leaving a stale copy. Page file sizes are recorded even without Pillow. `Comic` no longer catches every exception, so bugs in your code or a custom archiver aren't hidden.
 
 [Desaad](https://codeberg.org/bpepple/desaad) also gained JPEG XL support. Its page counts now include `.jxl` pages, and they can be opened in the reader.
 
