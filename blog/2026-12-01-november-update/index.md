@@ -5,7 +5,7 @@ authors: [bpepple]
 tags: [api, features, security, bugfix, opencollective]
 date: 2026-12-01
 ---
-November started with a new autocomplete widget across the site, built on a new library called Izaya, along with better search results for series, creators, and accented names. Issue UPC and SKU searches now find variant covers too, and a new API filter finds issues from a photo or scan of their cover, which Metron-Tagger now uses to identify comics. Behind the scenes, Metron moved to PostgreSQL 18 and Python 3.15 and got several server hardening fixes. Mokkari 5.2.0, Metron-Tagger 5.3.0, and Darkseid 10.0.0 were also released. Here's the full rundown.
+November started with a new autocomplete widget across the site, built on a new library called Izaya, along with better search results for series, creators, and accented names. Image uploads got a new drag-and-drop widget too, built on another new library called Heggra. Issue UPC and SKU searches now find variant covers too, and a new API filter finds issues from a photo or scan of their cover, which Metron-Tagger now uses to identify comics. Behind the scenes, Metron moved to PostgreSQL 18 and Python 3.15 and got several server hardening fixes. Mokkari 5.2.0, Metron-Tagger 5.4.0, and Darkseid 10.0.0 were also released. Here's the full rundown.
 
 <!-- truncate -->
 
@@ -47,6 +47,16 @@ Many editors search for a creator by typing a space and then the surname, like `
 
 Searches now ignore accents in what you type as well as in the names being searched, so `Pena` and `Peña` both find "Ana Peña" in every lookup. Issue searches without a `#` also ignore accents in series names, so `Spíder` finds Spider-Man issues.
 
+## New Image Upload Widget
+
+Every image field on the site, from issue covers and creator photos to reading list and profile images, now uses [Heggra](https://github.com/Metron-Project/heggra), a new htmx-powered file upload widget for Django. Like Izaya, it's a separate project that other Django sites can use, and it works with any CSS framework.
+
+- **Drag and drop** - Drop an image onto the field, or pick one as before.
+- **Uploads right away** - The image uploads as soon as you choose it, with a progress bar and a preview, so you can check it's the right image before saving the form.
+- **5 MB limit** - Images larger than 5 MB are turned away when you choose them, instead of after you submit the form.
+
+Uploaded images are held privately until the form is saved, and ones from forms that are never saved are deleted after a day.
+
 ## UPC and SKU Searches Include Variants
 
 Searching issues by an exact UPC or SKU only checked the main cover, so a barcode scanned from a variant cover found nothing. Exact UPC and SKU searches on the site and in the API now also match variant covers and return the parent issue, without listing it twice. UPC prefix searches still check only the main cover.
@@ -76,6 +86,7 @@ A big thank you to [Eric Kolb](https://github.com/erickolb), who drove this feat
 - **Firewall ban fix** - Each IP address banned by fail2ban was added to the firewall as its own entry, and those entries piled up across restarts. With about 140 of them, the firewall used a full CPU core and several GB of memory at startup, and after a reboot the site was unreachable until they were removed by hand. Bans now go into a single IP set, which the firewall handles without trouble.
 - **HTTP/2 briefly disabled** - HTTP/2 was turned off to mitigate two nginx vulnerabilities (CVE-2026-123007 and CVE-2026-123633) until a fixed nginx image was available. It's been turned back on now that the site runs nginx 1.31.9.
 - **Release week fix** - 2026 has 53 ISO weeks, and the "Next Week" page would have pointed at the wrong week at the end of the year. Release weeks are now worked out from dates instead of week numbers. This came out of a larger cleanup of the codebase that split up some very large modules and removed a lot of duplicated code. The API itself is unchanged.
+- **Missing cover fallback** - On pull list pages, an issue whose cover image can't be read now shows the image-not-found placeholder instead of an empty space.
 
 ## Tooling Releases
 
@@ -88,7 +99,7 @@ A big thank you to [Eric Kolb](https://github.com/erickolb), who drove this feat
   - `publisher_patch()` no longer resets a publisher's country to `US` when you don't set one.
   - `pull_list()` and `wish_list()` raise `ApiError` instead of `IndexError` when Metron returns an empty list.
 
-### Metron-Tagger 5.3.0
+### Metron-Tagger 5.4.0
 
 - **5.1.0** - Matches wraparound covers. When a comic's cover is a two-page spread, Metron-Tagger now also hashes its front and back halves and compares them against Metron's single cover. The back half handles right-to-left books such as manga. Half covers need a closer match (6 bits instead of 10), so a back cover can't match the wrong issue without asking you first.
 - **5.2.0** - Adds an optional `jxl` extra (`metron-tagger[jxl]`) for comics with JPEG XL pages. Without it, those comics couldn't be cover-matched or checked for duplicate pages. JPEG XL pages are always decoded at full size, so the duplicate page scan is slower for them. Use `--quick-duplicates` if that's a problem.
@@ -98,6 +109,7 @@ A big thank you to [Eric Kolb](https://github.com/erickolb), who drove this feat
   - `--migrate` no longer stops at the first invalid comic, and duplicate page removal no longer mixes up comics whose paths contain each other, like `a.cbz` and `ba.cbz`.
   - A 401 error now tells you to check your API token, instead of your username and password.
   - Each comic is opened once during online tagging instead of three times, which helps with CBR, CB7, and PDF files.
+- **5.4.0** - Searches on the series and title together. A filename like `Star Wars - The Fall of Kylo Ren 004` is split into the series "Star Wars" and the title "The Fall of Kylo Ren", and the filename search only sent the series, so it matched about 180 Star Wars #4 issues instead of *Star Wars: The Fall of Kylo Ren*. Metron-Tagger now tries the series and title together first, and falls back to the series alone if that finds nothing or none of the results' covers match. When you're asked to choose, the series and title results are listed first. Also updates to Mokkari 5.2.0.
 
 ### Darkseid 10.0.0
 
@@ -110,13 +122,18 @@ A big thank you to [Eric Kolb](https://github.com/erickolb), who drove this feat
 
 [Desaad](https://codeberg.org/bpepple/desaad) also gained JPEG XL support. Its page counts now include `.jxl` pages, and they can be opened in the reader.
 
-### Izaya 0.4.0
+### Izaya 0.4.1
 
 - **0.1.0** - First release.
 - **0.1.1** - Fixes the white dropdown in dark mode.
 - **0.2.0** - Adds `rank_fields`, so the closest matches aren't lost past `max_results`, and fixes the placeholder showing next to a single-value widget's selection.
 - **0.3.0** - Adds `IZAYA_LOGIN_REQUIRED` to require a login for all lookup searches.
 - **0.4.0** - Adds a `clean_query()` hook to `Lookup`, an example project, and [documentation](https://izaya.readthedocs.io/). CI now also tests against MySQL and MariaDB.
+- **0.4.1** - Adds an Italian translation. A field with `choices` no longer shows labels for submitted values it rejects.
+
+### Heggra 0.1.0
+
+- **0.1.0** - First release of the [upload widget](#new-image-upload-widget), with drag and drop, upload progress, image previews, a clear checkbox for optional fields, and an Italian translation. A `heggra_cleanup` command deletes uploads from forms that were never saved. See the [documentation](https://heggra.readthedocs.io/) for setup and styling.
 
 ## OpenCollective
 
