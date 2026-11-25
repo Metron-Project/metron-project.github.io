@@ -21,6 +21,14 @@ During November the [Metron Project](https://metron.cloud/) added the following 
 - Characters: **TODO**
 - Reading Lists: **TODO**
 
+## API Write Access for Applications
+
+We've had a lot of requests lately from developers who want write access to the API (POST and PATCH requests) for software they've written. Unfortunately, the answer is no, and that's unlikely to change.
+
+Metron is a community project run by a small group of volunteers, and we don't have the time to review software we didn't write ourselves. We'd have no visibility into an application's sources, how it cleans and verifies its data, or how it avoids duplicates. Even with a manual review step, an integration that creates series and issues in bulk carries a real risk of flooding the database with bad or duplicate data, and cleaning that up is far more work than adding the data carefully in the first place.
+
+This policy applies to everyone, so please don't read it as a judgment on your project or your credentials. We know it makes data entry slower, and we really do appreciate the work everyone puts into adding and improving Metron's data. Read access to the API isn't affected.
+
 ## New Autocomplete Widget
 
 Every autocomplete field on the site, from issue credits to pull lists and reading lists, now uses [Izaya](https://github.com/Metron-Project/izaya), a new htmx-powered autocomplete library for Django that replaces django-htmx-autocomplete. Izaya is a separate project, so other Django sites can use it too. It ships no required styles, so it works with any CSS framework.
